@@ -1,42 +1,31 @@
-import { Star } from "lucide-react";
-import weddingPhoto from "@/assets/wedding-photo.jpg";
-import corporatePhoto from "@/assets/corporate-photo.jpg";
-import birthdayPhoto from "@/assets/birthday-photo.jpg";
-
 const stories = [
   {
-    image: weddingPhoto,
-    name: "María & Carlos",
-    event: "Boda",
-    testimonial: "¡Increíble! Nuestros invitados compartieron más de 400 fotos. Pudimos revivir nuestra boda desde todos los ángulos. Una experiencia mágica.",
-    rating: 5,
+    event: "Boda de Laura y Carlos",
+    quote: "Las fotos anónimas crearon un ambiente mágico. Al día siguiente todos estábamos pegados al móvil esperando la revelación.",
+    author: "Laura M.",
   },
   {
-    image: corporatePhoto,
-    name: "Tech Solutions S.A.",
-    event: "Evento Corporativo",
-    testimonial: "Perfecto para nuestra cena de empresa. Todos participaron y conseguimos fotos auténticas del equipo. El proceso fue súper sencillo.",
-    rating: 5,
+    event: "Cumpleaños de 30",
+    quote: "Mis amigos se volvieron locos subiendo fotos. No saber qué había capturado cada uno hizo la espera insoportable (en el buen sentido).",
+    author: "Diego R.",
   },
   {
-    image: birthdayPhoto,
-    name: "Laura",
-    event: "Cumpleaños 30",
-    testimonial: "Mi cumpleaños quedó inmortalizado desde cada perspectiva. Mis amigos se lo pasaron genial subiendo fotos. ¡Totalmente recomendado!",
-    rating: 5,
+    event: "Cena de empresa",
+    quote: "Usamos Revelao.cam en nuestro evento corporativo. El nivel de participación fue increíble, todo el equipo involucrado.",
+    author: "Ana S., HR Manager",
   },
 ];
 
 export const SuccessStories = () => {
   return (
-    <section className="py-24 bg-muted/50" id="casos-de-exito">
+    <section className="py-24 bg-secondary/50" id="casos-de-exito">
       <div className="container px-4 mx-auto">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
-            Casos de éxito
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-foreground">
+            Lo que dicen nuestros usuarios
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Miles de eventos ya confían en Revelao.cam para capturar sus momentos especiales
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Eventos que crearon expectación y capturaron momentos únicos
           </p>
         </div>
 
@@ -44,39 +33,19 @@ export const SuccessStories = () => {
           {stories.map((story, index) => (
             <div
               key={index}
-              className="bg-card rounded-2xl overflow-hidden shadow-soft hover:shadow-glow transition-all duration-300 animate-fade-in border border-border"
+              className="p-8 bg-card rounded-lg border border-border animate-fade-in"
               style={{ animationDelay: `${index * 150}ms` }}
             >
-              <div className="aspect-square overflow-hidden">
-                <img
-                  src={story.image}
-                  alt={`Evento de ${story.name}`}
-                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
-                />
+              <div className="mb-4">
+                <div className="text-4xl text-primary mb-2">"</div>
+                <p className="text-foreground leading-relaxed mb-4">
+                  {story.quote}
+                </p>
               </div>
               
-              <div className="p-6">
-                <div className="flex gap-1 mb-3">
-                  {[...Array(story.rating)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="w-5 h-5 fill-accent text-accent"
-                    />
-                  ))}
-                </div>
-                
-                <p className="text-muted-foreground mb-4 leading-relaxed italic">
-                  "{story.testimonial}"
-                </p>
-                
-                <div className="border-t border-border pt-4">
-                  <p className="font-semibold text-card-foreground">
-                    {story.name}
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                    {story.event}
-                  </p>
-                </div>
+              <div className="pt-4 border-t border-border">
+                <p className="font-semibold text-foreground">{story.author}</p>
+                <p className="text-sm text-muted-foreground">{story.event}</p>
               </div>
             </div>
           ))}

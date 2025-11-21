@@ -107,13 +107,9 @@ export default {
         "fade-in": "fade-in 0.5s ease-out",
         "slide-in": "slide-in 0.4s ease-out",
       },
-      backgroundImage: {
-        "gradient-hero": "var(--gradient-hero)",
-        "gradient-accent": "var(--gradient-accent)",
-      },
       boxShadow: {
         "soft": "var(--shadow-soft)",
-        "glow": "var(--shadow-glow)",
+        "medium": "var(--shadow-medium)",
       },
     },
   },
