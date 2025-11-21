@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Camera } from "lucide-react";
 import phoneMockup from "@/assets/phone-mockup.png";
+import ruedaVideo from "@/assets/rueda.mp4";
 
 export const Hero = () => {
   return (
@@ -12,9 +13,9 @@ export const Hero = () => {
           loop 
           muted 
           playsInline
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover blur-sm"
         >
-          <source src="/hero-video.mp4" type="video/mp4" />
+          <source src={ruedaVideo} type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-black/70" />
       </div>
