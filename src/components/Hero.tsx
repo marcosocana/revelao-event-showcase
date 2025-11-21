@@ -21,7 +21,7 @@ export const Hero = () => {
           Tu navegador no soporta el elemento de video.
         </video>
       </div>
-      <div className="absolute inset-0 z-0 bg-black/85" />
+      <div className="absolute inset-0 z-0 bg-white/85" />
       
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -30,27 +30,27 @@ export const Hero = () => {
               <Camera className="w-10 h-10 text-primary" />
             </div>
             
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-black">
               Captura hoy,{" "}
               <span className="text-primary">revela mañana</span>
             </h1>
             
-            <p className="text-lg md:text-xl text-white/90 mb-8">
+            <p className="text-lg md:text-xl text-black/90 mb-8">
               Tus invitados suben fotos de forma anónima durante el evento. 
               La magia ocurre al día siguiente cuando todas las imágenes se revelan.
             </p>
 
-            <div className="flex flex-wrap justify-center md:justify-start gap-8 text-sm text-white/80 mb-8">
+            <div className="flex flex-wrap justify-center md:justify-start gap-8 text-sm text-black/80 mb-8">
               <div className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full bg-white" />
+                <div className="w-1.5 h-1.5 rounded-full bg-black" />
                 <span>100% anónimo</span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full bg-white" />
+                <div className="w-1.5 h-1.5 rounded-full bg-black" />
                 <span>Sin apps</span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full bg-white" />
+                <div className="w-1.5 h-1.5 rounded-full bg-black" />
                 <span>Máxima expectación</span>
               </div>
             </div>
