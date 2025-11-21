@@ -1,18 +1,25 @@
+import weddingImg from "@/assets/testimonial-wedding.jpg";
+import birthdayImg from "@/assets/testimonial-birthday.jpg";
+import corporateImg from "@/assets/testimonial-corporate.jpg";
+
 const stories = [
   {
     event: "Boda de Laura y Carlos",
     quote: "Las fotos anónimas crearon un ambiente mágico. Al día siguiente todos estábamos pegados al móvil esperando la revelación.",
     author: "Laura M.",
+    image: weddingImg,
   },
   {
     event: "Cumpleaños de 30",
     quote: "Mis amigos se volvieron locos subiendo fotos. No saber qué había capturado cada uno hizo la espera insoportable (en el buen sentido).",
     author: "Diego R.",
+    image: birthdayImg,
   },
   {
     event: "Cena de empresa",
     quote: "Usamos Revelao.cam en nuestro evento corporativo. El nivel de participación fue increíble, todo el equipo involucrado.",
     author: "Ana S., HR Manager",
+    image: corporateImg,
   },
 ];
 
@@ -33,19 +40,29 @@ export const SuccessStories = () => {
           {stories.map((story, index) => (
             <div
               key={index}
-              className="p-8 bg-card rounded-lg border border-border animate-fade-in"
+              className="bg-card rounded-lg border border-border overflow-hidden animate-fade-in"
               style={{ animationDelay: `${index * 150}ms` }}
             >
-              <div className="mb-4">
-                <div className="text-4xl text-primary mb-2">"</div>
-                <p className="text-foreground leading-relaxed mb-4">
-                  {story.quote}
-                </p>
+              <div className="aspect-video overflow-hidden">
+                <img 
+                  src={story.image} 
+                  alt={story.event}
+                  className="w-full h-full object-cover"
+                />
               </div>
               
-              <div className="pt-4 border-t border-border">
-                <p className="font-semibold text-foreground">{story.author}</p>
-                <p className="text-sm text-muted-foreground">{story.event}</p>
+              <div className="p-8">
+                <div className="mb-4">
+                  <div className="text-4xl text-primary mb-2">"</div>
+                  <p className="text-foreground leading-relaxed mb-4">
+                    {story.quote}
+                  </p>
+                </div>
+                
+                <div className="pt-4 border-t border-border">
+                  <p className="font-semibold text-foreground">{story.author}</p>
+                  <p className="text-sm text-muted-foreground">{story.event}</p>
+                </div>
               </div>
             </div>
           ))}

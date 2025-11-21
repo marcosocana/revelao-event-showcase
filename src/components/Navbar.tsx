@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import logo from "@/assets/logo-revelao.png";
+import icon from "@/assets/ico.png";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,8 +15,8 @@ export const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center gap-3">
+            <img src={icon} alt="Revelao" className="h-8 w-auto" />
             <img src={logo} alt="Revelao.cam" className="h-10 w-auto" />
-            <span className="text-xl font-bold text-foreground">Revelao.cam</span>
           </div>
 
           {/* Desktop Menu */}
