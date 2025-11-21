@@ -100,7 +100,7 @@ export const Pricing = () => {
                 variant={plan.highlighted ? "outline" : "default"}
                 asChild
               >
-                <a href={`https://wa.me/34695834018?text=${encodeURIComponent(whatsappMessage)}`}>
+                <a href={`https://wa.me/34695834018?text=${encodeURIComponent(whatsappMessage)}`} target="_blank" rel="noopener noreferrer">
                   Contratar
                 </a>
               </Button>
