@@ -1,4 +1,3 @@
-import logo from "@/assets/logo-revelao.png";
 import icon from "@/assets/ico.png";
 
 export const Footer = () => {
@@ -8,7 +7,7 @@ export const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-3">
             <img src={icon} alt="Revelao" className="h-6 w-auto" />
-            <img src={logo} alt="Revelao.cam" className="h-8 w-auto" />
+            <span className="font-bold text-foreground">Revelao.cam</span>
           </div>
 
           <div className="flex flex-wrap justify-center gap-6 text-sm text-muted-foreground">
