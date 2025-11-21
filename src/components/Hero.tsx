@@ -13,12 +13,15 @@ export const Hero = () => {
           loop 
           muted 
           playsInline
+          preload="auto"
           className="w-full h-full object-cover blur-sm"
+          style={{ filter: 'blur(4px)' }}
         >
           <source src={ruedaVideo} type="video/mp4" />
+          Tu navegador no soporta el elemento de video.
         </video>
-        <div className="absolute inset-0 bg-black/70" />
       </div>
+      <div className="absolute inset-0 z-0 bg-black/70" />
       
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className="grid md:grid-cols-2 gap-12 items-center">
