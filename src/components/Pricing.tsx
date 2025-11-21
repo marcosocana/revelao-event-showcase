@@ -4,45 +4,43 @@ import { Check } from "lucide-react";
 const plans = [
   {
     name: "Básico",
-    price: "49€",
+    price: "29€",
     description: "Perfecto para eventos pequeños",
     features: [
       "Hasta 50 invitados",
-      "200 fotos máximo",
-      "Galería durante 7 días",
+      "Fotos ilimitadas",
+      "Galería privada 30 días",
       "Descarga en alta calidad",
       "Soporte por email",
     ],
-    highlighted: false,
   },
   {
     name: "Premium",
-    price: "99€",
+    price: "59€",
     description: "Ideal para bodas y eventos grandes",
     features: [
-      "Hasta 150 invitados",
-      "500 fotos máximo",
-      "Galería durante 30 días",
+      "Hasta 200 invitados",
+      "Fotos ilimitadas",
+      "Galería privada 90 días",
       "Descarga en alta calidad",
-      "Código QR personalizado",
+      "Personalización de marca",
       "Soporte prioritario",
     ],
     highlighted: true,
   },
   {
-    name: "Empresarial",
-    price: "199€",
-    description: "Para eventos corporativos",
+    name: "Corporativo",
+    price: "A medida",
+    description: "Para eventos empresariales",
     features: [
       "Invitados ilimitados",
       "Fotos ilimitadas",
-      "Galería durante 90 días",
+      "Galería privada ilimitada",
       "Descarga en alta calidad",
-      "Branding personalizado",
-      "Soporte 24/7",
-      "Analíticas del evento",
+      "Marca personalizada",
+      "Integración con tu evento",
+      "Account manager dedicado",
     ],
-    highlighted: false,
   },
 ];
 
@@ -50,14 +48,14 @@ const whatsappMessage = "Hola! Estoy interesado en contratar Revelao.cam. ¿Pued
 
 export const Pricing = () => {
   return (
-    <section className="py-24 bg-background" id="precio">
+    <section className="py-24" id="precio">
       <div className="container px-4 mx-auto">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
-            Planes y precios
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-foreground">
+            Elige tu plan
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Elige el plan perfecto para tu evento. Sin sorpresas, sin costes ocultos.
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Planes simples y transparentes para cada tipo de evento
           </p>
         </div>
 
@@ -65,49 +63,41 @@ export const Pricing = () => {
           {plans.map((plan, index) => (
             <div
               key={index}
-              className={`relative p-8 rounded-2xl border-2 transition-all duration-300 animate-fade-in ${
+              className={`p-8 rounded-lg border animate-fade-in ${
                 plan.highlighted
-                  ? "border-primary bg-gradient-to-b from-secondary/50 to-card shadow-glow scale-105"
-                  : "border-border bg-card hover:border-primary/50 hover:shadow-soft"
+                  ? "border-foreground bg-foreground text-background shadow-medium"
+                  : "border-border bg-card"
               }`}
               style={{ animationDelay: `${index * 150}ms` }}
             >
-              {plan.highlighted && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                  <span className="px-4 py-1 bg-gradient-accent text-accent-foreground text-sm font-semibold rounded-full shadow-soft">
-                    Más popular
-                  </span>
-                </div>
-              )}
-
-              <div className="text-center mb-6">
-                <h3 className="text-2xl font-bold mb-2 text-card-foreground">
-                  {plan.name}
-                </h3>
-                <p className="text-muted-foreground text-sm mb-4">
-                  {plan.description}
-                </p>
-                <div className="flex items-baseline justify-center gap-1">
-                  <span className="text-5xl font-bold bg-gradient-hero bg-clip-text text-transparent">
-                    {plan.price}
-                  </span>
-                  <span className="text-muted-foreground">/evento</span>
-                </div>
+              <h3 className={`text-2xl font-bold mb-2 ${plan.highlighted ? "text-background" : "text-foreground"}`}>
+                {plan.name}
+              </h3>
+              <p className={`mb-6 ${plan.highlighted ? "text-background/70" : "text-muted-foreground"}`}>
+                {plan.description}
+              </p>
+              
+              <div className="mb-8">
+                <span className={`text-4xl font-bold ${plan.highlighted ? "text-background" : "text-foreground"}`}>
+                  {plan.price}
+                </span>
+                {plan.price !== "A medida" && <span className={plan.highlighted ? "text-background/70" : "text-muted-foreground"}>/evento</span>}
               </div>
 
-              <ul className="space-y-3 mb-8">
+              <ul className="space-y-4 mb-8">
                 {plan.features.map((feature, featureIndex) => (
                   <li key={featureIndex} className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span className="text-muted-foreground">{feature}</span>
+                    <Check className={`w-5 h-5 flex-shrink-0 mt-0.5 ${plan.highlighted ? "text-background" : "text-foreground"}`} />
+                    <span className={plan.highlighted ? "text-background" : "text-foreground"}>
+                      {feature}
+                    </span>
                   </li>
                 ))}
               </ul>
 
               <Button
-                variant={plan.highlighted ? "hero" : "default"}
                 className="w-full"
-                size="lg"
+                variant={plan.highlighted ? "outline" : "default"}
                 asChild
               >
                 <a href={`https://wa.me/34695834018?text=${encodeURIComponent(whatsappMessage)}`}>

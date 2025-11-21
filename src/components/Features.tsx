@@ -1,57 +1,53 @@
-import { Upload, Users, Image } from "lucide-react";
+import { Upload, Eye, Download } from "lucide-react";
 
 const features = [
   {
     icon: Upload,
-    title: "Sube tus fotos",
-    description: "Tus invitados escanean un código QR y suben sus fotos directamente desde su móvil. Sin apps, sin complicaciones.",
+    title: "Captura el momento",
+    description: "Tus invitados escanean un código QR y suben fotos sin revelar su identidad. Todo queda oculto hasta el final.",
   },
   {
-    icon: Users,
-    title: "Comparte en tiempo real",
-    description: "Todas las fotos aparecen instantáneamente en una galería compartida donde todos pueden verlas y disfrutarlas.",
+    icon: Eye,
+    title: "Genera expectación",
+    description: "Nadie ve las fotos durante el evento. La incertidumbre crea hype y mantiene a todos enganchados.",
   },
   {
-    icon: Image,
-    title: "Descarga tu galería",
-    description: "Al finalizar el evento, descarga todas las fotos en alta calidad. Conserva los recuerdos para siempre.",
+    icon: Download,
+    title: "Revela al día siguiente",
+    description: "Al día siguiente, todas las fotos se revelan simultáneamente. Descarga la galería completa en alta calidad.",
   },
 ];
 
 export const Features = () => {
   return (
-    <section className="py-24 bg-muted/50" id="como-funciona">
+    <section className="py-24 bg-secondary/50" id="como-funciona">
       <div className="container px-4 mx-auto">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
-            ¿Cómo funciona?
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-foreground">
+            Cómo funciona
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Tres pasos simples para crear la galería perfecta de tu evento
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Tres pasos para crear anticipación y capturar cada momento
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-12 max-w-5xl mx-auto">
           {features.map((feature, index) => (
             <div
               key={index}
-              className="relative p-8 bg-card rounded-2xl shadow-soft hover:shadow-glow transition-all duration-300 animate-fade-in border border-border"
+              className="text-center animate-fade-in"
               style={{ animationDelay: `${index * 150}ms` }}
             >
-              <div className="absolute -top-4 left-8">
-                <div className="w-12 h-12 rounded-full bg-gradient-hero flex items-center justify-center shadow-soft">
-                  <feature.icon className="w-6 h-6 text-primary-foreground" />
-                </div>
+              <div className="mx-auto w-16 h-16 rounded-full bg-foreground flex items-center justify-center mb-6">
+                <feature.icon className="w-8 h-8 text-background" />
               </div>
               
-              <div className="mt-6">
-                <h3 className="text-2xl font-bold mb-3 text-card-foreground">
-                  {feature.title}
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  {feature.description}
-                </p>
-              </div>
+              <h3 className="text-xl font-bold mb-3 text-foreground">
+                {feature.title}
+              </h3>
+              <p className="text-muted-foreground leading-relaxed">
+                {feature.description}
+              </p>
             </div>
           ))}
         </div>

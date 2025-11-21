@@ -4,48 +4,29 @@ import heroImage from "@/assets/hero-image.jpg";
 
 export const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0 z-0">
-        <img 
-          src={heroImage} 
-          alt="Personas celebrando y tomando fotos en un evento" 
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/80 to-background/95" />
-      </div>
-
-      {/* Content */}
-      <div className="container relative z-10 px-4 py-20 mx-auto text-center animate-fade-in">
-        <div className="flex justify-center mb-6">
-          <div className="flex items-center gap-2 px-4 py-2 bg-secondary rounded-full shadow-soft">
-            <Sparkles className="w-5 h-5 text-primary" />
-            <span className="text-sm font-medium text-secondary-foreground">
-              Captura cada momento especial
-            </span>
-          </div>
+    <section className="min-h-screen flex items-center justify-center px-4 py-20">
+      <div className="container max-w-4xl mx-auto text-center animate-fade-in">
+        <div className="mb-8 inline-block px-4 py-1.5 bg-secondary rounded-full">
+          <span className="text-xs font-medium text-muted-foreground tracking-wide uppercase">
+            Beta Experience
+          </span>
         </div>
 
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 text-foreground leading-tight">
-          Comparte los mejores{" "}
-          <span className="bg-gradient-hero bg-clip-text text-transparent">
-            momentos
-          </span>
-          <br />
-          de tu evento
+        <h1 className="text-5xl md:text-7xl font-bold mb-6 text-foreground">
+          Captura hoy,{" "}
+          <span className="text-primary">revela mañana</span>
         </h1>
 
-        <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-          Revelao.cam permite a tus invitados subir y compartir fotos en tiempo real. 
-          Crea una galería colaborativa inolvidable de tu boda, cumpleaños o evento corporativo.
+        <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed">
+          Tus invitados suben fotos durante el evento. Todo permanece anónimo y oculto. 
+          Al día siguiente, todas las fotos se revelan. El hype es real.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
           <Button 
-            variant="hero" 
             size="lg"
             asChild
-            className="gap-2"
+            className="gap-2 min-w-[200px]"
           >
             <a href="http://www.revelao.cam">
               <Camera className="w-5 h-5" />
@@ -57,6 +38,7 @@ export const Hero = () => {
             variant="outline" 
             size="lg"
             asChild
+            className="min-w-[200px]"
           >
             <a href="https://wa.me/34695834018?text=Hola! Estoy interesado en contratar Revelao.cam. ¿Puedes darme más información?">
               Contactar
@@ -64,18 +46,18 @@ export const Hero = () => {
           </Button>
         </div>
 
-        <div className="mt-12 flex flex-wrap justify-center gap-8 text-sm text-muted-foreground">
+        <div className="flex flex-wrap justify-center gap-12 text-sm text-muted-foreground">
           <div className="flex items-center gap-2">
-            <div className="w-2 h-2 rounded-full bg-primary" />
-            <span>Sin descargas</span>
+            <div className="w-1.5 h-1.5 rounded-full bg-foreground" />
+            <span>100% anónimo</span>
           </div>
           <div className="flex items-center gap-2">
-            <div className="w-2 h-2 rounded-full bg-primary" />
-            <span>Fácil de usar</span>
+            <div className="w-1.5 h-1.5 rounded-full bg-foreground" />
+            <span>Sin apps</span>
           </div>
           <div className="flex items-center gap-2">
-            <div className="w-2 h-2 rounded-full bg-primary" />
-            <span>En tiempo real</span>
+            <div className="w-1.5 h-1.5 rounded-full bg-foreground" />
+            <span>Máxima expectación</span>
           </div>
         </div>
       </div>
