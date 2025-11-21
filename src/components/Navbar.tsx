@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import logo from "@/assets/logo-revelao.png";
 import icon from "@/assets/ico.png";
 
 export const Navbar = () => {
@@ -15,7 +16,7 @@ export const Navbar = () => {
           {/* Logo */}
           <div className="flex items-center gap-3">
             <img src={icon} alt="Revelao" className="h-8 w-auto" />
-            <span className="text-xl font-bold text-foreground">Revelao.cam</span>
+            <img src={logo} alt="Revelao.cam" className="h-10 w-auto" />
           </div>
 
           {/* Desktop Menu */}
@@ -30,7 +31,7 @@ export const Navbar = () => {
               Casos de éxito
             </a>
             <Button asChild size="sm">
-              <a href="http://www.revelao.cam" target="_blank" rel="noopener noreferrer">Acceder</a>
+              <a href="http://www.revelao.cam">Acceder</a>
             </Button>
           </div>
 
@@ -58,7 +59,7 @@ export const Navbar = () => {
                 Casos de éxito
               </a>
               <Button asChild className="w-full">
-                <a href="http://www.revelao.cam" target="_blank" rel="noopener noreferrer">Acceder</a>
+                <a href="http://www.revelao.cam">Acceder</a>
               </Button>
             </div>
           </div>
