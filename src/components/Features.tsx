@@ -1,5 +1,4 @@
 import { Upload, Eye, Download } from "lucide-react";
-import phoneVideo from "@/assets/ScreenRecording_11-22-2025 17-05-16_1.mp4";
 import { useEffect, useState } from "react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from "@/components/ui/carousel";
 const features = [{
@@ -61,7 +60,7 @@ export const Features = () => {
 
           {/* Video on the right */}
           <div className="flex-shrink-0 w-[320px]">
-            <video src={phoneVideo} autoPlay loop muted playsInline className="w-full h-auto rounded-[20px] object-cover border-1 border-muted-foreground" />
+            <video src="/phone-video.mp4" autoPlay loop muted playsInline className="w-full h-auto rounded-[20px] object-cover border-1 border-muted-foreground" />
           </div>
         </div>
 
@@ -69,7 +68,7 @@ export const Features = () => {
         <div className="md:hidden">
           {/* Video */}
           <div className="flex justify-center mb-12">
-            <video src={phoneVideo} autoPlay loop muted playsInline className="w-64 h-auto rounded-[2px] object-cover border-2 border-muted-foreground" />
+            <video src="/phone-video.mp4" autoPlay loop muted playsInline className="w-64 h-auto rounded-[2px] object-cover border-2 border-muted-foreground" />
           </div>
 
           {/* Carousel for steps */}
