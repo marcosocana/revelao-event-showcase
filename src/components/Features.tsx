@@ -92,7 +92,40 @@ export const Features = () => {
           </div>
 
           {/* Carousel for steps */}
-          <Carousel className="max-w-sm mx-auto">
+          <Carousel 
+            className="max-w-sm mx-auto"
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            plugins={[
+              {
+                name: "autoplay",
+                init: (embla) => {
+                  let autoplayInterval: NodeJS.Timeout;
+                  
+                  const play = () => {
+                    autoplayInterval = setInterval(() => {
+                      embla.scrollNext();
+                    }, 5000);
+                  };
+                  
+                  const stop = () => {
+                    clearInterval(autoplayInterval);
+                  };
+                  
+                  embla.on("pointerDown", stop);
+                  embla.on("settle", play);
+                  
+                  play();
+                  
+                  return () => {
+                    stop();
+                  };
+                },
+              } as any,
+            ]}
+          >
             <CarouselContent>
               {features.map((feature, index) => (
                 <CarouselItem key={index}>
@@ -113,8 +146,8 @@ export const Features = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
+            <CarouselPrevious className="left-2" />
+            <CarouselNext className="right-2" />
           </Carousel>
         </div>
       </div>
