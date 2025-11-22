@@ -1,9 +1,7 @@
 import { Button } from "@/components/ui/button";
 import icon from "@/assets/ico.png";
-
 export const Navbar = () => {
-  return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
+  return <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
       <div className="container px-4 mx-auto">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -25,7 +23,7 @@ export const Navbar = () => {
             </a>
             <Button asChild size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90">
               <a href={`https://wa.me/34695834018?text=${encodeURIComponent("Hola! Estoy interesado en contratar Revelao.cam. ¿Puedes darme más información?")}`}>
-                Contratar
+                Contactar
               </a>
             </Button>
           </div>
@@ -38,6 +36,5 @@ export const Navbar = () => {
           </Button>
         </div>
       </div>
-    </nav>
-  );
+    </nav>;
 };

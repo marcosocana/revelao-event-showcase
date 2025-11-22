@@ -1,8 +1,6 @@
 import icon from "@/assets/ico.png";
-
 export const Footer = () => {
-  return (
-    <footer className="py-12 border-t border-border">
+  return <footer className="py-12 border-t border-border">
       <div className="container px-4 mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-3">
@@ -20,19 +18,15 @@ export const Footer = () => {
             <a href="#casos-de-exito" className="hover:text-foreground transition-colors">
               Casos de éxito
             </a>
-            <a
-              href="https://wa.me/34695834018?text=Hola! Estoy interesado en contratar Revelao.cam. ¿Puedes darme más información?"
-              className="hover:text-foreground transition-colors"
-            >
+            <a href="https://wa.me/34695834018?text=Hola! Estoy interesado en contratar Revelao.cam. ¿Puedes darme más información?" className="hover:text-foreground transition-colors">
               Contacto
             </a>
           </div>
 
           <p className="text-sm text-muted-foreground">
-            © 2024 Revelao.cam
+            © 2025 Revelao.cam
           </p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
