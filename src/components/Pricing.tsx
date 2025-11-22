@@ -75,7 +75,7 @@ export const Pricing = () => {
                   <div className="flex items-center gap-3">
                     <Users className="w-6 h-6 text-foreground" />
                     <span className="text-base md:text-2xl font-semibold text-foreground">
-                      Hasta {currentPlan.guests} invitados
+                      {currentPlan.value === "1000+" ? "Más de 1000 invitados" : `Hasta ${currentPlan.guests} invitados`}
                     </span>
                   </div>
                   <div className="text-left md:text-right">
