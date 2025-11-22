@@ -43,30 +43,23 @@ const whatsappMessage = "Hola! Estoy interesado en contratar Revelao.cam. ¿Pued
 export const Pricing = () => {
   const [selectedPlan, setSelectedPlan] = useState("50");
   const currentPlan = guestOptions.find(option => option.value === selectedPlan) || guestOptions[0];
-  
   return <section className="py-24 bg-muted/30" id="precio">
       <div className="container px-4 mx-auto">
         <div className="max-w-4xl mx-auto">
           <div className="mb-12 animate-fade-in">
-            <h2 className="text-2xl md:text-3xl font-bold mb-2 text-foreground">
+            <h2 className="text-2xl font-bold mb-2 text-foreground md:text-5xl text-center">
               Precio
             </h2>
-            <p className="text-base md:text-lg text-muted-foreground mb-8">
+            <p className="text-base text-muted-foreground mb-8 text-center md:text-xl">
               ¿Cuántos invitados tiene tu evento?
             </p>
             
             <div className="space-y-8">
               <Tabs value={selectedPlan} onValueChange={setSelectedPlan} className="w-full">
                 <TabsList className="w-full grid grid-cols-5 h-auto p-1">
-                  {guestOptions.map((option) => (
-                    <TabsTrigger 
-                      key={option.value} 
-                      value={option.value}
-                      className="text-xs md:text-sm py-2 px-1 md:px-3"
-                    >
+                  {guestOptions.map(option => <TabsTrigger key={option.value} value={option.value} className="text-xs md:text-sm py-2 px-1 md:px-3">
                       {option.label}
-                    </TabsTrigger>
-                  ))}
+                    </TabsTrigger>)}
                 </TabsList>
               </Tabs>
 
