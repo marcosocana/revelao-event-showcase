@@ -1,5 +1,6 @@
 import { Upload, Eye, Download } from "lucide-react";
 import phoneMockupFeatures from "@/assets/phone-mockup-features.png";
+import phoneVideo from "@/assets/ScreenRecording_11-22-2025 17-05-16_1.mp4";
 import { useEffect, useState } from "react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from "@/components/ui/carousel";
 const features = [{
@@ -60,16 +61,32 @@ export const Features = () => {
           </div>
 
           {/* Phone mockup on the right */}
-          <div className="flex-shrink-0 w-[320px]">
-            <img src={phoneMockupFeatures} alt="App mockup" className="w-full h-auto" />
+          <div className="flex-shrink-0 w-[320px] relative">
+            <img src={phoneMockupFeatures} alt="App mockup" className="w-full h-auto relative z-10" />
+            <video 
+              src={phoneVideo} 
+              autoPlay 
+              loop 
+              muted 
+              playsInline
+              className="absolute top-[4%] left-[7.5%] w-[85%] h-[92%] object-cover rounded-[2.5rem] z-0"
+            />
           </div>
         </div>
 
         {/* Mobile Layout - Mockup on top, Carousel below */}
         <div className="md:hidden">
           {/* Phone mockup */}
-          <div className="flex justify-center mb-12">
-            <img src={phoneMockupFeatures} alt="App mockup" className="w-64 h-auto" />
+          <div className="flex justify-center mb-12 relative">
+            <img src={phoneMockupFeatures} alt="App mockup" className="w-64 h-auto relative z-10" />
+            <video 
+              src={phoneVideo} 
+              autoPlay 
+              loop 
+              muted 
+              playsInline
+              className="absolute top-[4%] left-1/2 -translate-x-1/2 w-[53.5%] h-[92%] object-cover rounded-[1.5rem] z-0"
+            />
           </div>
 
           {/* Carousel for steps */}
