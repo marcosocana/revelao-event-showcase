@@ -5,7 +5,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 const features = [{
   icon: Upload,
   title: "Escanea el código QR",
-  description: "Tus invitados escanean el código QR para acceder a la galería del evento"
+  description: "Tus invitados escanean el código QR y acceden a la página del evento"
 }, {
   icon: Upload,
   title: "Captura los mejores momentos",
