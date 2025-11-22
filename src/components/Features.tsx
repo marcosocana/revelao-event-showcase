@@ -61,7 +61,7 @@ export const Features = () => {
 
           {/* Video on the right */}
           <div className="flex-shrink-0 w-[320px]">
-            <video src={phoneVideo} autoPlay loop muted playsInline className="w-full h-auto rounded-[2px] object-cover border-2 border-muted-foreground" />
+            <video src={phoneVideo} autoPlay loop muted playsInline className="w-full h-auto rounded-[20px] object-cover border-1 border-muted-foreground" />
           </div>
         </div>
 
