@@ -61,14 +61,7 @@ export const Features = () => {
 
           {/* Video on the right */}
           <div className="flex-shrink-0 w-[320px]">
-            <video 
-              src={phoneVideo} 
-              autoPlay 
-              loop 
-              muted 
-              playsInline
-              className="w-full h-auto rounded-[2px] object-cover"
-            />
+            <video src={phoneVideo} autoPlay loop muted playsInline className="w-full h-auto rounded-[10px] object-cover" />
           </div>
         </div>
 
@@ -76,14 +69,7 @@ export const Features = () => {
         <div className="md:hidden">
           {/* Video */}
           <div className="flex justify-center mb-12">
-            <video 
-              src={phoneVideo} 
-              autoPlay 
-              loop 
-              muted 
-              playsInline
-              className="w-64 h-auto rounded-[2px] object-cover"
-            />
+            <video src={phoneVideo} autoPlay loop muted playsInline className="w-64 h-auto rounded-[2px] object-cover" />
           </div>
 
           {/* Carousel for steps */}
