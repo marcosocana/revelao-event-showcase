@@ -69,7 +69,7 @@ export const Features = () => {
               loop 
               muted 
               playsInline
-              className="absolute top-[4%] left-[7.5%] w-[85%] h-[92%] object-cover rounded-[2.5rem] z-0"
+              className="absolute top-[2%] left-[6%] w-[88%] h-[95%] object-cover rounded-[2.8rem] z-0"
             />
           </div>
         </div>
@@ -85,7 +85,7 @@ export const Features = () => {
               loop 
               muted 
               playsInline
-              className="absolute top-[4%] left-1/2 -translate-x-1/2 w-[53.5%] h-[92%] object-cover rounded-[1.5rem] z-0"
+              className="absolute top-[2%] left-1/2 -translate-x-1/2 w-[56%] h-[95%] object-cover rounded-[1.8rem] z-0"
             />
           </div>
 
