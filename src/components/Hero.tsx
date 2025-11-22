@@ -25,11 +25,11 @@ export const Hero = () => {
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className="flex flex-col items-center justify-center">
           <div className="text-center animate-fade-in max-w-3xl">
-            <div className="inline-flex items-center justify-center w-20 h-20 mb-8">
+            <div className="inline-flex items-center justify-center w-20 h-20 md:w-56 md:h-56 mb-8">
               <img 
                 src={corazon} 
                 alt="Revelao.cam" 
-                className="w-16 h-16"
+                className="w-16 h-16 md:w-48 md:h-48"
               />
             </div>
             
