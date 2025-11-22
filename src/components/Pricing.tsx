@@ -52,7 +52,7 @@ export const Pricing = () => {
               Precio
             </h2>
             <p className="text-base md:text-lg text-muted-foreground mb-8">
-              ¿Cuántos invitados?
+              ¿Cuántos invitados tiene tu evento?
             </p>
             
             <div className="space-y-8">
@@ -101,7 +101,7 @@ export const Pricing = () => {
 
                 <Button className="w-full" variant="default" asChild>
                   <a href={`https://wa.me/34695834018?text=${encodeURIComponent(whatsappMessage)}`}>
-                    Contratar servicio    
+                    Contratar servicio
                   </a>
                 </Button>
               </div>
