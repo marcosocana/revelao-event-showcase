@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Camera } from "lucide-react";
 import phoneMockup from "@/assets/phone-mockup.png";
 import ruedaVideo from "@/assets/rueda.mp4";
+import corazon from "@/assets/corazon.svg";
 
 export const Hero = () => {
   return (
@@ -22,6 +23,15 @@ export const Hero = () => {
         </video>
       </div>
       <div className="absolute inset-0 z-0 bg-white/85" />
+      
+      {/* Heart SVG Decoration */}
+      <div className="absolute top-20 left-1/2 -translate-x-1/2 z-[5] opacity-20">
+        <img 
+          src={corazon} 
+          alt="" 
+          className="w-32 md:w-48 h-auto animate-pulse"
+        />
+      </div>
       
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className="flex flex-col md:grid md:grid-cols-2 gap-12 items-center">
