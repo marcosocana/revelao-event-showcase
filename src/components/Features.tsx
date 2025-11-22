@@ -1,11 +1,13 @@
 import { Upload, Eye, Download } from "lucide-react";
 import phoneMockupFeatures from "@/assets/phone-mockup-features.png";
+import { useEffect, useState } from "react";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
+  type CarouselApi,
 } from "@/components/ui/carousel";
 
 const features = [
@@ -32,6 +34,18 @@ const features = [
 ];
 
 export const Features = () => {
+  const [api, setApi] = useState<CarouselApi>();
+  
+  useEffect(() => {
+    if (!api) return;
+
+    const interval = setInterval(() => {
+      api.scrollNext();
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [api]);
+
   return (
     <section className="py-24 bg-secondary/50" id="como-funciona">
       <div className="container px-4 mx-auto">
@@ -93,38 +107,12 @@ export const Features = () => {
 
           {/* Carousel for steps */}
           <Carousel 
+            setApi={setApi}
             className="max-w-sm mx-auto"
             opts={{
               align: "start",
               loop: true,
             }}
-            plugins={[
-              {
-                name: "autoplay",
-                init: (embla) => {
-                  let autoplayInterval: NodeJS.Timeout;
-                  
-                  const play = () => {
-                    autoplayInterval = setInterval(() => {
-                      embla.scrollNext();
-                    }, 5000);
-                  };
-                  
-                  const stop = () => {
-                    clearInterval(autoplayInterval);
-                  };
-                  
-                  embla.on("pointerDown", stop);
-                  embla.on("settle", play);
-                  
-                  play();
-                  
-                  return () => {
-                    stop();
-                  };
-                },
-              } as any,
-            ]}
           >
             <CarouselContent>
               {features.map((feature, index) => (
