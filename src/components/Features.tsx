@@ -1,4 +1,12 @@
 import { Upload, Eye, Download } from "lucide-react";
+import phoneMockupFeatures from "@/assets/phone-mockup-features.png";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const features = [
   {
@@ -36,30 +44,78 @@ export const Features = () => {
           </p>
         </div>
 
-        <div className="flex flex-col gap-16 max-w-4xl mx-auto">
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className="flex items-center gap-8 animate-fade-in"
-              style={{ animationDelay: `${index * 150}ms` }}
-            >
-              <div className="flex-shrink-0 w-16 h-16 rounded-full bg-foreground flex items-center justify-center text-background text-2xl font-bold">
-                {index + 1}
+        {/* Desktop Layout */}
+        <div className="hidden md:flex items-center gap-12 max-w-6xl mx-auto">
+          {/* Steps on the left */}
+          <div className="flex flex-col gap-8 flex-1">
+            {features.map((feature, index) => (
+              <div
+                key={index}
+                className="flex items-center gap-6 animate-fade-in"
+                style={{ animationDelay: `${index * 150}ms` }}
+              >
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-foreground flex items-center justify-center text-background text-xl font-bold">
+                  {index + 1}
+                </div>
+                
+                <div className="flex-1">
+                  <h3 className="text-lg font-bold mb-2 text-foreground">
+                    {feature.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    {feature.description}
+                  </p>
+                </div>
               </div>
-              
-              <div className="flex-1">
-                <h3 className="text-xl font-bold mb-3 text-foreground">
-                  {feature.title}
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  {feature.description}
-                </p>
-              </div>
+            ))}
+          </div>
 
-              {/* Placeholder for image - will be added later */}
-              <div className="flex-shrink-0 w-48 h-48 bg-secondary/50 rounded-lg"></div>
-            </div>
-          ))}
+          {/* Phone mockup on the right */}
+          <div className="flex-shrink-0 w-[320px]">
+            <img 
+              src={phoneMockupFeatures} 
+              alt="App mockup" 
+              className="w-full h-auto"
+            />
+          </div>
+        </div>
+
+        {/* Mobile Layout - Mockup on top, Carousel below */}
+        <div className="md:hidden">
+          {/* Phone mockup */}
+          <div className="flex justify-center mb-12">
+            <img 
+              src={phoneMockupFeatures} 
+              alt="App mockup" 
+              className="w-64 h-auto"
+            />
+          </div>
+
+          {/* Carousel for steps */}
+          <Carousel className="max-w-sm mx-auto">
+            <CarouselContent>
+              {features.map((feature, index) => (
+                <CarouselItem key={index}>
+                  <div className="flex flex-col items-center text-center gap-6 p-6">
+                    <div className="w-16 h-16 rounded-full bg-foreground flex items-center justify-center text-background text-2xl font-bold">
+                      {index + 1}
+                    </div>
+                    
+                    <div>
+                      <h3 className="text-xl font-bold mb-3 text-foreground">
+                        {feature.title}
+                      </h3>
+                      <p className="text-muted-foreground leading-relaxed">
+                        {feature.description}
+                      </p>
+                    </div>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
         </div>
       </div>
     </section>
