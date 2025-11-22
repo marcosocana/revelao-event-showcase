@@ -1,11 +1,10 @@
 import { Button } from "@/components/ui/button";
-import { Camera } from "lucide-react";
 import ruedaVideo from "@/assets/rueda.mp4";
 import corazon from "@/assets/corazon.svg";
 
 export const Hero = () => {
   return (
-    <section className="relative min-h-screen px-4 overflow-hidden flex items-center" id="inicio">
+    <section className="relative h-[80vh] px-4 overflow-hidden flex items-center" id="inicio">
       {/* Video Background */}
       <div className="absolute inset-0 z-0">
         <video 
@@ -35,8 +34,12 @@ export const Hero = () => {
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className="flex flex-col items-center justify-center">
           <div className="text-center animate-fade-in max-w-3xl">
-            <div className="inline-flex items-center justify-center w-20 h-20 mb-8 rounded-full bg-primary/10">
-              <Camera className="w-10 h-10 text-primary" />
+            <div className="inline-flex items-center justify-center w-20 h-20 mb-8">
+              <img 
+                src={corazon} 
+                alt="Revelao.cam" 
+                className="w-16 h-16"
+              />
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-black">
