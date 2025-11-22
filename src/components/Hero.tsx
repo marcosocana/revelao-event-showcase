@@ -27,8 +27,7 @@ export const Hero = () => {
             </h1>
             
             <p className="text-lg md:text-xl text-black/90 mb-8">
-              Tus invitados suben fotos de forma anónima durante el evento. 
-              La magia ocurre al día siguiente cuando todas las imágenes se revelan.
+              Tus invitados suben fotos de forma anónima durante el evento. La magia ocurre al día siguiente cuando todas las imágenes se revelan a la misma hora.
             </p>
 
             <div className="flex flex-wrap justify-center gap-8 text-sm text-black/80 mb-8">
@@ -40,10 +39,7 @@ export const Hero = () => {
                 <div className="w-1.5 h-1.5 rounded-full bg-black" />
                 <span>Sin apps</span>
               </div>
-              <div className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full bg-black" />
-                <span>Máxima expectación</span>
-              </div>
+              
             </div>
             
             <div className="flex justify-center">
