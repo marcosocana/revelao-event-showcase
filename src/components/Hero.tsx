@@ -22,15 +22,6 @@ export const Hero = () => {
       </div>
       <div className="absolute inset-0 z-0 bg-white/85" />
       
-      {/* Heart SVG Decoration */}
-      <div className="absolute top-24 left-1/2 -translate-x-1/2 z-[5] opacity-20">
-        <img 
-          src={corazon} 
-          alt="" 
-          className="w-32 md:w-48 h-auto animate-pulse"
-        />
-      </div>
-      
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className="flex flex-col items-center justify-center">
           <div className="text-center animate-fade-in max-w-3xl">
