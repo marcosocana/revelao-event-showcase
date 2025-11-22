@@ -3,6 +3,8 @@ import { Check } from "lucide-react";
 import { Slider } from "@/components/ui/slider";
 import { useState } from "react";
 
+const guestOptions = [300, 500, 1000, 1200];
+
 const getPricing = (guests: number) => {
   if (guests <= 300) {
     return {
@@ -24,7 +26,7 @@ const getPricing = (guests: number) => {
     };
   } else {
     return {
-      price: "Consultar precio",
+      price: "¿Qué incluye?",
       costPerGuest: "A consultar",
       canBook: false,
     };
@@ -42,8 +44,9 @@ const features = [
 const whatsappMessage = "Hola! Estoy interesado en contratar Revelao.cam. ¿Puedes darme más información?";
 
 export const Pricing = () => {
-  const [guests, setGuests] = useState([300]);
-  const pricing = getPricing(guests[0]);
+  const [guestIndex, setGuestIndex] = useState([0]);
+  const guests = guestOptions[guestIndex[0]];
+  const pricing = getPricing(guests);
 
   return (
     <section className="py-24" id="precio">
@@ -61,24 +64,26 @@ export const Pricing = () => {
           <div className="p-8 rounded-lg border border-border bg-card animate-fade-in">
             <div className="mb-8">
               <label className="block text-sm font-medium text-foreground mb-4">
-                Número de invitados: <span className="text-primary font-bold">{guests[0]}</span>
+                Número de invitados: <span className="text-primary font-bold">{guests}{guests >= 1200 ? '+' : ''}</span>
               </label>
               <Slider
-                value={guests}
-                onValueChange={setGuests}
-                min={50}
-                max={1200}
-                step={50}
+                value={guestIndex}
+                onValueChange={setGuestIndex}
+                min={0}
+                max={3}
+                step={1}
                 className="mb-2"
               />
               <div className="flex justify-between text-xs text-muted-foreground mt-2">
-                <span>50</span>
-                <span>1200+</span>
+                <span>300</span>
+                <span>500</span>
+                <span>1000</span>
+                <span>1000+</span>
               </div>
             </div>
 
             <div className="mb-8">
-              <span className="text-4xl font-bold text-foreground">
+              <span className={`font-bold text-foreground ${pricing.canBook ? 'text-4xl' : 'text-2xl'}`}>
                 {pricing.price}
               </span>
               {pricing.canBook && <span className="text-muted-foreground">/evento</span>}
