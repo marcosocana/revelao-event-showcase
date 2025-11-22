@@ -3,11 +3,11 @@ import { Check } from "lucide-react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { useState } from "react";
 const guestOptions = [
-  { value: "50", label: "Hasta 50", guests: 50, price: "25,9€", costPerGuest: "0,25€", canBook: true },
-  { value: "300", label: "Hasta 300", guests: 300, price: "49,9€", costPerGuest: "0,16€", canBook: true },
-  { value: "500", label: "Hasta 500", guests: 500, price: "65,9€", costPerGuest: "0,13€", canBook: true },
-  { value: "1000", label: "Hasta 1000", guests: 1000, price: "109,9€", costPerGuest: "0,11€", canBook: true },
-  { value: "1200", label: "Más de 1000", guests: 1200, price: "A consultar", costPerGuest: "Contactar", canBook: false }
+  { value: "50", label: "Hasta 50 invitados", guests: 50, price: "25,9€", costPerGuest: "0,25€", canBook: true },
+  { value: "300", label: "Hasta 300 invitados", guests: 300, price: "49,9€", costPerGuest: "0,16€", canBook: true },
+  { value: "500", label: "Hasta 500 invitados", guests: 500, price: "65,9€", costPerGuest: "0,13€", canBook: true },
+  { value: "1000", label: "Hasta 1000 invitados", guests: 1000, price: "109,9€", costPerGuest: "0,11€", canBook: true },
+  { value: "1200", label: "Más de 1000 invitados", guests: 1200, price: "A consultar", costPerGuest: "Contactar", canBook: false }
 ];
 const features = ["Fotos ilimitadas", "Galería privada 20 días", "Descarga en alta calidad", "Personalización de marca", "Soporte para dudas"];
 const whatsappMessage = "Hola! Estoy interesado en contratar Revelao.cam. ¿Puedes darme más información?";
@@ -27,9 +27,6 @@ export const Pricing = () => {
         </div>
 
         <div className="max-w-3xl mx-auto">
-          <p className="text-center text-lg font-medium text-foreground mb-6">
-            ¿Cuántos invitados van a asistir a tu evento?
-          </p>
           <Tabs value={selectedPlan} onValueChange={setSelectedPlan} className="w-full">
             <TabsList className="grid w-full grid-cols-2 md:grid-cols-5 mb-8 h-auto">
               {guestOptions.map((option) => (
