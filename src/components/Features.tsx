@@ -86,7 +86,11 @@ export const Features = () => {
                     
                     <div>
                       <h3 className="text-xl font-bold mb-3 text-foreground">
-                        {feature.title}
+                        {index === 1 ? (
+                          <>Captura los mejores<br />momentos</>
+                        ) : (
+                          feature.title
+                        )}
                       </h3>
                       <p className="text-muted-foreground leading-relaxed">
                         {feature.description}
