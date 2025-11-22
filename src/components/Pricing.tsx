@@ -64,7 +64,7 @@ export const Pricing = () => {
           <div className="p-8 rounded-lg border border-border bg-card animate-fade-in">
             <div className="mb-8">
               <label className="block text-sm font-medium text-foreground mb-4">
-                Número de invitados: <span className="text-primary font-bold">{guests}{guests >= 1200 ? '+' : ''}</span>
+                Número de invitados: <span className="text-primary font-bold">{guests}{guests >= 1200 ? '+' : ''} invitados</span>
               </label>
               <Slider
                 value={guestIndex}
@@ -75,10 +75,10 @@ export const Pricing = () => {
                 className="mb-2"
               />
               <div className="flex justify-between text-xs text-muted-foreground mt-2">
-                <span>300</span>
-                <span>500</span>
-                <span>1000</span>
-                <span>1000+</span>
+                <span>Hasta 300<br/>invitados</span>
+                <span>Hasta 500<br/>invitados</span>
+                <span>Hasta 1000<br/>invitados</span>
+                <span>Más de 1000<br/>invitados</span>
               </div>
             </div>
 

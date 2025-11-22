@@ -31,23 +31,28 @@ export const Features = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-12 max-w-5xl mx-auto">
+        <div className="flex flex-col gap-16 max-w-4xl mx-auto">
           {features.map((feature, index) => (
             <div
               key={index}
-              className="text-center animate-fade-in"
+              className="flex items-center gap-8 animate-fade-in"
               style={{ animationDelay: `${index * 150}ms` }}
             >
-              <div className="mx-auto w-16 h-16 rounded-full bg-foreground flex items-center justify-center mb-6">
-                <feature.icon className="w-8 h-8 text-background" />
+              <div className="flex-shrink-0 w-16 h-16 rounded-full bg-foreground flex items-center justify-center text-background text-2xl font-bold">
+                {index + 1}
               </div>
               
-              <h3 className="text-xl font-bold mb-3 text-foreground">
-                {feature.title}
-              </h3>
-              <p className="text-muted-foreground leading-relaxed">
-                {feature.description}
-              </p>
+              <div className="flex-1">
+                <h3 className="text-xl font-bold mb-3 text-foreground">
+                  {feature.title}
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  {feature.description}
+                </p>
+              </div>
+
+              {/* Placeholder for image - will be added later */}
+              <div className="flex-shrink-0 w-48 h-48 bg-secondary/50 rounded-lg"></div>
             </div>
           ))}
         </div>
