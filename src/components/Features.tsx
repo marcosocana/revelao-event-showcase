@@ -34,7 +34,7 @@ export const Features = () => {
           <h2 className="text-3xl md:text-5xl font-bold mb-4 text-foreground">
             Cómo funciona
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Revive la experiencia en solo 4 pasos:                                                                                              </p>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Explora la experiencia Revelao en solo 4 pasos:                                                                                              </p>
         </div>
 
         {/* Desktop Layout */}
