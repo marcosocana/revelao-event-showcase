@@ -63,9 +63,6 @@ export const Pricing = () => {
         <div className="max-w-2xl mx-auto">
           <div className="p-8 rounded-lg border border-border bg-card animate-fade-in">
             <div className="mb-8">
-              <label className="block text-sm font-medium text-foreground mb-4">
-                Número de invitados: <span className="text-primary font-bold">{guests}{guests >= 1200 ? '+' : ''} invitados</span>
-              </label>
               <Slider
                 value={guestIndex}
                 onValueChange={setGuestIndex}
@@ -83,10 +80,15 @@ export const Pricing = () => {
             </div>
 
             <div className="mb-8">
-              <span className={`font-bold text-foreground ${pricing.canBook ? 'text-4xl' : 'text-2xl'}`}>
-                {pricing.price}
-              </span>
-              {pricing.canBook && <span className="text-muted-foreground">/evento</span>}
+              <div>
+                <span className={`font-bold text-foreground ${pricing.canBook ? 'text-4xl' : 'text-2xl'}`}>
+                  {pricing.price}
+                </span>
+                {pricing.canBook && <span className="text-muted-foreground">/evento</span>}
+              </div>
+              <p className="text-sm text-muted-foreground mt-2">
+                Hasta {guests}{guests >= 1200 ? '+' : ''} invitados
+              </p>
             </div>
 
             <ul className="space-y-4 mb-8">
