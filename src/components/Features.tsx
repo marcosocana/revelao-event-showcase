@@ -5,19 +5,19 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 const features = [{
   icon: Upload,
   title: "Escanea el código QR",
-  description: "Tus invitados escanean el código QR y acceden a la página del evento"
+  description: "Tus invitados escanean el código QR e introducen la contraseña del evento para acceder al espacio del evento"
 }, {
   icon: Upload,
   title: "Captura los mejores momentos",
-  description: "Todos pueden tomar fotos durante el evento de forma anónima"
+  description: "Todos los invitados pueden tomar fotos durante el evento de forma anónima"
 }, {
   icon: Eye,
-  title: "Genera expectación",
+  title: "La expectación aumenta...",
   description: "Las fotos permanecen ocultas durante el evento, creando misterio y emoción"
 }, {
   icon: Download,
   title: "Día de revelado",
-  description: "Al día siguiente, todas las fotos se revelan en una galería privada para revivir los mejores momentos"
+  description: "Al día siguiente, todas las fotos se revelan en una galería privada para revivir los mejores momentos y que todos puedan volver a revivir el evento"
 }];
 export const Features = () => {
   const [api, setApi] = useState<CarouselApi>();
@@ -34,7 +34,7 @@ export const Features = () => {
           <h2 className="text-3xl md:text-5xl font-bold mb-4 text-foreground">
             Cómo funciona
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Explora la experiencia Revelao en solo 4 pasos:                                                                                              </p>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Explora la experiencia Revelao en solo 4 pasos:</p>
         </div>
 
         {/* Desktop Layout */}

@@ -10,7 +10,7 @@ export const CTABanner = () => {
           Contáctanos por WhatsApp y te resolveremos todas tus dudas sin compromiso.
         </p>
         <Button size="lg" asChild className="bg-primary text-primary-foreground hover:bg-primary/90">
-          <a href={`https://wa.me/34695834018?text=${encodeURIComponent(whatsappMessage)}`}>Mas información     </a>
+          <a href={`https://wa.me/34695834018?text=${encodeURIComponent(whatsappMessage)}`}>Mas información</a>
         </Button>
       </div>
     </section>;
