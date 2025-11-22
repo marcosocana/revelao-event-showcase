@@ -26,8 +26,8 @@ const getPricing = (guests: number) => {
     };
   } else {
     return {
-      price: "¿Qué incluye?",
-      costPerGuest: "A consultar",
+      price: "A consultar",
+      costPerGuest: "Contactar",
       canBook: false,
     };
   }
@@ -87,7 +87,7 @@ export const Pricing = () => {
                 {pricing.canBook && <span className="text-muted-foreground">/evento</span>}
               </div>
               <p className="text-sm text-muted-foreground mt-2">
-                Hasta {guests}{guests >= 1200 ? '+' : ''} invitados
+                {guests >= 1200 ? 'Más de 1000 invitados' : `Hasta ${guests} invitados`}
               </p>
             </div>
 

@@ -24,7 +24,21 @@ export const Hero = () => {
       <div className="absolute inset-0 z-0 bg-white/85" />
       
       <div className="container mx-auto max-w-6xl relative z-10">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="flex flex-col md:grid md:grid-cols-2 gap-12 items-center">
+          {/* Mobile: Image at top */}
+          <div className="flex justify-center animate-fade-in md:hidden order-first">
+            <a 
+              href="https://wa.me/34695834018?text=Hola! Estoy interesado en contratar Revelao.cam. ¿Puedes darme más información?"
+              className="block"
+            >
+              <img 
+                src={phoneMockup} 
+                alt="Revelao.cam mobile app" 
+                className="w-32 h-auto object-contain cursor-pointer hover:opacity-90 transition-opacity"
+              />
+            </a>
+          </div>
+
           <div className="text-center md:text-left animate-fade-in">
             <div className="inline-flex items-center justify-center w-20 h-20 mb-8 rounded-full bg-primary/10">
               <Camera className="w-10 h-10 text-primary" />
@@ -64,20 +78,18 @@ export const Hero = () => {
             </div>
           </div>
 
-          <div className="flex justify-center animate-fade-in" style={{ animationDelay: "200ms" }}>
-            <div className="relative w-full max-w-md">
+          {/* Desktop: Image on right */}
+          <div className="hidden md:flex justify-center animate-fade-in" style={{ animationDelay: "200ms" }}>
+            <a 
+              href="https://wa.me/34695834018?text=Hola! Estoy interesado en contratar Revelao.cam. ¿Puedes darme más información?"
+              className="block"
+            >
               <img 
                 src={phoneMockup} 
                 alt="Revelao.cam mobile app" 
-                className="w-auto h-[70vh] object-contain"
+                className="h-[60vh] w-auto object-contain cursor-pointer hover:opacity-90 transition-opacity"
               />
-              {/* Placeholder for video - user will add their own video */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <p className="text-xs text-muted-foreground bg-background/80 px-3 py-2 rounded">
-                  Video placeholder
-                </p>
-              </div>
-            </div>
+            </a>
           </div>
         </div>
       </div>
