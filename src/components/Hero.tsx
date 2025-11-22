@@ -55,14 +55,8 @@ export const Hero = () => {
               </div>
             </div>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start items-center">
-              <Button size="lg" asChild>
-                <a href="http://www.revelao.cam" target="_blank" rel="noopener noreferrer">
-                  Acceder a la app
-                </a>
-              </Button>
-              
-              <Button size="lg" variant="outline" asChild>
+            <div className="flex justify-center md:justify-start">
+              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90" asChild>
                 <a href="https://wa.me/34695834018?text=Hola! Estoy interesado en contratar Revelao.cam. ¿Puedes darme más información?">
                   Contactar
                 </a>
@@ -75,7 +69,7 @@ export const Hero = () => {
               <img 
                 src={phoneMockup} 
                 alt="Revelao.cam mobile app" 
-                className="w-full h-auto"
+                className="w-auto h-[70vh] object-contain"
               />
               {/* Placeholder for video - user will add their own video */}
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
