@@ -3,18 +3,23 @@ import { Upload, Eye, Download } from "lucide-react";
 const features = [
   {
     icon: Upload,
-    title: "Captura el momento",
-    description: "Tus invitados escanean un código QR y suben fotos sin revelar su identidad. Todo queda oculto hasta el final.",
+    title: "Escanea el código QR",
+    description: "Tus invitados escanean el código QR para acceder a la galería del evento",
+  },
+  {
+    icon: Upload,
+    title: "Captura los mejores momentos",
+    description: "Todos pueden tomar fotos durante el evento de forma anónima",
   },
   {
     icon: Eye,
     title: "Genera expectación",
-    description: "Nadie ve las fotos durante el evento. La incertidumbre crea hype y mantiene a todos enganchados.",
+    description: "Las fotos permanecen ocultas durante el evento, creando misterio y emoción",
   },
   {
     icon: Download,
-    title: "Revela al día siguiente",
-    description: "Al día siguiente, todas las fotos se revelan simultáneamente. Descarga la galería completa en alta calidad.",
+    title: "Día de revelado",
+    description: "Al día siguiente, todas las fotos se revelan en una galería privada para revivir los mejores momentos",
   },
 ];
 
@@ -27,7 +32,7 @@ export const Features = () => {
             Cómo funciona
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Tres pasos para crear anticipación y capturar cada momento
+            Cuatro pasos para crear anticipación y capturar cada momento
           </p>
         </div>
 
