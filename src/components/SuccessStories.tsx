@@ -89,7 +89,6 @@ export const SuccessStories = () => {
               
               <div className="p-8">
                 <div className="mb-4">
-                  <div className="text-4xl text-primary mb-2">"</div>
                   <p className="text-foreground leading-relaxed mb-4">
                     {story.quote}
                   </p>
@@ -128,7 +127,6 @@ export const SuccessStories = () => {
                     
                     <div className="p-8">
                       <div className="mb-4">
-                        <div className="text-4xl text-primary mb-2">"</div>
                         <p className="text-foreground leading-relaxed mb-4">
                           {story.quote}
                         </p>
