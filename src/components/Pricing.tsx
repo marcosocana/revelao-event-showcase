@@ -94,7 +94,7 @@ export const Pricing = () => {
 
                 <Button className="w-full" variant="default" asChild>
                   <a href={`https://wa.me/34695834018?text=${encodeURIComponent(whatsappMessage)}`}>
-                    Contratar servicio
+                    Contactar
                   </a>
                 </Button>
               </div>

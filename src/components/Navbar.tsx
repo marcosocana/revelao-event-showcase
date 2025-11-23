@@ -21,6 +21,9 @@ export const Navbar = () => {
             <a href="#casos-de-exito" className="text-muted-foreground hover:text-foreground transition-colors">
               Casos de éxito
             </a>
+            <a href="#faqs" className="text-muted-foreground hover:text-foreground transition-colors">
+              Preguntas frecuentes
+            </a>
             <Button asChild size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90">
               <a href={`https://wa.me/34695834018?text=${encodeURIComponent("Hola! Estoy interesado en contratar Revelao.cam. ¿Puedes darme más información?")}`}>
                 Contactar
@@ -31,7 +34,7 @@ export const Navbar = () => {
           {/* Mobile CTA Button */}
           <Button asChild size="sm" className="md:hidden bg-primary text-primary-foreground hover:bg-primary/90">
             <a href={`https://wa.me/34695834018?text=${encodeURIComponent("Hola! Estoy interesado en contratar Revelao.cam. ¿Puedes darme más información?")}`}>
-              Contratar
+              Contactar
             </a>
           </Button>
         </div>
