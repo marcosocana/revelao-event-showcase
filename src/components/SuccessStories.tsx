@@ -25,6 +25,28 @@ const stories = [
   },
 ];
 
+const mobileStories = [
+  ...stories,
+  {
+    event: "Fiesta de graduación",
+    quote: "Todos mis compañeros participaron activamente. La expectación por ver las fotos al día siguiente fue increíble.",
+    author: "María G.",
+    image: birthdayImg,
+  },
+  {
+    event: "Aniversario de 25 años",
+    quote: "Una forma única de capturar momentos especiales. Nuestros invitados no pararon de hacer fotos durante toda la celebración.",
+    author: "Roberto P.",
+    image: weddingImg,
+  },
+  {
+    event: "Evento de networking",
+    quote: "Revelao rompió el hielo de forma natural. Todo el mundo quería participar y ver qué fotos habían capturado los demás.",
+    author: "Claudia T.",
+    image: corporateImg,
+  },
+];
+
 export const SuccessStories = () => {
   const [api, setApi] = useState<CarouselApi>();
   const sectionRef = useRef<HTMLElement>(null);
@@ -114,7 +136,7 @@ export const SuccessStories = () => {
             }}
           >
             <CarouselContent>
-              {stories.map((story, index) => (
+              {mobileStories.map((story, index) => (
                 <CarouselItem key={index}>
                   <div className="bg-card rounded-lg border border-border overflow-hidden">
                     <div className="aspect-video overflow-hidden">
