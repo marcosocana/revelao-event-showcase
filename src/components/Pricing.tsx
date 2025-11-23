@@ -43,7 +43,7 @@ const whatsappMessage = "Hola! Estoy interesado en contratar Revelao.cam. ¿Pued
 export const Pricing = () => {
   const [selectedPlan, setSelectedPlan] = useState("50");
   const currentPlan = guestOptions.find(option => option.value === selectedPlan) || guestOptions[0];
-  return <section className="py-24 bg-muted/30" id="precio">
+  return <section className="py-12 md:py-24 bg-muted/30" id="precio">
       <div className="container px-4 mx-auto">
         <div className="max-w-4xl mx-auto">
           <div className="mb-12 animate-fade-in">

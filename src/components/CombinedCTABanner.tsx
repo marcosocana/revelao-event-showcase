@@ -4,7 +4,7 @@ const whatsappMessage = "Hola! Estoy interesado en contratar Revelao.cam. ¿Pued
 
 export const CombinedCTABanner = () => {
   return (
-    <section className="py-16">
+    <section className="py-8 md:py-16">
       <div className="container px-4 mx-auto">
         <div className="grid md:grid-cols-2 gap-0 max-w-6xl mx-auto">
           {/* Left side - Contact CTA */}

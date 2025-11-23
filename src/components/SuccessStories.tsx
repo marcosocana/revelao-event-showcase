@@ -25,7 +25,7 @@ const stories = [
 
 export const SuccessStories = () => {
   return (
-    <section className="py-24 bg-secondary/50" id="casos-de-exito">
+    <section className="py-12 md:py-24 bg-secondary/50" id="casos-de-exito">
       <div className="container px-4 mx-auto">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl md:text-5xl font-bold mb-4 text-foreground">
