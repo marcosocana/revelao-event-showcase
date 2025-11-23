@@ -68,7 +68,7 @@ export const Features = () => {
         <div className="md:hidden">
           {/* Video */}
           <div className="flex justify-center mb-12">
-            <video src="/phone-video.mp4" autoPlay loop muted playsInline className="w-[320px] h-auto rounded-[20px] object-cover border-2 border-muted-foreground shadow-2xl" />
+            <video src="/phone-video.mp4" autoPlay loop muted playsInline className="w-[320px] h-auto rounded-[20px] object-cover border-muted-foreground shadow-2xl" />
           </div>
 
           {/* Carousel for steps */}
