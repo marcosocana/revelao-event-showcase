@@ -12,7 +12,7 @@ export const Hero = () => {
           Tu navegador no soporta el elemento de video.
         </video>
       </div>
-      <div className="absolute inset-0 z-0 bg-white/92" />
+      <div className="absolute inset-0 z-0 bg-white/85" />
       
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className="flex flex-col items-center justify-center">
