@@ -27,7 +27,7 @@ export const Features = () => {
     }, 10000);
     return () => clearInterval(interval);
   }, [api]);
-  return <section className="py-24 bg-secondary/50" id="como-funciona">
+  return <section className="py-12 md:py-24 bg-secondary/50" id="como-funciona">
       <div className="container px-4 mx-auto">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl md:text-5xl font-bold mb-4 text-foreground">
