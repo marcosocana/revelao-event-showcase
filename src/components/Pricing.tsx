@@ -47,7 +47,7 @@ export const Pricing = () => {
       <div className="container px-4 mx-auto">
         <div className="max-w-4xl mx-auto">
           <div className="mb-12 animate-fade-in">
-            <h2 className="text-2xl font-bold mb-2 text-foreground md:text-5xl text-center">
+            <h2 className="font-bold mb-2 text-foreground md:text-5xl text-center text-3xl">
               Precio
             </h2>
             <p className="text-base text-muted-foreground mb-8 text-center md:text-xl">
