@@ -18,7 +18,7 @@ export const Hero = () => {
         <div className="flex flex-col items-center justify-center">
           <div className="text-center animate-fade-in max-w-3xl">
             <div className="inline-flex items-center justify-center w-20 h-20 md:w-56 md:h-56 mb-8">
-              <img src={corazon} alt="Revelao.cam" className="w-16 h-16 md:w-48 md:h-48" />
+              <img src={corazon} alt="Revelao.cam" className="w-16 h-16 md:w-48 md:h-48 shadow-2xl" />
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-black">
