@@ -17,7 +17,7 @@ export const CombinedCTABanner = () => {
             </p>
             <Button size="lg" asChild className="bg-white text-foreground hover:bg-white/90">
               <a href={`https://wa.me/34695834018?text=${encodeURIComponent(whatsappMessage)}`}>
-                Mas información
+                Más información
               </a>
             </Button>
           </div>

@@ -24,7 +24,7 @@ export const Features = () => {
     if (!api) return;
     const interval = setInterval(() => {
       api.scrollNext();
-    }, 5000);
+    }, 10000);
     return () => clearInterval(interval);
   }, [api]);
   return <section className="py-24 bg-secondary/50" id="como-funciona">
@@ -60,7 +60,7 @@ export const Features = () => {
 
           {/* Video on the right */}
           <div className="flex-shrink-0 w-[320px]">
-            <video src="/phone-video.mp4" autoPlay loop muted playsInline className="w-full h-auto rounded-[20px] object-cover border-1 border-muted-foreground shadow-2xl" />
+            <video src="/phone-video.mp4" autoPlay loop muted playsInline className="w-full h-auto rounded-[20px] object-cover border-2 border-muted-foreground shadow-2xl" />
           </div>
         </div>
 
@@ -68,7 +68,7 @@ export const Features = () => {
         <div className="md:hidden">
           {/* Video */}
           <div className="flex justify-center mb-12">
-            <video src="/phone-video.mp4" autoPlay loop muted playsInline className="w-64 h-auto rounded-[2px] object-cover border-2 border-muted-foreground" />
+            <video src="/phone-video.mp4" autoPlay loop muted playsInline className="w-[320px] h-auto rounded-[20px] object-cover border-2 border-muted-foreground shadow-2xl" />
           </div>
 
           {/* Carousel for steps */}
