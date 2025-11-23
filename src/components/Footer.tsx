@@ -18,6 +18,9 @@ export const Footer = () => {
             <a href="#casos-de-exito" className="hover:text-foreground transition-colors">
               Casos de éxito
             </a>
+            <a href="https://tomorrow-snap-reveal.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">
+              Acceso
+            </a>
             <a href="https://wa.me/34695834018?text=Hola! Estoy interesado en contratar Revelao.cam. ¿Puedes darme más información?" className="hover:text-foreground transition-colors">
               Contacto
             </a>
