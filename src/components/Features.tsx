@@ -1,5 +1,5 @@
 import { Upload, Eye, Download } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from "@/components/ui/carousel";
 const features = [{
   icon: Upload,
@@ -20,14 +20,39 @@ const features = [{
 }];
 export const Features = () => {
   const [api, setApi] = useState<CarouselApi>();
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
   useEffect(() => {
-    if (!api) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.3 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!api || !isVisible) return;
+    
     const interval = setInterval(() => {
       api.scrollNext();
     }, 10000);
+    
     return () => clearInterval(interval);
-  }, [api]);
-  return <section className="py-12 md:py-24 bg-secondary/50" id="como-funciona">
+  }, [api, isVisible]);
+
+  return <section ref={sectionRef} className="py-12 md:py-24 bg-secondary/50" id="como-funciona">
       <div className="container px-4 mx-auto">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl md:text-5xl font-bold mb-4 text-foreground">
