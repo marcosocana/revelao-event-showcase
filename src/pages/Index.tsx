@@ -4,8 +4,7 @@ import { Features } from "@/components/Features";
 import { Pricing } from "@/components/Pricing";
 import { FAQs } from "@/components/FAQs";
 import { SuccessStories } from "@/components/SuccessStories";
-import { CTABanner } from "@/components/CTABanner";
-import { AccessBanner } from "@/components/AccessBanner";
+import { CombinedCTABanner } from "@/components/CombinedCTABanner";
 import { Footer } from "@/components/Footer";
 const Index = () => {
   return <div className="min-h-screen bg-background">
@@ -16,8 +15,7 @@ const Index = () => {
         <Pricing />
         <FAQs />
         <SuccessStories />
-        <CTABanner />
-        <AccessBanner />
+        <CombinedCTABanner />
       </main>
       <Footer />
     </div>;
