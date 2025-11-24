@@ -31,7 +31,7 @@ export const CombinedCTABanner = () => {
               Si ya nos has contactado y has creado un evento, puedes acceder a nuestra plataforma.
             </p>
             <Button size="lg" asChild className="bg-foreground text-background hover:bg-foreground/90">
-              <a href="https://tomorrow-snap-reveal.vercel.app" target="_blank" rel="noopener noreferrer">
+              <a href="https://acceso.revelao.cam" target="_blank" rel="noopener noreferrer">
                 Acceder a Revelao
               </a>
             </Button>
