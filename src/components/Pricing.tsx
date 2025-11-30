@@ -6,32 +6,32 @@ const guestOptions = [{
   value: "50",
   label: "50",
   guests: 50,
-  price: "25,9€",
-  costPerGuest: "0,25€",
+  price: "36€",
+  costPerGuest: "0,72€",
   canBook: true,
   stripeUrl: "https://buy.stripe.com/dRmcN6e8ZfjlfykcH20Fi01"
 }, {
   value: "300",
   label: "300",
   guests: 300,
-  price: "49,9€",
-  costPerGuest: "0,16€",
+  price: "74€",
+  costPerGuest: "0,25€",
   canBook: true,
   stripeUrl: "https://buy.stripe.com/dRmcN6e8ZfjlfykcH20Fi01"
 }, {
   value: "500",
   label: "500",
   guests: 500,
-  price: "65,9€",
-  costPerGuest: "0,13€",
+  price: "96€",
+  costPerGuest: "0,19€",
   canBook: true,
   stripeUrl: "https://buy.stripe.com/dRmcN6e8ZfjlfykcH20Fi01"
 }, {
   value: "1000",
   label: "1000",
   guests: 1000,
-  price: "109,9€",
-  costPerGuest: "0,11€",
+  price: "139€",
+  costPerGuest: "0,14€",
   canBook: true,
   stripeUrl: "https://buy.stripe.com/dRmcN6e8ZfjlfykcH20Fi01"
 }, {
@@ -92,7 +92,7 @@ export const Pricing = () => {
                   <li className="flex items-start gap-3">
                     <Check className="w-5 h-5 flex-shrink-0 mt-0.5 text-foreground" />
                     <span className="text-foreground">
-                      Coste por usuario: <span className="font-semibold">{currentPlan.costPerGuest}</span>
+                      <span className="font-semibold">{currentPlan.costPerGuest} por invitado</span>
                     </span>
                   </li>
                 </ul>
