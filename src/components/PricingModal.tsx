@@ -97,7 +97,7 @@ export const PricingModal = ({ open, onOpenChange }: PricingModalProps) => {
                 </span>
               </div>
               <div className="text-left md:text-right">
-                <span className={`font-bold text-foreground ${currentPlan.stripeUrl ? 'text-3xl md:text-4xl' : 'text-xl md:text-2xl'}`}>
+                <span className="font-bold text-foreground text-3xl md:text-4xl">
                   {currentPlan.price}
                 </span>
                 {currentPlan.stripeUrl && <span className="text-muted-foreground">/evento</span>}
