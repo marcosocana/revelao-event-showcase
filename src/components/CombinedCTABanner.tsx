@@ -13,12 +13,17 @@ export const CombinedCTABanner = () => {
               ¿A qué estás esperando?
             </h3>
             <p className="text-lg text-white/90 mb-8">
-              Contáctanos por WhatsApp y te resolveremos todas tus dudas sin compromiso.
+              Elige tu plan y comienza a crear momentos únicos en tu evento.
             </p>
-            <Button size="lg" asChild className="bg-white text-foreground hover:bg-white/90">
-              <a href={`https://wa.me/34695834018?text=${encodeURIComponent(whatsappMessage)}`}>
-                Más información
-              </a>
+            <Button 
+              size="lg" 
+              className="bg-white text-foreground hover:bg-white/90"
+              onClick={() => {
+                const event = new CustomEvent('openPricingModal');
+                window.dispatchEvent(event);
+              }}
+            >
+              Comenzar
             </Button>
           </div>
 

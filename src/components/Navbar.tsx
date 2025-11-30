@@ -24,18 +24,28 @@ export const Navbar = () => {
             <a href="#faqs" className="text-muted-foreground hover:text-foreground transition-colors">
               Preguntas frecuentes
             </a>
-            <Button asChild size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90">
-              <a href={`https://wa.me/34695834018?text=${encodeURIComponent("Hola! Estoy interesado en contratar Revelao.cam. ¿Puedes darme más información?")}`}>
-                Contactar
-              </a>
+            <Button 
+              size="sm" 
+              className="bg-primary text-primary-foreground hover:bg-primary/90"
+              onClick={() => {
+                const event = new CustomEvent('openPricingModal');
+                window.dispatchEvent(event);
+              }}
+            >
+              Comenzar
             </Button>
           </div>
 
           {/* Mobile CTA Button */}
-          <Button asChild size="sm" className="md:hidden bg-primary text-primary-foreground hover:bg-primary/90">
-            <a href={`https://wa.me/34695834018?text=${encodeURIComponent("Hola! Estoy interesado en contratar Revelao.cam. ¿Puedes darme más información?")}`}>
-              Contactar
-            </a>
+          <Button 
+            size="sm" 
+            className="md:hidden bg-primary text-primary-foreground hover:bg-primary/90"
+            onClick={() => {
+              const event = new CustomEvent('openPricingModal');
+              window.dispatchEvent(event);
+            }}
+          >
+            Comenzar
           </Button>
         </div>
       </div>
