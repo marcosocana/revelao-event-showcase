@@ -71,6 +71,9 @@ export const PricingModal = ({ open, onOpenChange }: PricingModalProps) => {
       <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="text-2xl md:text-3xl text-center">Elige tu plan</DialogTitle>
+          <p className="text-base text-muted-foreground text-center mt-2">
+            ¿Cuántos invitados tiene tu evento?
+          </p>
         </DialogHeader>
         
         <div className="space-y-8 mt-4">
