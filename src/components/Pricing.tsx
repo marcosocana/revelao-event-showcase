@@ -8,35 +8,40 @@ const guestOptions = [{
   guests: 50,
   price: "25,9€",
   costPerGuest: "0,25€",
-  canBook: true
+  canBook: true,
+  stripeUrl: "https://buy.stripe.com/dRmcN6e8ZfjlfykcH20Fi01"
 }, {
   value: "300",
   label: "300",
   guests: 300,
   price: "49,9€",
   costPerGuest: "0,16€",
-  canBook: true
+  canBook: true,
+  stripeUrl: "https://buy.stripe.com/dRmcN6e8ZfjlfykcH20Fi01"
 }, {
   value: "500",
   label: "500",
   guests: 500,
   price: "65,9€",
   costPerGuest: "0,13€",
-  canBook: true
+  canBook: true,
+  stripeUrl: "https://buy.stripe.com/dRmcN6e8ZfjlfykcH20Fi01"
 }, {
   value: "1000",
   label: "1000",
   guests: 1000,
   price: "109,9€",
   costPerGuest: "0,11€",
-  canBook: true
+  canBook: true,
+  stripeUrl: "https://buy.stripe.com/dRmcN6e8ZfjlfykcH20Fi01"
 }, {
   value: "1000+",
   label: "1000+",
   guests: 1200,
   price: "A consultar",
   costPerGuest: "Contactar",
-  canBook: false
+  canBook: false,
+  stripeUrl: null
 }];
 const features = ["Fotos ilimitadas", "Galería privada 20 días", "Descarga en alta calidad", "Personalización de marca", "Soporte para dudas"];
 const whatsappMessage = "Hola! Estoy interesado en contratar Revelao.cam. ¿Puedes darme más información?";
@@ -92,11 +97,19 @@ export const Pricing = () => {
                   </li>
                 </ul>
 
-                <Button className="w-full" variant="default" asChild>
-                  <a href={`https://wa.me/34695834018?text=${encodeURIComponent(whatsappMessage)}`}>
-                    Contactar
-                  </a>
-                </Button>
+                {currentPlan.stripeUrl ? (
+                  <Button className="w-full" variant="default" asChild>
+                    <a href={currentPlan.stripeUrl} target="_blank" rel="noopener noreferrer">
+                      Comenzar
+                    </a>
+                  </Button>
+                ) : (
+                  <Button className="w-full" variant="default" asChild>
+                    <a href={`https://wa.me/34695834018?text=${encodeURIComponent(whatsappMessage)}`}>
+                      Contactar
+                    </a>
+                  </Button>
+                )}
               </div>
             </div>
           </div>

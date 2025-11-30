@@ -42,11 +42,26 @@ export const Hero = () => {
               
             </div>
             
-            <div className="flex justify-center">
-              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90" asChild>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <Button 
+                size="lg" 
+                variant="ghost" 
+                className="border border-border hover:bg-muted" 
+                asChild
+              >
                 <a href="https://wa.me/34695834018?text=Hola! Estoy interesado en contratar Revelao.cam. ¿Puedes darme más información?">
-                  Contactar      
+                  ¿Hablamos?
                 </a>
+              </Button>
+              <Button 
+                size="lg" 
+                className="bg-primary text-primary-foreground hover:bg-primary/90"
+                onClick={() => {
+                  const event = new CustomEvent('openPricingModal');
+                  window.dispatchEvent(event);
+                }}
+              >
+                Comenzar
               </Button>
             </div>
           </div>
