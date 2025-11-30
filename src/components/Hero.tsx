@@ -45,8 +45,8 @@ export const Hero = () => {
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Button 
                 size="lg" 
-                variant="ghost" 
-                className="border border-border hover:bg-muted" 
+                variant="outline" 
+                className="border-2 border-primary text-primary hover:bg-primary/10" 
                 asChild
               >
                 <a href="https://wa.me/34695834018?text=Hola! Estoy interesado en contratar Revelao.cam. ¿Puedes darme más información?">
