@@ -1,16 +1,49 @@
 import { Button } from "@/components/ui/button";
 import { Download } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import template1 from "@/assets/template-1.png";
+import template2 from "@/assets/template-2.png";
+import template3 from "@/assets/template-3.png";
+import template4 from "@/assets/template-4.png";
+import template5 from "@/assets/template-5.png";
+import template6 from "@/assets/template-6.png";
+import template7 from "@/assets/template-7.png";
+import template8 from "@/assets/template-8.png";
 
 const templates = [
-  { id: 1, title: "Boda Clásica" },
-  { id: 2, title: "Boda Moderna" },
-  { id: 3, title: "Boda Vintage" },
-  { id: 4, title: "Boda Romántica" },
-  { id: 5, title: "Boda Elegante" },
-  { id: 6, title: "Boda Minimalista" },
-  { id: 7, title: "Boda Rústica" },
-  { id: 8, title: "Boda Bohemia" },
+  { id: 1, title: "Boda Clásica", image: template1 },
+  { id: 2, title: "Boda Moderna", image: template2 },
+  { id: 3, title: "Boda Vintage", image: template3 },
+  { id: 4, title: "Boda Romántica", image: template4 },
+  { id: 5, title: "Boda Elegante", image: template5 },
+  { id: 6, title: "Boda Minimalista", image: template6 },
+  { id: 7, title: "Boda Rústica", image: template7 },
+  { id: 8, title: "Boda Bohemia", image: template8 },
 ];
+
+const TemplateCard = ({ template }: { template: typeof templates[0] }) => (
+  <div className="bg-muted/30 rounded-lg overflow-hidden border border-border hover:shadow-lg transition-shadow">
+    <div className="aspect-square bg-background overflow-hidden">
+      <img 
+        src={template.image} 
+        alt={template.title}
+        className="w-full h-full object-cover"
+      />
+    </div>
+    <div className="p-4">
+      <Button className="w-full" variant="outline" size="sm">
+        <Download className="w-4 h-4 mr-2" />
+        Descargar
+      </Button>
+    </div>
+  </div>
+);
 
 export const Templates = () => {
   return (
@@ -21,33 +54,31 @@ export const Templates = () => {
             <h2 className="font-bold mb-4 text-foreground md:text-5xl text-3xl">
               Plantillas personalizadas
             </h2>
-            <p className="text-base text-muted-foreground md:text-xl">
-              Descarga carteles con código QR para tu evento
+            <p className="text-base text-muted-foreground md:text-xl max-w-3xl mx-auto">
+              Descarga carteles con código QR para tu evento. Si no sabes cómo hacerlo, te lo hacemos nosotros de forma gratuita
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* Desktop Grid */}
+          <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-6">
             {templates.map((template) => (
-              <div
-                key={template.id}
-                className="bg-muted/30 rounded-lg overflow-hidden border border-border hover:shadow-lg transition-shadow"
-              >
-                <div className="aspect-[3/4] bg-gradient-to-br from-muted to-muted/50 flex items-center justify-center">
-                  <div className="text-center p-6">
-                    <div className="w-24 h-24 mx-auto mb-4 bg-background rounded-lg flex items-center justify-center">
-                      <span className="text-4xl">QR</span>
-                    </div>
-                    <p className="text-sm text-muted-foreground">{template.title}</p>
-                  </div>
-                </div>
-                <div className="p-4">
-                  <Button className="w-full" variant="outline" size="sm">
-                    <Download className="w-4 h-4 mr-2" />
-                    Descargar
-                  </Button>
-                </div>
-              </div>
+              <TemplateCard key={template.id} template={template} />
             ))}
+          </div>
+
+          {/* Mobile Carousel */}
+          <div className="md:hidden px-8">
+            <Carousel className="w-full">
+              <CarouselContent>
+                {templates.map((template) => (
+                  <CarouselItem key={template.id}>
+                    <TemplateCard template={template} />
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious />
+              <CarouselNext />
+            </Carousel>
           </div>
         </div>
       </div>
