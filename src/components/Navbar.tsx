@@ -21,6 +21,9 @@ export const Navbar = () => {
             <a href="#casos-de-exito" className="text-muted-foreground hover:text-foreground transition-colors">
               Casos de éxito
             </a>
+            <a href="#plantillas" className="text-muted-foreground hover:text-foreground transition-colors">
+              Plantillas
+            </a>
             <a href="#faqs" className="text-muted-foreground hover:text-foreground transition-colors">
               Preguntas frecuentes
             </a>
