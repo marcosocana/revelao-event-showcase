@@ -2,6 +2,7 @@ import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { Features } from "@/components/Features";
 import { Pricing } from "@/components/Pricing";
+import { Templates } from "@/components/Templates";
 import { FAQs } from "@/components/FAQs";
 import { SuccessStories } from "@/components/SuccessStories";
 import { CombinedCTABanner } from "@/components/CombinedCTABanner";
@@ -21,11 +22,12 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <main>
+      <main className="pt-16">
         <Hero />
         <Features />
         <Pricing />
         <SuccessStories />
+        <Templates />
         <FAQs />
         <CombinedCTABanner />
       </main>

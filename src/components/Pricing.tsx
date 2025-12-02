@@ -9,7 +9,7 @@ const guestOptions = [{
   price: "36€",
   costPerGuest: "0,72€",
   canBook: true,
-  stripeUrl: "https://buy.stripe.com/dRmcN6e8ZfjlfykcH20Fi01"
+  stripeUrl: "https://buy.stripe.com/cNiaEY0i9gnpbi4dL60Fi03"
 }, {
   value: "300",
   label: "300",
@@ -17,7 +17,7 @@ const guestOptions = [{
   price: "74€",
   costPerGuest: "0,25€",
   canBook: true,
-  stripeUrl: "https://buy.stripe.com/dRmcN6e8ZfjlfykcH20Fi01"
+  stripeUrl: "https://buy.stripe.com/14A5kE9SJgnpeuggXi0Fi02"
 }, {
   value: "500",
   label: "500",
@@ -25,7 +25,7 @@ const guestOptions = [{
   price: "96€",
   costPerGuest: "0,19€",
   canBook: true,
-  stripeUrl: "https://buy.stripe.com/dRmcN6e8ZfjlfykcH20Fi01"
+  stripeUrl: "https://buy.stripe.com/dRm8wQ4yp5IL85S7mI0Fi04"
 }, {
   value: "1000",
   label: "1000",
@@ -33,7 +33,7 @@ const guestOptions = [{
   price: "139€",
   costPerGuest: "0,14€",
   canBook: true,
-  stripeUrl: "https://buy.stripe.com/dRmcN6e8ZfjlfykcH20Fi01"
+  stripeUrl: "https://buy.stripe.com/fZu28sd4VefhgCo5eA0Fi05"
 }, {
   value: "1000+",
   label: "1000+",
