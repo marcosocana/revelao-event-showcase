@@ -113,6 +113,11 @@ export const Features = () => {
               {features.map((feature, index) => (
                 <CarouselItem key={index}>
                   <div className="flex flex-col items-center text-center gap-4 p-4">
+                    {/* Number */}
+                    <div className="w-14 h-14 rounded-full bg-foreground flex items-center justify-center text-background text-xl font-bold">
+                      {index + 1}
+                    </div>
+                    
                     {/* Image */}
                     <div className="w-48 h-48 rounded-xl overflow-hidden bg-white shadow-lg">
                       <img 
@@ -120,11 +125,6 @@ export const Features = () => {
                         alt={feature.title} 
                         className="w-full h-full object-cover"
                       />
-                    </div>
-                    
-                    {/* Number */}
-                    <div className="w-14 h-14 rounded-full bg-foreground flex items-center justify-center text-background text-xl font-bold">
-                      {index + 1}
                     </div>
                     
                     {/* Text */}
