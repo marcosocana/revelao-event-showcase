@@ -1,28 +1,23 @@
-import { Upload, Eye, Download } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from "@/components/ui/carousel";
-import step1Image from "@/assets/step-1-qr.png";
-import step2Image from "@/assets/step-2-capture.png";
-import step3Image from "@/assets/step-3-anticipation.png";
-import step4Image from "@/assets/step-4-reveal.png";
+import step1Image from "@/assets/step-1-qr.svg";
+import step2Image from "@/assets/step-2-capture.svg";
+import step3Image from "@/assets/step-3-anticipation.svg";
+import step4Image from "@/assets/step-4-reveal.svg";
 
 const features = [{
-  icon: Upload,
   title: "Escanea el código QR",
   description: "Tus invitados escanean el código QR que encontrarán en carteles, tarjetas, etc...",
   image: step1Image
 }, {
-  icon: Upload,
   title: "Captura los mejores momentos",
   description: "Todos los invitados pueden tomar fotos durante el evento de forma anónima",
   image: step2Image
 }, {
-  icon: Eye,
   title: "La expectación aumenta...",
   description: "Las fotos permanecen ocultas durante el evento, creando misterio y emoción",
   image: step3Image
 }, {
-  icon: Download,
   title: "Día de revelado",
   description: "Al día siguiente, todas las fotos se revelan en una galería privada para revivir los mejores momentos y que todos puedan volver a revivir el evento",
   image: step4Image
@@ -79,17 +74,12 @@ export const Features = () => {
               animationDelay: `${index * 150}ms`
             }}>
               {/* Image */}
-              <div className="w-full aspect-square mb-4 rounded-xl overflow-hidden bg-white shadow-lg">
+              <div className="w-20 h-20 mb-4 flex items-center justify-center">
                 <img 
                   src={feature.image} 
                   alt={feature.title} 
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                 />
-              </div>
-              
-              {/* Number */}
-              <div className="w-10 h-10 rounded-full bg-foreground flex items-center justify-center text-background text-lg font-bold mb-3">
-                {index + 1}
               </div>
               
               {/* Text */}
@@ -113,17 +103,12 @@ export const Features = () => {
               {features.map((feature, index) => (
                 <CarouselItem key={index}>
                   <div className="flex flex-col items-center text-center gap-4 p-4">
-                    {/* Number */}
-                    <div className="w-14 h-14 rounded-full bg-foreground flex items-center justify-center text-background text-xl font-bold">
-                      {index + 1}
-                    </div>
-                    
                     {/* Image */}
-                    <div className="w-48 h-48 rounded-xl overflow-hidden bg-white shadow-lg">
+                    <div className="w-20 h-20 flex items-center justify-center">
                       <img 
                         src={feature.image} 
                         alt={feature.title} 
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-contain"
                       />
                     </div>
                     
