@@ -8,19 +8,19 @@ import step4Image from "@/assets/step-4-reveal.svg";
 const features = [{
   title: "Escanea el código QR",
   description: "Tus invitados escanean el código QR que encontrarán en carteles, tarjetas, etc...",
-  image: step1Image
+  image: step4Image
 }, {
   title: "Captura los mejores momentos",
   description: "Todos los invitados pueden tomar fotos durante el evento de forma anónima",
-  image: step2Image
+  image: step1Image
 }, {
   title: "La expectación aumenta...",
   description: "Las fotos permanecen ocultas durante el evento, creando misterio y emoción",
-  image: step3Image
+  image: step2Image
 }, {
   title: "Día de revelado",
   description: "Al día siguiente, todas las fotos se revelan en una galería privada para revivir los mejores momentos y que todos puedan volver a revivir el evento",
-  image: step4Image
+  image: step3Image
 }];
 
 export const Features = () => {
@@ -74,7 +74,7 @@ export const Features = () => {
               animationDelay: `${index * 150}ms`
             }}>
               {/* Image */}
-              <div className="w-20 h-20 mb-4 flex items-center justify-center">
+              <div className="w-40 h-40 mb-4 flex items-center justify-center">
                 <img 
                   src={feature.image} 
                   alt={feature.title} 
@@ -104,7 +104,7 @@ export const Features = () => {
                 <CarouselItem key={index}>
                   <div className="flex flex-col items-center text-center gap-4 p-4">
                     {/* Image */}
-                    <div className="w-20 h-20 flex items-center justify-center">
+                    <div className="w-40 h-40 flex items-center justify-center">
                       <img 
                         src={feature.image} 
                         alt={feature.title} 
