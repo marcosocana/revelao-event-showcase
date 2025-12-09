@@ -71,7 +71,7 @@ export const Hero = () => {
           {/* Right side - Video */}
           <div className="flex-shrink-0 w-full max-w-[280px] md:max-w-[320px] lg:max-w-[350px] mb-8 lg:mb-0">
             <video 
-              src="/phone-video.mp4" 
+              src="/phone-video.mp4?v=2" 
               autoPlay 
               loop 
               muted 
