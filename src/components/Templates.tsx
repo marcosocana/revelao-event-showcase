@@ -11,25 +11,17 @@ import template1 from "@/assets/template-1.png";
 import template2 from "@/assets/template-2.png";
 import template3 from "@/assets/template-3.png";
 import template4 from "@/assets/template-4.png";
-import template5 from "@/assets/template-5.png";
-import template6 from "@/assets/template-6.png";
-import template7 from "@/assets/template-7.png";
-import template8 from "@/assets/template-8.png";
 
 const templates = [
-  { id: 1, title: "Boda Clásica", image: template1 },
-  { id: 2, title: "Boda Moderna", image: template2 },
-  { id: 3, title: "Boda Vintage", image: template3 },
-  { id: 4, title: "Boda Romántica", image: template4 },
-  { id: 5, title: "Boda Elegante", image: template5 },
-  { id: 6, title: "Boda Minimalista", image: template6 },
-  { id: 7, title: "Boda Rústica", image: template7 },
-  { id: 8, title: "Boda Bohemia", image: template8 },
+  { id: 1, title: "Julia y Alex", image: template1, downloadUrl: template1 },
+  { id: 2, title: "David y Jose", image: template2, downloadUrl: template2 },
+  { id: 3, title: "Paola y Toni", image: template3, downloadUrl: template3 },
+  { id: 4, title: "Christmas Album", image: template4, downloadUrl: template4 },
 ];
 
 const TemplateCard = ({ template }: { template: typeof templates[0] }) => (
   <div className="bg-muted/30 rounded-lg overflow-hidden border border-border hover:shadow-lg transition-shadow">
-    <div className="aspect-square bg-background overflow-hidden">
+    <div className="aspect-[3/4] bg-background overflow-hidden">
       <img 
         src={template.image} 
         alt={template.title}
@@ -37,10 +29,17 @@ const TemplateCard = ({ template }: { template: typeof templates[0] }) => (
       />
     </div>
     <div className="p-4">
-      <Button className="w-full" variant="outline" size="sm">
-        <Download className="w-4 h-4 mr-2" />
-        Descargar
-      </Button>
+      <a 
+        href={template.downloadUrl} 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="w-full"
+      >
+        <Button className="w-full" variant="outline" size="sm">
+          <Download className="w-4 h-4 mr-2" />
+          Descargar
+        </Button>
+      </a>
     </div>
   </div>
 );
