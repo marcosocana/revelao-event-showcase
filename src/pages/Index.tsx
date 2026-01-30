@@ -5,6 +5,7 @@ import { Pricing } from "@/components/Pricing";
 import { Templates } from "@/components/Templates";
 import { FAQs } from "@/components/FAQs";
 import { SuccessStories } from "@/components/SuccessStories";
+import { FreeTrial } from "@/components/FreeTrial";
 import { CombinedCTABanner } from "@/components/CombinedCTABanner";
 import { Footer } from "@/components/Footer";
 import { PricingModal } from "@/components/PricingModal";
@@ -28,6 +29,7 @@ const Index = () => {
         <Pricing />
         <SuccessStories />
         <Templates />
+        <FreeTrial />
         <FAQs />
         <CombinedCTABanner />
       </main>
