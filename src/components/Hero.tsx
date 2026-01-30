@@ -58,12 +58,11 @@ export const Hero = () => {
               <Button 
                 size="lg" 
                 className="bg-primary text-primary-foreground hover:bg-primary/90"
-                onClick={() => {
-                  const event = new CustomEvent('openPricingModal');
-                  window.dispatchEvent(event);
-                }}
+                asChild
               >
-                Comenzar
+                <a href="https://acceso.revelao.cam/nuevoeventodemo" target="_blank" rel="noopener noreferrer">
+                  Prueba gratis
+                </a>
               </Button>
             </div>
           </div>
