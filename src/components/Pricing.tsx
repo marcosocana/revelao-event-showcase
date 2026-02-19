@@ -16,7 +16,7 @@ const plans = [
     price: "36€",
     costPerGuest: "0,72€",
     stripeUrl: "https://buy.stripe.com/cNiaEY0i9gnpbi4dL60Fi03",
-    cta: "Elegir Íntimo",
+    cta: "Elegir",
   },
   {
     title: "Mediano",
@@ -24,7 +24,7 @@ const plans = [
     price: "74€",
     costPerGuest: "0,25€",
     stripeUrl: "https://buy.stripe.com/14A5kE9SJgnpeuggXi0Fi02",
-    cta: "Elegir Celebración",
+    cta: "Elegir",
     featured: true,
     badge: "Más popular",
   },
@@ -34,7 +34,7 @@ const plans = [
     price: "96€",
     costPerGuest: "0,19€",
     stripeUrl: "https://buy.stripe.com/dRm8wQ4yp5IL85S7mI0Fi04",
-    cta: "Elegir Fiesta",
+    cta: "Elegir",
   },
   {
     title: "XL",
@@ -42,7 +42,7 @@ const plans = [
     price: "139€",
     costPerGuest: "0,14€",
     stripeUrl: "https://buy.stripe.com/fZu28sd4VefhgCo5eA0Fi05",
-    cta: "Elegir Gran evento",
+    cta: "Elegir",
   },
 ];
 
