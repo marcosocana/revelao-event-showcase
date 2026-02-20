@@ -10,6 +10,7 @@ export const Navbar = () => {
             <a href="#inicio" className="flex items-center gap-3">
               <img src={icon} alt="Revelao" className="h-8 w-auto hidden md:block" />
               <img src={logoMini} alt="Revelao" className="h-8 w-auto md:hidden" />
+              <span className="sr-only">Revelao.cam</span>
               <span className="text-xl font-bold text-foreground hidden md:inline">Revelao.cam</span>
             </a>
           </div>
