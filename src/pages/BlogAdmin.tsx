@@ -25,6 +25,12 @@ const toDataUrl = (file: File) =>
     reader.readAsDataURL(file);
   });
 
+const isHtmlEmpty = (html: string) => {
+  if (!html) return true;
+  const text = html.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
+  return text.length === 0;
+};
+
 const BlogAdmin = () => {
   const navigate = useNavigate();
   const [authorized, setAuthorized] = useState(false);
@@ -87,7 +93,15 @@ const BlogAdmin = () => {
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    if (!title || !excerpt || !contentHtml || !image) return;
+    const missing: string[] = [];
+    if (!title.trim()) missing.push("Título");
+    if (!excerpt.trim()) missing.push("Descripción");
+    if (isHtmlEmpty(contentHtml)) missing.push("Contenido");
+    if (!image) missing.push("Imagen");
+    if (missing.length > 0) {
+      window.alert(`Faltan campos: ${missing.join(", ")}`);
+      return;
+    }
     setSaving(true);
 
     const post: BlogPost = {
@@ -191,7 +205,6 @@ const BlogAdmin = () => {
                 rows={3}
                 value={excerpt}
                 onChange={(event) => setExcerpt(event.target.value)}
-                required
               />
             </div>
 
@@ -234,7 +247,6 @@ const BlogAdmin = () => {
                     value={contentHtml}
                     onChange={(event) => setContentHtml(event.target.value)}
                     placeholder="Pega aquí tu HTML..."
-                    required
                   />
                   <div className="rounded-lg border border-border bg-card p-4">
                     <div className="text-xs text-muted-foreground mb-2">Vista previa</div>
@@ -254,7 +266,6 @@ const BlogAdmin = () => {
                 accept="image/*"
                 className="mt-2 block w-full text-sm text-muted-foreground"
                 onChange={handleImageChange}
-                required
               />
               {image && (
                 <div className="mt-4 overflow-hidden rounded-xl border border-border bg-card">
