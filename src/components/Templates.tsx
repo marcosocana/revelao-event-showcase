@@ -46,7 +46,7 @@ const TemplateCard = ({ template }: { template: typeof templates[0] }) => (
 
 export const Templates = () => {
   return (
-    <section className="py-12 md:py-24 bg-muted/30" id="plantillas">
+    <section className="py-12 md:py-24 bg-primary/5" id="plantillas">
       <div className="container px-4 mx-auto">
         <div className="max-w-6xl mx-auto">
           <div className="mb-12 text-center animate-fade-in">

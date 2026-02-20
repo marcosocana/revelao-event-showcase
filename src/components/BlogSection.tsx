@@ -13,7 +13,7 @@ export const BlogSection = () => {
   const canShowMore = visibleCount < allPosts.length;
 
   return (
-    <section id="blog" className="py-16 bg-primary/5">
+    <section id="blog" className="py-16 bg-background">
       <div className="container px-4 mx-auto">
       <div className="mb-12 text-center animate-fade-in">
         <h2 className="font-bold mb-4 text-foreground md:text-5xl text-3xl">

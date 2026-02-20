@@ -27,9 +27,12 @@ export const Navbar = () => {
               <a href="#precio" className="text-muted-foreground hover:text-foreground transition-colors">
                 Precio
               </a>
-              <a href="#faqs" className="text-muted-foreground hover:text-foreground transition-colors">
-                FAQs
-              </a>
+            <a href="#blog" className="text-muted-foreground hover:text-foreground transition-colors">
+              Blog
+            </a>
+            <a href="#faqs" className="text-muted-foreground hover:text-foreground transition-colors">
+              FAQs
+            </a>
             </div>
           </div>
 
@@ -41,7 +44,7 @@ export const Navbar = () => {
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
-              Accede a tu Evento
+              Accede a tu evento
             </a>
             <Button 
               size="sm" 

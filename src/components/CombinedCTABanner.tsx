@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 export const CombinedCTABanner = () => {
-  return <section className="py-8 md:py-16">
+  return <section className="py-8 md:py-16 bg-primary/5">
       <div className="container px-4 mx-auto">
         <div className="grid md:grid-cols-2 gap-4 md:gap-0 max-w-6xl mx-auto">
           {/* Left side - Contact/Questions CTA */}

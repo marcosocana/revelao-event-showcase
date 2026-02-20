@@ -1,5 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const baseFeatures = [
   "Fotos ilimitadas",
@@ -10,6 +17,15 @@ const baseFeatures = [
 ];
 
 const plans = [
+  {
+    title: "Demo",
+    guests: 10,
+    price: "0€",
+    costPerGuest: "0€",
+    stripeUrl: "https://acceso.revelao.cam/nuevoeventodemo",
+    cta: "Pruébalo gratis",
+    subtitle: "Solo 10 fotos",
+  },
   {
     title: "Pequeño",
     guests: 50,
@@ -47,6 +63,55 @@ const plans = [
 ];
 
 const whatsappMessage = "Hola! Estoy interesado en contratar Revelao.cam. ¿Puedes darme más información?";
+
+const PlanCard = ({ plan }: { plan: (typeof plans)[0] }) => (
+  <div
+    className={[
+      "relative revelao-card p-5 md:p-6",
+      plan.featured ? "border-primary/40 bg-primary/5 shadow-[0_20px_60px_-30px_rgba(180,38,38,0.35)]" : "border-border",
+    ].join(" ")}
+  >
+    {plan.badge ? (
+      <span className="absolute right-5 top-5 rounded-full bg-primary text-primary-foreground text-xs font-semibold px-3 py-1">
+        {plan.badge}
+      </span>
+    ) : null}
+
+    <div className="mb-5">
+      <h3 className="text-xl font-semibold text-foreground mb-1">{plan.title}</h3>
+      <p className="text-sm text-muted-foreground">
+        {plan.subtitle ? plan.subtitle : `Hasta ${plan.guests} invitados`}
+      </p>
+      <div className="flex items-end gap-2 mt-3">
+        <span className="text-4xl font-bold text-foreground">{plan.price}</span>
+        <span className="text-sm text-muted-foreground pb-1">/evento</span>
+      </div>
+      <p className="text-sm text-muted-foreground mt-2">
+        {plan.costPerGuest} por invitado
+      </p>
+    </div>
+
+    <ul className="space-y-2.5 mb-5">
+      {baseFeatures.map((feature) => (
+        <li key={feature} className="flex items-start gap-3">
+          <Check className="w-4 h-4 flex-shrink-0 mt-0.5 text-primary" />
+          <span className="text-sm text-foreground">{feature}</span>
+        </li>
+      ))}
+    </ul>
+
+    <Button
+      className="w-full"
+      variant={plan.featured ? "default" : "outline"}
+      asChild
+    >
+      <a href={plan.stripeUrl} target="_blank" rel="noopener noreferrer">
+        {plan.cta}
+      </a>
+    </Button>
+  </div>
+);
+
 export const Pricing = () => {
   return <section className="py-10 md:py-16 bg-muted/30" id="precio">
       <div className="container px-4 mx-auto">
@@ -59,54 +124,28 @@ export const Pricing = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-5 max-w-6xl mx-auto">
+        {/* Desktop grid */}
+        <div className="hidden md:grid grid-cols-3 xl:grid-cols-5 gap-4 md:gap-5 max-w-6xl mx-auto">
           {plans.map((plan, index) => (
-            <div
-              key={plan.title}
-              className={[
-                "relative revelao-card p-5 md:p-6",
-                plan.featured ? "border-primary/40 bg-primary/5 shadow-[0_20px_60px_-30px_rgba(180,38,38,0.35)]" : "border-border",
-              ].join(" ")}
-              style={{ animationDelay: `${index * 120}ms` }}
-            >
-              {plan.badge ? (
-                <span className="absolute right-5 top-5 rounded-full bg-primary text-primary-foreground text-xs font-semibold px-3 py-1">
-                  {plan.badge}
-                </span>
-              ) : null}
-
-              <div className="mb-5">
-                <h3 className="text-xl font-semibold text-foreground mb-1">{plan.title}</h3>
-                <p className="text-sm text-muted-foreground">Hasta {plan.guests} invitados</p>
-                <div className="flex items-end gap-2 mt-3">
-                  <span className="text-4xl font-bold text-foreground">{plan.price}</span>
-                  <span className="text-sm text-muted-foreground pb-1">/evento</span>
-                </div>
-                <p className="text-sm text-muted-foreground mt-2">
-                  {plan.costPerGuest} por invitado
-                </p>
-              </div>
-
-              <ul className="space-y-2.5 mb-5">
-                {baseFeatures.map((feature) => (
-                  <li key={feature} className="flex items-start gap-3">
-                    <Check className="w-4 h-4 flex-shrink-0 mt-0.5 text-primary" />
-                    <span className="text-sm text-foreground">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <Button
-                className="w-full"
-                variant={plan.featured ? "default" : "outline"}
-                asChild
-              >
-                <a href={plan.stripeUrl} target="_blank" rel="noopener noreferrer">
-                  {plan.cta}
-                </a>
-              </Button>
+            <div key={plan.title} style={{ animationDelay: `${index * 120}ms` }}>
+              <PlanCard plan={plan} />
             </div>
           ))}
+        </div>
+
+        {/* Mobile carousel */}
+        <div className="md:hidden">
+          <Carousel className="w-full">
+            <CarouselContent>
+              {plans.map((plan) => (
+                <CarouselItem key={plan.title}>
+                  <PlanCard plan={plan} />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
         </div>
 
         <div className="text-center mt-6 text-sm text-muted-foreground">
