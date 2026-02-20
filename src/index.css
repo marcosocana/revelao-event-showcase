@@ -109,8 +109,9 @@ All colors MUST be HSL.
     scroll-behavior: smooth;
   }
 
-  body {
+  html, body {
     @apply bg-background text-foreground overflow-x-hidden;
+    touch-action: pan-y;
   }
 }
 
