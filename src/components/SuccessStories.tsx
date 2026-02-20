@@ -129,7 +129,7 @@ export const SuccessStories = () => {
         <div className="md:hidden">
           <Carousel 
             setApi={setApi} 
-            className="max-w-sm mx-auto" 
+            className="w-full" 
             opts={{
               align: "start",
               loop: true
@@ -137,7 +137,7 @@ export const SuccessStories = () => {
           >
             <CarouselContent>
               {mobileStories.map((story, index) => (
-                <CarouselItem key={index}>
+                <CarouselItem key={index} className="basis-[85%] pr-4">
                   <div className="revelao-card">
                     <div className="aspect-video overflow-hidden">
                       <img 

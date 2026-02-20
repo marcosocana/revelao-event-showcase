@@ -66,11 +66,11 @@ export const Templates = () => {
           </div>
 
           {/* Mobile Carousel */}
-          <div className="md:hidden px-8">
-            <Carousel className="w-full">
+          <div className="md:hidden px-4">
+            <Carousel className="w-full" opts={{ align: "start" }}>
               <CarouselContent>
                 {templates.map((template) => (
-                  <CarouselItem key={template.id}>
+                  <CarouselItem key={template.id} className="basis-[85%] pr-4">
                     <TemplateCard template={template} />
                   </CarouselItem>
                 ))}

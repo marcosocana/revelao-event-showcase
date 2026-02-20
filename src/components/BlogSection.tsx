@@ -1,6 +1,13 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import { getBlogPosts } from "@/lib/blogStore";
 
 const INITIAL_COUNT = 3;
@@ -24,12 +31,10 @@ export const BlogSection = () => {
         </p>
       </div>
 
-      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      {/* Desktop grid */}
+      <div className="hidden md:grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {posts.map((post) => (
-          <article
-            key={post.slug}
-            className="revelao-card"
-          >
+          <article key={post.slug} className="revelao-card">
             <div className="aspect-video overflow-hidden">
               <img
                 src={post.image}
@@ -55,6 +60,45 @@ export const BlogSection = () => {
             </div>
           </article>
         ))}
+      </div>
+
+      {/* Mobile carousel */}
+      <div className="md:hidden">
+        <Carousel className="w-full" opts={{ align: "start" }}>
+          <CarouselContent>
+            {posts.map((post) => (
+              <CarouselItem key={post.slug} className="basis-[85%] pr-4">
+                <article className="revelao-card">
+                  <div className="aspect-video overflow-hidden">
+                    <img
+                      src={post.image}
+                      alt={post.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-lg font-semibold text-foreground">
+                      {post.title}
+                    </h3>
+                    <p className="mt-3 text-muted-foreground leading-relaxed">
+                      {post.excerpt}
+                    </p>
+                    <div className="mt-5">
+                      <Link
+                        to={`/blog/${post.slug}`}
+                        className="inline-flex h-10 items-center justify-center rounded-md border border-input bg-background px-4 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
+                      >
+                        Leer más
+                      </Link>
+                    </div>
+                  </div>
+                </article>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="left-2" />
+          <CarouselNext className="right-2" />
+        </Carousel>
       </div>
 
       {canShowMore && (

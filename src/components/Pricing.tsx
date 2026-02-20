@@ -135,10 +135,10 @@ export const Pricing = () => {
 
         {/* Mobile carousel */}
         <div className="md:hidden">
-          <Carousel className="w-full">
+          <Carousel className="w-full" opts={{ align: "start" }}>
             <CarouselContent>
               {plans.map((plan) => (
-                <CarouselItem key={plan.title}>
+                <CarouselItem key={plan.title} className="basis-[85%] pr-4">
                   <PlanCard plan={plan} />
                 </CarouselItem>
               ))}

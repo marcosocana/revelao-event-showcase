@@ -183,6 +183,6 @@ All colors MUST be HSL.
   }
 
   .revelao-card {
-    @apply bg-card border border-border rounded-2xl shadow-sm overflow-hidden transition-transform duration-300 hover:-translate-y-1;
+    @apply bg-card border border-border rounded-2xl shadow-sm overflow-hidden transition-transform duration-300 md:hover:-translate-y-1;
   }
 }
