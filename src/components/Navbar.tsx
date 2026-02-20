@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import icon from "@/assets/ico.png";
+import logoMini from "@/assets/logo-mini.png";
 export const Navbar = () => {
   return <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
       <div className="container px-4 mx-auto">
@@ -7,8 +8,9 @@ export const Navbar = () => {
           {/* Left: Logo */}
           <div className="flex items-center">
             <a href="#inicio" className="flex items-center gap-3">
-              <img src={icon} alt="Revelao" className="h-8 w-auto" />
-              <span className="text-xl font-bold text-foreground">Revelao.cam</span>
+              <img src={icon} alt="Revelao" className="h-8 w-auto hidden md:block" />
+              <img src={logoMini} alt="Revelao" className="h-8 w-auto md:hidden" />
+              <span className="text-xl font-bold text-foreground hidden md:inline">Revelao.cam</span>
             </a>
           </div>
 
@@ -58,15 +60,25 @@ export const Navbar = () => {
           </div>
 
           {/* Mobile CTA Button */}
-          <Button 
-            size="sm" 
-            className="md:hidden ml-auto bg-primary text-primary-foreground hover:bg-primary/90"
-            asChild
-          >
-            <a href="https://acceso.revelao.cam/nuevoeventodemo" target="_blank" rel="noopener noreferrer">
-              Prueba gratis
+          <div className="md:hidden ml-auto flex items-center gap-3">
+            <a
+              href="https://acceso.revelao.cam"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Acceder
             </a>
-          </Button>
+            <Button
+              size="sm"
+              className="bg-primary text-primary-foreground hover:bg-primary/90"
+              asChild
+            >
+              <a href="https://acceso.revelao.cam/nuevoeventodemo" target="_blank" rel="noopener noreferrer">
+                Probar gratis
+              </a>
+            </Button>
+          </div>
         </div>
       </div>
     </nav>;
