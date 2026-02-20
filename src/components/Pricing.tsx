@@ -101,8 +101,7 @@ const PlanCard = ({ plan }: { plan: (typeof plans)[0] }) => (
     </ul>
 
     <Button
-      className="w-full"
-      variant={plan.featured ? "default" : "outline"}
+      className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
       asChild
     >
       <a href={plan.stripeUrl} target="_blank" rel="noopener noreferrer">
