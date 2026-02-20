@@ -47,7 +47,7 @@ const TemplateCard = ({ template }: { template: typeof templates[0] }) => (
 export const Templates = () => {
   return (
     <section className="py-12 md:py-24 bg-primary/5" id="plantillas">
-      <div className="container px-4 mx-auto">
+      <div className="container px-4 mx-auto container-mobile-right-edge">
         <div className="max-w-6xl mx-auto">
           <div className="mb-12 text-center animate-fade-in">
             <h2 className="font-bold mb-4 text-foreground md:text-5xl text-3xl">
@@ -66,17 +66,15 @@ export const Templates = () => {
           </div>
 
           {/* Mobile Carousel */}
-          <div className="md:hidden px-4">
+          <div className="md:hidden px-0">
             <Carousel className="w-full" opts={{ align: "start" }}>
-              <CarouselContent>
+              <CarouselContent className="ml-0 gap-3">
                 {templates.map((template) => (
-                  <CarouselItem key={template.id} className="basis-[85%] pr-4">
+                  <CarouselItem key={template.id} className="basis-[77%] pl-0">
                     <TemplateCard template={template} />
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious />
-              <CarouselNext />
             </Carousel>
           </div>
         </div>

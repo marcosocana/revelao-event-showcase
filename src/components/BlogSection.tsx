@@ -21,7 +21,7 @@ export const BlogSection = () => {
 
   return (
     <section id="blog" className="py-16 bg-background">
-      <div className="container px-4 mx-auto">
+      <div className="container px-4 mx-auto container-mobile-right-edge">
       <div className="mb-12 text-center animate-fade-in">
         <h2 className="font-bold mb-4 text-foreground md:text-5xl text-3xl">
           Blog
@@ -65,9 +65,9 @@ export const BlogSection = () => {
       {/* Mobile carousel */}
       <div className="md:hidden">
         <Carousel className="w-full" opts={{ align: "start" }}>
-          <CarouselContent>
+          <CarouselContent className="ml-0 gap-3">
             {posts.map((post) => (
-              <CarouselItem key={post.slug} className="basis-[85%] pr-4">
+              <CarouselItem key={post.slug} className="basis-[77%] pl-0">
                 <article className="revelao-card">
                   <div className="aspect-video overflow-hidden">
                     <img
@@ -96,8 +96,6 @@ export const BlogSection = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="left-2" />
-          <CarouselNext className="right-2" />
         </Carousel>
       </div>
 

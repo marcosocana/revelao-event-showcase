@@ -83,10 +83,10 @@ export const SuccessStories = () => {
 
   return (
     <section ref={sectionRef} className="py-12 md:py-24 bg-background" id="casos-de-exito">
-      <div className="container px-4 mx-auto">
+      <div className="container px-4 mx-auto container-mobile-right-edge">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl md:text-5xl font-bold mb-4 text-foreground">
-            Lo que dicen nuestros usuarios
+            Lo que dicen de nosotros
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Eventos que crearon expectación y capturaron momentos únicos
@@ -135,9 +135,9 @@ export const SuccessStories = () => {
               loop: true
             }}
           >
-            <CarouselContent>
+            <CarouselContent className="ml-0 gap-3">
               {mobileStories.map((story, index) => (
-                <CarouselItem key={index} className="basis-[85%] pr-4">
+                <CarouselItem key={index} className="basis-[77%] pl-0">
                   <div className="revelao-card">
                     <div className="aspect-video overflow-hidden">
                       <img 
@@ -163,8 +163,6 @@ export const SuccessStories = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="left-2" />
-            <CarouselNext className="right-2" />
           </Carousel>
         </div>
       </div>

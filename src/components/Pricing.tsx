@@ -114,7 +114,7 @@ const PlanCard = ({ plan }: { plan: (typeof plans)[0] }) => (
 
 export const Pricing = () => {
   return <section className="py-10 md:py-16 bg-muted/30" id="precio">
-      <div className="container px-4 mx-auto">
+      <div className="container px-4 mx-auto container-mobile-right-edge">
         <div className="text-center mb-8 md:mb-10 animate-fade-in">
           <h2 className="font-bold mb-2 text-foreground md:text-5xl text-center text-3xl">
             Precio
@@ -136,15 +136,13 @@ export const Pricing = () => {
         {/* Mobile carousel */}
         <div className="md:hidden">
           <Carousel className="w-full" opts={{ align: "start" }}>
-            <CarouselContent>
+            <CarouselContent className="ml-0 gap-3">
               {plans.map((plan) => (
-                <CarouselItem key={plan.title} className="basis-[85%] pr-4">
+                <CarouselItem key={plan.title} className="basis-[77%] pl-0">
                   <PlanCard plan={plan} />
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="left-2" />
-            <CarouselNext className="right-2" />
           </Carousel>
         </div>
 
