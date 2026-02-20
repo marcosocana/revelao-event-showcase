@@ -47,6 +47,14 @@ const mobileStories = [
   },
 ];
 
+const MAX_TITLE_CHARS = 76;
+const MAX_DESC_CHARS = 118;
+
+const truncateText = (text: string, maxChars: number) => {
+  if (text.length <= maxChars) return text;
+  return `${text.slice(0, Math.max(0, maxChars - 3)).trimEnd()}...`;
+};
+
 export const SuccessStories = () => {
   const [api, setApi] = useState<CarouselApi>();
   const sectionRef = useRef<HTMLElement>(null);
@@ -112,13 +120,15 @@ export const SuccessStories = () => {
               <div className="p-8">
                 <div className="mb-4">
                   <p className="text-foreground leading-relaxed mb-4">
-                    {story.quote}
+                    {truncateText(story.quote, MAX_DESC_CHARS)}
                   </p>
                 </div>
                 
                 <div className="pt-4 border-t border-border">
                   <p className="font-semibold text-foreground">{story.author}</p>
-                  <p className="text-sm text-muted-foreground">{story.event}</p>
+                  <p className="text-sm text-muted-foreground">
+                    {truncateText(story.event, MAX_TITLE_CHARS)}
+                  </p>
                 </div>
               </div>
             </div>
@@ -150,13 +160,15 @@ export const SuccessStories = () => {
                     <div className="p-8">
                       <div className="mb-4">
                         <p className="text-foreground leading-relaxed mb-4">
-                          {story.quote}
+                          {truncateText(story.quote, MAX_DESC_CHARS)}
                         </p>
                       </div>
                       
                       <div className="pt-4 border-t border-border">
                         <p className="font-semibold text-foreground">{story.author}</p>
-                        <p className="text-sm text-muted-foreground">{story.event}</p>
+                        <p className="text-sm text-muted-foreground">
+                          {truncateText(story.event, MAX_TITLE_CHARS)}
+                        </p>
                       </div>
                     </div>
                   </div>
