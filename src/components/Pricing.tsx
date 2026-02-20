@@ -68,11 +68,12 @@ const PlanCard = ({ plan }: { plan: (typeof plans)[0] }) => (
   <div
     className={[
       "relative revelao-card p-5 md:p-6",
+      plan.badge ? "pt-9" : "",
       plan.featured ? "border-primary/40 bg-primary/5 shadow-[0_20px_60px_-30px_rgba(180,38,38,0.35)]" : "border-border",
     ].join(" ")}
   >
     {plan.badge ? (
-      <span className="absolute right-5 top-5 rounded-full bg-primary text-primary-foreground text-xs font-semibold px-3 py-1">
+      <span className="absolute right-4 top-4 rounded-full bg-primary text-primary-foreground text-xs font-semibold px-3 py-1">
         {plan.badge}
       </span>
     ) : null}
@@ -124,7 +125,7 @@ export const Pricing = () => {
         </div>
 
         {/* Desktop grid */}
-        <div className="hidden md:grid grid-cols-3 xl:grid-cols-5 gap-4 md:gap-5 max-w-6xl mx-auto">
+        <div className="hidden md:grid grid-cols-3 xl:grid-cols-5 gap-4 md:gap-6 max-w-7xl mx-auto">
           {plans.map((plan, index) => (
             <div key={plan.title} style={{ animationDelay: `${index * 120}ms` }}>
               <PlanCard plan={plan} />
@@ -142,8 +143,8 @@ export const Pricing = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
+            <CarouselPrevious className="left-2" />
+            <CarouselNext className="right-2" />
           </Carousel>
         </div>
 
