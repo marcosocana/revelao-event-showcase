@@ -4,7 +4,7 @@ export const CombinedCTABanner = () => {
       <div className="container px-4 mx-auto">
         <div className="grid md:grid-cols-2 gap-4 md:gap-0 max-w-6xl mx-auto">
           {/* Left side - Contact/Questions CTA */}
-          <div className="text-center md:text-left bg-primary p-8 md:p-12 md:rounded-l-lg">
+          <div className="revelao-card text-center md:text-left bg-primary p-8 md:p-12 md:rounded-r-none md:rounded-l-2xl">
             <h3 className="text-2xl md:text-3xl font-bold mb-4 text-white">
               ¿Sigues teniendo dudas?
             </h3>
@@ -17,7 +17,7 @@ export const CombinedCTABanner = () => {
           </div>
 
           {/* Right side - Access CTA */}
-          <div className="text-center md:text-left bg-muted p-8 md:p-12 md:rounded-r-lg">
+          <div className="revelao-card text-center md:text-left bg-muted p-8 md:p-12 md:rounded-l-none md:rounded-r-2xl">
             <h3 className="text-2xl md:text-3xl font-bold mb-4 text-foreground">
               ¿Ya has creado tu evento?
             </h3>

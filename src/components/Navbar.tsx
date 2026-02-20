@@ -27,6 +27,9 @@ export const Navbar = () => {
             <a href="#faqs" className="text-muted-foreground hover:text-foreground transition-colors">
               Preguntas frecuentes
             </a>
+            <a href="/#blog" className="text-muted-foreground hover:text-foreground transition-colors">
+              Blog
+            </a>
             <Button 
               size="sm" 
               className="bg-primary text-primary-foreground hover:bg-primary/90"

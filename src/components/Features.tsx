@@ -58,7 +58,7 @@ export const Features = () => {
   }, [api, isVisible]);
 
   return (
-    <section ref={sectionRef} className="py-12 md:py-24 bg-secondary/50" id="como-funciona">
+    <section ref={sectionRef} className="py-12 md:py-24 bg-muted/30" id="como-funciona">
       <div className="container px-4 mx-auto">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl md:text-5xl font-bold mb-4 text-foreground">
@@ -67,77 +67,99 @@ export const Features = () => {
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Explora la experiencia Revelao en solo 4 pasos:</p>
         </div>
 
-        {/* Desktop Layout */}
-        <div className="hidden md:grid grid-cols-4 gap-6 max-w-6xl mx-auto">
-          {features.map((feature, index) => (
-            <div key={index} className="flex flex-col items-center text-center animate-fade-in" style={{
-              animationDelay: `${index * 150}ms`
-            }}>
-              {/* Number */}
-              <div className="w-10 h-10 rounded-full bg-foreground flex items-center justify-center text-background text-lg font-bold mb-3">
-                {index + 1}
-              </div>
+        <div className="revelao-card px-6 py-8 md:px-10 md:py-12">
+          {/* Desktop Layout */}
+          <div className="hidden md:grid grid-cols-4 gap-6 max-w-6xl mx-auto">
+            {features.map((feature, index) => (
+              <div key={index} className="flex flex-col items-center text-center animate-fade-in" style={{
+                animationDelay: `${index * 150}ms`
+              }}>
+                {/* Number */}
+                <div className="w-10 h-10 rounded-full bg-foreground flex items-center justify-center text-background text-lg font-bold mb-3">
+                  {index + 1}
+                </div>
 
-              {/* Image */}
-              <div className="w-40 h-40 mb-4 flex items-center justify-center">
-                <img 
-                  src={feature.image} 
-                  alt={feature.title} 
-                  className="w-full h-full object-contain"
-                />
+                {/* Image */}
+                <div className="w-40 h-40 mb-4 flex items-center justify-center">
+                  <img 
+                    src={feature.image} 
+                    alt={feature.title} 
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                
+                {/* Text */}
+                <h3 className="text-base font-bold mb-2 text-foreground">
+                  {feature.title}
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {feature.description}
+                </p>
               </div>
-              
-              {/* Text */}
-              <h3 className="text-base font-bold mb-2 text-foreground">
-                {feature.title}
-              </h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                {feature.description}
-              </p>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          {/* Mobile Layout - Carousel */}
+          <div className="md:hidden">
+            <Carousel setApi={setApi} className="max-w-sm mx-auto" opts={{
+              align: "start",
+              loop: true
+            }}>
+              <CarouselContent>
+                {features.map((feature, index) => (
+                  <CarouselItem key={index}>
+                    <div className="flex flex-col items-center text-center gap-4 p-4">
+                      {/* Number */}
+                      <div className="w-14 h-14 rounded-full bg-foreground flex items-center justify-center text-background text-xl font-bold">
+                        {index + 1}
+                      </div>
+
+                      {/* Image */}
+                      <div className="w-40 h-40 flex items-center justify-center">
+                        <img 
+                          src={feature.image} 
+                          alt={feature.title} 
+                          className="w-full h-full object-contain"
+                        />
+                      </div>
+                      
+                      {/* Text */}
+                      <div>
+                        <h3 className="text-lg font-bold mb-2 text-foreground">
+                          {feature.title}
+                        </h3>
+                        <p className="text-muted-foreground leading-relaxed text-sm">
+                          {feature.description}
+                        </p>
+                      </div>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="left-2" />
+              <CarouselNext className="right-2" />
+            </Carousel>
+          </div>
         </div>
 
-        {/* Mobile Layout - Carousel */}
-        <div className="md:hidden">
-          <Carousel setApi={setApi} className="max-w-sm mx-auto" opts={{
-            align: "start",
-            loop: true
-          }}>
-            <CarouselContent>
-              {features.map((feature, index) => (
-                <CarouselItem key={index}>
-                  <div className="flex flex-col items-center text-center gap-4 p-4">
-                    {/* Number */}
-                    <div className="w-14 h-14 rounded-full bg-foreground flex items-center justify-center text-background text-xl font-bold">
-                      {index + 1}
-                    </div>
-
-                    {/* Image */}
-                    <div className="w-40 h-40 flex items-center justify-center">
-                      <img 
-                        src={feature.image} 
-                        alt={feature.title} 
-                        className="w-full h-full object-contain"
-                      />
-                    </div>
-                    
-                    {/* Text */}
-                    <div>
-                      <h3 className="text-lg font-bold mb-2 text-foreground">
-                        {feature.title}
-                      </h3>
-                      <p className="text-muted-foreground leading-relaxed text-sm">
-                        {feature.description}
-                      </p>
-                    </div>
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious className="left-2" />
-            <CarouselNext className="right-2" />
-          </Carousel>
+        <div id="video-demo" className="mt-8 md:mt-12 revelao-card bg-primary/5 px-6 py-8 md:px-10 md:py-12">
+          <div className="max-w-4xl mx-auto">
+            <div className="revelao-card bg-black/95 ring-1 ring-primary/30">
+              <div className="aspect-video w-full overflow-hidden">
+                <iframe
+                  src="https://www.youtube.com/embed/_VakaDTWYJA"
+                  title="Revelao - Video demostración"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="w-full h-full"
+                />
+              </div>
+            </div>
+            <div className="mt-6 flex flex-col items-center gap-3 text-sm text-muted-foreground">
+              <span className="font-semibold text-foreground">Activa el sonido y siente el hype del revelado.</span>
+              <span>Ideal para bodas, cumpleaños y eventos corporativos.</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>

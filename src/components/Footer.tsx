@@ -18,6 +18,9 @@ export const Footer = () => {
             <a href="#casos-de-exito" className="hover:text-foreground transition-colors">
               Casos de éxito
             </a>
+            <a href="/#blog" className="hover:text-foreground transition-colors">
+              Blog
+            </a>
             <a href="https://tomorrow-snap-reveal.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">
               Acceso
             </a>
@@ -27,7 +30,10 @@ export const Footer = () => {
           </div>
 
           <p className="text-sm text-muted-foreground">
-            © 2025 Revelao.cam
+            <a href="/blog/admin" className="hover:text-foreground transition-colors">
+              ©
+            </a>{" "}
+            2026 Revelao.cam
           </p>
         </div>
       </div>

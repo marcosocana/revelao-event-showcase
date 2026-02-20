@@ -3,7 +3,7 @@ import { Sparkles, Gift } from "lucide-react";
 
 export const FreeTrial = () => {
   return (
-    <section className="py-12 md:py-20 bg-primary/5">
+    <section className="py-12 md:py-20 bg-background">
       <div className="container px-4 mx-auto">
         <div className="max-w-2xl mx-auto text-center">
           <div className="inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-full bg-primary/10 mb-6">

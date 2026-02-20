@@ -64,8 +64,7 @@ export const Pricing = () => {
             <div
               key={plan.title}
               className={[
-                "relative rounded-2xl border bg-card p-5 md:p-6 shadow-sm transition-transform duration-300",
-                "hover:-translate-y-1",
+                "relative revelao-card p-5 md:p-6",
                 plan.featured ? "border-primary/40 bg-primary/5 shadow-[0_20px_60px_-30px_rgba(180,38,38,0.35)]" : "border-border",
               ].join(" ")}
               style={{ animationDelay: `${index * 120}ms` }}

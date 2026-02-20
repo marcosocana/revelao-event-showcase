@@ -82,7 +82,7 @@ export const SuccessStories = () => {
   }, [api, isVisible]);
 
   return (
-    <section ref={sectionRef} className="py-12 md:py-24 bg-secondary/50" id="casos-de-exito">
+    <section ref={sectionRef} className="py-12 md:py-24 bg-background" id="casos-de-exito">
       <div className="container px-4 mx-auto">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl md:text-5xl font-bold mb-4 text-foreground">
@@ -98,7 +98,7 @@ export const SuccessStories = () => {
           {stories.map((story, index) => (
             <div
               key={index}
-              className="bg-card rounded-lg border border-border overflow-hidden animate-fade-in"
+              className="revelao-card animate-fade-in"
               style={{ animationDelay: `${index * 150}ms` }}
             >
               <div className="aspect-video overflow-hidden">
@@ -138,7 +138,7 @@ export const SuccessStories = () => {
             <CarouselContent>
               {mobileStories.map((story, index) => (
                 <CarouselItem key={index}>
-                  <div className="bg-card rounded-lg border border-border overflow-hidden">
+                  <div className="revelao-card">
                     <div className="aspect-video overflow-hidden">
                       <img 
                         src={story.image} 
