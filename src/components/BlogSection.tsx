@@ -12,6 +12,13 @@ import { getBlogPosts } from "@/lib/blogStore";
 
 const INITIAL_COUNT = 3;
 const MORE_COUNT = 3;
+const MAX_BLOG_TITLE_CHARS = 76;
+const MAX_BLOG_DESC_CHARS = 118;
+
+const truncateText = (text: string, maxChars: number) => {
+  if (text.length <= maxChars) return text;
+  return `${text.slice(0, Math.max(0, maxChars - 3)).trimEnd()}...`;
+};
 
 export const BlogSection = () => {
   const [visibleCount, setVisibleCount] = useState(INITIAL_COUNT);
@@ -44,10 +51,10 @@ export const BlogSection = () => {
             </div>
             <div className="p-8">
               <h3 className="text-xl font-semibold text-foreground">
-                {post.title}
+                {truncateText(post.title, MAX_BLOG_TITLE_CHARS)}
               </h3>
               <p className="mt-3 text-muted-foreground leading-relaxed">
-                {post.excerpt}
+                {truncateText(post.excerpt, MAX_BLOG_DESC_CHARS)}
               </p>
               <div className="mt-6">
                 <Link
@@ -78,10 +85,10 @@ export const BlogSection = () => {
                   </div>
                   <div className="p-6">
                     <h3 className="text-lg font-semibold text-foreground">
-                      {post.title}
+                      {truncateText(post.title, MAX_BLOG_TITLE_CHARS)}
                     </h3>
                     <p className="mt-3 text-muted-foreground leading-relaxed">
-                      {post.excerpt}
+                      {truncateText(post.excerpt, MAX_BLOG_DESC_CHARS)}
                     </p>
                     <div className="mt-5">
                       <Link
