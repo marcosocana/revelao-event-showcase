@@ -3,51 +3,25 @@ import birthdayImg from "@/assets/testimonial-birthday.jpg";
 import corporateImg from "@/assets/testimonial-corporate.jpg";
 import { useEffect, useState, useRef } from "react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from "@/components/ui/carousel";
+import { useI18n, translations } from "@/lib/i18n";
 
-const stories = [
-  {
-    event: "Boda de Laura y Carlos",
-    quote: "Las fotos anónimas crearon un ambiente mágico. Al día siguiente todos estábamos pegados al móvil esperando la revelación.",
-    author: "Laura M.",
-    image: weddingImg,
-  },
-  {
-    event: "Cumpleaños de 30",
-    quote: "Mis amigos se volvieron locos subiendo fotos. No saber qué había capturado cada uno hizo la espera insoportable (en el buen sentido).",
-    author: "Diego R.",
-    image: birthdayImg,
-  },
-  {
-    event: "Cena de empresa",
-    quote: "Usamos Revelao.cam en nuestro evento corporativo. El nivel de participación fue increíble, todo el equipo involucrado.",
-    author: "Ana S., HR Manager",
-    image: corporateImg,
-  },
-];
-
-const mobileStories = [
-  ...stories,
-  {
-    event: "Fiesta de graduación",
-    quote: "Todos mis compañeros participaron activamente. La expectación por ver las fotos al día siguiente fue increíble.",
-    author: "María G.",
-    image: birthdayImg,
-  },
-  {
-    event: "Aniversario de 25 años",
-    quote: "Una forma única de capturar momentos especiales. Nuestros invitados no pararon de hacer fotos durante toda la celebración.",
-    author: "Roberto P.",
-    image: weddingImg,
-  },
-  {
-    event: "Evento de networking",
-    quote: "Revelao rompió el hielo de forma natural. Todo el mundo quería participar y ver qué fotos habían capturado los demás.",
-    author: "Claudia T.",
-    image: corporateImg,
-  },
-];
+const baseImages = [weddingImg, birthdayImg, corporateImg];
+const extraImages = [birthdayImg, weddingImg, corporateImg];
 
 export const SuccessStories = () => {
+  const { lang } = useI18n();
+  const t = translations[lang];
+  const stories = t.stories.items.map((item, index) => ({
+    ...item,
+    image: baseImages[index],
+  }));
+  const mobileStories = [
+    ...stories,
+    ...t.stories.itemsMobileExtra.map((item, index) => ({
+      ...item,
+      image: extraImages[index],
+    })),
+  ];
   const [api, setApi] = useState<CarouselApi>();
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -86,10 +60,10 @@ export const SuccessStories = () => {
       <div className="container px-4 mx-auto container-mobile-right-edge">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl md:text-5xl font-bold mb-4 text-foreground">
-            Lo que dicen de nosotros
+            {t.stories.title}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Eventos que crearon expectación y capturaron momentos únicos
+            {t.stories.subtitle}
           </p>
         </div>
 

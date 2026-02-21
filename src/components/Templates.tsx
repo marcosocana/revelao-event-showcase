@@ -11,6 +11,7 @@ import template1 from "@/assets/template-1.png";
 import template2 from "@/assets/template-2.png";
 import template3 from "@/assets/template-3.png";
 import template4 from "@/assets/template-4.png";
+import { useI18n, translations } from "@/lib/i18n";
 
 const templates = [
   { id: 1, title: "Julia y Alex", image: template1, downloadUrl: template1 },
@@ -19,7 +20,7 @@ const templates = [
   { id: 4, title: "Christmas Album", image: template4, downloadUrl: template4 },
 ];
 
-const TemplateCard = ({ template }: { template: typeof templates[0] }) => (
+const TemplateCard = ({ template }: { template: typeof templates[0] & { cta: string } }) => (
   <div className="revelao-card">
     <div className="aspect-[3/4] bg-background overflow-hidden">
       <img 
@@ -37,7 +38,7 @@ const TemplateCard = ({ template }: { template: typeof templates[0] }) => (
       >
         <Button className="w-full" variant="outline" size="sm">
           <Download className="w-4 h-4 mr-2" />
-          Descargar
+          {template.cta}
         </Button>
       </a>
     </div>
@@ -45,22 +46,28 @@ const TemplateCard = ({ template }: { template: typeof templates[0] }) => (
 );
 
 export const Templates = () => {
+  const { lang } = useI18n();
+  const t = translations[lang];
+  const templatesWithCta = templates.map((template) => ({
+    ...template,
+    cta: t.templates.cta,
+  }));
   return (
     <section className="py-12 md:py-24 bg-primary/5" id="plantillas">
       <div className="container px-4 mx-auto container-mobile-right-edge">
         <div className="max-w-6xl mx-auto">
           <div className="mb-12 text-center animate-fade-in">
             <h2 className="font-bold mb-4 text-foreground md:text-5xl text-3xl">
-              Plantillas personalizadas
+              {t.templates.title}
             </h2>
             <p className="text-base text-muted-foreground md:text-xl max-w-3xl mx-auto">
-              Descarga carteles con código QR para tu evento. Si no sabes cómo hacerlo, te lo hacemos nosotros de forma gratuita
+              {t.templates.subtitle}
             </p>
           </div>
 
           {/* Desktop Grid */}
           <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-6">
-            {templates.map((template) => (
+            {templatesWithCta.map((template) => (
               <TemplateCard key={template.id} template={template} />
             ))}
           </div>
@@ -69,7 +76,7 @@ export const Templates = () => {
           <div className="md:hidden px-0">
             <Carousel className="w-full" opts={{ align: "start" }}>
               <CarouselContent className="ml-0 gap-3">
-                {templates.map((template) => (
+                {templatesWithCta.map((template) => (
                   <CarouselItem key={template.id} className="basis-[77%] pl-0">
                     <TemplateCard template={template} />
                   </CarouselItem>

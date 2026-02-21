@@ -1,7 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Sparkles, Gift } from "lucide-react";
+import { useI18n, translations } from "@/lib/i18n";
 
 export const FreeTrial = () => {
+  const { lang } = useI18n();
+  const t = translations[lang];
   return (
     <section className="py-8 md:py-12 bg-primary/5">
       <div className="container px-4 mx-auto">
@@ -11,11 +14,11 @@ export const FreeTrial = () => {
           </div>
           
           <h2 className="text-xl md:text-3xl font-bold text-foreground mb-3">
-            ¿Quieres probarlo antes?
+            {t.freeTrial.title}
           </h2>
           
           <p className="text-sm md:text-base text-muted-foreground mb-6 max-w-lg mx-auto">
-            Crea un evento de prueba gratuito y descubre cómo funciona la experiencia completa de Revelao. Sin compromiso, sin tarjeta.
+            {t.freeTrial.subtitle}
           </p>
           
           <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
@@ -24,15 +27,15 @@ export const FreeTrial = () => {
               className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 text-sm px-6 py-4"
               asChild
             >
-              <a href="https://acceso.revelao.cam/nuevoeventodemo" target="_blank" rel="noopener noreferrer">
-                <Sparkles className="w-4 h-4 mr-2" />
-                Prueba gratis
-              </a>
-            </Button>
+                <a href="https://acceso.revelao.cam/nuevoeventodemo" target="_blank" rel="noopener noreferrer">
+                  <Sparkles className="w-4 h-4 mr-2" />
+                  {t.freeTrial.cta}
+                </a>
+              </Button>
           </div>
           
           <p className="text-xs text-muted-foreground mt-4">
-            ✓ Sin registro · ✓ Sin tarjeta · ✓ Listo en 30 segundos
+            {t.freeTrial.badges}
           </p>
         </div>
       </div>

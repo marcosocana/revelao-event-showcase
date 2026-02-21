@@ -7,14 +7,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-
-const baseFeatures = [
-  "Fotos ilimitadas",
-  "Galería privada 20 días",
-  "Descarga en alta calidad",
-  "Personalización de marca",
-  "Soporte para dudas",
-];
+import { useI18n, translations } from "@/lib/i18n";
 
 const plans = [
   {
@@ -64,7 +57,7 @@ const plans = [
 
 const whatsappMessage = "Hola! Estoy interesado en contratar Revelao.cam. ¿Puedes darme más información?";
 
-const PlanCard = ({ plan }: { plan: (typeof plans)[0] }) => (
+const PlanCard = ({ plan, perEvent, perGuest, features }: { plan: (typeof plans)[0] & { fallbackSubtitle: string }; perEvent: string; perGuest: string; features: string[] }) => (
   <div
     className={[
       "relative revelao-card p-5 md:p-6",
@@ -81,19 +74,19 @@ const PlanCard = ({ plan }: { plan: (typeof plans)[0] }) => (
     <div className="mb-5">
       <h3 className="text-xl font-semibold text-foreground mb-1">{plan.title}</h3>
       <p className="text-sm text-muted-foreground">
-        {plan.subtitle ? plan.subtitle : `Hasta ${plan.guests} invitados`}
+        {plan.subtitle ? plan.subtitle : plan.fallbackSubtitle}
       </p>
       <div className="flex items-end gap-2 mt-3">
         <span className="text-4xl font-bold text-foreground">{plan.price}</span>
-        <span className="text-sm text-muted-foreground pb-1">/evento</span>
+        <span className="text-sm text-muted-foreground pb-1">{perEvent}</span>
       </div>
       <p className="text-sm text-muted-foreground mt-2">
-        {plan.costPerGuest} por invitado
+        {plan.costPerGuest} {perGuest}
       </p>
     </div>
 
     <ul className="space-y-2.5 mb-5">
-      {baseFeatures.map((feature) => (
+      {features.map((feature) => (
         <li key={feature} className="flex items-start gap-3">
           <Check className="w-4 h-4 flex-shrink-0 mt-0.5 text-primary" />
           <span className="text-sm text-foreground">{feature}</span>
@@ -113,22 +106,33 @@ const PlanCard = ({ plan }: { plan: (typeof plans)[0] }) => (
 );
 
 export const Pricing = () => {
+  const { lang } = useI18n();
+  const t = translations[lang];
+  const baseFeatures = t.pricing.features;
+  const translatedPlans = plans.map((plan, index) => ({
+    ...plan,
+    title: t.pricing.plans[index]?.title ?? plan.title,
+    cta: t.pricing.plans[index]?.cta ?? plan.cta,
+    subtitle: t.pricing.plans[index]?.subtitle ?? plan.subtitle,
+    badge: t.pricing.plans[index]?.badge ?? plan.badge,
+    fallbackSubtitle: t.pricing.untilGuests.replace("{guests}", String(plan.guests)),
+  }));
   return <section className="py-10 md:py-16 bg-muted/30" id="precio">
       <div className="container px-4 mx-auto container-mobile-right-edge">
         <div className="text-center mb-8 md:mb-10 animate-fade-in">
           <h2 className="font-bold mb-2 text-foreground md:text-5xl text-center text-3xl">
-            Precio
+            {t.pricing.title}
           </h2>
           <p className="text-base text-muted-foreground mb-6 text-center md:text-lg">
-            Elige el plan ideal según el tamaño de tu evento
+            {t.pricing.subtitle}
           </p>
         </div>
 
         {/* Desktop grid */}
         <div className="hidden md:grid grid-cols-3 xl:grid-cols-5 gap-4 md:gap-6 max-w-7xl mx-auto">
-          {plans.map((plan, index) => (
+          {translatedPlans.map((plan, index) => (
             <div key={plan.title} style={{ animationDelay: `${index * 120}ms` }}>
-              <PlanCard plan={plan} />
+              <PlanCard plan={plan} perEvent={t.pricing.perEvent} perGuest={t.pricing.perGuest} features={baseFeatures} />
             </div>
           ))}
         </div>
@@ -137,9 +141,9 @@ export const Pricing = () => {
         <div className="md:hidden">
           <Carousel className="w-full" opts={{ align: "start" }}>
             <CarouselContent className="ml-0 gap-3">
-              {plans.map((plan) => (
+              {translatedPlans.map((plan) => (
                 <CarouselItem key={plan.title} className="basis-[77%] pl-0">
-                  <PlanCard plan={plan} />
+                  <PlanCard plan={plan} perEvent={t.pricing.perEvent} perGuest={t.pricing.perGuest} features={baseFeatures} />
                 </CarouselItem>
               ))}
             </CarouselContent>
@@ -147,12 +151,12 @@ export const Pricing = () => {
         </div>
 
         <div className="text-center mt-6 text-sm text-muted-foreground">
-          ¿Más de 1000 invitados?{" "}
+          {t.pricing.more}{" "}
           <a
             className="text-foreground font-semibold hover:underline"
             href={`https://wa.me/34695834018?text=${encodeURIComponent(whatsappMessage)}`}
           >
-            Escríbenos por WhatsApp
+            {t.pricing.whatsapp}
           </a>
           .
         </div>

@@ -1,5 +1,8 @@
 import icon from "@/assets/ico.png";
+import { useI18n, translations } from "@/lib/i18n";
 export const Footer = () => {
+  const { lang } = useI18n();
+  const t = translations[lang];
   return <footer className="py-12 border-t border-border">
       <div className="container px-4 mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
@@ -10,22 +13,22 @@ export const Footer = () => {
 
           <div className="flex flex-wrap justify-center gap-6 text-sm text-muted-foreground">
             <a href="#como-funciona" className="hover:text-foreground transition-colors">
-              Cómo funciona
+              {t.footer.how}
             </a>
             <a href="#precio" className="hover:text-foreground transition-colors">
-              Precio
+              {t.footer.pricing}
             </a>
             <a href="#casos-de-exito" className="hover:text-foreground transition-colors">
-              Casos de éxito
+              {t.footer.cases}
             </a>
             <a href="/#blog" className="hover:text-foreground transition-colors">
-              Blog
+              {t.footer.blog}
             </a>
             <a href="https://tomorrow-snap-reveal.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">
-              Acceso
+              {t.footer.access}
             </a>
             <a href="https://wa.me/34695834018?text=Hola! Estoy interesado en contratar Revelao.cam. ¿Puedes darme más información?" className="hover:text-foreground transition-colors">
-              Contacto
+              {t.footer.contact}
             </a>
           </div>
 

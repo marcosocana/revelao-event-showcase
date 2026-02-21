@@ -9,6 +9,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { getBlogPosts } from "@/lib/blogStore";
+import { useI18n, translations } from "@/lib/i18n";
 
 const INITIAL_COUNT = 3;
 const MORE_COUNT = 3;
@@ -21,6 +22,8 @@ const truncateText = (text: string, maxChars: number) => {
 };
 
 export const BlogSection = () => {
+  const { lang } = useI18n();
+  const t = translations[lang];
   const [visibleCount, setVisibleCount] = useState(INITIAL_COUNT);
   const allPosts = useMemo(() => getBlogPosts(), []);
   const posts = useMemo(() => allPosts.slice(0, visibleCount), [allPosts, visibleCount]);
@@ -31,10 +34,10 @@ export const BlogSection = () => {
       <div className="container px-4 mx-auto container-mobile-right-edge">
       <div className="mb-12 text-center animate-fade-in">
         <h2 className="font-bold mb-4 text-foreground md:text-5xl text-3xl">
-          Blog
+          {t.blog.title}
         </h2>
         <p className="text-base text-muted-foreground md:text-xl max-w-3xl mx-auto">
-          Contenido útil e interesante sobre el mundo de los eventos, ideas y tendencias para inspirarte.
+          {t.blog.subtitle}
         </p>
       </div>
 
@@ -61,7 +64,7 @@ export const BlogSection = () => {
                   to={`/blog/${post.slug}`}
                   className="inline-flex h-10 items-center justify-center rounded-md border border-input bg-background px-4 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
                 >
-                  Leer más
+                  {t.blog.readMore}
                 </Link>
               </div>
             </div>
@@ -95,7 +98,7 @@ export const BlogSection = () => {
                         to={`/blog/${post.slug}`}
                         className="inline-flex h-10 items-center justify-center rounded-md border border-input bg-background px-4 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
                       >
-                        Leer más
+                        {t.blog.readMore}
                       </Link>
                     </div>
                   </div>
@@ -112,7 +115,7 @@ export const BlogSection = () => {
             variant="secondary"
             onClick={() => setVisibleCount((count) => Math.min(count + MORE_COUNT, allPosts.length))}
           >
-            Ver más
+            {t.blog.seeMore}
           </Button>
         </div>
       )}

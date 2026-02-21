@@ -1,8 +1,11 @@
 import { Button } from "@/components/ui/button";
 import ruedaVideo from "@/assets/rueda.mp4";
 import corazon from "@/assets/corazon.svg";
+import { useI18n, translations } from "@/lib/i18n";
 
 export const Hero = () => {
+  const { lang } = useI18n();
+  const t = translations[lang];
   return (
     <section className="relative min-h-[80vh] px-4 overflow-hidden flex items-center" id="inicio">
       {/* Video Background */}
@@ -11,7 +14,7 @@ export const Hero = () => {
           filter: 'blur(4px)'
         }}>
           <source src={ruedaVideo} type="video/mp4" />
-          Tu navegador no soporta el elemento de video.
+          {t.hero.videoFallback}
         </video>
       </div>
       <div className="absolute inset-0 z-0 bg-white/85" />
@@ -25,22 +28,22 @@ export const Hero = () => {
             </div>
             
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-black">
-              Captura hoy,{" "}
-              <span className="text-primary">revela mañana</span>
+              {t.hero.title}{" "}
+              <span className="text-primary">{t.hero.titleHighlight}</span>
             </h1>
             
             <p className="text-base md:text-lg text-black/90 mb-6 max-w-xl mx-auto lg:mx-0">
-              Tus invitados suben fotos de forma anónima durante el evento. La magia ocurre al día siguiente cuando todas las imágenes se revelan a la misma hora.
+              {t.hero.subtitle}
             </p>
 
             <div className="flex flex-wrap justify-center lg:justify-start gap-6 text-sm text-black/80 mb-6">
               <div className="flex items-center gap-2">
                 <div className="w-1.5 h-1.5 rounded-full bg-black" />
-                <span>100% anónimo</span>
+                <span>{t.hero.bulletAnon}</span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-1.5 h-1.5 rounded-full bg-black" />
-                <span>Sin apps</span>
+                <span>{t.hero.bulletNoApps}</span>
               </div>
             </div>
             
@@ -52,7 +55,7 @@ export const Hero = () => {
                 asChild
               >
                 <a href="https://wa.me/34695834018?text=Hola! Estoy interesado en contratar Revelao.cam. ¿Puedes darme más información?">
-                  ¿Hablamos?
+                  {t.hero.ctaTalk}
                 </a>
               </Button>
               <Button 
@@ -61,7 +64,7 @@ export const Hero = () => {
                 asChild
               >
                 <a href="https://acceso.revelao.cam/nuevoeventodemo" target="_blank" rel="noopener noreferrer">
-                  Prueba gratis
+                  {t.hero.ctaFree}
                 </a>
               </Button>
             </div>

@@ -4,26 +4,17 @@ import step1Image from "@/assets/step-1-qr.svg";
 import step2Image from "@/assets/step-2-capture.svg";
 import step3Image from "@/assets/step-3-anticipation.svg";
 import step4Image from "@/assets/step-4-reveal.svg";
+import { useI18n, translations } from "@/lib/i18n";
 
-const features = [{
-  title: "Escanea el código QR",
-  description: "Tus invitados escanean el código QR que encontrarán en carteles, tarjetas, etc...",
-  image: step1Image
-}, {
-  title: "Captura los mejores momentos",
-  description: "Todos los invitados pueden tomar fotos durante el evento de forma anónima",
-  image: step2Image
-}, {
-  title: "La expectación aumenta...",
-  description: "Las fotos permanecen ocultas durante el evento, creando misterio y emoción",
-  image: step3Image
-}, {
-  title: "Día de revelado",
-  description: "Al día siguiente, todas las fotos se revelan en una galería privada para revivir los mejores momentos y que todos puedan volver a revivir el evento",
-  image: step4Image
-}];
+const featureImages = [step1Image, step2Image, step3Image, step4Image];
 
 export const Features = () => {
+  const { lang } = useI18n();
+  const t = translations[lang];
+  const features = t.features.steps.map((step, index) => ({
+    ...step,
+    image: featureImages[index],
+  }));
   const [api, setApi] = useState<CarouselApi>();
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -62,9 +53,11 @@ export const Features = () => {
       <div className="container px-4 mx-auto">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl md:text-5xl font-bold mb-4 text-foreground">
-            Cómo funciona
+            {t.features.title}
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Explora la experiencia Revelao en solo 4 pasos:</p>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            {t.features.subtitle}
+          </p>
         </div>
 
         <div className="revelao-card px-6 py-8 md:px-10 md:py-12">
@@ -148,7 +141,7 @@ export const Features = () => {
               <div className="aspect-video w-full overflow-hidden">
                 <iframe
                   src="https://www.youtube.com/embed/_VakaDTWYJA"
-                  title="Revelao - Video demostración"
+                  title={t.features.videoLabel}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
                   className="w-full h-full"
@@ -156,8 +149,8 @@ export const Features = () => {
               </div>
             </div>
             <div className="mt-6 flex flex-col items-center gap-3 text-sm text-muted-foreground">
-              <span className="font-semibold text-foreground">Activa el sonido y siente el hype del revelado.</span>
-              <span>Ideal para bodas, cumpleaños y eventos corporativos.</span>
+              <span className="font-semibold text-foreground">{t.features.videoTitle}</span>
+              <span>{t.features.videoSubtitle}</span>
             </div>
           </div>
         </div>
