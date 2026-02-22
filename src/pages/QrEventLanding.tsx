@@ -33,11 +33,12 @@ const getLangFromPath = (pathname: string) => {
 
 const copy = {
   es: {
-    title: "Crear evento con QR para bodas y celebraciones",
+    title: "Evento con Código QR para Compartir Fotos",
     subtitle:
-      "La herramienta más fácil para crear un evento QR y recoger todas las fotos de tus invitados en un solo lugar.",
+      "Galería de fotos para evento con código QR: comparte fotos con QR en bodas y celebraciones sin app y con acceso inmediato.",
     intro:
       "Revelao.cam es la plataforma para crear un evento QR en minutos. Ideal para bodas, cumpleaños y eventos corporativos.",
+    h1: "Galería de Fotos para Evento con Código QR",
     keywordLine:
       "Boda QR · Evento QR · Herramienta evento QR · Galería de fotos QR",
     taglineTags: ["Revelao.cam", "Evento QR gratuito"],
@@ -75,6 +76,46 @@ const copy = {
     seoTitle: "Optimizado para bodas y eventos QR",
     seoText:
       "Si buscas una herramienta de evento QR para bodas, Revelao.cam te permite crear un evento con QR y reunir todas las fotos de forma simple y segura.",
+    seoMeta: {
+      title: "Evento con Código QR para Compartir Fotos | Revelao.cam",
+      description:
+        "Crea una galería QR para eventos: comparte fotos con QR en bodas y fiestas, sin app. Descubre cómo funciona y crea tu evento en minutos.",
+      keywords:
+        "evento con código QR, fotos con QR para boda, galería QR para eventos, compartir fotos con QR",
+    },
+    seoSections: [
+      {
+        title: "¿Cómo funciona el QR en tu evento?",
+        body: [
+          "Crear un evento con código QR en Revelao es rápido: defines el evento, generas el QR y lo compartes con tus invitados. Al escanear, entran directamente a la galería y pueden subir fotos desde el navegador, sin descargar apps ni registrarse. Así consigues una participación mucho mayor y todas las imágenes quedan en un solo lugar, ordenadas y listas para compartir.",
+          "El QR puede colocarse en mesas, carteles o tarjetas y también en la entrada del evento. Cada invitado accede en segundos, sube sus fotos y aporta su visión del evento. Al final, la galería se convierte en un álbum colaborativo con recuerdos auténticos y completos, sin perder ninguna perspectiva.",
+          "Si quieres, puedes acompañar el QR con instrucciones sencillas para que todo el mundo lo entienda al instante. Eso hace que incluso los invitados menos tecnológicos participen sin problemas.",
+        ],
+      },
+      {
+        title: "Ventajas frente a grupos de WhatsApp o Drive",
+        body: [
+          "Los grupos de WhatsApp se llenan de mensajes y se pierde calidad. Drive o carpetas compartidas generan fricción: hay que pedir permisos, subir archivos manualmente y luego ordenar. Con una galería QR para eventos todo se centraliza automáticamente y la experiencia es mucho más limpia.",
+          "Además, la galería QR ofrece control: decides la duración de la subida y cuándo mostrar el resultado. Eso evita caos y hace que los invitados se enfoquen en vivir el evento mientras las fotos se recopilan sin esfuerzo. También reduces el trabajo posterior, porque la galería ya queda lista para compartir.",
+          "El acceso con QR también evita enlaces largos o contraseñas confusas. En un solo gesto, todos están dentro de la misma galería.",
+        ],
+      },
+      {
+        title: "Ideal para bodas, fiestas y eventos corporativos",
+        body: [
+          "En una boda, las fotos con QR para boda permiten captar momentos desde todos los ángulos, incluyendo detalles íntimos que el fotógrafo oficial no siempre ve. En fiestas, el QR convierte a los invitados en fotógrafos y crea una galería divertida y espontánea. En eventos corporativos, facilita la documentación y el acceso posterior al material.",
+          "En cualquier caso, el objetivo es el mismo: compartir fotos con QR de forma rápida, segura y sin app. Eso mejora la participación y garantiza una colección completa, lista para revivir el evento en grupo.",
+          "También es perfecto para aniversarios, graduaciones y cualquier celebración donde quieras recuerdos reales y compartidos.",
+        ],
+      },
+      {
+        title: "Crea tu evento con QR en minutos",
+        body: [
+          "Solo necesitas elegir un nombre para el evento, generar el QR y compartirlo. En minutos tendrás una galería QR para eventos activa y lista para recibir fotos. Es la forma más simple de reunir recuerdos, sin complicaciones técnicas, sin instalaciones y con resultados profesionales.",
+          "Cuando el evento termina, la galería queda como archivo visual para volver a verla o compartirla con invitados y familia.",
+        ],
+      },
+    ],
     ctaStripTitle: "Crea tu evento gratuito en 1 minuto",
     ctaStripText:
       "Si buscas una herramienta de evento QR para bodas o eventos, aquí tienes la solución lista para usar.",
@@ -95,11 +136,12 @@ const copy = {
     ],
   },
   en: {
-    title: "Create a QR event for weddings and celebrations",
+    title: "QR Event to Share Photos",
     subtitle:
-      "The easiest way to create a QR event and collect all your guests’ photos in one place.",
+      "Photo gallery for QR events: share photos with QR at weddings and celebrations with no app.",
     intro:
       "Revelao.cam is the platform to create a QR event in minutes. Perfect for weddings, birthdays, and corporate events.",
+    h1: "Photo Gallery for Events with QR Code",
     keywordLine:
       "Wedding QR · QR event · QR event tool · QR photo gallery",
     taglineTags: ["Revelao.cam", "Free QR event"],
@@ -137,6 +179,46 @@ const copy = {
     seoTitle: "Built for weddings and QR events",
     seoText:
       "If you’re looking for a QR event tool for weddings, Revelao.cam lets you create a QR event and gather all photos simply and securely.",
+    seoMeta: {
+      title: "QR Code Event to Share Photos | Revelao.cam",
+      description:
+        "Create a QR gallery for events: share photos with QR at weddings and parties without any app. Learn how it works and start in minutes.",
+      keywords:
+        "qr code event, wedding photos with qr, qr gallery for events, share photos with qr",
+    },
+    seoSections: [
+      {
+        title: "How does the QR work at your event?",
+        body: [
+          "With Revelao you create a QR event, print the code and share it with guests. They scan it and upload photos from the browser without installing anything. That makes participation effortless and keeps every image in one organized gallery.",
+          "The QR can be placed on tables, signs or cards so guests always have access. The result is a collaborative album that captures the full story of the event.",
+          "Add a short instruction next to the QR and even less tech‑savvy guests will participate.",
+        ],
+      },
+      {
+        title: "Advantages over WhatsApp or Drive",
+        body: [
+          "WhatsApp threads get messy and image quality is reduced. Drive folders require permissions and manual uploads. A QR gallery for events removes friction and centralizes everything automatically.",
+          "You control the upload window and when to reveal the gallery, which makes the experience cleaner and more engaging for everyone.",
+          "One scan is all it takes, no passwords or long links required.",
+        ],
+      },
+      {
+        title: "Perfect for weddings, parties, and corporate events",
+        body: [
+          "For weddings, QR photos capture every angle. For parties, the QR turns guests into contributors. For corporate events, it centralizes content and makes sharing easier afterwards.",
+          "In every case, sharing photos with QR is fast, secure, and app-free.",
+          "It also works great for anniversaries, graduations, and community events.",
+        ],
+      },
+      {
+        title: "Create your QR event in minutes",
+        body: [
+          "Choose a name, generate the QR, and share it. In minutes your QR gallery for events is live and ready for uploads.",
+          "When the event ends, the gallery stays as a visual archive to revisit and share.",
+        ],
+      },
+    ],
     ctaStripTitle: "Create your free event in 1 minute",
     ctaStripText:
       "If you need a QR event tool for weddings or events, this is ready to launch.",
@@ -157,11 +239,12 @@ const copy = {
     ],
   },
   it: {
-    title: "Crea un evento QR per matrimoni e celebrazioni",
+    title: "Evento QR per condividere foto",
     subtitle:
-      "Il modo più semplice per creare un evento QR e raccogliere tutte le foto degli invitati in un unico posto.",
+      "Galleria foto per eventi con QR: condividi foto con QR per matrimoni e feste senza app.",
     intro:
       "Revelao.cam è la piattaforma per creare un evento QR in pochi minuti. Perfetto per matrimoni, compleanni ed eventi aziendali.",
+    h1: "Galleria di Foto per Evento con Codice QR",
     keywordLine:
       "Matrimonio QR · Evento QR · Strumento evento QR · Galleria foto QR",
     taglineTags: ["Revelao.cam", "Evento QR gratuito"],
@@ -199,6 +282,46 @@ const copy = {
     seoTitle: "Pensato per matrimoni ed eventi QR",
     seoText:
       "Se cerchi uno strumento per eventi QR per matrimoni, Revelao.cam ti permette di creare un evento QR e raccogliere tutte le foto in modo semplice e sicuro.",
+    seoMeta: {
+      title: "Evento con Codice QR per Condividere Foto | Revelao.cam",
+      description:
+        "Crea una galleria QR per eventi: condividi foto con QR per matrimoni e feste senza app. Scopri come funziona e inizia in pochi minuti.",
+      keywords:
+        "evento con codice QR, foto con QR per matrimonio, galleria QR per eventi, condividere foto con QR",
+    },
+    seoSections: [
+      {
+        title: "Come funziona il QR nel tuo evento?",
+        body: [
+          "Con Revelao crei un evento QR, stampi il codice e lo condividi con gli invitati. Scansionano e caricano foto dal browser senza installare nulla. Così la partecipazione è più alta e tutte le immagini restano in un’unica galleria ordinata.",
+          "Puoi mettere il QR su tavoli, cartelli o inviti, così è sempre disponibile durante l’evento.",
+          "Con una breve istruzione accanto al QR, tutti capiscono subito come partecipare.",
+        ],
+      },
+      {
+        title: "Vantaggi rispetto a WhatsApp o Drive",
+        body: [
+          "Nei gruppi WhatsApp le foto si perdono e la qualità cala. Su Drive bisogna chiedere permessi e caricare manualmente. Una galleria QR per eventi elimina attriti e centralizza tutto.",
+          "Decidi la durata del caricamento e quando rivelare la galleria, rendendo l’esperienza più pulita e coinvolgente.",
+          "Basta una scansione: niente link lunghi o password difficili.",
+        ],
+      },
+      {
+        title: "Ideale per matrimoni, feste ed eventi aziendali",
+        body: [
+          "Per un matrimonio, le foto con QR raccolgono ogni momento. Per le feste, il QR rende tutti partecipi. Per gli eventi aziendali, centralizza i contenuti e facilita la condivisione.",
+          "In ogni caso, condividere foto con QR è rapido, sicuro e senza app.",
+          "È perfetto anche per anniversari, lauree e altri eventi speciali.",
+        ],
+      },
+      {
+        title: "Crea il tuo evento QR in pochi minuti",
+        body: [
+          "Scegli un nome, genera il QR e condividilo. In pochi minuti la tua galleria QR è pronta per ricevere foto.",
+          "A fine evento, la galleria resta come archivio visivo da rivedere e condividere.",
+        ],
+      },
+    ],
     ctaStripTitle: "Crea il tuo evento gratuito in 1 minuto",
     ctaStripText:
       "Se cerchi uno strumento QR per matrimoni o eventi, è pronto per partire.",
@@ -300,11 +423,12 @@ const QrEventLanding = () => {
   ];
 
   useEffect(() => {
-    const title = t.title;
-    const description = t.subtitle;
-    const keywords = t.keywordLine;
+    const title = t.seoMeta.title;
+    const description = t.seoMeta.description;
+    const keywords = t.seoMeta.keywords;
+    const canonicalUrl = `https://revelao.cam${location.pathname}`;
 
-    document.title = `${title} | Revelao.cam`;
+    document.title = title;
     const setMeta = (name: string, content: string) => {
       let meta = document.querySelector(`meta[name="${name}"]`);
       if (!meta) {
@@ -326,11 +450,42 @@ const QrEventLanding = () => {
       }
       meta.setAttribute("content", content);
     };
-    setProperty("og:title", `${title} | Revelao.cam`);
+    setProperty("og:title", title);
     setProperty("og:description", description);
     setProperty("og:image", "https://www.revelao.cam/og-qr-event.png");
     setProperty("og:type", "website");
-  }, [t]);
+    setProperty("og:url", canonicalUrl);
+
+    let canonical = document.querySelector(`link[rel="canonical"]`);
+    if (!canonical) {
+      canonical = document.createElement("link");
+      canonical.setAttribute("rel", "canonical");
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute("href", canonicalUrl);
+
+    const serviceSchema = {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: "Evento con Código QR",
+      description,
+      provider: {
+        "@type": "Organization",
+        name: "Revelao.cam",
+        url: "https://revelao.cam/",
+      },
+      areaServed: "ES",
+      url: canonicalUrl,
+    };
+    let ld = document.getElementById("ld-service");
+    if (!ld) {
+      ld = document.createElement("script");
+      ld.setAttribute("type", "application/ld+json");
+      ld.setAttribute("id", "ld-service");
+      document.head.appendChild(ld);
+    }
+    ld.textContent = JSON.stringify(serviceSchema);
+  }, [t, location.pathname]);
 
   return (
     <div className="min-h-screen bg-background no-card-hover">
@@ -378,7 +533,7 @@ const QrEventLanding = () => {
                   <img src={corazon} alt="Revelao" className="w-14 h-14" />
                 </div>
                 <h1 className="text-3xl md:text-5xl font-bold text-foreground text-center lg:text-left">
-                  {t.title}
+                  {t.h1}
                 </h1>
                 <p className="text-lg md:text-xl text-muted-foreground text-center lg:text-left">
                   {t.subtitle}
@@ -570,6 +725,23 @@ const QrEventLanding = () => {
                 ))}
               </div>
             </div>
+          </div>
+        </section>
+
+        <section className="container px-4 mx-auto py-12 md:py-16">
+          <div className="max-w-5xl mx-auto space-y-8">
+            {t.seoSections.map((section) => (
+              <div key={section.title} className="revelao-card p-6 md:p-8">
+                <h2 className="text-2xl font-semibold mb-4">{section.title}</h2>
+                <div className="space-y-4">
+                  {section.body.map((paragraph) => (
+                    <p key={paragraph} className="text-muted-foreground">
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </section>
 
