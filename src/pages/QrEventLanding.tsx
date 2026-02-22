@@ -552,7 +552,7 @@ const QrEventLanding = () => {
                   </Button>
                 </div>
               </div>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
                 {[template1, template2, template3, template4].map((img, idx) => (
                   <button
                     key={img}
@@ -677,12 +677,12 @@ const QrEventLanding = () => {
           </div>
         </section>
         <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
-          <DialogContent className="max-w-3xl max-h-[90vh] overflow-hidden p-0">
+          <DialogContent className="max-w-4xl w-[90vw] max-h-[90vh] overflow-hidden p-4">
             {selectedImage && (
               <img
                 src={selectedImage}
                 alt="Revelao preview"
-                className="w-full h-full object-contain"
+                className="w-full h-full max-h-[80vh] object-contain"
               />
             )}
           </DialogContent>
