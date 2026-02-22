@@ -1,10 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Sparkles, Gift } from "lucide-react";
-import { useI18n, translations } from "@/lib/i18n";
+import { getAccessDemoUrl, useI18n, translations } from "@/lib/i18n";
 
 export const FreeTrial = () => {
   const { lang } = useI18n();
   const t = translations[lang];
+  const accessDemoUrl = getAccessDemoUrl(lang);
   return (
     <section className="py-8 md:py-12 bg-primary/5">
       <div className="container px-4 mx-auto">
@@ -27,7 +28,7 @@ export const FreeTrial = () => {
               className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 text-sm px-6 py-4"
               asChild
             >
-                <a href="https://acceso.revelao.cam/nuevoeventodemo" target="_blank" rel="noopener noreferrer">
+                <a href={accessDemoUrl} target="_blank" rel="noopener noreferrer">
                   <Sparkles className="w-4 h-4 mr-2" />
                   {t.freeTrial.cta}
                 </a>

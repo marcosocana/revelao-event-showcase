@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import icon from "@/assets/ico.png";
 import logoMini from "@/assets/logo-mini.png";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { useI18n, translations, type Language } from "@/lib/i18n";
+import { getAccessBase, getAccessDemoUrl, useI18n, translations, type Language } from "@/lib/i18n";
 
 const languageOptions: { value: Language; label: string; flag: string }[] = [
   { value: "es", label: "Español", flag: "🇪🇸" },
@@ -12,6 +12,8 @@ const languageOptions: { value: Language; label: string; flag: string }[] = [
 export const Navbar = () => {
   const { lang, setLang } = useI18n();
   const t = translations[lang];
+  const accessBase = getAccessBase(lang);
+  const accessDemoUrl = getAccessDemoUrl(lang);
   const currentFlag = languageOptions.find((option) => option.value === lang)?.flag ?? "🇪🇸";
   return <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
       <div className="container px-4 mx-auto">
@@ -78,7 +80,7 @@ export const Navbar = () => {
           {/* Right: Actions */}
           <div className="hidden md:flex items-center gap-6 ml-auto">
             <a
-              href="https://acceso.revelao.cam"
+              href={accessBase}
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground transition-colors"
@@ -90,7 +92,7 @@ export const Navbar = () => {
               className="bg-primary text-primary-foreground hover:bg-primary/90"
               asChild
             >
-              <a href="https://acceso.revelao.cam/nuevoeventodemo" target="_blank" rel="noopener noreferrer">
+              <a href={accessDemoUrl} target="_blank" rel="noopener noreferrer">
                 {t.nav.tryFree}
               </a>
             </Button>
@@ -99,7 +101,7 @@ export const Navbar = () => {
           {/* Mobile CTA Button */}
           <div className="md:hidden ml-auto flex items-center gap-3">
             <a
-              href="https://acceso.revelao.cam"
+              href={accessBase}
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
@@ -111,7 +113,7 @@ export const Navbar = () => {
               className="bg-primary text-primary-foreground hover:bg-primary/90"
               asChild
             >
-              <a href="https://acceso.revelao.cam/nuevoeventodemo" target="_blank" rel="noopener noreferrer">
+              <a href={accessDemoUrl} target="_blank" rel="noopener noreferrer">
                 {t.nav.tryShort}
               </a>
             </Button>

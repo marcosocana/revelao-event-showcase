@@ -1,11 +1,12 @@
 import { Button } from "@/components/ui/button";
 import ruedaVideo from "@/assets/rueda.mp4";
 import corazon from "@/assets/corazon.svg";
-import { useI18n, translations } from "@/lib/i18n";
+import { getAccessDemoUrl, useI18n, translations } from "@/lib/i18n";
 
 export const Hero = () => {
   const { lang } = useI18n();
   const t = translations[lang];
+  const accessDemoUrl = getAccessDemoUrl(lang);
   return (
     <section className="relative min-h-[80vh] px-4 overflow-hidden flex items-center" id="inicio">
       {/* Video Background */}
@@ -63,7 +64,7 @@ export const Hero = () => {
                 className="bg-primary text-primary-foreground hover:bg-primary/90"
                 asChild
               >
-                <a href="https://acceso.revelao.cam/nuevoeventodemo" target="_blank" rel="noopener noreferrer">
+                <a href={accessDemoUrl} target="_blank" rel="noopener noreferrer">
                   {t.hero.ctaFree}
                 </a>
               </Button>

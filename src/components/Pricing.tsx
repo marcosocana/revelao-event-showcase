@@ -7,7 +7,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { useI18n, translations } from "@/lib/i18n";
+import { getAccessDemoUrl, useI18n, translations } from "@/lib/i18n";
 
 const plans = [
   {
@@ -108,9 +108,11 @@ const PlanCard = ({ plan, perEvent, perGuest, features }: { plan: (typeof plans)
 export const Pricing = () => {
   const { lang } = useI18n();
   const t = translations[lang];
+  const accessDemoUrl = getAccessDemoUrl(lang);
   const baseFeatures = t.pricing.features;
   const translatedPlans = plans.map((plan, index) => ({
     ...plan,
+    stripeUrl: index === 0 ? accessDemoUrl : plan.stripeUrl,
     title: t.pricing.plans[index]?.title ?? plan.title,
     cta: t.pricing.plans[index]?.cta ?? plan.cta,
     subtitle: t.pricing.plans[index]?.subtitle ?? plan.subtitle,

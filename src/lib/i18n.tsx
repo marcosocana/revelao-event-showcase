@@ -11,6 +11,14 @@ const LanguageContext = createContext<LanguageContextValue | null>(null);
 
 const STORAGE_KEY = "revelao-lang";
 
+export const getAccessBase = (lang: Language) => {
+  const suffix = lang === "es" ? "" : `/${lang}`;
+  return `https://acceso.revelao.cam${suffix}`;
+};
+
+export const getAccessDemoUrl = (lang: Language) =>
+  `${getAccessBase(lang)}/nuevoeventodemo`;
+
 export const translations = {
   es: {
     nav: {
