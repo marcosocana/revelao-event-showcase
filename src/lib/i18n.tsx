@@ -19,6 +19,9 @@ export const getAccessBase = (lang: Language) => {
 export const getAccessDemoUrl = (lang: Language) =>
   `${getAccessBase(lang)}/nuevoeventodemo`;
 
+export const getAdminLoginUrl = (lang: Language) =>
+  `${getAccessBase(lang)}/admin-login`;
+
 export const translations = {
   es: {
     nav: {
