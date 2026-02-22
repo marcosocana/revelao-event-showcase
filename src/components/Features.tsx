@@ -96,7 +96,7 @@ export const Features = () => {
           <div className="md:hidden">
             <Carousel setApi={setApi} className="max-w-sm mx-auto" opts={{
               align: "start",
-              loop: true
+              loop: false
             }}>
               <CarouselContent>
                 {features.map((feature, index) => (

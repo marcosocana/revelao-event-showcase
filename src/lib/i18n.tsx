@@ -226,7 +226,7 @@ export const translations = {
       leftButton: "¿Hablamos?",
       rightTitle: "¿Ya has creado tu evento?",
       rightText:
-        "Si ya nos has contactado y has creado un evento, puedes acceder a nuestra plataforma.",
+        "Entonces puedes acceder al panel de control para gestionar tu evento en cualquier momento.",
       rightButton: "Acceder a Revelao",
     },
     footer: {
@@ -495,7 +495,7 @@ export const translations = {
       leftButton: "Let's talk",
       rightTitle: "Already created your event?",
       rightText:
-        "If you’ve already contacted us and created an event, you can access our platform.",
+        "You can access the control panel to manage your event at any time.",
       rightButton: "Access Revelao",
     },
     footer: {
@@ -764,7 +764,7 @@ export const translations = {
       leftButton: "Parliamone",
       rightTitle: "Hai già creato il tuo evento?",
       rightText:
-        "Se hai già creato un evento, puoi accedere alla piattaforma.",
+        "Puoi accedere al pannello di controllo per gestire il tuo evento in qualsiasi momento.",
       rightButton: "Accedi a Revelao",
     },
     footer: {

@@ -106,7 +106,7 @@ export const SuccessStories = () => {
             className="w-full" 
             opts={{
               align: "start",
-              loop: true
+              loop: false
             }}
           >
             <CarouselContent className="ml-0 gap-3">
