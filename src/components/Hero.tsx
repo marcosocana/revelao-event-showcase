@@ -18,7 +18,7 @@ export const Hero = () => {
           {t.hero.videoFallback}
         </video>
       </div>
-      <div className="absolute inset-0 z-0 bg-white/85" />
+      <div className="absolute inset-0 z-0 bg-white/95 backdrop-blur-sm" />
       
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
