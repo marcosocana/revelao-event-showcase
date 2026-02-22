@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { Footer } from "@/components/Footer";
 import { useI18n, getAccessDemoUrl } from "@/lib/i18n";
@@ -22,6 +23,7 @@ import testimonial6 from "@/assets/testimonial-6.svg";
 import template1 from "@/assets/template-1.png";
 import template2 from "@/assets/template-2.png";
 import template3 from "@/assets/template-3.png";
+import template4 from "@/assets/template-4.png";
 
 const getLangFromPath = (pathname: string) => {
   if (pathname.startsWith("/en/") || pathname === "/en") return "en";
@@ -223,6 +225,7 @@ const QrEventLanding = () => {
   const { lang, setLang } = useI18n();
   const pathLang = getLangFromPath(location.pathname);
   const [showSticky, setShowSticky] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   useEffect(() => {
     if (lang !== pathLang) {
@@ -246,6 +249,10 @@ const QrEventLanding = () => {
     { img: stepCapture, label: t.stepsVisual[1] },
     { img: stepAnticipation, label: t.stepsVisual[2] },
     { img: stepReveal, label: t.stepsVisual[3] },
+  ];
+  const allTags = [
+    ...t.taglineTags,
+    ...t.keywordLine.split("·").map((tag) => tag.trim()),
   ];
   const testimonialItems = [
     {
@@ -376,17 +383,15 @@ const QrEventLanding = () => {
                 <p className="text-lg md:text-xl text-muted-foreground text-center lg:text-left">
                   {t.subtitle}
                 </p>
-                <div className="flex flex-wrap gap-2 justify-center lg:justify-start">
-                  {[...t.taglineTags, ...t.keywordLine.split("·").map((tag) => tag.trim())].map(
-                    (tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-full border border-border px-3 py-1 text-xs uppercase tracking-wide text-muted-foreground"
-                      >
-                        {tag}
-                      </span>
-                    ),
-                  )}
+                <div className="hidden md:flex flex-wrap gap-2 justify-center lg:justify-start">
+                  {allTags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full border border-border px-3 py-1 text-xs uppercase tracking-wide text-muted-foreground"
+                    >
+                      {tag}
+                    </span>
+                  ))}
                 </div>
                 <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
                   <Button className="bg-primary text-primary-foreground hover:bg-primary/90" asChild>
@@ -447,13 +452,18 @@ const QrEventLanding = () => {
               <h2 className="text-2xl font-semibold mb-3">{t.storyTitle}</h2>
               <p className="text-muted-foreground">{t.storyText}</p>
             </div>
-            <div className="overflow-hidden rounded-2xl border border-border bg-white">
+            <button
+              type="button"
+              className="overflow-hidden rounded-2xl border border-border bg-white"
+              onClick={() => setSelectedImage(bodaQrImage)}
+              aria-label={t.storyTitle}
+            >
               <img
                 src={bodaQrImage}
                 alt={t.storyTitle}
                 className="w-full h-64 md:h-72 object-cover object-center"
               />
-            </div>
+            </button>
           </div>
         </section>
 
@@ -493,7 +503,7 @@ const QrEventLanding = () => {
               className="w-full"
               opts={{
                 align: "start",
-                loop: true,
+                loop: false,
               }}
             >
               <CarouselContent className="ml-0 gap-3">
@@ -543,17 +553,20 @@ const QrEventLanding = () => {
                 </div>
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                {[template1, template2, template3].map((img, idx) => (
-                  <div
+                {[template1, template2, template3, template4].map((img, idx) => (
+                  <button
                     key={img}
+                    type="button"
                     className="overflow-hidden rounded-xl border border-border bg-white"
+                    onClick={() => setSelectedImage(img)}
+                    aria-label={`QR template ${idx + 1}`}
                   >
                     <img
                       src={img}
                       alt={`QR template ${idx + 1}`}
                       className="w-full h-28 object-contain"
                     />
-                  </div>
+                  </button>
                 ))}
               </div>
             </div>
@@ -568,20 +581,19 @@ const QrEventLanding = () => {
             </div>
             <div className="hidden md:grid gap-4 md:grid-cols-2 lg:grid-cols-3">
               {testimonialItems.map((item) => (
-                <div key={item.name} className="revelao-card p-5 flex gap-4 items-start">
+                <div
+                  key={item.name}
+                  className="revelao-card p-5 flex flex-col items-center text-center h-[240px] justify-center"
+                >
                   <img
                     src={item.image}
                     alt={item.event}
-                    className="h-16 w-16 rounded-full object-cover"
+                    className="h-14 w-14 rounded-full object-cover"
                   />
-                  <div>
-                    <div className="flex items-center gap-2">
-                      <span className="font-semibold">{item.name}</span>
-                      <span className="text-xs text-muted-foreground">{item.event}</span>
-                    </div>
-                    <div className="text-sm text-amber-500">★★★★★</div>
-                    <p className="text-sm text-muted-foreground mt-2">“{item.quote}”</p>
-                  </div>
+                  <div className="mt-3 font-semibold">{item.name}</div>
+                  <div className="text-xs text-muted-foreground">{item.event}</div>
+                  <div className="text-sm text-amber-500">★★★★★</div>
+                  <p className="text-sm text-muted-foreground mt-2">“{item.quote}”</p>
                 </div>
               ))}
             </div>
@@ -590,26 +602,22 @@ const QrEventLanding = () => {
                 className="w-full"
                 opts={{
                   align: "start",
-                  loop: true,
+                  loop: false,
                 }}
               >
                 <CarouselContent className="ml-0 gap-3">
                   {testimonialItems.map((item) => (
                     <CarouselItem key={item.name} className="basis-[82%] pl-0">
-                      <div className="revelao-card p-5 flex gap-4 items-start">
+                      <div className="revelao-card p-5 flex flex-col items-center text-center h-[240px] justify-center">
                         <img
                           src={item.image}
                           alt={item.event}
-                          className="h-16 w-16 rounded-full object-cover"
+                          className="h-14 w-14 rounded-full object-cover"
                         />
-                        <div>
-                          <div className="flex items-center gap-2">
-                            <span className="font-semibold">{item.name}</span>
-                            <span className="text-xs text-muted-foreground">{item.event}</span>
-                          </div>
-                          <div className="text-sm text-amber-500">★★★★★</div>
-                          <p className="text-sm text-muted-foreground mt-2">“{item.quote}”</p>
-                        </div>
+                        <div className="mt-3 font-semibold">{item.name}</div>
+                        <div className="text-xs text-muted-foreground">{item.event}</div>
+                        <div className="text-sm text-amber-500">★★★★★</div>
+                        <p className="text-sm text-muted-foreground mt-2">“{item.quote}”</p>
                       </div>
                     </CarouselItem>
                   ))}
@@ -646,7 +654,17 @@ const QrEventLanding = () => {
                 {t.ctaPrimary}
               </a>
             </Button>
-            <div className="flex flex-wrap gap-2 justify-center">
+            <div className="flex flex-wrap gap-2 justify-center md:hidden">
+              {allTags.map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-full border border-border px-3 py-1 text-xs uppercase tracking-wide text-muted-foreground"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+            <div className="hidden md:flex flex-wrap gap-2 justify-center">
               {t.taglineTags.map((tag) => (
                 <span
                   key={tag}
@@ -658,6 +676,17 @@ const QrEventLanding = () => {
             </div>
           </div>
         </section>
+        <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
+          <DialogContent className="max-w-3xl max-h-[90vh] overflow-hidden p-0">
+            {selectedImage && (
+              <img
+                src={selectedImage}
+                alt="Revelao preview"
+                className="w-full h-full object-contain"
+              />
+            )}
+          </DialogContent>
+        </Dialog>
       </main>
       <Footer />
     </div>
