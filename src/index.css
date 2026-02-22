@@ -187,6 +187,11 @@ All colors MUST be HSL.
     @apply bg-card border border-border rounded-2xl shadow-sm overflow-hidden transition-transform duration-300 md:hover:-translate-y-1;
   }
 
+  .no-card-hover .revelao-card {
+    @apply transition-none;
+    transform: none !important;
+  }
+
   .container-mobile-right-edge {
     @apply pr-0 sm:pr-4;
   }

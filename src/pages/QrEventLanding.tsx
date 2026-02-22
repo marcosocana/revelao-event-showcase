@@ -1,6 +1,7 @@
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { Footer } from "@/components/Footer";
 import { useI18n, getAccessDemoUrl } from "@/lib/i18n";
 import corazon from "@/assets/corazon.svg";
@@ -221,6 +222,7 @@ const QrEventLanding = () => {
   const location = useLocation();
   const { lang, setLang } = useI18n();
   const pathLang = getLangFromPath(location.pathname);
+  const [showSticky, setShowSticky] = useState(false);
 
   useEffect(() => {
     if (lang !== pathLang) {
@@ -228,8 +230,67 @@ const QrEventLanding = () => {
     }
   }, [lang, pathLang, setLang]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowSticky(window.scrollY > 240);
+    };
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const t = useMemo(() => copy[pathLang], [pathLang]);
   const accessDemoUrl = getAccessDemoUrl(pathLang);
+  const stepsItems = [
+    { img: stepQr, label: t.stepsVisual[0] },
+    { img: stepCapture, label: t.stepsVisual[1] },
+    { img: stepAnticipation, label: t.stepsVisual[2] },
+    { img: stepReveal, label: t.stepsVisual[3] },
+  ];
+  const testimonialItems = [
+    {
+      name: "Laura G.",
+      event: "Boda en Madrid",
+      quote:
+        "El QR hizo que todos participaran. Al día siguiente fue brutal ver todas las fotos juntas.",
+      image: testimonial1,
+    },
+    {
+      name: "Carlos M.",
+      event: "Evento corporativo",
+      quote:
+        "Nos ahorró apps y grupos. La galería quedó impecable y súper fácil de usar.",
+      image: testimonial2,
+    },
+    {
+      name: "Marta P.",
+      event: "Cumpleaños 30",
+      quote:
+        "Todos subieron fotos sin complicaciones. El QR fue la mejor idea del evento.",
+      image: testimonial3,
+    },
+    {
+      name: "David R.",
+      event: "Boda en Valencia",
+      quote:
+        "El revelado al día siguiente nos emocionó. Las fotos quedaron ordenadas y claras.",
+      image: testimonial4,
+    },
+    {
+      name: "Lucía S.",
+      event: "Fiesta en Barcelona",
+      quote:
+        "Súper simple para los invitados. Compartimos el QR y listo.",
+      image: testimonial5,
+    },
+    {
+      name: "Javier T.",
+      event: "Evento de empresa",
+      quote:
+        "Galería impecable y sin depender de apps. Ideal para eventos grandes.",
+      image: testimonial6,
+    },
+  ];
 
   useEffect(() => {
     const title = t.title;
@@ -265,7 +326,23 @@ const QrEventLanding = () => {
   }, [t]);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background no-card-hover">
+      <div
+        className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
+          showSticky ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4 pointer-events-none"
+        }`}
+      >
+        <div className="bg-white/95 backdrop-blur-sm border-b border-border">
+          <div className="container px-4 mx-auto py-3 flex items-center justify-between">
+            <img src={logo} alt="Revelao" className="h-7 w-auto" />
+            <Button className="bg-primary text-primary-foreground hover:bg-primary/90" asChild>
+              <a href={accessDemoUrl} target="_blank" rel="noopener noreferrer">
+                {t.ctaPrimary}
+              </a>
+            </Button>
+          </div>
+        </div>
+      </div>
       <main className="pt-0">
         <section className="relative overflow-hidden">
           <div className="absolute inset-0">
@@ -385,13 +462,8 @@ const QrEventLanding = () => {
             <h2 className="text-2xl md:text-3xl font-semibold">{t.stepsTitle}</h2>
             <p className="text-muted-foreground mt-2">{t.showcaseText}</p>
           </div>
-          <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-6">
-            {[
-              { img: stepQr, label: t.stepsVisual[0] },
-              { img: stepCapture, label: t.stepsVisual[1] },
-              { img: stepAnticipation, label: t.stepsVisual[2] },
-              { img: stepReveal, label: t.stepsVisual[3] },
-            ].map((item, idx) => (
+          <div className="hidden md:grid max-w-5xl mx-auto grid-cols-1 md:grid-cols-2 gap-6">
+            {stepsItems.map((item, idx) => (
               <div key={item.label.title} className="revelao-card">
                 <div className="relative bg-muted flex items-center justify-center p-4 w-full">
                   <img
@@ -415,6 +487,44 @@ const QrEventLanding = () => {
                 </div>
               </div>
             ))}
+          </div>
+          <div className="md:hidden">
+            <Carousel
+              className="w-full"
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+            >
+              <CarouselContent className="ml-0 gap-3">
+                {stepsItems.map((item, idx) => (
+                  <CarouselItem key={item.label.title} className="basis-[82%] pl-0">
+                    <div className="revelao-card h-full">
+                      <div className="relative bg-muted flex items-center justify-center p-4 w-full">
+                        <img
+                          src={item.img}
+                          alt={item.label.title}
+                          className="w-[204px] h-[204px] object-contain"
+                          style={{ filter: "grayscale(1) brightness(0)" }}
+                        />
+                        <div className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-foreground">
+                          <span className="flex h-6 w-6 items-center justify-center rounded-full bg-primary text-primary-foreground text-[11px] font-bold">
+                            {idx + 1}
+                          </span>
+                          {t.stepLabel}
+                        </div>
+                      </div>
+                      <div className="p-5">
+                        <h3 className="font-semibold text-lg mb-2">
+                          {idx + 1}. {item.label.title}
+                        </h3>
+                        <p className="text-muted-foreground">{item.label.text}</p>
+                      </div>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+            </Carousel>
           </div>
         </section>
 
@@ -456,51 +566,8 @@ const QrEventLanding = () => {
               <h2 className="text-2xl font-semibold mb-4">{t.seoTitle}</h2>
               <p className="text-muted-foreground">{t.seoText}</p>
             </div>
-            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-              {[
-                {
-                  name: "Laura G.",
-                  event: "Boda en Madrid",
-                  quote:
-                    "El QR hizo que todos participaran. Al día siguiente fue brutal ver todas las fotos juntas.",
-                  image: testimonial1,
-                },
-                {
-                  name: "Carlos M.",
-                  event: "Evento corporativo",
-                  quote:
-                    "Nos ahorró apps y grupos. La galería quedó impecable y súper fácil de usar.",
-                  image: testimonial2,
-                },
-                {
-                  name: "Marta P.",
-                  event: "Cumpleaños 30",
-                  quote:
-                    "Todos subieron fotos sin complicaciones. El QR fue la mejor idea del evento.",
-                  image: testimonial3,
-                },
-                {
-                  name: "David R.",
-                  event: "Boda en Valencia",
-                  quote:
-                    "El revelado al día siguiente nos emocionó. Las fotos quedaron ordenadas y claras.",
-                  image: testimonial4,
-                },
-                {
-                  name: "Lucía S.",
-                  event: "Fiesta en Barcelona",
-                  quote:
-                    "Súper simple para los invitados. Compartimos el QR y listo.",
-                  image: testimonial5,
-                },
-                {
-                  name: "Javier T.",
-                  event: "Evento de empresa",
-                  quote:
-                    "Galería impecable y sin depender de apps. Ideal para eventos grandes.",
-                  image: testimonial6,
-                },
-              ].map((item) => (
+            <div className="hidden md:grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+              {testimonialItems.map((item) => (
                 <div key={item.name} className="revelao-card p-5 flex gap-4 items-start">
                   <img
                     src={item.image}
@@ -517,6 +584,37 @@ const QrEventLanding = () => {
                   </div>
                 </div>
               ))}
+            </div>
+            <div className="md:hidden">
+              <Carousel
+                className="w-full"
+                opts={{
+                  align: "start",
+                  loop: true,
+                }}
+              >
+                <CarouselContent className="ml-0 gap-3">
+                  {testimonialItems.map((item) => (
+                    <CarouselItem key={item.name} className="basis-[82%] pl-0">
+                      <div className="revelao-card p-5 flex gap-4 items-start">
+                        <img
+                          src={item.image}
+                          alt={item.event}
+                          className="h-16 w-16 rounded-full object-cover"
+                        />
+                        <div>
+                          <div className="flex items-center gap-2">
+                            <span className="font-semibold">{item.name}</span>
+                            <span className="text-xs text-muted-foreground">{item.event}</span>
+                          </div>
+                          <div className="text-sm text-amber-500">★★★★★</div>
+                          <p className="text-sm text-muted-foreground mt-2">“{item.quote}”</p>
+                        </div>
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+              </Carousel>
             </div>
           </div>
         </section>
