@@ -727,6 +727,15 @@ export const LanguageProvider = ({ children }: { children: React.ReactNode }) =>
   });
 
   useEffect(() => {
+    const path = window.location.pathname;
+    if (path.startsWith("/en/") || path === "/en") {
+      setLang("en");
+      return;
+    }
+    if (path.startsWith("/it/") || path === "/it") {
+      setLang("it");
+      return;
+    }
     localStorage.setItem(STORAGE_KEY, lang);
     document.documentElement.lang = lang;
   }, [lang]);
