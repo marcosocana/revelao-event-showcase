@@ -100,6 +100,29 @@ export const Navbar = () => {
 
           {/* Mobile CTA Button */}
           <div className="md:hidden ml-auto flex items-center gap-3">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <button
+                  type="button"
+                  className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-border bg-background text-base"
+                  aria-label="Idioma"
+                >
+                  {currentFlag}
+                </button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                {languageOptions.map((option) => (
+                  <DropdownMenuItem
+                    key={option.value}
+                    onClick={() => setLang(option.value)}
+                    className="cursor-pointer"
+                  >
+                    <span className="mr-2 text-base">{option.flag}</span>
+                    {option.label}
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
             <a
               href={adminLoginUrl}
               target="_blank"
