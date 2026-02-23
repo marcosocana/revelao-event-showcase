@@ -4,7 +4,7 @@ export const CombinedCTABanner = () => {
   const { lang } = useI18n();
   const t = translations[lang];
   const adminLoginUrl = getAdminLoginUrl(lang);
-  return <section className="py-8 md:py-16 bg-primary/5">
+  return <section className="py-8 md:py-16 bg-primary/5 no-card-hover">
       <div className="container px-4 mx-auto">
         <div className="grid md:grid-cols-2 gap-4 md:gap-0 max-w-6xl mx-auto">
           {/* Left side - Contact/Questions CTA */}

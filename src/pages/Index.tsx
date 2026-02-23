@@ -107,10 +107,10 @@ const Index = () => {
         <Templates />
         <Pricing />
         <BlogSection />
-        <HomeSeoContent />
         <FreeTrial />
         <FAQs />
         <CombinedCTABanner />
+        <HomeSeoContent />
       </main>
       <Footer />
       <PricingModal open={isPricingModalOpen} onOpenChange={setIsPricingModalOpen} />

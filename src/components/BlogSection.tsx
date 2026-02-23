@@ -25,7 +25,7 @@ export const BlogSection = () => {
   const { lang } = useI18n();
   const t = translations[lang];
   const [visibleCount, setVisibleCount] = useState(INITIAL_COUNT);
-  const allPosts = useMemo(() => getBlogPosts(), []);
+  const allPosts = useMemo(() => getBlogPosts(lang), [lang]);
   const posts = useMemo(() => allPosts.slice(0, visibleCount), [allPosts, visibleCount]);
   const canShowMore = visibleCount < allPosts.length;
 

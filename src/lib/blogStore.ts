@@ -1,16 +1,17 @@
-import { blogPosts, type BlogPost } from "@/data/blogPosts";
+import { blogPostsByLang, type BlogLanguage, type BlogPost } from "@/data/blogPosts";
 
 const STORAGE_KEY = "revelao_blog_posts";
 
 type StoredPost = Omit<BlogPost, "image"> & { image?: string };
 
-const readStoredPosts = (): BlogPost[] => {
+const readStoredPosts = (lang: BlogLanguage): BlogPost[] => {
   if (typeof window === "undefined") return [];
   try {
-    const raw = window.localStorage.getItem(STORAGE_KEY);
+    const raw = window.localStorage.getItem(`${STORAGE_KEY}_${lang}`);
     if (!raw) {
-      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(blogPosts));
-      return [...blogPosts];
+      const seed = blogPostsByLang[lang] ?? blogPostsByLang.es;
+      window.localStorage.setItem(`${STORAGE_KEY}_${lang}`, JSON.stringify(seed));
+      return [...seed];
     }
     const parsed = JSON.parse(raw) as StoredPost[];
     return parsed
@@ -27,29 +28,29 @@ const readStoredPosts = (): BlogPost[] => {
   }
 };
 
-export const getBlogPosts = (): BlogPost[] => {
-  return readStoredPosts();
+export const getBlogPosts = (lang: BlogLanguage = "es"): BlogPost[] => {
+  return readStoredPosts(lang);
 };
 
-const writePosts = (posts: BlogPost[]) => {
+const writePosts = (lang: BlogLanguage, posts: BlogPost[]) => {
   if (typeof window === "undefined") return;
-  window.localStorage.setItem(STORAGE_KEY, JSON.stringify(posts));
+  window.localStorage.setItem(`${STORAGE_KEY}_${lang}`, JSON.stringify(posts));
 };
 
-export const saveBlogPost = (post: BlogPost) => {
+export const saveBlogPost = (lang: BlogLanguage, post: BlogPost) => {
   if (typeof window === "undefined") return;
-  const stored = readStoredPosts();
+  const stored = readStoredPosts(lang);
   const next = [post, ...stored.filter((item) => item.slug !== post.slug)];
-  writePosts(next);
+  writePosts(lang, next);
 };
 
-export const updateBlogPost = (post: BlogPost) => {
-  const stored = readStoredPosts();
+export const updateBlogPost = (lang: BlogLanguage, post: BlogPost) => {
+  const stored = readStoredPosts(lang);
   const next = stored.map((item) => (item.slug === post.slug ? post : item));
-  writePosts(next);
+  writePosts(lang, next);
 };
 
-export const deleteBlogPost = (slug: string) => {
-  const stored = readStoredPosts();
-  writePosts(stored.filter((item) => item.slug !== slug));
+export const deleteBlogPost = (lang: BlogLanguage, slug: string) => {
+  const stored = readStoredPosts(lang);
+  writePosts(lang, stored.filter((item) => item.slug !== slug));
 };

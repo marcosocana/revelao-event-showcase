@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { deleteBlogPost, getBlogPosts, saveBlogPost, updateBlogPost } from "@/lib/blogStore";
 import { type BlogPost } from "@/data/blogPosts";
 import { BlogEditor } from "@/components/BlogEditor";
+import { useI18n } from "@/lib/i18n";
 
 const ADMIN_PASSWORD = "5362MArc_";
 
@@ -40,7 +41,8 @@ const BlogAdmin = () => {
   const [image, setImage] = useState<string>("");
   const [saving, setSaving] = useState(false);
   const [editorMode, setEditorMode] = useState<"visual" | "html">("visual");
-  const [posts, setPosts] = useState(() => getBlogPosts());
+  const { lang } = useI18n();
+  const [posts, setPosts] = useState(() => getBlogPosts(lang));
   const [editingSlug, setEditingSlug] = useState<string | null>(null);
 
   const slug = useMemo(() => toSlug(title), [title]);
@@ -53,6 +55,10 @@ const BlogAdmin = () => {
       navigate("/");
     }
   }, [navigate]);
+
+  useEffect(() => {
+    setPosts(getBlogPosts(lang));
+  }, [lang]);
 
   const handleImageChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -115,11 +121,11 @@ const BlogAdmin = () => {
     };
 
     if (editingSlug) {
-      updateBlogPost(post);
+      updateBlogPost(lang, post);
     } else {
-      saveBlogPost(post);
+      saveBlogPost(lang, post);
     }
-    setPosts(getBlogPosts());
+    setPosts(getBlogPosts(lang));
     setSaving(false);
     navigate(`/blog/${post.slug}`);
   };
@@ -164,8 +170,8 @@ const BlogAdmin = () => {
                     variant="destructive"
                     size="sm"
                     onClick={() => {
-                      deleteBlogPost(post.slug);
-                      setPosts(getBlogPosts());
+                      deleteBlogPost(lang, post.slug);
+                      setPosts(getBlogPosts(lang));
                     }}
                   >
                     Eliminar

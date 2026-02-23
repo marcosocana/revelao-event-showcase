@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Check } from "lucide-react";
+import { Check, Star } from "lucide-react";
 import {
   Carousel,
   CarouselContent,
@@ -13,56 +13,42 @@ const plans = [
   {
     title: "Demo",
     planId: "demo",
-    guests: 10,
     price: "0€",
-    costPerGuest: "0€",
     stripeUrl: "https://acceso.revelao.cam/nuevoeventodemo",
     cta: "Pruébalo gratis",
-    subtitle: "Solo 10 fotos",
+    subtitle: "Hasta 10 fotos",
   },
   {
-    title: "Pequeño",
+    title: "Start",
     planId: "small",
-    guests: 50,
-    price: "36€",
-    costPerGuest: "0,72€",
+    price: "39€",
     stripeUrl: "https://buy.stripe.com/3cI5kw3Ud3ngeAn2vt3ks00",
     cta: "Elegir",
+    subtitle: "Hasta 200 fotos",
   },
   {
-    title: "Mediano",
+    title: "Plus",
     planId: "medium",
-    guests: 300,
-    price: "74€",
-    costPerGuest: "0,25€",
+    price: "79€",
     stripeUrl: "https://buy.stripe.com/9B67sEbmFcXQ1NB0nl3ks01",
     cta: "Elegir",
+    subtitle: "Hasta 1200 fotos",
     featured: true,
     badge: "Más popular",
   },
   {
-    title: "Grande",
-    planId: "large",
-    guests: 500,
-    price: "96€",
-    costPerGuest: "0,19€",
-    stripeUrl: "https://buy.stripe.com/00wfZa4Yh1f863Rda73ks02",
-    cta: "Elegir",
-  },
-  {
-    title: "XXL",
+    title: "Pro",
     planId: "xxl",
-    guests: 1000,
-    price: "139€",
-    costPerGuest: "0,14€",
+    price: "149€",
     stripeUrl: "https://buy.stripe.com/3cI8wIaiBf5Ydwj9XV3ks03",
     cta: "Elegir",
+    subtitle: "Fotos ilimitadas",
   },
 ];
 
 const whatsappMessage = "Hola! Estoy interesado en contratar Revelao.cam. ¿Puedes darme más información?";
 
-const PlanCard = ({ plan, perEvent, perGuest, features }: { plan: (typeof plans)[0] & { fallbackSubtitle: string }; perEvent: string; perGuest: string; features: string[] }) => (
+const PlanCard = ({ plan, perEvent, features }: { plan: (typeof plans)[0] & { fallbackSubtitle: string }; perEvent: string; features: string[] }) => (
   <div
     className={[
       "relative revelao-card p-5 md:p-6",
@@ -85,17 +71,24 @@ const PlanCard = ({ plan, perEvent, perGuest, features }: { plan: (typeof plans)
         <span className="text-4xl font-bold text-foreground">{plan.price}</span>
         <span className="text-sm text-muted-foreground pb-1">{perEvent}</span>
       </div>
-      <p className="text-sm text-muted-foreground mt-2">
-        {plan.costPerGuest} {perGuest}
-      </p>
     </div>
 
     <ul className="space-y-2.5 mb-5">
       {features.map((feature) => (
+        (() => {
+          const isIdeal =
+            feature.toLowerCase().startsWith("ideal para") ||
+            feature.toLowerCase().startsWith("ideal for") ||
+            feature.toLowerCase().startsWith("ideale per");
+          const Icon = isIdeal ? Star : Check;
+          const iconClass = isIdeal ? "text-foreground" : "text-primary";
+          return (
         <li key={feature} className="flex items-start gap-3">
-          <Check className="w-4 h-4 flex-shrink-0 mt-0.5 text-primary" />
+          <Icon className={`w-4 h-4 flex-shrink-0 mt-0.5 ${iconClass}`} />
           <span className="text-sm text-foreground">{feature}</span>
         </li>
+          );
+        })()
       ))}
     </ul>
 
@@ -120,7 +113,132 @@ export const Pricing = () => {
     large: import.meta.env.VITE_STRIPE_CHECKOUT_URL_LARGE,
     xxl: import.meta.env.VITE_STRIPE_CHECKOUT_URL_XXL,
   };
-  const baseFeatures = t.pricing.features;
+  const featureMap: Record<string, Record<string, string[]>> = {
+    es: {
+      demo: [
+        "Hasta 10 fotos",
+        "Galería activa 10 días",
+        "Sin descarga en alta calidad",
+        "Personalización básica",
+        "Código QR exclusivo",
+        "Panel básico de gestión",
+      ],
+      small: [
+        "Hasta 200 fotos",
+        "Galería 20 días",
+        "Descarga en alta calidad",
+        "Personalización completa",
+        "Acceso privado por enlace",
+        "Código QR exclusivo",
+        "Panel básico de gestión",
+        "Ideal para celebraciones íntimas",
+      ],
+      medium: [
+        "Hasta 1200 fotos",
+        "Galería 60 días",
+        "Descarga en alta calidad",
+        "Personalización completa",
+        "Soporte telefónico",
+        "Código QR exclusivo",
+        "Panel completo de gestión",
+        "Ideal para bodas y eventos medianos",
+      ],
+      xxl: [
+        "Fotos ilimitadas",
+        "Galería 90 días",
+        "Marca blanca personalizada (sin referencia a Revelao)",
+        "Descarga en alta calidad",
+        "Soporte telefónico durante el evento",
+        "Backup 1 año",
+        "Código QR exclusivo",
+        "Panel avanzado de analítica y gestión",
+        "Ideal para grandes celebraciones",
+      ],
+    },
+    en: {
+      demo: [
+        "Up to 10 photos",
+        "Gallery active for 10 days",
+        "No high‑quality downloads",
+        "Basic customization",
+        "Exclusive QR code",
+        "Basic management panel",
+      ],
+      small: [
+        "Up to 200 photos",
+        "Gallery for 20 days",
+        "High‑quality downloads",
+        "Full customization",
+        "Private access via link",
+        "Exclusive QR code",
+        "Basic management panel",
+        "Ideal for intimate celebrations",
+      ],
+      medium: [
+        "Up to 1200 photos",
+        "Gallery for 60 days",
+        "High‑quality downloads",
+        "Full customization",
+        "Phone support",
+        "Exclusive QR code",
+        "Full management panel",
+        "Ideal for weddings and mid‑size events",
+      ],
+      xxl: [
+        "Unlimited photos",
+        "Gallery for 90 days",
+        "Custom white‑label (no Revelao branding)",
+        "High‑quality downloads",
+        "Phone support during the event",
+        "1‑year backup",
+        "Exclusive QR code",
+        "Advanced analytics & management panel",
+        "Ideal for large celebrations",
+      ],
+    },
+    it: {
+      demo: [
+        "Fino a 10 foto",
+        "Galleria attiva 10 giorni",
+        "Nessun download in alta qualità",
+        "Personalizzazione base",
+        "Codice QR esclusivo",
+        "Pannello di gestione base",
+      ],
+      small: [
+        "Fino a 200 foto",
+        "Galleria 20 giorni",
+        "Download in alta qualità",
+        "Personalizzazione completa",
+        "Accesso privato tramite link",
+        "Codice QR esclusivo",
+        "Pannello di gestione base",
+        "Ideale per celebrazioni intime",
+      ],
+      medium: [
+        "Fino a 1200 foto",
+        "Galleria 60 giorni",
+        "Download in alta qualità",
+        "Personalizzazione completa",
+        "Supporto telefonico",
+        "Codice QR esclusivo",
+        "Pannello di gestione completo",
+        "Ideale per matrimoni ed eventi medi",
+      ],
+      xxl: [
+        "Foto illimitate",
+        "Galleria 90 giorni",
+        "White label personalizzato (senza riferimenti a Revelao)",
+        "Download in alta qualità",
+        "Supporto telefonico durante l’evento",
+        "Backup 1 anno",
+        "Codice QR esclusivo",
+        "Pannello avanzato di analisi e gestione",
+        "Ideale per grandi celebrazioni",
+      ],
+    },
+  };
+
   const translatedPlans = plans.map((plan, index) => ({
     ...plan,
     stripeUrl: plan.planId === "demo" ? accessDemoUrl : stripeUrlByPlan[plan.planId] ?? plan.stripeUrl,
@@ -128,7 +246,8 @@ export const Pricing = () => {
     cta: t.pricing.plans[index]?.cta ?? plan.cta,
     subtitle: t.pricing.plans[index]?.subtitle ?? plan.subtitle,
     badge: t.pricing.plans[index]?.badge ?? plan.badge,
-    fallbackSubtitle: t.pricing.untilGuests.replace("{guests}", String(plan.guests)),
+    fallbackSubtitle: plan.subtitle ?? "",
+    features: featureMap[lang]?.[plan.planId] ?? featureMap.es[plan.planId],
   }));
   return <section className="py-10 md:py-16 bg-muted/30" id="precio">
       <div className="container px-4 mx-auto container-mobile-right-edge">
@@ -142,10 +261,10 @@ export const Pricing = () => {
         </div>
 
         {/* Desktop grid */}
-        <div className="hidden md:grid grid-cols-3 xl:grid-cols-5 gap-4 md:gap-6 max-w-7xl mx-auto">
+        <div className="hidden md:grid grid-cols-4 gap-4 md:gap-6 max-w-6xl mx-auto">
           {translatedPlans.map((plan, index) => (
             <div key={plan.title} style={{ animationDelay: `${index * 120}ms` }}>
-              <PlanCard plan={plan} perEvent={t.pricing.perEvent} perGuest={t.pricing.perGuest} features={baseFeatures} />
+              <PlanCard plan={plan} perEvent={t.pricing.perEvent} features={plan.features} />
             </div>
           ))}
         </div>
@@ -156,7 +275,7 @@ export const Pricing = () => {
             <CarouselContent className="ml-0 gap-3">
               {translatedPlans.map((plan) => (
                 <CarouselItem key={plan.title} className="basis-[77%] pl-0">
-                  <PlanCard plan={plan} perEvent={t.pricing.perEvent} perGuest={t.pricing.perGuest} features={baseFeatures} />
+                  <PlanCard plan={plan} perEvent={t.pricing.perEvent} features={plan.features} />
                 </CarouselItem>
               ))}
             </CarouselContent>

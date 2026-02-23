@@ -2,12 +2,14 @@ import { useMemo } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Footer } from "@/components/Footer";
 import { getBlogPosts } from "@/lib/blogStore";
+import { useI18n } from "@/lib/i18n";
 import { Button } from "@/components/ui/button";
 import icon from "@/assets/ico.png";
 
 const BlogDetail = () => {
   const { slug } = useParams();
-  const post = useMemo(() => getBlogPosts().find((item) => item.slug === slug), [slug]);
+  const { lang } = useI18n();
+  const post = useMemo(() => getBlogPosts(lang).find((item) => item.slug === slug), [slug, lang]);
 
   if (!post) {
     return (

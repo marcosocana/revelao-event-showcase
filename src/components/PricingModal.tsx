@@ -1,55 +1,35 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { Check, Users } from "lucide-react";
+import { Check, Star } from "lucide-react";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useState } from "react";
-import { useI18n, translations } from "@/lib/i18n";
+import { getAccessDemoUrl, useI18n, translations } from "@/lib/i18n";
 
-const guestOptions = [
+const planOptions = [
   {
-    value: "50",
-    label: "50",
+    value: "demo",
+    planId: "demo",
+    price: "0€",
+    stripeUrl: "https://acceso.revelao.cam/nuevoeventodemo",
+  },
+  {
+    value: "small",
     planId: "small",
-    guests: 50,
-    price: "36€",
-    costPerGuest: "0,72€",
-    stripeUrl: "https://buy.stripe.com/3cI5kw3Ud3ngeAn2vt3ks00"
+    price: "39€",
+    stripeUrl: "https://buy.stripe.com/3cI5kw3Ud3ngeAn2vt3ks00",
   },
   {
-    value: "300",
-    label: "300",
+    value: "medium",
     planId: "medium",
-    guests: 300,
-    price: "74€",
-    costPerGuest: "0,25€",
-    stripeUrl: "https://buy.stripe.com/9B67sEbmFcXQ1NB0nl3ks01"
+    price: "79€",
+    stripeUrl: "https://buy.stripe.com/9B67sEbmFcXQ1NB0nl3ks01",
   },
   {
-    value: "500",
-    label: "500",
-    planId: "large",
-    guests: 500,
-    price: "96€",
-    costPerGuest: "0,19€",
-    stripeUrl: "https://buy.stripe.com/00wfZa4Yh1f863Rda73ks02"
-  },
-  {
-    value: "1000",
-    label: "1000",
+    value: "xxl",
     planId: "xxl",
-    guests: 1000,
-    price: "139€",
-    costPerGuest: "0,14€",
-    stripeUrl: "https://buy.stripe.com/3cI8wIaiBf5Ydwj9XV3ks03"
+    price: "149€",
+    stripeUrl: "https://buy.stripe.com/3cI8wIaiBf5Ydwj9XV3ks03",
   },
-  {
-    value: "1000+",
-    label: "1000+",
-    guests: 1200,
-    price: "A consultar",
-    costPerGuest: "Contactar",
-    stripeUrl: null
-  }
 ];
 
 const whatsappMessage = "Hola! Estoy interesado en contratar Revelao.cam. ¿Puedes darme más información?";
@@ -60,11 +40,142 @@ interface PricingModalProps {
 }
 
 export const PricingModal = ({ open, onOpenChange }: PricingModalProps) => {
-  const [selectedPlan, setSelectedPlan] = useState("50");
-  const currentPlan = guestOptions.find(option => option.value === selectedPlan) || guestOptions[0];
+  const [selectedPlan, setSelectedPlan] = useState("demo");
+  const currentPlan = planOptions.find(option => option.value === selectedPlan) || planOptions[0];
   const { lang } = useI18n();
   const t = translations[lang];
-  const features = t.pricingModal.features;
+  const accessDemoUrl = getAccessDemoUrl(lang);
+  const translatedPlans = planOptions.map((plan, index) => ({
+    ...plan,
+    label: t.pricing.plans[index]?.title ?? plan.planId,
+    subtitle: t.pricing.plans[index]?.subtitle ?? "",
+    cta: t.pricing.plans[index]?.cta ?? t.pricingModal.choose,
+  }));
+  const featureMap: Record<string, Record<string, string[]>> = {
+    es: {
+      demo: [
+        "Hasta 10 fotos",
+        "Galería activa 10 días",
+        "Sin descarga en alta calidad",
+        "Personalización básica",
+        "Código QR exclusivo",
+        "Panel básico de gestión",
+      ],
+      small: [
+        "Hasta 200 fotos",
+        "Galería 20 días",
+        "Descarga en alta calidad",
+        "Personalización completa",
+        "Acceso privado por enlace",
+        "Código QR exclusivo",
+        "Panel básico de gestión",
+        "Ideal para celebraciones íntimas",
+      ],
+      medium: [
+        "Hasta 1200 fotos",
+        "Galería 60 días",
+        "Descarga en alta calidad",
+        "Personalización completa",
+        "Soporte telefónico",
+        "Código QR exclusivo",
+        "Panel completo de gestión",
+        "Ideal para bodas y eventos medianos",
+      ],
+      xxl: [
+        "Fotos ilimitadas",
+        "Galería 90 días",
+        "Marca blanca personalizada (sin referencia a Revelao)",
+        "Descarga en alta calidad",
+        "Soporte telefónico durante el evento",
+        "Backup 1 año",
+        "Código QR exclusivo",
+        "Panel avanzado de analítica y gestión",
+        "Ideal para grandes celebraciones",
+      ],
+    },
+    en: {
+      demo: [
+        "Up to 10 photos",
+        "Gallery active for 10 days",
+        "No high‑quality downloads",
+        "Basic customization",
+        "Exclusive QR code",
+        "Basic management panel",
+      ],
+      small: [
+        "Up to 200 photos",
+        "Gallery for 20 days",
+        "High‑quality downloads",
+        "Full customization",
+        "Private access via link",
+        "Exclusive QR code",
+        "Basic management panel",
+        "Ideal for intimate celebrations",
+      ],
+      medium: [
+        "Up to 1200 photos",
+        "Gallery for 60 days",
+        "High‑quality downloads",
+        "Full customization",
+        "Phone support",
+        "Exclusive QR code",
+        "Full management panel",
+        "Ideal for weddings and mid‑size events",
+      ],
+      xxl: [
+        "Unlimited photos",
+        "Gallery for 90 days",
+        "Custom white‑label (no Revelao branding)",
+        "High‑quality downloads",
+        "Phone support during the event",
+        "1‑year backup",
+        "Exclusive QR code",
+        "Advanced analytics & management panel",
+        "Ideal for large celebrations",
+      ],
+    },
+    it: {
+      demo: [
+        "Fino a 10 foto",
+        "Galleria attiva 10 giorni",
+        "Nessun download in alta qualità",
+        "Personalizzazione base",
+        "Codice QR esclusivo",
+        "Pannello di gestione base",
+      ],
+      small: [
+        "Fino a 200 foto",
+        "Galleria 20 giorni",
+        "Download in alta qualità",
+        "Personalizzazione completa",
+        "Accesso privato tramite link",
+        "Codice QR esclusivo",
+        "Pannello di gestione base",
+        "Ideale per celebrazioni intime",
+      ],
+      medium: [
+        "Fino a 1200 foto",
+        "Galleria 60 giorni",
+        "Download in alta qualità",
+        "Personalizzazione completa",
+        "Supporto telefonico",
+        "Codice QR esclusivo",
+        "Pannello di gestione completo",
+        "Ideale per matrimoni ed eventi medi",
+      ],
+      xxl: [
+        "Foto illimitate",
+        "Galleria 90 giorni",
+        "White label personalizzato (senza riferimenti a Revelao)",
+        "Download in alta qualità",
+        "Supporto telefonico durante l’evento",
+        "Backup 1 anno",
+        "Codice QR esclusivo",
+        "Pannello avanzato di analisi e gestione",
+        "Ideale per grandi celebrazioni",
+      ],
+    },
+  };
   const stripeUrlByPlan: Record<string, string | undefined> = {
     small: import.meta.env.VITE_STRIPE_CHECKOUT_URL_SMALL,
     medium: import.meta.env.VITE_STRIPE_CHECKOUT_URL_MEDIUM,
@@ -72,8 +183,12 @@ export const PricingModal = ({ open, onOpenChange }: PricingModalProps) => {
     xxl: import.meta.env.VITE_STRIPE_CHECKOUT_URL_XXL,
   };
   const resolvedStripeUrl = currentPlan.planId
-    ? stripeUrlByPlan[currentPlan.planId] ?? currentPlan.stripeUrl
+    ? stripeUrlByPlan[currentPlan.planId] ?? (currentPlan.planId === "demo" ? accessDemoUrl : currentPlan.stripeUrl)
     : currentPlan.stripeUrl;
+  const currentFeatures = featureMap[lang]?.[currentPlan.planId] ?? featureMap.es[currentPlan.planId];
+  const currentLabel = translatedPlans.find((plan) => plan.planId === currentPlan.planId)?.label ?? currentPlan.planId;
+  const currentSubtitle = translatedPlans.find((plan) => plan.planId === currentPlan.planId)?.subtitle ?? "";
+  const currentCta = translatedPlans.find((plan) => plan.planId === currentPlan.planId)?.cta ?? t.pricingModal.choose;
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -87,11 +202,11 @@ export const PricingModal = ({ open, onOpenChange }: PricingModalProps) => {
         
         <div className="space-y-8 mt-4">
           <Tabs value={selectedPlan} onValueChange={setSelectedPlan} className="w-full">
-            <TabsList className="w-full grid grid-cols-5 h-auto p-1">
-              {guestOptions.map(option => (
-                <TabsTrigger 
-                  key={option.value} 
-                  value={option.value} 
+            <TabsList className="w-full grid grid-cols-4 h-auto p-1">
+              {translatedPlans.map(option => (
+                <TabsTrigger
+                  key={option.value}
+                  value={option.value}
                   className="text-xs md:text-sm py-2 px-1 md:px-3"
                 >
                   {option.label}
@@ -102,13 +217,11 @@ export const PricingModal = ({ open, onOpenChange }: PricingModalProps) => {
 
           <div className="border-t border-border pt-8">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8 gap-4">
-              <div className="flex items-center gap-3">
-                <Users className="w-6 h-6 text-foreground" />
-                <span className="text-base md:text-2xl font-semibold text-foreground">
-                  {currentPlan.value === "1000+"
-                    ? t.pricingModal.moreGuests
-                    : t.pricingModal.untilGuests.replace("{guests}", String(currentPlan.guests))}
-                </span>
+              <div className="space-y-1">
+                <h3 className="text-xl md:text-2xl font-semibold text-foreground">{currentLabel}</h3>
+                {currentSubtitle ? (
+                  <p className="text-sm md:text-base text-muted-foreground">{currentSubtitle}</p>
+                ) : null}
               </div>
               <div className="text-left md:text-right">
                 <span className="font-bold text-foreground text-3xl md:text-4xl">
@@ -119,24 +232,26 @@ export const PricingModal = ({ open, onOpenChange }: PricingModalProps) => {
             </div>
 
             <ul className="space-y-4 mb-8">
-              {features.map((feature, index) => (
-                <li key={index} className="flex items-start gap-3">
-                  <Check className="w-5 h-5 flex-shrink-0 mt-0.5 text-foreground" />
-                  <span className="text-foreground">{feature}</span>
-                </li>
-              ))}
-              <li className="flex items-start gap-3">
-                <Check className="w-5 h-5 flex-shrink-0 mt-0.5 text-foreground" />
-                <span className="text-foreground">
-                  <span className="font-semibold">{currentPlan.costPerGuest} {t.pricingModal.perGuest}</span>
-                </span>
-              </li>
+              {currentFeatures.map((feature, index) => {
+                const normalized = feature.toLowerCase();
+                const isIdeal =
+                  normalized.startsWith("ideal para") ||
+                  normalized.startsWith("ideal for") ||
+                  normalized.startsWith("ideale per");
+                const Icon = isIdeal ? Star : Check;
+                return (
+                  <li key={index} className="flex items-start gap-3">
+                    <Icon className="w-5 h-5 flex-shrink-0 mt-0.5 text-foreground" />
+                    <span className="text-foreground">{feature}</span>
+                  </li>
+                );
+              })}
             </ul>
 
             {resolvedStripeUrl ? (
               <Button className="w-full" variant="default" asChild>
                 <a href={resolvedStripeUrl} target="_blank" rel="noopener noreferrer">
-                  {t.pricingModal.choose}
+                  {currentCta}
                 </a>
               </Button>
             ) : (

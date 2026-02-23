@@ -147,13 +147,12 @@ export const translations = {
         "Soporte para dudas",
       ],
       plans: [
-        { title: "Demo", subtitle: "Solo 10 fotos", cta: "Pruébalo gratis" },
-        { title: "Pequeño", cta: "Elegir" },
-        { title: "Mediano", cta: "Elegir", badge: "Más popular" },
-        { title: "Grande", cta: "Elegir" },
-        { title: "XXL", cta: "Elegir" },
+        { title: "Demo", subtitle: "Hasta 10 fotos", cta: "Pruébalo gratis" },
+        { title: "Start", cta: "Elegir" },
+        { title: "Plus", cta: "Elegir", badge: "Más popular" },
+        { title: "Pro", cta: "Elegir" },
       ],
-      more: "¿Más de 1000 invitados?",
+      more: "¿No te encaja ningún plan?",
       whatsapp: "Escríbenos por WhatsApp",
     },
     blog: {
@@ -164,7 +163,7 @@ export const translations = {
       seeMore: "Ver más",
     },
     freeTrial: {
-      title: "¿Quieres probarlo antes?",
+      title: "¿Quieres probarlo?",
       subtitle:
         "Crea un evento de prueba gratuito y descubre cómo funciona la experiencia completa de Revelao. Sin compromiso, sin tarjeta.",
       cta: "Prueba gratis",
@@ -196,7 +195,7 @@ export const translations = {
         },
         {
           q: "¿Cuántas fotos puedo hacer?",
-          a: "¡Sin límites! Cada invitado puede subir tantas fotos como quiera.",
+          a: "Cada plan tiene unas características concretas. Elige el que mejor se adapte a tu evento.",
         },
         {
           q: "¿Qué pasa cuando se revelan las fotos?",
@@ -226,7 +225,7 @@ export const translations = {
       leftButton: "¿Hablamos?",
       rightTitle: "¿Ya has creado tu evento?",
       rightText:
-        "Entonces puedes acceder al panel de control para gestionar tu evento en cualquier momento.",
+        "Entonces puedes acceder al panel de control para gestionarlo en cualquier momento.",
       rightButton: "Acceder a Revelao",
     },
     footer: {
@@ -415,13 +414,12 @@ export const translations = {
         "Support",
       ],
       plans: [
-        { title: "Demo", subtitle: "Only 10 photos", cta: "Try for free" },
-        { title: "Small", cta: "Choose" },
-        { title: "Medium", cta: "Choose", badge: "Most popular" },
-        { title: "Large", cta: "Choose" },
-        { title: "XXL", cta: "Choose" },
+        { title: "Demo", subtitle: "Up to 10 photos", cta: "Try for free" },
+        { title: "Start", cta: "Choose" },
+        { title: "Plus", cta: "Choose", badge: "Most popular" },
+        { title: "Pro", cta: "Choose" },
       ],
-      more: "More than 1000 guests?",
+      more: "Doesn’t any plan fit?",
       whatsapp: "Write to us on WhatsApp",
     },
     blog: {
@@ -432,7 +430,7 @@ export const translations = {
       seeMore: "See more",
     },
     freeTrial: {
-      title: "Want to try it first?",
+      title: "Want to try it?",
       subtitle:
         "Create a free demo event and discover the full Revelao experience. No commitment, no card.",
       cta: "Try for free",
@@ -464,7 +462,7 @@ export const translations = {
         },
         {
           q: "How many photos can I take?",
-          a: "Unlimited! Each guest can upload as many photos as they want.",
+          a: "Each plan has specific features. Choose the one that best fits your event.",
         },
         {
           q: "What happens when photos are revealed?",
@@ -495,7 +493,7 @@ export const translations = {
       leftButton: "Let's talk",
       rightTitle: "Already created your event?",
       rightText:
-        "You can access the control panel to manage your event at any time.",
+        "Then you can access the control panel to manage it anytime.",
       rightButton: "Access Revelao",
     },
     footer: {
@@ -684,13 +682,12 @@ export const translations = {
         "Supporto",
       ],
       plans: [
-        { title: "Demo", subtitle: "Solo 10 foto", cta: "Prova gratis" },
-        { title: "Piccolo", cta: "Scegli" },
-        { title: "Medio", cta: "Scegli", badge: "Più popolare" },
-        { title: "Grande", cta: "Scegli" },
-        { title: "XXL", cta: "Scegli" },
+        { title: "Demo", subtitle: "Fino a 10 foto", cta: "Prova gratis" },
+        { title: "Start", cta: "Scegli" },
+        { title: "Plus", cta: "Scegli", badge: "Più popolare" },
+        { title: "Pro", cta: "Scegli" },
       ],
-      more: "Più di 1000 invitati?",
+      more: "Nessun piano fa al caso tuo?",
       whatsapp: "Scrivici su WhatsApp",
     },
     blog: {
@@ -701,7 +698,7 @@ export const translations = {
       seeMore: "Vedi altro",
     },
     freeTrial: {
-      title: "Vuoi provarlo prima?",
+      title: "Vuoi provarlo?",
       subtitle:
         "Crea un evento demo gratuito e scopri l’esperienza completa di Revelao. Senza impegno.",
       cta: "Prova gratis",
@@ -733,7 +730,7 @@ export const translations = {
         },
         {
           q: "Quante foto posso fare?",
-          a: "Illimitate! Ogni invitato può caricare tutte le foto che vuole.",
+          a: "Ogni piano ha caratteristiche specifiche. Scegli quello più adatto al tuo evento.",
         },
         {
           q: "Cosa succede quando le foto vengono rivelate?",
@@ -764,7 +761,7 @@ export const translations = {
       leftButton: "Parliamone",
       rightTitle: "Hai già creato il tuo evento?",
       rightText:
-        "Puoi accedere al pannello di controllo per gestire il tuo evento in qualsiasi momento.",
+        "Puoi accedere al pannello di controllo per gestirlo in qualsiasi momento.",
       rightButton: "Accedi a Revelao",
     },
     footer: {
