@@ -46,7 +46,7 @@ const plans = [
     cta: "Elegir",
   },
   {
-    title: "XL",
+    title: "XXL",
     guests: 1000,
     price: "139€",
     costPerGuest: "0,14€",
