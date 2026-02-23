@@ -12,6 +12,7 @@ import { getAccessDemoUrl, useI18n, translations } from "@/lib/i18n";
 const plans = [
   {
     title: "Demo",
+    planId: "demo",
     guests: 10,
     price: "0€",
     costPerGuest: "0€",
@@ -21,6 +22,7 @@ const plans = [
   },
   {
     title: "Pequeño",
+    planId: "small",
     guests: 50,
     price: "36€",
     costPerGuest: "0,72€",
@@ -29,6 +31,7 @@ const plans = [
   },
   {
     title: "Mediano",
+    planId: "medium",
     guests: 300,
     price: "74€",
     costPerGuest: "0,25€",
@@ -39,6 +42,7 @@ const plans = [
   },
   {
     title: "Grande",
+    planId: "large",
     guests: 500,
     price: "96€",
     costPerGuest: "0,19€",
@@ -47,6 +51,7 @@ const plans = [
   },
   {
     title: "XXL",
+    planId: "xxl",
     guests: 1000,
     price: "139€",
     costPerGuest: "0,14€",
@@ -109,10 +114,16 @@ export const Pricing = () => {
   const { lang } = useI18n();
   const t = translations[lang];
   const accessDemoUrl = getAccessDemoUrl(lang);
+  const stripeUrlByPlan: Record<string, string | undefined> = {
+    small: import.meta.env.VITE_STRIPE_CHECKOUT_URL_SMALL,
+    medium: import.meta.env.VITE_STRIPE_CHECKOUT_URL_MEDIUM,
+    large: import.meta.env.VITE_STRIPE_CHECKOUT_URL_LARGE,
+    xxl: import.meta.env.VITE_STRIPE_CHECKOUT_URL_XXL,
+  };
   const baseFeatures = t.pricing.features;
   const translatedPlans = plans.map((plan, index) => ({
     ...plan,
-    stripeUrl: index === 0 ? accessDemoUrl : plan.stripeUrl,
+    stripeUrl: plan.planId === "demo" ? accessDemoUrl : stripeUrlByPlan[plan.planId] ?? plan.stripeUrl,
     title: t.pricing.plans[index]?.title ?? plan.title,
     cta: t.pricing.plans[index]?.cta ?? plan.cta,
     subtitle: t.pricing.plans[index]?.subtitle ?? plan.subtitle,

@@ -9,6 +9,7 @@ const guestOptions = [
   {
     value: "50",
     label: "50",
+    planId: "small",
     guests: 50,
     price: "36€",
     costPerGuest: "0,72€",
@@ -17,6 +18,7 @@ const guestOptions = [
   {
     value: "300",
     label: "300",
+    planId: "medium",
     guests: 300,
     price: "74€",
     costPerGuest: "0,25€",
@@ -25,6 +27,7 @@ const guestOptions = [
   {
     value: "500",
     label: "500",
+    planId: "large",
     guests: 500,
     price: "96€",
     costPerGuest: "0,19€",
@@ -33,6 +36,7 @@ const guestOptions = [
   {
     value: "1000",
     label: "1000",
+    planId: "xxl",
     guests: 1000,
     price: "139€",
     costPerGuest: "0,14€",
@@ -61,6 +65,15 @@ export const PricingModal = ({ open, onOpenChange }: PricingModalProps) => {
   const { lang } = useI18n();
   const t = translations[lang];
   const features = t.pricingModal.features;
+  const stripeUrlByPlan: Record<string, string | undefined> = {
+    small: import.meta.env.VITE_STRIPE_CHECKOUT_URL_SMALL,
+    medium: import.meta.env.VITE_STRIPE_CHECKOUT_URL_MEDIUM,
+    large: import.meta.env.VITE_STRIPE_CHECKOUT_URL_LARGE,
+    xxl: import.meta.env.VITE_STRIPE_CHECKOUT_URL_XXL,
+  };
+  const resolvedStripeUrl = currentPlan.planId
+    ? stripeUrlByPlan[currentPlan.planId] ?? currentPlan.stripeUrl
+    : currentPlan.stripeUrl;
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -101,7 +114,7 @@ export const PricingModal = ({ open, onOpenChange }: PricingModalProps) => {
                 <span className="font-bold text-foreground text-3xl md:text-4xl">
                   {currentPlan.price}
                 </span>
-                {currentPlan.stripeUrl && <span className="text-muted-foreground">{t.pricingModal.perEvent}</span>}
+                {resolvedStripeUrl && <span className="text-muted-foreground">{t.pricingModal.perEvent}</span>}
               </div>
             </div>
 
@@ -120,9 +133,9 @@ export const PricingModal = ({ open, onOpenChange }: PricingModalProps) => {
               </li>
             </ul>
 
-            {currentPlan.stripeUrl ? (
+            {resolvedStripeUrl ? (
               <Button className="w-full" variant="default" asChild>
-                <a href={currentPlan.stripeUrl} target="_blank" rel="noopener noreferrer">
+                <a href={resolvedStripeUrl} target="_blank" rel="noopener noreferrer">
                   {t.pricingModal.choose}
                 </a>
               </Button>
