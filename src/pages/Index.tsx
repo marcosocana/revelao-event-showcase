@@ -108,21 +108,21 @@ const Index = () => {
         <Templates />
         <Pricing />
         <BlogSection />
-        <section className="py-6 md:py-8 bg-background">
+        <section className="py-4 md:py-6 bg-background">
           <div className="mx-auto w-full">
             <div className="w-full">
               <FreeTrial />
             </div>
           </div>
         </section>
-        <section className="py-6 md:py-10 bg-background" id="faqs">
+        <section className="py-4 md:py-8 bg-background" id="faqs">
           <div className="container px-4 mx-auto">
             <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] items-start">
               <div className="max-w-3xl">
                 <FAQs />
               </div>
               <div className="flex justify-center lg:justify-end">
-                <div className="h-[700px]">
+                <div className="h-[420px] md:h-[700px]">
                   <IphoneMockup3D className="h-full" showIsland={false} />
                 </div>
               </div>

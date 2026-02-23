@@ -7,7 +7,7 @@ export const FreeTrial = () => {
   const t = translations[lang];
   const accessDemoUrl = getAccessDemoUrl(lang);
   return (
-    <div className="w-full bg-primary/10 px-6 py-8 md:px-8 md:py-10 text-center">
+    <div className="w-full bg-primary/10 px-6 py-6 md:px-8 md:py-8 text-center">
       <h2 className="text-xl md:text-3xl font-bold text-foreground mb-3">
         {t.freeTrial.title}
       </h2>
