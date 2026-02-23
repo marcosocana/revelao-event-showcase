@@ -11,6 +11,7 @@ import { Footer } from "@/components/Footer";
 import { PricingModal } from "@/components/PricingModal";
 import { BlogSection } from "@/components/BlogSection";
 import { HomeSeoContent } from "@/components/HomeSeoContent";
+import IphoneMockup3D from "@/components/IphoneMockup3D";
 import { useState, useEffect } from "react";
 import { useI18n, translations } from "@/lib/i18n";
 
@@ -107,8 +108,27 @@ const Index = () => {
         <Templates />
         <Pricing />
         <BlogSection />
-        <FreeTrial />
-        <FAQs />
+        <section className="py-6 md:py-8 bg-background">
+          <div className="mx-auto w-full">
+            <div className="w-full">
+              <FreeTrial />
+            </div>
+          </div>
+        </section>
+        <section className="py-6 md:py-10 bg-background" id="faqs">
+          <div className="container px-4 mx-auto">
+            <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] items-start">
+              <div className="max-w-3xl">
+                <FAQs />
+              </div>
+              <div className="flex justify-center lg:justify-end">
+                <div className="h-[700px]">
+                  <IphoneMockup3D className="h-full" showIsland={false} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
         <CombinedCTABanner />
         <HomeSeoContent />
       </main>

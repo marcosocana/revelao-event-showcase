@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import ruedaVideo from "@/assets/rueda.mp4";
 import corazon from "@/assets/corazon.svg";
 import { getAccessDemoUrl, useI18n, translations } from "@/lib/i18n";
+import IphoneMockup3D from "@/components/IphoneMockup3D";
 
 export const Hero = () => {
   const { lang } = useI18n();
@@ -73,14 +74,16 @@ export const Hero = () => {
 
           {/* Right side - Video */}
           <div className="flex-shrink-0 w-full max-w-[280px] md:max-w-[320px] lg:max-w-[350px] mb-8 lg:mb-0">
-            <video 
-              src="/phone-video.mp4?v=2" 
-              autoPlay 
-              loop 
-              muted 
-              playsInline 
-              className="w-full h-auto rounded-[20px] object-cover shadow-2xl border border-muted-foreground/20" 
-            />
+            <IphoneMockup3D showIsland={false}>
+              <video
+                src="/phone-video.mp4?v=2"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover"
+              />
+            </IphoneMockup3D>
           </div>
         </div>
       </div>
