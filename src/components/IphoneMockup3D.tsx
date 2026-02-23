@@ -5,12 +5,22 @@ type IphoneMockup3DProps = {
   className?: string;
   children?: ReactNode;
   showIsland?: boolean;
+  showShadow?: boolean;
+  shadowClassName?: string;
+  animate?: boolean;
 };
 
-const IphoneMockup3D = ({ className, children, showIsland = true }: IphoneMockup3DProps) => {
+const IphoneMockup3D = ({
+  className,
+  children,
+  showIsland = true,
+  showShadow = true,
+  shadowClassName,
+  animate = true,
+}: IphoneMockup3DProps) => {
   return (
     <div className={["iphone-mockup-perspective", className].filter(Boolean).join(" ")}>
-      <div className="iphone-mockup-float">
+      <div className={["iphone-mockup-float", !animate ? "no-anim" : ""].filter(Boolean).join(" ")}>
         <div className="iphone-mockup-body">
           <div className="iphone-mockup-bezel">
             <div className="iphone-mockup-screen">
@@ -19,7 +29,9 @@ const IphoneMockup3D = ({ className, children, showIsland = true }: IphoneMockup
             {showIsland ? <div className="iphone-mockup-island" /> : null}
           </div>
         </div>
-        <div className="iphone-mockup-shadow" />
+        {showShadow ? (
+          <div className={["iphone-mockup-shadow", shadowClassName].filter(Boolean).join(" ")} />
+        ) : null}
       </div>
       <style>{`
         .iphone-mockup-perspective {
@@ -36,7 +48,11 @@ const IphoneMockup3D = ({ className, children, showIsland = true }: IphoneMockup
           animation: iphone-tilt 6s ease-in-out infinite;
           transition: transform 0.4s ease;
           width: 100%;
-          height: 700px;
+        }
+
+        .iphone-mockup-float.no-anim {
+          animation: none;
+          transform: none;
         }
 
         .iphone-mockup-perspective:hover .iphone-mockup-float {
@@ -128,6 +144,14 @@ const IphoneMockup3D = ({ className, children, showIsland = true }: IphoneMockup
           transform: translateX(-50%);
           background: radial-gradient(ellipse at center, rgba(0,0,0,0.35), rgba(0,0,0,0));
           filter: blur(6px);
+        }
+
+        .iphone-mockup-shadow.soft-tight {
+          bottom: -12px;
+          width: 65%;
+          height: 12px;
+          background: radial-gradient(ellipse at center, rgba(0,0,0,0.2), rgba(0,0,0,0));
+          filter: blur(4px);
         }
 
         @keyframes iphone-tilt {

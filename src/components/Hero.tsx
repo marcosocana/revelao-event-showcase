@@ -73,8 +73,8 @@ export const Hero = () => {
           </div>
 
           {/* Right side - Video */}
-          <div className="flex-shrink-0 w-full max-w-[220px] md:max-w-[320px] lg:max-w-[350px] mb-8 lg:mb-0">
-            <IphoneMockup3D showIsland={false}>
+          <div className="flex-shrink-0 w-full max-w-[180px] md:max-w-[260px] lg:max-w-[280px] mb-8 lg:mb-0">
+            <IphoneMockup3D showIsland={false} showShadow shadowClassName="soft-tight">
               <video
                 src="/phone-video.mp4?v=2"
                 autoPlay
