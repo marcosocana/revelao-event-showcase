@@ -26,7 +26,7 @@ const plans = [
     guests: 50,
     price: "36€",
     costPerGuest: "0,72€",
-    stripeUrl: "https://buy.stripe.com/cNiaEY0i9gnpbi4dL60Fi03",
+    stripeUrl: "https://buy.stripe.com/3cI5kw3Ud3ngeAn2vt3ks00",
     cta: "Elegir",
   },
   {
@@ -35,7 +35,7 @@ const plans = [
     guests: 300,
     price: "74€",
     costPerGuest: "0,25€",
-    stripeUrl: "https://buy.stripe.com/14A5kE9SJgnpeuggXi0Fi02",
+    stripeUrl: "https://buy.stripe.com/9B67sEbmFcXQ1NB0nl3ks01",
     cta: "Elegir",
     featured: true,
     badge: "Más popular",
@@ -46,7 +46,7 @@ const plans = [
     guests: 500,
     price: "96€",
     costPerGuest: "0,19€",
-    stripeUrl: "https://buy.stripe.com/dRm8wQ4yp5IL85S7mI0Fi04",
+    stripeUrl: "https://buy.stripe.com/00wfZa4Yh1f863Rda73ks02",
     cta: "Elegir",
   },
   {
@@ -55,7 +55,7 @@ const plans = [
     guests: 1000,
     price: "139€",
     costPerGuest: "0,14€",
-    stripeUrl: "https://buy.stripe.com/fZu28sd4VefhgCo5eA0Fi05",
+    stripeUrl: "https://buy.stripe.com/3cI8wIaiBf5Ydwj9XV3ks03",
     cta: "Elegir",
   },
 ];
