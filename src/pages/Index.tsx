@@ -16,13 +16,28 @@ import { useI18n, translations } from "@/lib/i18n";
 
 const Index = () => {
   const [isPricingModalOpen, setIsPricingModalOpen] = useState(false);
-  const { lang } = useI18n();
+  const { lang, setLang } = useI18n();
 
   useEffect(() => {
     const handleOpenModal = () => setIsPricingModalOpen(true);
     window.addEventListener('openPricingModal', handleOpenModal);
     return () => window.removeEventListener('openPricingModal', handleOpenModal);
   }, []);
+
+  useEffect(() => {
+    const saved = localStorage.getItem("revelao-lang");
+    if (saved) return;
+    const browserLang = (navigator.language || navigator.languages?.[0] || "es").toLowerCase();
+    if (browserLang.startsWith("en")) {
+      setLang("en");
+      return;
+    }
+    if (browserLang.startsWith("it")) {
+      setLang("it");
+      return;
+    }
+    setLang("es");
+  }, [setLang]);
 
   useEffect(() => {
     const meta = translations[lang].seoHomeMeta;
