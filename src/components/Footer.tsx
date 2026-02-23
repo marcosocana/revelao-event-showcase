@@ -7,12 +7,11 @@ export const Footer = () => {
             <img src={icon} alt="Revelao" className="h-6 w-auto" />
             <span className="text-lg font-bold text-foreground">Revelao.cam</span>
           </div>
-          <p className="text-xs text-muted-foreground">© 2026 Revelao.cam</p>
           <a
             href="/blog/admin"
             className="text-xs text-muted-foreground hover:text-foreground transition-colors"
           >
-            Acceder a la edición del blog
+            © 2026 Revelao.cam
           </a>
         </div>
       </div>
