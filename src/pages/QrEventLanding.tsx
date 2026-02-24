@@ -77,11 +77,23 @@ const copy = {
     seoText:
       "Si buscas una herramienta de evento QR para bodas, Revelao.cam te permite crear un evento con QR y reunir todas las fotos de forma simple y segura.",
     seoMeta: {
-      title: "Evento con Código QR para Compartir Fotos | Revelao.cam",
+      title: "Revelao.cam | Galería QR para bodas y eventos",
       description:
-        "Crea una galería QR para eventos: comparte fotos con QR en bodas y fiestas, sin app. Descubre cómo funciona y crea tu evento en minutos.",
+        "Crea un evento con código QR para compartir fotos en bodas, fiestas y eventos corporativos. Sin app, acceso inmediato, galería privada y revelado.",
       keywords:
         "evento con código QR, fotos con QR para boda, galería QR para eventos, compartir fotos con QR",
+    },
+    footer: {
+      text:
+        "Revelao.cam te permite crear una galería de fotos con código QR para bodas, fiestas y eventos corporativos. Sin app, acceso inmediato y revelado para compartir recuerdos.",
+      keywordsTitle: "Búsquedas frecuentes",
+      keywords: [
+        "Galería QR para eventos",
+        "Fotos con QR para boda",
+        "Evento con código QR",
+        "Compartir fotos sin app",
+        "QR para celebraciones",
+      ],
     },
     seoSections: [
       {
@@ -180,11 +192,23 @@ const copy = {
     seoText:
       "If you’re looking for a QR event tool for weddings, Revelao.cam lets you create a QR event and gather all photos simply and securely.",
     seoMeta: {
-      title: "QR Code Event to Share Photos | Revelao.cam",
+      title: "Revelao.cam | QR photo gallery for weddings & events",
       description:
-        "Create a QR gallery for events: share photos with QR at weddings and parties without any app. Learn how it works and start in minutes.",
+        "Create a QR event to share photos at weddings, parties, and corporate events. No app, instant access, private gallery, and a reveal moment.",
       keywords:
         "qr code event, wedding photos with qr, qr gallery for events, share photos with qr",
+    },
+    footer: {
+      text:
+        "Revelao.cam helps you create a QR photo gallery for weddings, parties, and corporate events. No app, instant access, and a shared reveal moment.",
+      keywordsTitle: "Popular searches",
+      keywords: [
+        "QR photo gallery",
+        "Wedding QR photos",
+        "QR code event",
+        "Share photos without app",
+        "QR for celebrations",
+      ],
     },
     seoSections: [
       {
@@ -283,11 +307,23 @@ const copy = {
     seoText:
       "Se cerchi uno strumento per eventi QR per matrimoni, Revelao.cam ti permette di creare un evento QR e raccogliere tutte le foto in modo semplice e sicuro.",
     seoMeta: {
-      title: "Evento con Codice QR per Condividere Foto | Revelao.cam",
+      title: "Revelao.cam | Galleria foto QR per matrimoni ed eventi",
       description:
-        "Crea una galleria QR per eventi: condividi foto con QR per matrimoni e feste senza app. Scopri come funziona e inizia in pochi minuti.",
+        "Crea un evento con codice QR per condividere foto a matrimoni, feste ed eventi aziendali. Nessuna app, accesso immediato, galleria privata e rivelazione.",
       keywords:
         "evento con codice QR, foto con QR per matrimonio, galleria QR per eventi, condividere foto con QR",
+    },
+    footer: {
+      text:
+        "Revelao.cam ti permette di creare una galleria foto con codice QR per matrimoni, feste ed eventi aziendali. Nessuna app, accesso immediato e rivelazione.",
+      keywordsTitle: "Ricerche frequenti",
+      keywords: [
+        "Galleria QR per eventi",
+        "Foto QR per matrimonio",
+        "Evento con codice QR",
+        "Condividere foto senza app",
+        "QR per feste",
+      ],
     },
     seoSections: [
       {
@@ -879,7 +915,11 @@ const QrEventLanding = () => {
           </DialogContent>
         </Dialog>
       </main>
-      <Footer />
+      <Footer
+        text={t.footer?.text}
+        keywordsTitle={t.footer?.keywordsTitle}
+        keywords={t.footer?.keywords}
+      />
     </div>
   );
 };

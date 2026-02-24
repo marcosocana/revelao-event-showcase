@@ -115,7 +115,7 @@ const Index = () => {
             </div>
           </div>
         </section>
-        <section className="py-4 md:py-8 bg-background" id="faqs">
+        <section className="py-4 md:py-8 bg-background scroll-mt-12 md:scroll-mt-14" id="faqs">
           <div className="container px-4 mx-auto">
             <div className="max-w-3xl mx-auto">
               <FAQs />

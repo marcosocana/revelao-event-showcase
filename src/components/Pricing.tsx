@@ -252,7 +252,7 @@ export const Pricing = () => {
     fallbackSubtitle: plan.subtitle ?? "",
     features: featureMap[lang]?.[plan.planId] ?? featureMap.es[plan.planId],
   }));
-  return <section className="py-10 md:py-16 bg-muted/30" id="precio">
+  return <section className="py-10 md:py-16 bg-muted/30 scroll-mt-12 md:scroll-mt-14" id="precio">
       <div className="container px-4 mx-auto container-mobile-right-edge">
         <div className="text-center mb-8 md:mb-10 animate-fade-in">
           <h2 className="font-bold mb-2 text-foreground md:text-5xl text-center text-3xl">
