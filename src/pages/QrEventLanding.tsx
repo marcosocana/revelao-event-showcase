@@ -44,7 +44,7 @@ const copy = {
     taglineTags: ["Revelao.cam", "Evento QR gratuito"],
     ctaPrimary: "Crear evento gratuito",
     stepLabel: "Paso",
-    stepsTitle: "Cómo funciona un evento con QR",
+    stepsTitle: "La experiencia Revelao en solo 4 pasos:",
     steps: [
       "Crea tu evento QR en menos de 1 minuto.",
       "Comparte el código QR con tus invitados.",
@@ -71,8 +71,7 @@ const copy = {
     storyText:
       "Coloca el QR en tus mesas y rincones favoritos para que todos participen con sus fotos.",
     templatesTitle: "Plantillas QR listas para imprimir",
-    templatesText:
-      "Diseños elegantes para bodas y eventos. Descarga, imprime y coloca junto al QR.",
+    templatesText: "Modificar. Escríbenos y te lo hacemos de forma gratuíta.",
     seoTitle: "Optimizado para bodas y eventos QR",
     seoText:
       "Si buscas una herramienta de evento QR para bodas, Revelao.cam te permite crear un evento con QR y reunir todas las fotos de forma simple y segura.",
@@ -131,6 +130,9 @@ const copy = {
     ctaStripTitle: "Crea tu evento gratuito en 1 minuto",
     ctaStripText:
       "Si buscas una herramienta de evento QR para bodas o eventos, aquí tienes la solución lista para usar.",
+    ctaTrialTitle: "Empieza tu prueba gratis hoy",
+    ctaTrialText:
+      "Crea un evento demo en menos de un minuto y prueba Revelao sin compromiso.",
     faqTitle: "Preguntas frecuentes sobre eventos con QR",
     faqs: [
       {
@@ -159,7 +161,7 @@ const copy = {
     taglineTags: ["Revelao.cam", "Free QR event"],
     ctaPrimary: "Create a free event",
     stepLabel: "Step",
-    stepsTitle: "How a QR event works",
+    stepsTitle: "The Revelao experience in just 4 steps:",
     steps: [
       "Create your QR event in under 1 minute.",
       "Share the QR code with your guests.",
@@ -186,8 +188,7 @@ const copy = {
     storyText:
       "Place the QR on tables and key spots so everyone can join with their photos.",
     templatesTitle: "QR templates ready to print",
-    templatesText:
-      "Elegant designs for weddings and events. Download, print, and place next to the QR.",
+    templatesText: "Modify it. Write to us and we will do it for free.",
     seoTitle: "Built for weddings and QR events",
     seoText:
       "If you’re looking for a QR event tool for weddings, Revelao.cam lets you create a QR event and gather all photos simply and securely.",
@@ -246,6 +247,9 @@ const copy = {
     ctaStripTitle: "Create your free event in 1 minute",
     ctaStripText:
       "If you need a QR event tool for weddings or events, this is ready to launch.",
+    ctaTrialTitle: "Start your free trial today",
+    ctaTrialText:
+      "Create a demo event in under a minute and try Revelao with no commitment.",
     faqTitle: "QR event FAQs",
     faqs: [
       {
@@ -274,7 +278,7 @@ const copy = {
     taglineTags: ["Revelao.cam", "Evento QR gratuito"],
     ctaPrimary: "Crea evento gratuito",
     stepLabel: "Passo",
-    stepsTitle: "Come funziona un evento QR",
+    stepsTitle: "L’esperienza Revelao in soli 4 passaggi:",
     steps: [
       "Crea il tuo evento QR in meno di 1 minuto.",
       "Condividi il codice QR con gli invitati.",
@@ -301,8 +305,7 @@ const copy = {
     storyText:
       "Posiziona il QR sui tavoli e nei punti chiave per coinvolgere tutti con le foto.",
     templatesTitle: "Modelli QR pronti da stampare",
-    templatesText:
-      "Design eleganti per matrimoni ed eventi. Scarica, stampa e posiziona accanto al QR.",
+    templatesText: "Modificalo. Scrivici e lo facciamo gratuitamente.",
     seoTitle: "Pensato per matrimoni ed eventi QR",
     seoText:
       "Se cerchi uno strumento per eventi QR per matrimoni, Revelao.cam ti permette di creare un evento QR e raccogliere tutte le foto in modo semplice e sicuro.",
@@ -361,6 +364,9 @@ const copy = {
     ctaStripTitle: "Crea il tuo evento gratuito in 1 minuto",
     ctaStripText:
       "Se cerchi uno strumento QR per matrimoni o eventi, è pronto per partire.",
+    ctaTrialTitle: "Inizia la prova gratuita oggi",
+    ctaTrialText:
+      "Crea un evento demo in meno di un minuto e prova Revelao senza impegno.",
     faqTitle: "FAQ sugli eventi QR",
     faqs: [
       {
@@ -660,9 +666,9 @@ const QrEventLanding = () => {
         </section>
 
         <section className="container px-4 mx-auto py-12 md:py-16">
-          <div className="max-w-5xl mx-auto text-center mb-8">
+          <div className="max-w-5xl mx-auto text-center mb-4">
             <h2 className="text-2xl md:text-3xl font-semibold">{t.stepsTitle}</h2>
-            <p className="text-muted-foreground mt-2">{t.showcaseText}</p>
+            <p className="text-muted-foreground mt-1">{t.showcaseText}</p>
           </div>
           <div className="hidden md:grid max-w-5xl mx-auto grid-cols-1 md:grid-cols-2 gap-6">
             {stepsItems.map((item, idx) => (
@@ -900,6 +906,24 @@ const QrEventLanding = () => {
                   {tag}
                 </span>
               ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="py-12 md:py-16">
+          <div className="container px-4 mx-auto">
+            <div className="revelao-card p-6 md:p-10 text-center space-y-6">
+              <h2 className="text-2xl md:text-3xl font-semibold">
+                {t.ctaTrialTitle}
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                {t.ctaTrialText}
+              </p>
+              <Button className="bg-primary text-primary-foreground hover:bg-primary/90" asChild>
+                <a href={accessDemoUrl} target="_blank" rel="noopener noreferrer">
+                  {t.ctaPrimary}
+                </a>
+              </Button>
             </div>
           </div>
         </section>
