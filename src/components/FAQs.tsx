@@ -16,7 +16,7 @@ export const FAQs = ({ className }: FAQsProps) => {
   const faqs = t.faqs.items;
   return (
     <div className={className}>
-      <div className="text-center lg:text-left mb-16 animate-fade-in">
+      <div className="text-center mb-16 animate-fade-in">
         <h2 className="text-3xl md:text-5xl font-bold mb-4 text-foreground">
           {t.faqs.title}
         </h2>
