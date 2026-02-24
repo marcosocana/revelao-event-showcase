@@ -164,6 +164,17 @@ const IphoneMockup3D = ({
           .iphone-mockup-body {
             max-width: 280px;
           }
+          .iphone-mockup-bezel {
+            padding: 6px;
+            border-radius: 32px;
+          }
+          .iphone-mockup-screen {
+            border-radius: 24px;
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+          }
+          .iphone-mockup-island {
+            height: 14px;
+          }
         }
       `}</style>
     </div>

@@ -129,8 +129,8 @@ export const Features = () => {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious className="left-2" />
-              <CarouselNext className="right-2" />
+              <CarouselPrevious className="left-2 disabled:opacity-0 disabled:pointer-events-none" />
+              <CarouselNext className="right-2 disabled:opacity-0 disabled:pointer-events-none" />
             </Carousel>
           </div>
         </div>

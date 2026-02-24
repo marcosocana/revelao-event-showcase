@@ -1,12 +1,15 @@
 import weddingImg from "@/assets/testimonial-wedding.jpg";
 import birthdayImg from "@/assets/testimonial-birthday.jpg";
 import corporateImg from "@/assets/testimonial-corporate.jpg";
+import extraImg1 from "@/assets/testimonial-extra-1.svg";
+import extraImg2 from "@/assets/testimonial-extra-2.svg";
+import extraImg3 from "@/assets/testimonial-extra-3.svg";
 import { useEffect, useState, useRef } from "react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from "@/components/ui/carousel";
 import { useI18n, translations } from "@/lib/i18n";
 
 const baseImages = [weddingImg, birthdayImg, corporateImg];
-const extraImages = [birthdayImg, weddingImg, corporateImg];
+const extraImages = [extraImg1, extraImg2, extraImg3];
 
 export const SuccessStories = () => {
   const { lang } = useI18n();

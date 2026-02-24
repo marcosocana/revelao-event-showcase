@@ -12,7 +12,7 @@ export const Footer = ({ text, keywordsTitle, keywords = [] }: FooterProps) => {
       <div className="container px-4 mx-auto">
         <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
           <div className="space-y-3 max-w-2xl">
-            <div className="flex items-center gap-3">
+            <div className="hidden md:flex items-center gap-3">
               <img src={icon} alt="Revelao" className="h-6 w-auto" />
               <span className="text-lg font-bold text-foreground">Revelao.cam</span>
             </div>
@@ -38,7 +38,11 @@ export const Footer = ({ text, keywordsTitle, keywords = [] }: FooterProps) => {
           ) : null}
         </div>
 
-        <div className="mt-8 text-center">
+        <div className="mt-8 flex items-center justify-between md:justify-center">
+          <div className="flex items-center gap-2 md:hidden">
+            <img src={icon} alt="Revelao" className="h-5 w-auto" />
+            <span className="text-sm font-semibold text-foreground">Revelao.cam</span>
+          </div>
           <a
             href="/blog/admin"
             className="text-xs text-muted-foreground hover:text-foreground transition-colors"
