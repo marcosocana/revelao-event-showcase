@@ -1,7 +1,9 @@
+import whatsappIcon from "@/assets/whatsapp.png";
+
 const WhatsAppFloating = () => {
   return (
     <a
-      href="https://wa.me/34695834018"
+      href="https://wa.me/34695834018?text=Hola%21%20Estoy%20interesado%20en%20Revelao.%20Cu%C3%A9ntame%20m%C3%A1s%21"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Contactar por WhatsApp"
@@ -12,7 +14,7 @@ const WhatsAppFloating = () => {
       </span>
       <span className="relative flex h-14 w-14 items-center justify-center rounded-full bg-[#4FCE5D] shadow-lg transition-transform duration-200 group-hover:scale-[1.06]">
         <img
-          src="/src/assets/whatsapp.png"
+          src={whatsappIcon}
           alt="WhatsApp"
           className="h-8 w-8"
         />
