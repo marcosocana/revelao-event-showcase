@@ -12,6 +12,7 @@ import { PricingModal } from "@/components/PricingModal";
 import { BlogSection } from "@/components/BlogSection";
 import { HomeSeoContent } from "@/components/HomeSeoContent";
 import IphoneMockup3D from "@/components/IphoneMockup3D";
+import WhatsAppFloating from "@/components/WhatsAppFloating";
 import { useState, useEffect } from "react";
 import { useI18n, translations } from "@/lib/i18n";
 
@@ -126,6 +127,7 @@ const Index = () => {
         <HomeSeoContent />
       </main>
       <Footer />
+      <WhatsAppFloating />
       <PricingModal open={isPricingModalOpen} onOpenChange={setIsPricingModalOpen} />
     </div>
   );

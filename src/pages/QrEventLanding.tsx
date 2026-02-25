@@ -24,6 +24,7 @@ import template1 from "@/assets/template-1.png";
 import template2 from "@/assets/template-2.png";
 import template3 from "@/assets/template-3.png";
 import template4 from "@/assets/template-4.png";
+import WhatsAppFloating from "@/components/WhatsAppFloating";
 
 const getLangFromPath = (pathname: string) => {
   if (pathname.startsWith("/en/") || pathname === "/en") return "en";
@@ -944,6 +945,7 @@ const QrEventLanding = () => {
         keywordsTitle={t.footer?.keywordsTitle}
         keywords={t.footer?.keywords}
       />
+      <WhatsAppFloating />
     </div>
   );
 };
