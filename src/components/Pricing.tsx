@@ -48,7 +48,7 @@ const plans = [
 
 const whatsappMessage = "Hola! Estoy interesado en contratar Revelao.cam. ¿Puedes darme más información?";
 
-const PlanCard = ({ plan, perEvent, features }: { plan: (typeof plans)[0] & { fallbackSubtitle: string }; perEvent: string; features: string[] }) => (
+const PlanCard = ({ plan, perEvent, features }: { plan: { title: string; planId: string; price: string; stripeUrl: string; cta: string; subtitle: string; featured?: boolean; badge?: string; fallbackSubtitle: string }; perEvent: string; features: string[] }) => (
   <div
     className={[
       "relative revelao-card p-5 md:p-6",

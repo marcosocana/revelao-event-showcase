@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { getBlogPosts } from "@/lib/blogStore";
 import { useI18n } from "@/lib/i18n";
