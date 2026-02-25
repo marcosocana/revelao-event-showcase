@@ -169,6 +169,13 @@ export const translations = {
       cta: "Prueba gratis",
       badges: "✓ Sin registro · ✓ Sin tarjeta · ✓ Listo en 30 segundos",
     },
+    trialReminder: {
+      title: "¿Listo para tu próximo evento?",
+      subtitle:
+        "Activa tu QR en minutos y deja que tus invitados llenen la galería sin esfuerzo.",
+      cta: "Crear evento gratis",
+      badges: "✓ Sin apps · ✓ QR instantáneo · ✓ Galería privada",
+    },
     faqs: {
       title: "Preguntas frecuentes",
       subtitle: "Resuelve tus dudas sobre Revelao",
@@ -435,6 +442,13 @@ export const translations = {
         "Create a free demo event and discover the full Revelao experience. No commitment, no card.",
       cta: "Try for free",
       badges: "✓ No signup · ✓ No card · ✓ Ready in 30 seconds",
+    },
+    trialReminder: {
+      title: "Ready for your next event?",
+      subtitle:
+        "Generate your QR in minutes and let guests fill the gallery effortlessly.",
+      cta: "Create free event",
+      badges: "✓ No apps · ✓ Instant QR · ✓ Private gallery",
     },
     faqs: {
       title: "FAQs",
@@ -703,6 +717,13 @@ export const translations = {
         "Crea un evento demo gratuito e scopri l’esperienza completa di Revelao. Senza impegno.",
       cta: "Prova gratis",
       badges: "✓ Nessuna registrazione · ✓ Nessuna carta · ✓ Pronto in 30 secondi",
+    },
+    trialReminder: {
+      title: "Pronto per il tuo prossimo evento?",
+      subtitle:
+        "Crea il QR in pochi minuti e lascia che gli invitati riempiano la galleria senza sforzo.",
+      cta: "Crea evento gratis",
+      badges: "✓ Nessuna app · ✓ QR istantaneo · ✓ Galleria privata",
     },
     faqs: {
       title: "FAQ",

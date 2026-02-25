@@ -12,6 +12,7 @@ import { PricingModal } from "@/components/PricingModal";
 import { BlogSection } from "@/components/BlogSection";
 import { HomeSeoContent } from "@/components/HomeSeoContent";
 import IphoneMockup3D from "@/components/IphoneMockup3D";
+import { TrialReminder } from "@/components/TrialReminder";
 import WhatsAppFloating from "@/components/WhatsAppFloating";
 import { useState, useEffect } from "react";
 import { useI18n, translations } from "@/lib/i18n";
@@ -125,6 +126,13 @@ const Index = () => {
         </section>
         <CombinedCTABanner />
         <HomeSeoContent />
+        <section className="py-4 md:py-6 bg-background">
+          <div className="mx-auto w-full">
+            <div className="w-full">
+              <TrialReminder />
+            </div>
+          </div>
+        </section>
       </main>
       <Footer />
       <WhatsAppFloating />
