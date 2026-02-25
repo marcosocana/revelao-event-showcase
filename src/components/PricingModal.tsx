@@ -16,19 +16,19 @@ const planOptions = [
     value: "small",
     planId: "small",
     price: "39€",
-    stripeUrl: "https://buy.stripe.com/3cI5kw3Ud3ngeAn2vt3ks00",
+    stripeUrl: "https://buy.stripe.com/dRmdR2fCVbTMgIv0nl3ks06",
   },
   {
     value: "medium",
     planId: "medium",
     price: "79€",
-    stripeUrl: "https://buy.stripe.com/9B67sEbmFcXQ1NB0nl3ks01",
+    stripeUrl: "https://buy.stripe.com/00w9AM3UdaPIfEr4DB3ks05",
   },
   {
     value: "xxl",
     planId: "xxl",
     price: "149€",
-    stripeUrl: "https://buy.stripe.com/3cI8wIaiBf5Ydwj9XV3ks03",
+    stripeUrl: "https://buy.stripe.com/7sY3co8at3ngfErc633ks04",
   },
 ];
 

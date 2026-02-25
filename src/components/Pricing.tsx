@@ -22,7 +22,7 @@ const plans = [
     title: "Start",
     planId: "small",
     price: "39€",
-    stripeUrl: "https://buy.stripe.com/3cI5kw3Ud3ngeAn2vt3ks00",
+    stripeUrl: "https://buy.stripe.com/dRmdR2fCVbTMgIv0nl3ks06",
     cta: "Elegir",
     subtitle: "Hasta 200 fotos",
   },
@@ -30,7 +30,7 @@ const plans = [
     title: "Plus",
     planId: "medium",
     price: "79€",
-    stripeUrl: "https://buy.stripe.com/9B67sEbmFcXQ1NB0nl3ks01",
+    stripeUrl: "https://buy.stripe.com/00w9AM3UdaPIfEr4DB3ks05",
     cta: "Elegir",
     subtitle: "Hasta 1200 fotos",
     featured: true,
@@ -40,7 +40,7 @@ const plans = [
     title: "Pro",
     planId: "xxl",
     price: "149€",
-    stripeUrl: "https://buy.stripe.com/3cI8wIaiBf5Ydwj9XV3ks03",
+    stripeUrl: "https://buy.stripe.com/7sY3co8at3ngfErc633ks04",
     cta: "Elegir",
     subtitle: "Fotos ilimitadas",
   },
@@ -108,10 +108,10 @@ export const Pricing = () => {
   const t = translations[lang];
   const accessDemoUrl = getAccessDemoUrl(lang);
   const stripeUrlByPlan: Record<string, string | undefined> = {
-    small: import.meta.env.VITE_STRIPE_CHECKOUT_URL_SMALL,
-    medium: import.meta.env.VITE_STRIPE_CHECKOUT_URL_MEDIUM,
+    small: import.meta.env.VITE_STRIPE_CHECKOUT_URL_SMALL ?? "https://buy.stripe.com/dRmdR2fCVbTMgIv0nl3ks06",
+    medium: import.meta.env.VITE_STRIPE_CHECKOUT_URL_MEDIUM ?? "https://buy.stripe.com/00w9AM3UdaPIfEr4DB3ks05",
     large: import.meta.env.VITE_STRIPE_CHECKOUT_URL_LARGE,
-    xxl: import.meta.env.VITE_STRIPE_CHECKOUT_URL_XXL,
+    xxl: import.meta.env.VITE_STRIPE_CHECKOUT_URL_XXL ?? "https://buy.stripe.com/7sY3co8at3ngfErc633ks04",
   };
   const featureMap: Record<string, Record<string, string[]>> = {
     es: {
