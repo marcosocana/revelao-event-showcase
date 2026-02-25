@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import {
@@ -9,6 +9,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { getBlogPosts } from "@/lib/blogStore";
+import type { BlogPost } from "@/data/blogPosts";
 import { useI18n, translations } from "@/lib/i18n";
 
 const INITIAL_COUNT = 3;
@@ -25,7 +26,22 @@ export const BlogSection = () => {
   const { lang } = useI18n();
   const t = translations[lang];
   const [visibleCount, setVisibleCount] = useState(INITIAL_COUNT);
-  const allPosts = useMemo(() => getBlogPosts(lang), [lang]);
+  const [allPosts, setAllPosts] = useState<BlogPost[]>([]);
+
+  useEffect(() => {
+    let mounted = true;
+    const load = async () => {
+      const data = await getBlogPosts(lang);
+      if (mounted) {
+        setAllPosts(data);
+        setVisibleCount(INITIAL_COUNT);
+      }
+    };
+    load();
+    return () => {
+      mounted = false;
+    };
+  }, [lang]);
   const posts = useMemo(() => allPosts.slice(0, visibleCount), [allPosts, visibleCount]);
   const canShowMore = visibleCount < allPosts.length;
 

@@ -1,15 +1,47 @@
-import { useMemo } from "react";
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Footer } from "@/components/Footer";
 import { getBlogPosts } from "@/lib/blogStore";
 import { useI18n } from "@/lib/i18n";
 import { Button } from "@/components/ui/button";
 import icon from "@/assets/ico.png";
+import { Navbar } from "@/components/Navbar";
+import type { BlogPost } from "@/data/blogPosts";
 
 const BlogDetail = () => {
   const { slug } = useParams();
   const { lang } = useI18n();
-  const post = useMemo(() => getBlogPosts(lang).find((item) => item.slug === slug), [slug, lang]);
+  const [post, setPost] = useState<BlogPost | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    let mounted = true;
+    const load = async () => {
+      setLoading(true);
+      const posts = await getBlogPosts(lang);
+      const found = posts.find((item) => item.slug === slug) ?? null;
+      if (mounted) {
+        setPost(found);
+        setLoading(false);
+      }
+    };
+    load();
+    return () => {
+      mounted = false;
+    };
+  }, [slug, lang]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-background">
+        <Navbar />
+        <main className="pt-20 container px-4 mx-auto">
+          <p className="text-muted-foreground">Cargando...</p>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
 
   if (!post) {
     return (

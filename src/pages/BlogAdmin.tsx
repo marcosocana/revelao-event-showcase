@@ -3,7 +3,13 @@ import { useNavigate } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { deleteBlogPost, getBlogPosts, saveBlogPost, updateBlogPost } from "@/lib/blogStore";
+import {
+  deleteBlogPost,
+  getBlogPosts,
+  saveBlogPost,
+  updateBlogPost,
+  uploadBlogImage,
+} from "@/lib/blogStore";
 import { type BlogPost } from "@/data/blogPosts";
 import { BlogEditor } from "@/components/BlogEditor";
 import { useI18n } from "@/lib/i18n";
@@ -42,7 +48,7 @@ const BlogAdmin = () => {
   const [saving, setSaving] = useState(false);
   const [editorMode, setEditorMode] = useState<"visual" | "html">("visual");
   const { lang } = useI18n();
-  const [posts, setPosts] = useState(() => getBlogPosts(lang));
+  const [posts, setPosts] = useState<BlogPost[]>([]);
   const [editingSlug, setEditingSlug] = useState<string | null>(null);
 
   const slug = useMemo(() => toSlug(title), [title]);
@@ -57,14 +63,29 @@ const BlogAdmin = () => {
   }, [navigate]);
 
   useEffect(() => {
-    setPosts(getBlogPosts(lang));
+    let mounted = true;
+    const load = async () => {
+      const data = await getBlogPosts(lang);
+      if (mounted) setPosts(data);
+    };
+    load();
+    return () => {
+      mounted = false;
+    };
   }, [lang]);
 
   const handleImageChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (!file) return;
-    const dataUrl = await toDataUrl(file);
-    setImage(dataUrl);
+    try {
+      const previewUrl = await toDataUrl(file);
+      setImage(previewUrl);
+      const publicUrl = await uploadBlogImage(file, lang);
+      setImage(publicUrl);
+    } catch (error) {
+      console.error("Error uploading image:", error);
+      window.alert("No se pudo subir la imagen.");
+    }
   };
 
   const resetForm = () => {
@@ -97,8 +118,7 @@ const BlogAdmin = () => {
     }
   };
 
-  const handleSubmit = async (event: React.FormEvent) => {
-    event.preventDefault();
+  const handleSave = async (navigateToPost?: boolean) => {
     const missing: string[] = [];
     if (!title.trim()) missing.push("Título");
     if (!excerpt.trim()) missing.push("Descripción");
@@ -120,14 +140,25 @@ const BlogAdmin = () => {
       tags: [],
     };
 
-    if (editingSlug) {
-      updateBlogPost(lang, post);
-    } else {
-      saveBlogPost(lang, post);
+    try {
+      if (editingSlug) {
+        await updateBlogPost(lang, post);
+      } else {
+        await saveBlogPost(lang, post);
+      }
+      const refreshed = await getBlogPosts(lang);
+      setPosts(refreshed);
+      setSaving(false);
+      if (navigateToPost) {
+        navigate(`/blog/${post.slug}`);
+      } else {
+        window.alert("Post guardado.");
+      }
+    } catch (error) {
+      console.error("Error saving post:", error);
+      setSaving(false);
+      window.alert("No se pudo guardar el post.");
     }
-    setPosts(getBlogPosts(lang));
-    setSaving(false);
-    navigate(`/blog/${post.slug}`);
   };
 
   if (!authorized) {
@@ -169,9 +200,15 @@ const BlogAdmin = () => {
                   <Button
                     variant="destructive"
                     size="sm"
-                    onClick={() => {
-                      deleteBlogPost(lang, post.slug);
-                      setPosts(getBlogPosts(lang));
+                    onClick={async () => {
+                      try {
+                        await deleteBlogPost(lang, post.slug);
+                        const refreshed = await getBlogPosts(lang);
+                        setPosts(refreshed);
+                      } catch (error) {
+                        console.error("Error deleting post:", error);
+                        window.alert("No se pudo eliminar el post.");
+                      }
                     }}
                   >
                     Eliminar
@@ -181,7 +218,13 @@ const BlogAdmin = () => {
             ))}
           </div>
 
-          <form onSubmit={handleSubmit} className="mt-12 space-y-6">
+          <form
+            onSubmit={(event) => {
+              event.preventDefault();
+              handleSave(true);
+            }}
+            className="mt-12 space-y-6"
+          >
             <div className="flex items-center justify-between">
               <h2 className="text-lg font-semibold text-foreground">
                 {editingSlug ? "Editar post" : "Nuevo post"}
@@ -280,9 +323,14 @@ const BlogAdmin = () => {
               )}
             </div>
 
-            <Button type="submit" disabled={saving}>
-              {saving ? "Guardando..." : "Publicar"}
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Button type="button" disabled={saving} onClick={() => handleSave(false)}>
+                {saving ? "Guardando..." : "Guardar cambios"}
+              </Button>
+              <Button type="submit" variant="secondary" disabled={saving}>
+                Ver post publicado
+              </Button>
+            </div>
           </form>
         </div>
       </main>
