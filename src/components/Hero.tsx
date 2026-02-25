@@ -1,10 +1,13 @@
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { useState } from "react";
 import ruedaVideo from "@/assets/rueda.mp4";
 import corazon from "@/assets/corazon.svg";
 import { getAccessDemoUrl, useI18n, translations } from "@/lib/i18n";
 import IphoneMockup3D from "@/components/IphoneMockup3D";
 
 export const Hero = () => {
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
   const { lang } = useI18n();
   const t = translations[lang];
   const accessDemoUrl = getAccessDemoUrl(lang);
@@ -52,13 +55,11 @@ export const Hero = () => {
             <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
               <Button 
                 size="lg" 
-                variant="outline" 
-                className="border-2 border-primary text-primary hover:bg-primary/10" 
-                asChild
+                variant="outline"
+                className="border-2 border-primary text-primary hover:bg-transparent hover:text-primary transition-none"
+                onClick={() => setIsVideoOpen(true)}
               >
-                <a href="https://wa.me/34695834018?text=Hola! Estoy interesado en contratar Revelao.cam. ¿Puedes darme más información?">
-                  {t.hero.ctaTalk}
-                </a>
+                Ver vídeo
               </Button>
               <Button 
                 size="lg" 
@@ -87,6 +88,19 @@ export const Hero = () => {
           </div>
         </div>
       </div>
+      <Dialog open={isVideoOpen} onOpenChange={setIsVideoOpen}>
+        <DialogContent className="max-w-4xl w-[92vw] p-4">
+          <div className="aspect-video w-full overflow-hidden rounded-lg">
+            <iframe
+              src="https://www.youtube.com/embed/_VakaDTWYJA"
+              title={t.features.videoLabel}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              className="w-full h-full"
+            />
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };
