@@ -64,7 +64,7 @@ export const SuccessStories = () => {
         </div>
 
         {/* Desktop Layout - Two Rows */}
-        <div className="hidden md:block">
+        <div className="hidden md:block no-card-hover">
           <div className="flex flex-col gap-6 max-w-6xl mx-auto">
             <div className="flex gap-6">
               {mobileStories.slice(0, 3).map((story, index) => {
@@ -83,7 +83,7 @@ export const SuccessStories = () => {
                       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/55 to-black/10" />
                       <div className="absolute inset-x-0 bottom-0 p-4">
                         <p className="text-white text-sm leading-relaxed">
-                          {story.quote}
+                          “{story.quote}”
                         </p>
                         <div className="mt-2 text-white/85">
                           <p className="font-semibold text-sm">{story.author}</p>
@@ -112,7 +112,7 @@ export const SuccessStories = () => {
                       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/55 to-black/10" />
                       <div className="absolute inset-x-0 bottom-0 p-4">
                         <p className="text-white text-sm leading-relaxed">
-                          {story.quote}
+                          “{story.quote}”
                         </p>
                         <div className="mt-2 text-white/85">
                           <p className="font-semibold text-sm">{story.author}</p>
@@ -128,7 +128,7 @@ export const SuccessStories = () => {
         </div>
 
         {/* Mobile Layout - Carousel */}
-        <div className="md:hidden">
+        <div className="md:hidden no-card-hover">
           <Carousel className="w-full" opts={{ align: "start", loop: false }}>
             <CarouselContent className="ml-0 gap-3">
               {mobileStories.map((story, index) => (
@@ -143,7 +143,7 @@ export const SuccessStories = () => {
                       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/55 to-black/10" />
                       <div className="absolute inset-x-0 bottom-0 p-4">
                         <p className="text-white text-sm leading-relaxed">
-                          {story.quote}
+                          “{story.quote}”
                         </p>
                         <div className="mt-2 text-white/85">
                           <p className="font-semibold text-sm">{story.author}</p>
