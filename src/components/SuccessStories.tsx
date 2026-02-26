@@ -1,8 +1,8 @@
-import testimonial1 from "@/assets/testimonio.png";
-import testimonial2 from "@/assets/testimonio2.png";
-import testimonial3 from "@/assets/testimonio3.png";
-import { useEffect, useState, useRef } from "react";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from "@/components/ui/carousel";
+import testimonial1 from "@/assets/testimonio-4.png";
+import testimonial2 from "@/assets/testimonio2-1.png";
+import testimonial3 from "@/assets/testimonio3-1.png";
+import { useEffect, useRef, useState } from "react";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { useI18n, translations } from "@/lib/i18n";
 
 const baseImages = [testimonial1, testimonial2, testimonial3];
@@ -22,7 +22,6 @@ export const SuccessStories = () => {
       image: extraImages[index],
     })),
   ];
-  const [api, setApi] = useState<CarouselApi>();
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -46,14 +45,8 @@ export const SuccessStories = () => {
   }, []);
 
   useEffect(() => {
-    if (!api || !isVisible) return;
-    
-    const interval = setInterval(() => {
-      api.scrollNext();
-    }, 10000);
-    
-    return () => clearInterval(interval);
-  }, [api, isVisible]);
+    if (!isVisible) return;
+  }, [isVisible]);
 
   return (
     <section ref={sectionRef} className="py-12 md:py-24 bg-background" id="casos-de-exito">
@@ -67,70 +60,92 @@ export const SuccessStories = () => {
           </p>
         </div>
 
-        {/* Desktop Layout */}
-        <div className="hidden md:grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {stories.map((story, index) => (
-            <div
-              key={index}
-              className="revelao-card animate-fade-in"
-              style={{ animationDelay: `${index * 150}ms` }}
-            >
-              <div className="aspect-video overflow-hidden">
-                <img 
-                  src={story.image} 
-                  alt={story.event}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              
-              <div className="p-8">
-                <div className="mb-4">
-                  <p className="text-foreground leading-relaxed mb-4">
-                    {story.quote}
-                  </p>
-                </div>
-                
-                <div className="pt-4 border-t border-border">
-                  <p className="font-semibold text-foreground">{story.author}</p>
-                  <p className="text-sm text-muted-foreground">{story.event}</p>
-                </div>
-              </div>
+        {/* Desktop Layout - Two Rows */}
+        <div className="hidden md:block">
+          <div className="flex flex-col gap-6 max-w-6xl mx-auto">
+            <div className="flex gap-6">
+              {mobileStories.slice(0, 3).map((story, index) => {
+                const isLarge = index === 0;
+                return (
+                  <div
+                    key={index}
+                    className={`revelao-card flex-1 ${isLarge ? "basis-[52%]" : "basis-[24%]"}`}
+                  >
+                    <div className="relative h-[280px] overflow-hidden">
+                      <img
+                        src={story.image}
+                        alt={story.event}
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/55 to-black/10" />
+                      <div className="absolute inset-x-0 bottom-0 p-4">
+                        <p className="text-white text-sm leading-relaxed">
+                          {story.quote}
+                        </p>
+                        <div className="mt-2 text-white/85">
+                          <p className="font-semibold text-sm">{story.author}</p>
+                          <p className="text-xs">{story.event}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
-          ))}
+            <div className="flex gap-6">
+              {mobileStories.slice(3, 6).map((story, index) => {
+                const isLarge = index === 2;
+                return (
+                  <div
+                    key={index}
+                    className={`revelao-card flex-1 ${isLarge ? "basis-[52%]" : "basis-[24%]"}`}
+                  >
+                    <div className="relative h-[280px] overflow-hidden">
+                      <img
+                        src={story.image}
+                        alt={story.event}
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/55 to-black/10" />
+                      <div className="absolute inset-x-0 bottom-0 p-4">
+                        <p className="text-white text-sm leading-relaxed">
+                          {story.quote}
+                        </p>
+                        <div className="mt-2 text-white/85">
+                          <p className="font-semibold text-sm">{story.author}</p>
+                          <p className="text-xs">{story.event}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         </div>
 
         {/* Mobile Layout - Carousel */}
         <div className="md:hidden">
-          <Carousel 
-            setApi={setApi} 
-            className="w-full" 
-            opts={{
-              align: "start",
-              loop: false
-            }}
-          >
+          <Carousel className="w-full" opts={{ align: "start", loop: false }}>
             <CarouselContent className="ml-0 gap-3">
               {mobileStories.map((story, index) => (
-                <CarouselItem key={index} className="basis-[77%] pl-0">
+                <CarouselItem key={index} className="basis-[78%] pl-0">
                   <div className="revelao-card">
-                    <div className="aspect-video overflow-hidden">
+                    <div className="relative h-[280px] overflow-hidden">
                       <img 
                         src={story.image} 
                         alt={story.event}
                         className="w-full h-full object-cover"
                       />
-                    </div>
-                    
-                    <div className="p-8">
-                      <div className="mb-4">
-                        <p className="text-foreground leading-relaxed mb-4">
+                      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/55 to-black/10" />
+                      <div className="absolute inset-x-0 bottom-0 p-4">
+                        <p className="text-white text-sm leading-relaxed">
                           {story.quote}
                         </p>
-                      </div>
-                      
-                      <div className="pt-4 border-t border-border">
-                        <p className="font-semibold text-foreground">{story.author}</p>
-                        <p className="text-sm text-muted-foreground">{story.event}</p>
+                        <div className="mt-2 text-white/85">
+                          <p className="font-semibold text-sm">{story.author}</p>
+                          <p className="text-xs">{story.event}</p>
+                        </div>
                       </div>
                     </div>
                   </div>
