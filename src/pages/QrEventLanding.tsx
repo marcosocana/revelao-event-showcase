@@ -571,9 +571,6 @@ const QrEventLanding = () => {
                   <img src={logo} alt="Revelao" className="h-6 w-auto" />
                   <span className="text-lg font-bold text-foreground">Revelao.cam</span>
                 </div>
-                <div className="flex justify-center lg:justify-start">
-                  <img src={corazon} alt="Revelao" className="w-14 h-14" />
-                </div>
                 <h1 className="text-3xl md:text-5xl font-bold text-foreground text-center lg:text-left">
                   {t.h1}
                 </h1>

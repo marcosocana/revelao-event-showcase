@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { useState } from "react";
 import ruedaVideo from "@/assets/rueda.mp4";
-import corazon from "@/assets/corazon.svg";
 import { getAccessDemoUrl, useI18n, translations } from "@/lib/i18n";
 import IphoneMockup3D from "@/components/IphoneMockup3D";
 
@@ -28,10 +27,6 @@ export const Hero = () => {
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
           {/* Left side - Content */}
           <div className="flex-1 text-center lg:text-left animate-fade-in">
-            <div className="inline-flex items-center justify-center lg:justify-start w-20 h-20 md:w-32 md:h-32 mb-6">
-              <img src={corazon} alt="Revelao.cam" className="w-16 h-16 md:w-28 md:h-28 shadow-none" />
-            </div>
-            
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-black">
               {t.hero.title}{" "}
               <span className="text-primary">{t.hero.titleHighlight}</span>
