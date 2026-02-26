@@ -14,7 +14,6 @@ import { useI18n, translations } from "@/lib/i18n";
 
 const INITIAL_COUNT = 3;
 const MORE_COUNT = 3;
-const MAX_BLOG_TITLE_CHARS = 76;
 const MAX_BLOG_DESC_CHARS = 118;
 
 const truncateText = (text: string, maxChars: number) => {
@@ -71,7 +70,7 @@ export const BlogSection = () => {
             <div className="p-8">
               <h3 className="text-xl font-semibold text-foreground">
                 <Link to={`/blog/${post.slug}`} className="hover:underline">
-                  {truncateText(post.title, MAX_BLOG_TITLE_CHARS)}
+                  {post.title}
                 </Link>
               </h3>
               <p className="mt-3 text-muted-foreground leading-relaxed">
@@ -107,7 +106,7 @@ export const BlogSection = () => {
                   <div className="p-6">
                     <h3 className="text-lg font-semibold text-foreground">
                       <Link to={`/blog/${post.slug}`} className="hover:underline">
-                        {truncateText(post.title, MAX_BLOG_TITLE_CHARS)}
+                        {post.title}
                       </Link>
                     </h3>
                     <p className="mt-3 text-muted-foreground leading-relaxed">
