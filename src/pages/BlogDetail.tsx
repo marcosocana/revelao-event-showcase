@@ -4,6 +4,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { getBlogPosts } from "@/lib/blogStore";
 import { FreeTrial } from "@/components/FreeTrial";
+import WhatsAppFloating from "@/components/WhatsAppFloating";
 import { useI18n } from "@/lib/i18n";
 import { Button } from "@/components/ui/button";
 import icon from "@/assets/ico.png";
@@ -109,6 +110,7 @@ const BlogDetail = () => {
         <div className="h-16" />
       </main>
       <FreeTrial />
+      <WhatsAppFloating />
       <Footer />
     </div>
   );
