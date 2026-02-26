@@ -70,7 +70,9 @@ export const BlogSection = () => {
             </div>
             <div className="p-8">
               <h3 className="text-xl font-semibold text-foreground">
-                {truncateText(post.title, MAX_BLOG_TITLE_CHARS)}
+                <Link to={`/blog/${post.slug}`} className="hover:underline">
+                  {truncateText(post.title, MAX_BLOG_TITLE_CHARS)}
+                </Link>
               </h3>
               <p className="mt-3 text-muted-foreground leading-relaxed">
                 {truncateText(post.excerpt, MAX_BLOG_DESC_CHARS)}
@@ -104,7 +106,9 @@ export const BlogSection = () => {
                   </div>
                   <div className="p-6">
                     <h3 className="text-lg font-semibold text-foreground">
-                      {truncateText(post.title, MAX_BLOG_TITLE_CHARS)}
+                      <Link to={`/blog/${post.slug}`} className="hover:underline">
+                        {truncateText(post.title, MAX_BLOG_TITLE_CHARS)}
+                      </Link>
                     </h3>
                     <p className="mt-3 text-muted-foreground leading-relaxed">
                       {truncateText(post.excerpt, MAX_BLOG_DESC_CHARS)}
