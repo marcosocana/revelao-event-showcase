@@ -86,14 +86,18 @@ const BlogDetail = () => {
       <main className="pt-20 container px-4 mx-auto">
         <div className="max-w-3xl mx-auto">
           <Button asChild variant="secondary" size="sm">
-            <Link to="/#blog">Volver atrás</Link>
+            <a href="/#blog">Volver atrás</a>
           </Button>
           <h1 className="mt-6 text-3xl md:text-4xl font-bold tracking-tight text-foreground">
             {post.title}
           </h1>
           {post.image && (
-            <div className="mt-8 overflow-hidden rounded-2xl border border-border bg-card">
-              <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
+            <div className="mt-8 overflow-hidden rounded-2xl border border-border bg-card max-w-2xl mx-auto">
+              <img
+                src={post.image}
+                alt={post.title}
+                className="w-full h-auto max-h-[360px] md:max-h-[420px] object-cover"
+              />
             </div>
           )}
           <div
