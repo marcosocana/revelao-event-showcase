@@ -65,7 +65,7 @@ const BlogAdmin = () => {
   useEffect(() => {
     let mounted = true;
     const load = async () => {
-      const data = await getBlogPosts(lang);
+      const data = await getBlogPosts(lang, false);
       if (mounted) setPosts(data);
     };
     load();
@@ -146,7 +146,7 @@ const BlogAdmin = () => {
       } else {
         await saveBlogPost(lang, post);
       }
-      const refreshed = await getBlogPosts(lang);
+      const refreshed = await getBlogPosts(lang, false);
       setPosts(refreshed);
       setSaving(false);
       if (navigateToPost) {
@@ -203,7 +203,7 @@ const BlogAdmin = () => {
                     onClick={async () => {
                       try {
                         await deleteBlogPost(lang, post.slug);
-                        const refreshed = await getBlogPosts(lang);
+                        const refreshed = await getBlogPosts(lang, false);
                         setPosts(refreshed);
                       } catch (error) {
                         console.error("Error deleting post:", error);

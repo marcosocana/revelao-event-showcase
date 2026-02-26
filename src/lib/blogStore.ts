@@ -31,7 +31,10 @@ const toBlogPost = (row: BlogRow): BlogPost => {
   };
 };
 
-export const getBlogPosts = async (lang: BlogLanguage = "es"): Promise<BlogPost[]> => {
+export const getBlogPosts = async (
+  lang: BlogLanguage = "es",
+  useFallback = true,
+): Promise<BlogPost[]> => {
   const { data, error } = await supabase
     .from("blog_posts")
     .select("*")
@@ -40,11 +43,11 @@ export const getBlogPosts = async (lang: BlogLanguage = "es"): Promise<BlogPost[
 
   if (error) {
     console.error("Error loading blog posts:", error);
-    return blogPostsByLang[lang] ?? blogPostsByLang.es;
+    return useFallback ? blogPostsByLang[lang] ?? blogPostsByLang.es : [];
   }
 
   if (!data || data.length === 0) {
-    return blogPostsByLang[lang] ?? blogPostsByLang.es;
+    return useFallback ? blogPostsByLang[lang] ?? blogPostsByLang.es : [];
   }
 
   return (data as BlogRow[]).map(toBlogPost);
