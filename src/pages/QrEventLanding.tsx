@@ -14,9 +14,10 @@ import stepCapture from "@/assets/step-2-capture.svg";
 import stepAnticipation from "@/assets/step-3-anticipation.svg";
 import stepReveal from "@/assets/step-4-reveal.svg";
 import bodaQrImage from "@/assets/boda-qr.png";
-import testimonial1 from "@/assets/testimonio-4.png";
-import testimonial2 from "@/assets/testimonio2-1.png";
-import testimonial3 from "@/assets/testimonio3-1.png";
+import testimonial1 from "@/assets/testimonio4-1.png";
+import testimonial2 from "@/assets/testimonio2-2.png";
+import testimonial3 from "@/assets/testimonio3-2.png";
+import testimonial4 from "@/assets/testimonio-6.png";
 import template1 from "@/assets/template-1.png";
 import template2 from "@/assets/template-2.png";
 import template3 from "@/assets/template-3.png";
@@ -421,17 +422,17 @@ const QrEventLanding = () => {
   const testimonialItems = [
     {
       name: "Laura G.",
-      event: "Boda en Madrid",
+      event: "Boda de Laura y Carlos",
       quote:
         "El QR hizo que todos participaran. Al día siguiente fue brutal ver todas las fotos juntas.",
-      image: testimonial1,
+      image: testimonial4,
     },
     {
-      name: "Carlos M.",
-      event: "Evento corporativo",
+      name: "Ana S., HR Manager",
+      event: "Cena de empresa",
       quote:
         "Nos ahorró apps y grupos. La galería quedó impecable y súper fácil de usar.",
-      image: testimonial2,
+      image: testimonial1,
     },
     {
       name: "Marta P.",
@@ -445,21 +446,21 @@ const QrEventLanding = () => {
       event: "Boda en Valencia",
       quote:
         "El revelado al día siguiente nos emocionó. Las fotos quedaron ordenadas y claras.",
-      image: testimonial1,
+      image: testimonial4,
     },
     {
       name: "Lucía S.",
       event: "Fiesta en Barcelona",
       quote:
         "Súper simple para los invitados. Compartimos el QR y listo.",
-      image: testimonial2,
+      image: testimonial1,
     },
     {
       name: "Javier T.",
       event: "Evento de empresa",
       quote:
         "Galería impecable y sin depender de apps. Ideal para eventos grandes.",
-      image: testimonial3,
+      image: testimonial2,
     },
   ];
 

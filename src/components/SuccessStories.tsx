@@ -1,12 +1,15 @@
-import testimonial1 from "@/assets/testimonio-4.png";
-import testimonial2 from "@/assets/testimonio2-1.png";
-import testimonial3 from "@/assets/testimonio3-1.png";
+import testimonial1 from "@/assets/testimonio4-1.png";
+import testimonial2 from "@/assets/testimonio2-2.png";
+import testimonial3 from "@/assets/testimonio3-2.png";
+import testimonial4 from "@/assets/testimonio-6.png";
+import puebloQr from "@/assets/puebloqr.png";
+import nocheQr from "@/assets/nocheqr.png";
 import { useEffect, useRef, useState } from "react";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { useI18n, translations } from "@/lib/i18n";
 
-const baseImages = [testimonial1, testimonial2, testimonial3];
-const extraImages = [testimonial1, testimonial2, testimonial3];
+const baseImages = [testimonial4, testimonial2, testimonial1];
+const extraImages = [puebloQr, testimonial3, nocheQr];
 
 export const SuccessStories = () => {
   const { lang } = useI18n();

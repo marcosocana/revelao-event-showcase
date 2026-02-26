@@ -108,9 +108,9 @@ export const translations = {
       ],
       itemsMobileExtra: [
         {
-          event: "Fiesta de graduación",
+          event: "Fiesta de pueblo",
           quote:
-            "Todos mis compañeros participaron activamente. La expectación por ver las fotos al día siguiente fue increíble.",
+            "En la fiesta del pueblo todo el mundo escaneó el QR y subió fotos sin parar. Al día siguiente fue un espectáculo verlas todas juntas.",
           author: "María G.",
         },
         {
@@ -120,9 +120,9 @@ export const translations = {
           author: "Roberto P.",
         },
         {
-          event: "Evento de networking",
+          event: "Boda",
           quote:
-            "Revelao rompió el hielo de forma natural. Todo el mundo quería participar y ver qué fotos habían capturado los demás.",
+            "En nuestra boda los invitados se engancharon al momento del revelado. Fue emocionante ver las fotos aparecer todas a la vez.",
           author: "Claudia T.",
         },
       ],
