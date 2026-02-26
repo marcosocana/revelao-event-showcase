@@ -14,12 +14,9 @@ import stepCapture from "@/assets/step-2-capture.svg";
 import stepAnticipation from "@/assets/step-3-anticipation.svg";
 import stepReveal from "@/assets/step-4-reveal.svg";
 import bodaQrImage from "@/assets/boda-qr.png";
-import testimonial1 from "@/assets/testimonial-1.svg";
-import testimonial2 from "@/assets/testimonial-2.svg";
-import testimonial3 from "@/assets/testimonial-3.svg";
-import testimonial4 from "@/assets/testimonial-4.svg";
-import testimonial5 from "@/assets/testimonial-5.svg";
-import testimonial6 from "@/assets/testimonial-6.svg";
+import testimonial1 from "@/assets/testimonio.png";
+import testimonial2 from "@/assets/testimonio2.png";
+import testimonial3 from "@/assets/testimonio3.png";
 import template1 from "@/assets/template-1.png";
 import template2 from "@/assets/template-2.png";
 import template3 from "@/assets/template-3.png";
@@ -448,21 +445,21 @@ const QrEventLanding = () => {
       event: "Boda en Valencia",
       quote:
         "El revelado al día siguiente nos emocionó. Las fotos quedaron ordenadas y claras.",
-      image: testimonial4,
+      image: testimonial1,
     },
     {
       name: "Lucía S.",
       event: "Fiesta en Barcelona",
       quote:
         "Súper simple para los invitados. Compartimos el QR y listo.",
-      image: testimonial5,
+      image: testimonial2,
     },
     {
       name: "Javier T.",
       event: "Evento de empresa",
       quote:
         "Galería impecable y sin depender de apps. Ideal para eventos grandes.",
-      image: testimonial6,
+      image: testimonial3,
     },
   ];
 
