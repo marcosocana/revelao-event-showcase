@@ -317,7 +317,7 @@ const BlogAdmin = () => {
                 onChange={handleImageChange}
               />
               {image && (
-                <div className="mt-4 overflow-hidden rounded-xl border border-border bg-card">
+                <div className="mt-4 w-40 h-28 overflow-hidden rounded-xl border border-border bg-card">
                   <img src={image} alt="Vista previa" className="w-full h-full object-cover" />
                 </div>
               )}
