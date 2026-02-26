@@ -21,15 +21,15 @@ export const Navbar = () => {
           {/* Left: Logo */}
           <div className="flex items-center">
             <a href="#inicio" className="flex items-center gap-3">
-              <img src={icon} alt="Revelao" className="h-8 w-auto hidden max-[1299px]:block" />
-              <img src={logoMini} alt="Revelao" className="h-8 w-auto max-[1299px]:hidden" />
+              <img src={icon} alt="Revelao" className="h-8 w-auto hidden min-[1300px]:block" />
+              <img src={logoMini} alt="Revelao" className="h-8 w-auto min-[1300px]:hidden" />
               <span className="sr-only">Revelao.cam</span>
-              <span className="text-xl font-bold text-foreground hidden max-[1299px]:inline">Revelao.cam</span>
+              <span className="text-xl font-bold text-foreground hidden min-[1300px]:inline">Revelao.cam</span>
             </a>
           </div>
 
           {/* Center: Menu */}
-          <div className="hidden max-[1299px]:flex flex-1 justify-center">
+          <div className="hidden min-[1300px]:flex flex-1 justify-center">
             <div className="flex items-center gap-8">
               <a href="#como-funciona" className="text-muted-foreground hover:text-foreground transition-colors">
                 {t.nav.how}
@@ -78,7 +78,7 @@ export const Navbar = () => {
           </div>
 
           {/* Right: Actions */}
-          <div className="hidden max-[1299px]:flex items-center gap-6 ml-auto">
+          <div className="hidden min-[1300px]:flex items-center gap-6 ml-auto">
             <a
               href={adminLoginUrl}
               target="_blank"
@@ -99,7 +99,7 @@ export const Navbar = () => {
           </div>
 
           {/* Mobile CTA Button */}
-          <div className="max-[1299px]:hidden ml-auto flex items-center gap-3">
+          <div className="min-[1300px]:hidden ml-auto flex items-center gap-3">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <button
