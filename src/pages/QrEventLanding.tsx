@@ -8,7 +8,7 @@ import { useI18n, getAccessDemoUrl } from "@/lib/i18n";
 import corazon from "@/assets/corazon.svg";
 import logo from "@/assets/ico.png";
 import phoneMockup from "@/assets/phone-mockup.png";
-import ruedaVideo from "@/assets/rueda.mp4";
+import ruedaVideo from "@/assets/Revelao_4.mp4";
 import stepQr from "@/assets/step-1-qr.svg";
 import stepCapture from "@/assets/step-2-capture.svg";
 import stepAnticipation from "@/assets/step-3-anticipation.svg";
