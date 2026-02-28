@@ -439,4 +439,162 @@ All colors MUST be HSL.
       transform: translateX(-50%);
     }
   }
+
+  .heroGridSection {
+    position: relative;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    padding: 40px 16px;
+    overflow: hidden;
+  }
+
+  .heroGridContainer {
+    position: relative;
+    width: 100vw;
+    height: min(85vh, 760px);
+    border-radius: 0;
+    overflow: hidden;
+  }
+
+  .heroGridBackground {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+
+  .heroGridMask {
+    width: 100%;
+    height: 100%;
+    mask-image: linear-gradient(
+      rgba(0, 0, 0, 0.05) 0%,
+      rgba(0, 0, 0, 0.8) 35%,
+      rgba(0, 0, 0, 0.8) 40%,
+      rgba(0, 0, 0, 0.25) 65%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    -webkit-mask-image: linear-gradient(
+      rgba(0, 0, 0, 0.05) 0%,
+      rgba(0, 0, 0, 0.8) 35%,
+      rgba(0, 0, 0, 0.8) 40%,
+      rgba(0, 0, 0, 0.25) 65%,
+      rgba(0, 0, 0, 0) 100%
+    );
+  }
+
+  .heroGridItems {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 20px;
+    width: 100%;
+  }
+
+  .heroGridRow {
+    display: flex;
+    gap: 14px;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .heroGridRowSpacer {
+    pointer-events: none;
+  }
+
+  .heroGridItem {
+    border-radius: 16px;
+    overflow: hidden;
+    background: #141414;
+    box-shadow: 0 18px 40px -28px rgba(0, 0, 0, 0.6);
+    height: 100%;
+    flex: 0 0 auto;
+  }
+
+  .heroGridImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .heroGradientTop {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 220px;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .heroGradientTop {
+    top: var(--hero-top-offset, 100px);
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(255, 255, 255, 0.4) 45%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
+
+  .heroContent {
+    position: relative;
+    z-index: 999;
+    text-align: center;
+    color: #000000;
+    padding: 0 20px;
+  }
+
+  .heroContent h1 {
+    font-size: clamp(4.875rem, 13vw, 11.375rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0 0 0.5rem;
+    text-shadow: none;
+  }
+
+  .heroContent p {
+    font-size: clamp(1.235rem, 2.08vw, 1.43rem);
+    color: #111111;
+    margin: 0;
+  }
+
+  @media (max-width: 1024px) {
+    .heroGridRow {
+      gap: 12px;
+    }
+
+    .heroGridItems {
+      gap: 12px;
+      padding: 16px;
+    }
+
+    .heroGridItem {
+      border-radius: 14px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .heroGridSection {
+      min-height: 80vh;
+    }
+
+    .heroGridContainer {
+      height: min(80vh, 620px);
+    }
+
+    .heroGridItems {
+      gap: 8px;
+      padding: 12px;
+    }
+
+    .heroGridRow {
+      gap: 8px;
+    }
+
+    .heroGridItem {
+      border-radius: 10px;
+    }
+  }
 }

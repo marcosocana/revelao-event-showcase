@@ -24,7 +24,7 @@ export const Navbar = () => {
               <img src={icon} alt="Revelao" className="h-8 w-auto hidden min-[1300px]:block" />
               <img src={logoMini} alt="Revelao" className="h-8 w-auto min-[1300px]:hidden" />
               <span className="sr-only">Revelao.cam</span>
-              <span className="text-xl font-bold text-foreground hidden min-[1300px]:inline">Revelao.cam</span>
+              {/* text removed */}
             </a>
           </div>
 

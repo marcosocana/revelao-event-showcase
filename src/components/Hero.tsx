@@ -1,95 +1,88 @@
-import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { useState } from "react";
-import ruedaVideo from "@/assets/rueda.mp4";
-import demoVideo from "@/assets/Revelao_31.mp4";
-import { getAccessDemoUrl, useI18n, translations } from "@/lib/i18n";
-import IphoneMockup3D from "@/components/IphoneMockup3D";
-import { VideoDemo } from "@/components/VideoDemo";
+import testimonial1 from "@/assets/testimonio4-1.png";
+import testimonial2 from "@/assets/testimonio2-2.png";
+import testimonial3 from "@/assets/testimonio3-2.png";
+import testimonial4 from "@/assets/testimonio-6.png";
+import puebloQr from "@/assets/puebloqr.png";
+import nocheQr from "@/assets/nocheqr.png";
 
 export const Hero = () => {
-  const [isVideoOpen, setIsVideoOpen] = useState(false);
-  const { lang } = useI18n();
-  const t = translations[lang];
-  const accessDemoUrl = getAccessDemoUrl(lang);
+  const heroTiles = [
+    testimonial4,
+    testimonial2,
+    testimonial1,
+    puebloQr,
+    testimonial3,
+    nocheQr,
+  ];
+  const rowPatterns = [
+    [1.4, 0.9, 1.2, 0.8, 1.6, 1.0],
+    [1.1, 1.5, 0.75, 1.3, 0.9],
+    [0.9, 1.25, 1.0, 0.8, 1.4, 0.95],
+    [1.6, 0.85, 1.15, 0.75, 1.3],
+  ];
+  const rowHeights = [205, 190, 200, 185, 195, 180];
+  const gridGap = 14;
+  const gridPadding = 20;
+  const heroTopOffset = rowHeights[0] + gridGap + gridPadding;
+  const getRepeatCount = (height: number) => {
+    if (height <= 155) return 12;
+    if (height <= 170) return 11;
+    return 10;
+  };
+
+  const heroRows = rowHeights.map((height, index) => {
+    const basePattern = rowPatterns[index % rowPatterns.length];
+    const repeatCount = getRepeatCount(height);
+    const ratios = Array.from({ length: repeatCount }, (_, itemIndex) => (
+      basePattern[itemIndex % basePattern.length]
+    ));
+    return { height, ratios };
+  });
+
   return (
-    <section className="relative min-h-[80vh] px-4 overflow-hidden flex items-center" id="inicio">
-      {/* Video Background */}
-      <div className="absolute inset-0 z-0">
-        <video autoPlay loop muted playsInline preload="auto" className="w-full h-full object-cover blur-sm" style={{
-          filter: 'blur(4px)'
-        }}>
-          <source src={ruedaVideo} type="video/mp4" />
-          {t.hero.videoFallback}
-        </video>
-      </div>
-      <div className="absolute inset-0 z-0 bg-white/95 backdrop-blur-sm" />
-      
-      <div className="container mx-auto max-w-6xl relative z-10">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
-          {/* Left side - Content */}
-          <div className="flex-1 text-center lg:text-left animate-fade-in">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-black">
-              {t.hero.title}{" "}
-              <span className="text-primary">{t.hero.titleHighlight}</span>
-            </h1>
-            
-            <p className="text-base md:text-lg text-black/90 mb-6 max-w-xl mx-auto lg:mx-0">
-              {t.hero.subtitle}
-            </p>
-
-            <div className="flex flex-wrap justify-center lg:justify-start gap-6 text-sm text-black/80 mb-6">
-              <div className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full bg-black" />
-                <span>{t.hero.bulletAnon}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full bg-black" />
-                <span>{t.hero.bulletNoApps}</span>
-              </div>
-            </div>
-            
-            <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
-              <Button 
-                size="lg" 
-                variant="outline"
-                className="border-2 border-primary text-primary hover:bg-transparent hover:text-primary transition-none"
-                onClick={() => setIsVideoOpen(true)}
+    <section className="heroGridSection" id="inicio" aria-label="Revelao hero">
+      <div className="heroGridContainer" style={{ "--hero-top-offset": `${heroTopOffset}px` } as React.CSSProperties}>
+        <div className="heroGridBackground" aria-hidden="true">
+          <div className="heroGridMask">
+            <div className="heroGridItems">
+              {heroRows.map((row, rowIndex) => (
+              <div
+                key={`row-${rowIndex}`}
+                className={`heroGridRow${rowIndex === 0 ? " heroGridRowSpacer" : ""}`}
+                style={{ height: `${row.height}px` }}
               >
-                Ver vídeo
-              </Button>
-              <Button 
-                size="lg" 
-                className="bg-primary text-primary-foreground hover:bg-primary/90"
-                asChild
-              >
-                <a href={accessDemoUrl} target="_blank" rel="noopener noreferrer">
-                  {t.hero.ctaFree}
-                </a>
-              </Button>
+                  {rowIndex === 0
+                    ? null
+                    : row.ratios.map((ratio, itemIndex) => {
+                        const src = heroTiles[(rowIndex * 12 + itemIndex) % heroTiles.length];
+                        return (
+                          <div
+                            key={`tile-${rowIndex}-${itemIndex}`}
+                            className="heroGridItem"
+                            style={{ aspectRatio: `${ratio} / 1` }}
+                          >
+                            <img
+                              src={src}
+                              alt=""
+                              aria-hidden="true"
+                              loading="eager"
+                              decoding="async"
+                              className="heroGridImage"
+                            />
+                          </div>
+                        );
+                      })}
+                </div>
+              ))}
             </div>
-          </div>
-
-          {/* Right side - Video */}
-          <div className="flex-shrink-0 w-full max-w-[180px] md:max-w-[260px] lg:max-w-[280px] mb-8 lg:mb-0">
-            <IphoneMockup3D showIsland={false} showShadow shadowClassName="soft-tight">
-              <video
-                src="/phone-video.mp4?v=2"
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-full object-cover"
-              />
-            </IphoneMockup3D>
           </div>
         </div>
+        <div className="heroGradientTop" aria-hidden="true" />
+        <div className="heroContent">
+          <h1>Revelao</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
       </div>
-      <Dialog open={isVideoOpen} onOpenChange={setIsVideoOpen}>
-        <DialogContent className="max-w-4xl w-[92vw] p-4">
-          <VideoDemo src={demoVideo} className="w-full" />
-        </DialogContent>
-      </Dialog>
     </section>
   );
 };
