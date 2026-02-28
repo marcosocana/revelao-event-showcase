@@ -628,7 +628,7 @@ All colors MUST be HSL.
     align-items: center;
     justify-content: center;
     pointer-events: none;
-    transform: translateY(60px);
+    transform: translateY(250px);
   }
 
   .ctaRed {

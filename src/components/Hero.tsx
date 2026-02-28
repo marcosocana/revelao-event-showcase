@@ -190,7 +190,7 @@ export const Hero = () => {
             <h1 className="heroTitleShimmer">Revelao</h1>
             <p ref={subtitleRef}>
               <strong className="heroSubtitleShimmer">
-                El momento más especial, desde todos los ángulos
+                Los momentos más especiales desde todos los ángulos
               </strong>
             </p>
           </div>
