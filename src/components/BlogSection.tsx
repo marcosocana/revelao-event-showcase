@@ -14,7 +14,7 @@ import { useI18n, translations } from "@/lib/i18n";
 
 const INITIAL_COUNT = 3;
 const MORE_COUNT = 3;
-const MAX_BLOG_DESC_CHARS = 118;
+const MAX_BLOG_DESC_CHARS = 170;
 
 const truncateText = (text: string, maxChars: number) => {
   if (text.length <= maxChars) return text;
@@ -72,7 +72,7 @@ export const BlogSection = () => {
                 style={{ aspectRatio: "4 / 3" }}
               />
             </div>
-            <div className="flex flex-col gap-2 rounded-[8px] bg-neutral-100 p-4">
+            <div className="flex flex-1 flex-col gap-3 rounded-[8px] bg-neutral-100 p-4">
               <div>
                 <h3 className="text-[18px] font-normal leading-6 text-neutral-900">
                   {post.title}
@@ -81,9 +81,14 @@ export const BlogSection = () => {
                   {post.date}
                 </span>
               </div>
-              <p className="text-sm leading-5 text-neutral-500 line-clamp-2 min-h-[40px]">
+              <p className="text-sm leading-5 text-neutral-500 line-clamp-3 min-h-[60px]">
                 {truncateText(post.excerpt, MAX_BLOG_DESC_CHARS)}
               </p>
+              <div className="mt-auto">
+                <Button className="w-full" variant="outline" size="sm">
+                  {t.blog.readMore}
+                </Button>
+              </div>
             </div>
           </Link>
         ))}
@@ -107,7 +112,7 @@ export const BlogSection = () => {
                       style={{ aspectRatio: "4 / 3" }}
                     />
                   </div>
-                  <div className="flex flex-col gap-2 rounded-[8px] bg-neutral-100 p-4">
+                  <div className="flex flex-1 flex-col gap-3 rounded-[8px] bg-neutral-100 p-4">
                     <div>
                       <h3 className="text-[18px] font-normal leading-6 text-neutral-900">
                         {post.title}
@@ -116,9 +121,14 @@ export const BlogSection = () => {
                         {post.date}
                       </span>
                     </div>
-                    <p className="text-sm leading-5 text-neutral-500 line-clamp-2 min-h-[40px]">
+                    <p className="text-sm leading-5 text-neutral-500 line-clamp-3 min-h-[60px]">
                       {truncateText(post.excerpt, MAX_BLOG_DESC_CHARS)}
                     </p>
+                    <div className="mt-auto">
+                      <Button className="w-full" variant="outline" size="sm">
+                        {t.blog.readMore}
+                      </Button>
+                    </div>
                   </div>
                 </Link>
               </CarouselItem>

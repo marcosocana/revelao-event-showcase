@@ -775,7 +775,10 @@ const QrEventLanding = () => {
               }`}
             >
               {t.seoSections.map((section) => (
-                <div key={section.title} className="revelao-card p-6 md:p-8">
+                <div
+                  key={section.title}
+                  className="revelao-card border-0 bg-white p-6 md:p-8 shadow-[0_14px_32px_-22px_rgba(0,0,0,0.22)]"
+                >
                   <h2 className="text-2xl font-semibold mb-4">{section.title}</h2>
                   <div className="space-y-4">
                     {section.body.map((paragraph) => (
@@ -804,7 +807,7 @@ const QrEventLanding = () => {
 
         <section className="container px-4 mx-auto py-12 md:py-16">
           <div className="max-w-5xl mx-auto">
-            <div className="revelao-card p-6 md:p-10 mb-8">
+            <div className="revelao-card border-0 bg-white p-6 md:p-10 mb-8 shadow-[0_14px_32px_-22px_rgba(0,0,0,0.22)]">
               <h2 className="text-2xl font-semibold mb-4">{t.seoTitle}</h2>
               <p className="text-muted-foreground">{t.seoText}</p>
             </div>

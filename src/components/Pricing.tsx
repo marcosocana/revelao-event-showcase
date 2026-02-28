@@ -51,7 +51,7 @@ const whatsappMessage = "Hola! Estoy interesado en contratar Revelao.cam. ¿Pued
 const PlanCard = ({ plan, perEvent, features }: { plan: { title: string; planId: string; price: string; stripeUrl: string; cta: string; subtitle: string; featured?: boolean; badge?: string; fallbackSubtitle: string }; perEvent: string; features: string[] }) => (
   <div
     className={[
-      "relative revelao-card p-5 md:p-6",
+      "relative revelao-card p-5 md:p-6 transition-opacity hover:opacity-90",
       plan.badge ? "pt-9" : "",
       plan.featured ? "revelao-card--featured border-primary/40 bg-red-50 shadow-[0_20px_60px_-30px_rgba(0,0,0,0.18)]" : "border-border",
     ].join(" ")}
@@ -252,7 +252,7 @@ export const Pricing = () => {
     fallbackSubtitle: plan.subtitle ?? "",
     features: featureMap[lang]?.[plan.planId] ?? featureMap.es[plan.planId],
   }));
-  return <section className="py-10 md:py-16 bg-transparent scroll-mt-12 md:scroll-mt-14" id="precio">
+  return <section className="py-10 md:py-16 bg-transparent scroll-mt-12 md:scroll-mt-14 no-card-hover" id="precio">
       <div className="container px-4 mx-auto container-mobile-right-edge">
         <div className="text-center mb-8 md:mb-10 animate-fade-in">
           <h2 className="font-bold mb-2 text-foreground md:text-5xl text-center text-3xl">

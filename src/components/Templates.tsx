@@ -25,18 +25,18 @@ const templates = [
 ];
 
 const TemplateCard = ({ template }: { template: typeof templates[0] & { cta: string } }) => (
-  <div className="revelao-card w-fit">
-    <div className="bg-background overflow-hidden w-fit">
-      <img 
-        src={template.image} 
+  <div className="revelao-card group flex flex-col w-[250px] sm:w-[270px] lg:w-[260px] transition-opacity hover:opacity-90">
+    <div className="bg-background overflow-hidden rounded-[6px]">
+      <img
+        src={template.image}
         alt={template.title}
-        className="block w-auto h-auto max-h-[280px] object-cover"
+        className="block h-[260px] w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
       />
     </div>
     <div className="p-2">
-      <a 
-        href={template.downloadUrl} 
-        target="_blank" 
+      <a
+        href={template.downloadUrl}
+        target="_blank"
         rel="noopener noreferrer"
         className="w-full"
       >
@@ -57,7 +57,7 @@ export const Templates = () => {
     cta: t.templates.cta,
   }));
   return (
-    <section className="py-12 md:py-24 bg-transparent" id="plantillas">
+    <section className="py-12 md:py-24 bg-transparent no-card-hover" id="plantillas">
       <div className="container px-4 mx-auto container-mobile-right-edge">
         <div className="max-w-6xl mx-auto">
           <div className="mb-12 text-center animate-fade-in">
@@ -70,7 +70,7 @@ export const Templates = () => {
           </div>
 
           {/* Desktop Grid */}
-          <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-2 justify-items-center">
+          <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center">
             {templatesWithCta.map((template) => (
               <TemplateCard key={template.id} template={template} />
             ))}
@@ -78,10 +78,10 @@ export const Templates = () => {
 
           {/* Mobile Carousel */}
           <div className="md:hidden px-0">
-            <Carousel className="w-full" opts={{ align: "center" }}>
-              <CarouselContent className="ml-0 gap-4 justify-center">
+            <Carousel className="w-full" opts={{ align: "start", containScroll: "trimSnaps" }}>
+              <CarouselContent className="!-ml-0 gap-6 px-4">
                 {templatesWithCta.map((template) => (
-                  <CarouselItem key={template.id} className="basis-[70%] pl-0 flex justify-center">
+                  <CarouselItem key={template.id} className="basis-[78%] !pl-0 flex justify-center">
                     <TemplateCard template={template} />
                   </CarouselItem>
                 ))}

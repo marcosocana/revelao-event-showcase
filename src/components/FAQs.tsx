@@ -1,9 +1,4 @@
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import { useMemo, useState } from "react";
 import { useI18n, translations } from "@/lib/i18n";
 
 type FAQsProps = {
@@ -14,6 +9,8 @@ export const FAQs = ({ className }: FAQsProps) => {
   const { lang } = useI18n();
   const t = translations[lang];
   const faqs = t.faqs.items;
+  const [openIndex, setOpenIndex] = useState(0);
+  const items = useMemo(() => faqs.map((faq, index) => ({ ...faq, index })), [faqs]);
   return (
     <div className={className}>
       <div className="text-center mb-16 animate-fade-in">
@@ -25,18 +22,50 @@ export const FAQs = ({ className }: FAQsProps) => {
         </p>
       </div>
 
-      <Accordion type="single" collapsible className="w-full">
-        {faqs.map((faq, index) => (
-          <AccordionItem key={index} value={`item-${index}`}>
-            <AccordionTrigger className="text-left text-foreground">
-              {faq.q}
-            </AccordionTrigger>
-            <AccordionContent className="text-muted-foreground">
-              {faq.a}
-            </AccordionContent>
-          </AccordionItem>
-        ))}
-      </Accordion>
+      <div className="animate-fade-in-up opacity-100 flex w-full max-w-[680px] flex-col gap-3 pt-12 mx-auto">
+        {items.map((faq) => {
+          const isOpen = faq.index === openIndex;
+          return (
+            <div
+              key={faq.index}
+              className="overflow-hidden rounded-[10px] bg-white shadow-[0_14px_32px_-22px_rgba(0,0,0,0.22)]"
+            >
+              <button
+                type="button"
+                className="flex w-full cursor-pointer items-center bg-white px-4 py-3 text-left"
+                onClick={() => setOpenIndex((current) => (current === faq.index ? -1 : faq.index))}
+              >
+                <div className="flex size-10 shrink-0 items-center justify-center">
+                  <div className="relative size-[14px]">
+                    <div className="absolute left-0 top-1/2 h-px w-[14px] -translate-y-1/2 rounded-sm bg-neutral-900" />
+                    <div
+                      className={[
+                        "absolute left-1/2 top-0 h-[14px] w-px -translate-x-1/2 rounded-full bg-neutral-900 transition-transform duration-200",
+                        isOpen ? "rotate-90" : "",
+                      ].join(" ")}
+                    />
+                  </div>
+                </div>
+                <span className="flex-1 text-base leading-[21px] tracking-[-0.01em] text-neutral-900">
+                  {faq.q}
+                </span>
+              </button>
+              <div
+                className={[
+                  "grid bg-white transition-all duration-200",
+                  isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
+                ].join(" ")}
+              >
+                <div className="overflow-hidden">
+                  <p className="px-4 pb-4 pl-[50px] text-sm leading-relaxed text-neutral-600">
+                    {faq.a}
+                  </p>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };

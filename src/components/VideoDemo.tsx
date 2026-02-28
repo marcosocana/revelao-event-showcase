@@ -38,11 +38,17 @@ export const VideoDemo = ({ className = "", src, poster }: VideoDemoProps) => {
         ref={videoRef}
         src={src}
         poster={poster}
-        preload="none"
+        preload="metadata"
         loop
         muted={isMuted}
         playsInline
         autoPlay
+        onLoadedMetadata={(event) => {
+          const video = event.currentTarget;
+          if (video.currentTime < 4) {
+            video.currentTime = 4;
+          }
+        }}
         className="aspect-[940/532] w-full object-cover transition-opacity duration-500 opacity-100"
       />
       <button
