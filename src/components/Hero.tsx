@@ -18,14 +18,7 @@ export const Hero = () => {
     "/hero/20.png",
     "/hero/21.png",
   ];
-  const heroVideos = [
-    heroVideoEsc1,
-    heroVideoEsc2,
-    "/assets/esc3.mp4",
-    "/assets/esc4.mp4",
-    "/assets/esc5.mp4",
-    "/assets/esc6.mp4",
-  ];
+  const heroVideos = [heroVideoEsc1, heroVideoEsc2, "/assets/esc4.mp4"];
   const rowPatterns = [
     [1.4, 0.9, 1.2, 0.8, 1.6, 1.0],
     [1.1, 1.5, 0.75, 1.3, 0.9],
