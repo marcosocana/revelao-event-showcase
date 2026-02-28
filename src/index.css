@@ -420,10 +420,6 @@ All colors MUST be HSL.
     will-change: transform;
   }
 
-  .success-marquee:hover .animate-marquee-right {
-    animation-play-state: paused;
-  }
-
   @media (prefers-reduced-motion: reduce) {
     .animate-marquee-right {
       animation: none;
@@ -447,13 +443,14 @@ All colors MUST be HSL.
     align-items: center;
     justify-content: center;
     background: #ffffff;
-    padding: 40px 16px;
+    padding: 0;
     overflow: hidden;
   }
 
   .heroGridContainer {
     position: relative;
-    width: 100vw;
+    width: 100%;
+    max-width: none;
     height: min(85vh, 760px);
     border-radius: 0;
     overflow: hidden;
