@@ -716,6 +716,15 @@ All colors MUST be HSL.
     display: inline-block;
     margin-left: auto;
     margin-right: auto;
+    opacity: 0;
+    transform: translateY(14px);
+    animation: hero-shimmer 3s infinite both ease-in-out alternate,
+      hero-tile-in 0.9s ease forwards;
+    animation-delay: 0s, var(--hero-title-delay, 0.1s);
+  }
+
+  .heroSubtitleShimmer {
+    --hero-title-delay: 0.28s;
   }
 
   .heroShimmerGroup {
