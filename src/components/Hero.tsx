@@ -14,6 +14,10 @@ export const Hero = () => {
     testimonial3,
     nocheQr,
   ];
+  const heroVideos = [
+    "/videos/hero-1.mp4",
+    "/videos/hero-2.mp4",
+  ];
   const rowPatterns = [
     [1.4, 0.9, 1.2, 0.8, 1.6, 1.0],
     [1.1, 1.5, 0.75, 1.3, 0.9],
@@ -36,7 +40,12 @@ export const Hero = () => {
     const ratios = Array.from({ length: repeatCount }, (_, itemIndex) => (
       basePattern[itemIndex % basePattern.length]
     ));
-    return { height, ratios };
+    const tiledRatios = [...ratios, ...ratios];
+    return {
+      height,
+      ratios: tiledRatios,
+      videoSlots: [3, 7, 11, 15],
+    };
   });
 
   return (
@@ -53,14 +62,27 @@ export const Hero = () => {
               >
                   {rowIndex === 0
                     ? null
-                    : row.ratios.map((ratio, itemIndex) => {
-                        const src = heroTiles[(rowIndex * 12 + itemIndex) % heroTiles.length];
-                        return (
-                          <div
-                            key={`tile-${rowIndex}-${itemIndex}`}
-                            className="heroGridItem"
-                            style={{ aspectRatio: `${ratio} / 1` }}
-                          >
+                  : row.ratios.map((ratio, itemIndex) => {
+                      const src = heroTiles[(rowIndex * 12 + itemIndex) % heroTiles.length];
+                      const videoSrc = heroVideos[itemIndex % heroVideos.length];
+                      const isVideo = row.videoSlots.includes(itemIndex);
+                      return (
+                        <div
+                          key={`tile-${rowIndex}-${itemIndex}`}
+                          className="heroGridItem"
+                          style={{ aspectRatio: `${ratio} / 1` }}
+                        >
+                          {isVideo ? (
+                            <video
+                              src={videoSrc}
+                              className="heroGridImage"
+                              autoPlay
+                              loop
+                              muted
+                              playsInline
+                              preload="metadata"
+                            />
+                          ) : (
                             <img
                               src={src}
                               alt=""
@@ -69,9 +91,10 @@ export const Hero = () => {
                               decoding="async"
                               className="heroGridImage"
                             />
-                          </div>
-                        );
-                      })}
+                          )}
+                        </div>
+                      );
+                    })}
                 </div>
               ))}
             </div>
@@ -79,7 +102,7 @@ export const Hero = () => {
         </div>
         <div className="heroGradientTop" aria-hidden="true" />
         <div className="heroContent">
-          <h1>Revelao</h1>
+          <h1 className="heroTitleShimmer">Revelao</h1>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
       </div>

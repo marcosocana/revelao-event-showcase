@@ -497,6 +497,25 @@ All colors MUST be HSL.
     gap: 14px;
     align-items: stretch;
     width: 100%;
+    will-change: transform;
+    width: max-content;
+  }
+
+  .heroGridRow:nth-child(odd) {
+    animation: hero-drift 160s linear infinite;
+  }
+
+  .heroGridRow:nth-child(even) {
+    animation: hero-drift 190s linear infinite reverse;
+  }
+
+  @keyframes hero-drift {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
   }
 
   .heroGridRowSpacer {
@@ -550,8 +569,43 @@ All colors MUST be HSL.
     font-size: clamp(4.875rem, 13vw, 11.375rem);
     font-weight: 700;
     letter-spacing: -0.02em;
-    margin: 0 0 0.5rem;
+    margin: 0 0 -20px;
     text-shadow: none;
+  }
+
+  .heroTitleShimmer {
+    --bg-angle: -12;
+    --bg-spread: 10;
+    --offset: calc(var(--bg-spread) * 0.5ch);
+    --angle: calc(var(--bg-angle) * 1deg);
+    --place-color: #111111;
+    --classic: linear-gradient(
+      var(--angle),
+      #0000 calc(50% - var(--offset)),
+      #000000,
+      #444444,
+      #000000,
+      #0000 calc(50% + var(--offset))
+    );
+    --bg: var(--classic) 0 0 / 300% 100% no-repeat border-box,
+      linear-gradient(var(--place-color), var(--place-color)) padding-box;
+    background: var(--bg);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    animation: hero-shimmer 3s infinite both ease-in-out alternate;
+    display: inline-block;
+  }
+
+  @keyframes hero-shimmer {
+    0% {
+      background-position: 100% 0;
+    }
+    50%,
+    100% {
+      background-position: 0% 0;
+    }
   }
 
   .heroContent p {
@@ -572,6 +626,11 @@ All colors MUST be HSL.
 
     .heroGridItem {
       border-radius: 14px;
+    }
+
+    .heroGridItem {
+      transform: scale(0.95);
+      transform-origin: center;
     }
   }
 
@@ -595,6 +654,11 @@ All colors MUST be HSL.
 
     .heroGridItem {
       border-radius: 10px;
+    }
+
+    .heroGridItem {
+      transform: scale(0.9);
+      transform-origin: center;
     }
   }
 }
