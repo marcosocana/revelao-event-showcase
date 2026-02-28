@@ -1,6 +1,10 @@
 import { useEffect, useMemo, useRef } from "react";
 import heroVideoEsc1 from "@/assets/esc1.mp4";
 import heroVideoEsc2 from "@/assets/esc2.mp4";
+import heroVideoEsc33 from "@/assets/esc33.mp4";
+import heroVideoEsc4 from "@/assets/esc4.mp4";
+import heroVideoEsc5 from "@/assets/esc5.mp4";
+import heroVideoEsc6 from "@/assets/esc6.mp4";
 
 export const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -18,7 +22,14 @@ export const Hero = () => {
     "/hero/20.png",
     "/hero/21.png",
   ];
-  const heroVideos = [heroVideoEsc1, heroVideoEsc2, "/assets/esc4.mp4"];
+  const heroVideos = [
+    heroVideoEsc1,
+    heroVideoEsc2,
+    heroVideoEsc33,
+    heroVideoEsc4,
+    heroVideoEsc5,
+    heroVideoEsc6,
+  ];
   const rowPatterns = [
     [1.4, 0.9, 1.2, 0.8, 1.6, 1.0],
     [1.1, 1.5, 0.75, 1.3, 0.9],
@@ -45,7 +56,6 @@ export const Hero = () => {
     return {
       height,
       ratios: tiledRatios,
-      videoSlots: [3, 7, 11, 15],
     };
   });
   const heroFirstRowTop = useMemo(() => heroTopOffset, [heroTopOffset]);
@@ -96,8 +106,9 @@ export const Hero = () => {
                         }
                         lastIndex = srcIndex;
                         const src = heroTiles[srcIndex];
-                      const videoSrc = heroVideos[itemIndex % heroVideos.length];
-                      const isVideo = row.videoSlots.includes(itemIndex);
+                      const videoIndex = Math.floor(itemIndex / 4);
+                      const videoSrc = heroVideos[videoIndex % heroVideos.length];
+                      const isVideo = (itemIndex + 1) % 4 === 0;
                       return (
                         <div
                           key={`tile-${rowIndex}-${itemIndex}`}
