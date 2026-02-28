@@ -101,35 +101,58 @@ const Index = () => {
     ld.textContent = JSON.stringify(orgSchema);
   }, [lang]);
 
+  useEffect(() => {
+    const revealNodes = Array.from(document.querySelectorAll(".reveal-on-scroll"));
+    if (!("IntersectionObserver" in window)) {
+      revealNodes.forEach((node) => node.classList.add("is-visible"));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2, rootMargin: "0px 0px -10% 0px" }
+    );
+
+    revealNodes.forEach((node) => observer.observe(node));
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
       <main className="pt-16">
-        <div className="section-white">
+        <div className="section-white reveal-on-scroll">
           <Hero />
         </div>
-        <div className="section-gray">
+        <div className="section-gray reveal-on-scroll">
           <Features />
         </div>
-        <div className="section-white">
+        <div className="section-white reveal-on-scroll">
           <FeaturesVideo />
         </div>
-        <div className="section-gray">
+        <div className="section-gray reveal-on-scroll">
           <Pricing />
         </div>
-        <div className="section-white">
+        <div className="section-white reveal-on-scroll">
           <SuccessStories />
         </div>
-        <div className="section-gray">
+        <div className="section-gray reveal-on-scroll">
           <Templates />
         </div>
-        <div className="section-white">
+        <div className="section-white reveal-on-scroll">
           <BlogSection />
         </div>
-        <div className="section-gray">
+        <div className="section-gray reveal-on-scroll">
           <SimpleCTA />
         </div>
-        <div className="section-white">
+        <div className="section-white reveal-on-scroll">
           <section className="py-4 md:py-8 bg-transparent scroll-mt-12 md:scroll-mt-14" id="faqs">
             <div className="container px-4 mx-auto">
               <div className="max-w-3xl mx-auto">
@@ -138,11 +161,13 @@ const Index = () => {
             </div>
           </section>
         </div>
-        <div className="section-white">
+        <div className="section-white reveal-on-scroll">
           <EventGalleryFlow />
         </div>
-        <HomeSeoContent />
-        <section className="py-4 md:py-6 bg-background">
+        <div className="reveal-on-scroll">
+          <HomeSeoContent />
+        </div>
+        <section className="py-4 md:py-6 bg-background reveal-on-scroll">
           <div className="mx-auto w-full">
             <div className="w-full">
               <TrialReminder />

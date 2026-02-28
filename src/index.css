@@ -541,6 +541,26 @@ All colors MUST be HSL.
     display: block;
   }
 
+  .reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 500ms ease, transform 500ms ease;
+    will-change: opacity, transform;
+  }
+
+  .reveal-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal-on-scroll {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
   @keyframes hero-tile-in {
     0% {
       opacity: 0;
@@ -663,6 +683,10 @@ All colors MUST be HSL.
 
   .section-gray .revelao-card {
     background: #ffffff;
+  }
+
+  .revelao-card.revelao-card--featured {
+    background: #fef2f2;
   }
 
   .navbarCtaMobile {
