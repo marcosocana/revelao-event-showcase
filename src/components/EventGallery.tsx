@@ -37,40 +37,42 @@ export const EventGallery = () => {
           </p>
         </div>
 
-        <div className="gallery_blurTop">
-          <div />
-          <div />
-          <div />
-          <div />
-        </div>
-        <div className="gallery_blurBottom">
-          <div />
-          <div />
-          <div />
-          <div />
-        </div>
-        <div className="gallery_darkenerTop" />
-        <div className="gallery_darkenerBottom" />
-        <div className="gallery_items">
-          {columns.map((columnItems, columnIndex) => (
-            <div key={columnIndex} className="gallery_column">
-              <div
-                data-direction={columnIndex % 2 === 0 ? "down" : "up"}
-                className="gallery_columnInner"
-              >
-                {[...columnItems, ...columnItems].map((item, index) => (
-                  <div key={`${item.label}-${index}`} className="gallery_item">
-                    <div className="gallery_media">
-                      <div className="gallery_videoWrapper">
-                        <img src={item.image} alt={item.label} loading="lazy" />
+        <div className="gallery_mediaBlock">
+          <div className="gallery_blurTop">
+            <div />
+            <div />
+            <div />
+            <div />
+          </div>
+          <div className="gallery_blurBottom">
+            <div />
+            <div />
+            <div />
+            <div />
+          </div>
+          <div className="gallery_darkenerTop" />
+          <div className="gallery_darkenerBottom" />
+          <div className="gallery_items">
+            {columns.map((columnItems, columnIndex) => (
+              <div key={columnIndex} className="gallery_column">
+                <div
+                  data-direction={columnIndex % 2 === 0 ? "down" : "up"}
+                  className="gallery_columnInner"
+                >
+                  {[...columnItems, ...columnItems].map((item, index) => (
+                    <div key={`${item.label}-${index}`} className="gallery_item">
+                      <div className="gallery_media">
+                        <div className="gallery_videoWrapper">
+                          <img src={item.image} alt={item.label} loading="lazy" />
+                        </div>
                       </div>
+                      <span className="gallery_name">{item.label}</span>
                     </div>
-                    <span className="gallery_name">{item.label}</span>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

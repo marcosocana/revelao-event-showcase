@@ -5,7 +5,6 @@ import testimonial4 from "@/assets/testimonio-6.png";
 import puebloQr from "@/assets/puebloqr.png";
 import nocheQr from "@/assets/nocheqr.png";
 import { useEffect, useRef, useState } from "react";
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { useI18n, translations } from "@/lib/i18n";
 
 const baseImages = [testimonial4, testimonial2, testimonial1];
@@ -25,6 +24,7 @@ export const SuccessStories = () => {
       image: extraImages[index],
     })),
   ];
+  const marqueeStories = mobileStories.filter(Boolean);
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -63,55 +63,34 @@ export const SuccessStories = () => {
           </p>
         </div>
 
-        {/* Auto Marquee - Same layout on all breakpoints */}
-        <div>
-          <div className="overflow-hidden w-full">
-            <div className="marquee-row">
-              <div className="marquee-track">
-                {mobileStories.map((story, index) => {
-                  return (
-                    <div
-                      key={`${story.event}-${index}`}
-                      className="marquee-card w-[320px] sm:w-[420px] md:w-[520px]"
-                    >
-                      <div className="marquee-image">
-                        <img
-                          src={story.image}
-                          alt={story.event}
-                          className="h-48 w-full object-cover sm:h-52 md:h-56"
-                        />
-                      </div>
-                      <div className="marquee-content">
-                        <p className="marquee-quote">“{story.quote}”</p>
-                        <p className="marquee-meta">{story.author}</p>
-                        <p className="marquee-meta">{story.event}</p>
-                      </div>
+        <div className="success-marquee">
+          <div className="animate-marquee-right flex w-max items-stretch">
+            {[0, 1].map((loopIndex) => (
+              <div key={loopIndex} className="flex shrink-0 items-stretch gap-6 pr-6">
+                {marqueeStories.map((story, index) => (
+                  <div
+                    key={`${story.event}-${loopIndex}-${index}`}
+                    className="success-card group flex w-[320px] shrink-0 gap-4 overflow-hidden rounded-lg bg-neutral-100 p-5 sm:w-[420px] lg:w-[520px]"
+                  >
+                    <div className="flex-1 overflow-hidden rounded-lg">
+                      <img
+                        src={story.image}
+                        alt={story.event}
+                        className="h-40 w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105 sm:h-44 lg:h-48"
+                        loading="lazy"
+                      />
                     </div>
-                  );
-                })}
-                {mobileStories.map((story, index) => {
-                  return (
-                    <div
-                      key={`dup-${story.event}-${index}`}
-                      className="marquee-card w-[320px] sm:w-[420px] md:w-[520px]"
-                    >
-                      <div className="marquee-image">
-                        <img
-                          src={story.image}
-                          alt={story.event}
-                          className="h-48 w-full object-cover sm:h-52 md:h-56"
-                        />
-                      </div>
-                      <div className="marquee-content">
-                        <p className="marquee-quote">“{story.quote}”</p>
-                        <p className="marquee-meta">{story.author}</p>
-                        <p className="marquee-meta">{story.event}</p>
-                      </div>
+                    <div className="flex flex-1 flex-col justify-between text-center">
+                      <p className="text-base leading-[21px] tracking-[-0.01em] text-neutral-900">
+                        “{story.quote}”
+                      </p>
+                      <p className="text-sm text-neutral-600">{story.author}</p>
+                      <p className="text-sm text-neutral-600">{story.event}</p>
                     </div>
-                  );
-                })}
+                  </div>
+                ))}
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>

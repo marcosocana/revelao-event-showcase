@@ -4,7 +4,9 @@ import step1Image from "@/assets/step-1-qr.svg";
 import step2Image from "@/assets/step-2-capture.svg";
 import step3Image from "@/assets/step-3-anticipation.svg";
 import step4Image from "@/assets/step-4-reveal.svg";
+import demoVideo from "@/assets/Revelao_2.mp4";
 import { useI18n, translations } from "@/lib/i18n";
+import { VideoDemo } from "@/components/VideoDemo";
 
 const featureImages = [step1Image, step2Image, step3Image, step4Image];
 
@@ -129,17 +131,7 @@ export const Features = () => {
 
         <div id="video-demo" className="mt-8 md:mt-12 revelao-card bg-primary/5 px-6 py-8 md:px-10 md:py-12">
           <div className="max-w-4xl mx-auto">
-            <div className="revelao-card bg-black/95 ring-1 ring-primary/30">
-              <div className="aspect-video w-full overflow-hidden">
-                <iframe
-                  src="https://www.youtube.com/embed/_VakaDTWYJA"
-                  title={t.features.videoLabel}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                  className="w-full h-full"
-                />
-              </div>
-            </div>
+            <VideoDemo src={demoVideo} />
             <div className="mt-6 flex flex-col items-center gap-3 text-sm text-muted-foreground">
               <span className="font-semibold text-foreground">{t.features.videoTitle}</span>
               <span>{t.features.videoSubtitle}</span>

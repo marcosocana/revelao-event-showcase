@@ -5,6 +5,7 @@ import ruedaVideo from "@/assets/rueda.mp4";
 import demoVideo from "@/assets/Revelao_2.mp4";
 import { getAccessDemoUrl, useI18n, translations } from "@/lib/i18n";
 import IphoneMockup3D from "@/components/IphoneMockup3D";
+import { VideoDemo } from "@/components/VideoDemo";
 
 export const Hero = () => {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
@@ -86,18 +87,7 @@ export const Hero = () => {
       </div>
       <Dialog open={isVideoOpen} onOpenChange={setIsVideoOpen}>
         <DialogContent className="max-w-4xl w-[92vw] p-4">
-          <div className="aspect-[940/532] w-full overflow-hidden rounded-lg">
-            <video
-              src={demoVideo}
-              preload="metadata"
-              loop
-              muted
-              playsInline
-              autoPlay
-              controls
-              className="revelao-video w-full h-full object-cover"
-            />
-          </div>
+          <VideoDemo src={demoVideo} className="w-full" />
         </DialogContent>
       </Dialog>
     </section>

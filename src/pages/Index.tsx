@@ -1,7 +1,7 @@
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { Features } from "@/components/Features";
-import { EventGallery } from "@/components/EventGallery";
+import { EventGalleryFlow } from "@/components/EventGalleryFlow";
 import { Pricing } from "@/components/Pricing";
 import { Templates } from "@/components/Templates";
 import { FAQs } from "@/components/FAQs";
@@ -107,7 +107,7 @@ const Index = () => {
       <main className="pt-16">
         <Hero />
         <Features />
-        <EventGallery />
+        <EventGalleryFlow />
         <SuccessStories />
         <Templates />
         <Pricing />

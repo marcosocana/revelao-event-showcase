@@ -62,17 +62,17 @@ export const BlogSection = () => {
           <Link
             key={post.slug}
             to={`/blog/${post.slug}`}
-            className="group flex h-full flex-col gap-2 overflow-clip transition-opacity hover:opacity-90"
+            className="group flex h-full min-h-[320px] flex-col gap-2 overflow-clip transition-opacity hover:opacity-90"
           >
             <div className="overflow-hidden rounded-[4px]">
               <img
                 src={post.image}
                 alt={post.title}
                 className="w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-                style={{ aspectRatio: "1 / 1" }}
+                style={{ aspectRatio: "4 / 3" }}
               />
             </div>
-            <div className="flex h-full flex-col gap-4 rounded-[8px] bg-neutral-100 p-5">
+            <div className="flex flex-col gap-2 rounded-[8px] bg-neutral-100 p-4">
               <div>
                 <h3 className="text-[18px] font-normal leading-6 text-neutral-900">
                   {post.title}
@@ -97,17 +97,17 @@ export const BlogSection = () => {
               <CarouselItem key={post.slug} className="basis-[77%] pl-0">
                 <Link
                   to={`/blog/${post.slug}`}
-                  className="group flex h-full flex-col gap-2 overflow-clip transition-opacity hover:opacity-90"
+                  className="group flex h-full min-h-[280px] flex-col gap-2 overflow-clip transition-opacity hover:opacity-90"
                 >
                   <div className="overflow-hidden rounded-[4px]">
                     <img
                       src={post.image}
                       alt={post.title}
                       className="w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-                      style={{ aspectRatio: "1 / 1" }}
+                      style={{ aspectRatio: "4 / 3" }}
                     />
                   </div>
-                  <div className="flex h-full flex-col gap-4 rounded-[8px] bg-neutral-100 p-5">
+                  <div className="flex flex-col gap-2 rounded-[8px] bg-neutral-100 p-4">
                     <div>
                       <h3 className="text-[18px] font-normal leading-6 text-neutral-900">
                         {post.title}
