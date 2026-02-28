@@ -4,6 +4,14 @@ import heroImage12 from "@/assets/12.png";
 import heroImage13 from "@/assets/13.png";
 import heroImage14 from "@/assets/14.png";
 import heroImage15 from "@/assets/15.png";
+import heroImage16 from "@/assets/16.png";
+import heroImage17 from "@/assets/17.png";
+import heroImage18 from "@/assets/18.png";
+import heroImage19 from "@/assets/19.png";
+import heroImage20 from "@/assets/20.png";
+import heroImage21 from "@/assets/21.png";
+import heroVideoEsc1 from "@/assets/esc1.mp4";
+import heroVideoEsc2 from "@/assets/esc2.mp4";
 
 export const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -14,10 +22,20 @@ export const Hero = () => {
     heroImage13,
     heroImage14,
     heroImage15,
+    heroImage16,
+    heroImage17,
+    heroImage18,
+    heroImage19,
+    heroImage20,
+    heroImage21,
   ];
   const heroVideos = [
-    "/videos/hero-1.mp4",
-    "/videos/hero-2.mp4",
+    heroVideoEsc1,
+    heroVideoEsc2,
+    "/assets/esc3.mp4",
+    "/assets/esc4.mp4",
+    "/assets/esc5.mp4",
+    "/assets/esc6.mp4",
   ];
   const rowPatterns = [
     [1.4, 0.9, 1.2, 0.8, 1.6, 1.0],
