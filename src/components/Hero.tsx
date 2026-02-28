@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { useState } from "react";
 import ruedaVideo from "@/assets/rueda.mp4";
+import demoVideo from "@/assets/Revelao_2.mp4";
 import { getAccessDemoUrl, useI18n, translations } from "@/lib/i18n";
 import IphoneMockup3D from "@/components/IphoneMockup3D";
 
@@ -85,13 +86,16 @@ export const Hero = () => {
       </div>
       <Dialog open={isVideoOpen} onOpenChange={setIsVideoOpen}>
         <DialogContent className="max-w-4xl w-[92vw] p-4">
-          <div className="aspect-video w-full overflow-hidden rounded-lg">
-            <iframe
-              src="https://www.youtube.com/embed/_VakaDTWYJA"
-              title={t.features.videoLabel}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-              className="w-full h-full"
+          <div className="aspect-[940/532] w-full overflow-hidden rounded-lg">
+            <video
+              src={demoVideo}
+              preload="metadata"
+              loop
+              muted
+              playsInline
+              autoPlay
+              controls
+              className="revelao-video w-full h-full object-cover"
             />
           </div>
         </DialogContent>

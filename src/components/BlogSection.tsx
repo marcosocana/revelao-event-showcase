@@ -57,35 +57,35 @@ export const BlogSection = () => {
       </div>
 
       {/* Desktop grid */}
-      <div className="hidden md:grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <div className="hidden md:grid gap-8 md:grid-cols-2 lg:grid-cols-3 items-stretch">
         {posts.map((post) => (
-          <article key={post.slug} className="revelao-card">
-            <div className="aspect-video overflow-hidden">
+          <Link
+            key={post.slug}
+            to={`/blog/${post.slug}`}
+            className="group flex h-full flex-col gap-2 overflow-clip transition-opacity hover:opacity-90"
+          >
+            <div className="overflow-hidden rounded-[4px]">
               <img
                 src={post.image}
                 alt={post.title}
-                className="w-full h-full object-cover"
+                className="w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                style={{ aspectRatio: "1 / 1" }}
               />
             </div>
-            <div className="p-8">
-              <h3 className="text-xl font-semibold text-foreground">
-                <Link to={`/blog/${post.slug}`} className="hover:underline">
+            <div className="flex h-full flex-col gap-4 rounded-[8px] bg-neutral-100 p-5">
+              <div>
+                <h3 className="text-[18px] font-normal leading-6 text-neutral-900">
                   {post.title}
-                </Link>
-              </h3>
-              <p className="mt-3 text-muted-foreground leading-relaxed">
+                </h3>
+                <span className="font-mono text-[11px] leading-[17.6px] text-neutral-500">
+                  {post.date}
+                </span>
+              </div>
+              <p className="text-sm leading-5 text-neutral-500 line-clamp-2 min-h-[40px]">
                 {truncateText(post.excerpt, MAX_BLOG_DESC_CHARS)}
               </p>
-              <div className="mt-6">
-                <Link
-                  to={`/blog/${post.slug}`}
-                  className="inline-flex h-10 items-center justify-center rounded-md border border-input bg-background px-4 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
-                >
-                  {t.blog.readMore}
-                </Link>
-              </div>
             </div>
-          </article>
+          </Link>
         ))}
       </div>
 
@@ -95,33 +95,32 @@ export const BlogSection = () => {
           <CarouselContent className="ml-0 gap-3">
             {posts.map((post) => (
               <CarouselItem key={post.slug} className="basis-[77%] pl-0">
-                <article className="revelao-card">
-                  <div className="aspect-video overflow-hidden">
+                <Link
+                  to={`/blog/${post.slug}`}
+                  className="group flex h-full flex-col gap-2 overflow-clip transition-opacity hover:opacity-90"
+                >
+                  <div className="overflow-hidden rounded-[4px]">
                     <img
                       src={post.image}
                       alt={post.title}
-                      className="w-full h-full object-cover"
+                      className="w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                      style={{ aspectRatio: "1 / 1" }}
                     />
                   </div>
-                  <div className="p-6">
-                    <h3 className="text-lg font-semibold text-foreground">
-                      <Link to={`/blog/${post.slug}`} className="hover:underline">
+                  <div className="flex h-full flex-col gap-4 rounded-[8px] bg-neutral-100 p-5">
+                    <div>
+                      <h3 className="text-[18px] font-normal leading-6 text-neutral-900">
                         {post.title}
-                      </Link>
-                    </h3>
-                    <p className="mt-3 text-muted-foreground leading-relaxed">
+                      </h3>
+                      <span className="font-mono text-[11px] leading-[17.6px] text-neutral-500">
+                        {post.date}
+                      </span>
+                    </div>
+                    <p className="text-sm leading-5 text-neutral-500 line-clamp-2 min-h-[40px]">
                       {truncateText(post.excerpt, MAX_BLOG_DESC_CHARS)}
                     </p>
-                    <div className="mt-5">
-                      <Link
-                        to={`/blog/${post.slug}`}
-                        className="inline-flex h-10 items-center justify-center rounded-md border border-input bg-background px-4 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
-                      >
-                        {t.blog.readMore}
-                      </Link>
-                    </div>
                   </div>
-                </article>
+                </Link>
               </CarouselItem>
             ))}
           </CarouselContent>

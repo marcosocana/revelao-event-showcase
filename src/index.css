@@ -192,7 +192,16 @@ All colors MUST be HSL.
   }
 
   .revelao-card {
-    @apply bg-card border border-border rounded-2xl shadow-sm overflow-hidden transition-transform duration-300 md:hover:-translate-y-1;
+    @apply bg-card border border-border rounded-2xl shadow-sm overflow-hidden;
+  }
+
+  .revelao-card img {
+    transition: transform 0.5s ease-out;
+    will-change: transform;
+  }
+
+  .revelao-card:hover img {
+    transform: scale(1.05);
   }
 
   .no-card-hover .revelao-card {
@@ -202,5 +211,227 @@ All colors MUST be HSL.
 
   .container-mobile-right-edge {
     @apply pr-0 sm:pr-4;
+  }
+
+  .marquee-row {
+    display: flex;
+    width: 100%;
+  }
+
+  .marquee-track {
+    display: flex;
+    gap: 16px;
+    animation: marquee-left 40s linear infinite;
+    width: max-content;
+  }
+
+  .marquee-card {
+    display: flex;
+    gap: 16px;
+    background: #f5f5f7;
+    border-radius: 16px;
+    padding: 16px;
+    align-items: stretch;
+  }
+
+  .marquee-image {
+    flex: 1;
+    overflow: hidden;
+    border-radius: 12px;
+  }
+
+  .marquee-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  .marquee-quote {
+    font-size: 15px;
+    line-height: 1.4;
+    color: #111;
+  }
+
+  .marquee-meta {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: #666;
+  }
+
+  .gallery_items {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    position: relative;
+    z-index: 1;
+  }
+
+  @media (min-width: 640px) {
+    .gallery_items {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .gallery_items {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  .gallery_column {
+    position: relative;
+    overflow: hidden;
+    height: 520px;
+  }
+
+  .gallery_columnInner {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    animation: gallery-scroll 28s linear infinite;
+  }
+
+  .gallery_columnInner[data-direction="up"] {
+    animation-direction: reverse;
+  }
+
+  .gallery_item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-radius: 16px;
+    overflow: hidden;
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    box-shadow: var(--shadow-soft);
+  }
+
+  .gallery_media {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .gallery_videoWrapper {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+  }
+
+  .gallery_videoWrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .gallery_name {
+    padding: 12px 14px 14px;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: hsl(var(--muted-foreground));
+    font-weight: 600;
+  }
+
+  .gallery_section {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .gallery_blurTop,
+  .gallery_blurBottom {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .gallery_blurTop {
+    top: 0;
+  }
+
+  .gallery_blurBottom {
+    bottom: 0;
+  }
+
+  .gallery_blurTop div,
+  .gallery_blurBottom div {
+    height: 200px;
+    background: linear-gradient(
+      to bottom,
+      hsl(var(--background)) 0%,
+      hsl(var(--background) / 0) 100%
+    );
+    filter: blur(36px);
+    opacity: 0.95;
+  }
+
+  .gallery_blurBottom div {
+    background: linear-gradient(
+      to top,
+      hsl(var(--background)) 0%,
+      hsl(var(--background) / 0) 100%
+    );
+  }
+
+  .gallery_darkenerTop,
+  .gallery_darkenerBottom {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 160px;
+    pointer-events: none;
+    z-index: 3;
+  }
+
+  .gallery_darkenerTop {
+    top: 0;
+    background: linear-gradient(
+      to bottom,
+      hsl(var(--background) / 0.95) 0%,
+      hsl(var(--background) / 0) 100%
+    );
+  }
+
+  .gallery_darkenerBottom {
+    bottom: 0;
+    background: linear-gradient(
+      to top,
+      hsl(var(--background) / 0.95) 0%,
+      hsl(var(--background) / 0) 100%
+    );
+  }
+
+  @keyframes gallery-scroll {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-50%);
+    }
+  }
+
+  .revelao-video::-webkit-media-controls-panel {
+    background-color: transparent;
+  }
+
+  .revelao-video::-webkit-media-controls-enclosure {
+    background-color: transparent;
+  }
+
+  @keyframes marquee-left {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
   }
 }

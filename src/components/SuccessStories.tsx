@@ -63,99 +63,56 @@ export const SuccessStories = () => {
           </p>
         </div>
 
-        {/* Desktop Layout - Two Rows */}
-        <div className="hidden md:block no-card-hover">
-          <div className="flex flex-col gap-6 max-w-6xl mx-auto">
-            <div className="flex gap-6">
-              {mobileStories.slice(0, 3).map((story, index) => {
-                const isLarge = index === 0;
-                return (
-                  <div
-                    key={index}
-                    className={`revelao-card flex-1 ${isLarge ? "basis-[52%]" : "basis-[24%]"}`}
-                  >
-                    <div className="relative h-[280px] overflow-hidden">
-                      <img
-                        src={story.image}
-                        alt={story.event}
-                        className="w-full h-full object-cover"
-                      />
-                      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/55 to-black/10" />
-                      <div className="absolute inset-x-0 bottom-0 p-4">
-                        <p className="text-white text-sm leading-relaxed">
-                          “{story.quote}”
-                        </p>
-                        <div className="mt-2 text-white/85">
-                          <p className="font-semibold text-sm">{story.author}</p>
-                          <p className="text-xs">{story.event}</p>
-                        </div>
+        {/* Auto Marquee - Same layout on all breakpoints */}
+        <div>
+          <div className="overflow-hidden w-full">
+            <div className="marquee-row">
+              <div className="marquee-track">
+                {mobileStories.map((story, index) => {
+                  return (
+                    <div
+                      key={`${story.event}-${index}`}
+                      className="marquee-card w-[320px] sm:w-[420px] md:w-[520px]"
+                    >
+                      <div className="marquee-image">
+                        <img
+                          src={story.image}
+                          alt={story.event}
+                          className="h-48 w-full object-cover sm:h-52 md:h-56"
+                        />
+                      </div>
+                      <div className="marquee-content">
+                        <p className="marquee-quote">“{story.quote}”</p>
+                        <p className="marquee-meta">{story.author}</p>
+                        <p className="marquee-meta">{story.event}</p>
                       </div>
                     </div>
-                  </div>
-                );
-              })}
-            </div>
-            <div className="flex gap-6">
-              {mobileStories.slice(3, 6).map((story, index) => {
-                const isLarge = index === 2;
-                return (
-                  <div
-                    key={index}
-                    className={`revelao-card flex-1 ${isLarge ? "basis-[52%]" : "basis-[24%]"}`}
-                  >
-                    <div className="relative h-[280px] overflow-hidden">
-                      <img
-                        src={story.image}
-                        alt={story.event}
-                        className="w-full h-full object-cover"
-                      />
-                      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/55 to-black/10" />
-                      <div className="absolute inset-x-0 bottom-0 p-4">
-                        <p className="text-white text-sm leading-relaxed">
-                          “{story.quote}”
-                        </p>
-                        <div className="mt-2 text-white/85">
-                          <p className="font-semibold text-sm">{story.author}</p>
-                          <p className="text-xs">{story.event}</p>
-                        </div>
+                  );
+                })}
+                {mobileStories.map((story, index) => {
+                  return (
+                    <div
+                      key={`dup-${story.event}-${index}`}
+                      className="marquee-card w-[320px] sm:w-[420px] md:w-[520px]"
+                    >
+                      <div className="marquee-image">
+                        <img
+                          src={story.image}
+                          alt={story.event}
+                          className="h-48 w-full object-cover sm:h-52 md:h-56"
+                        />
+                      </div>
+                      <div className="marquee-content">
+                        <p className="marquee-quote">“{story.quote}”</p>
+                        <p className="marquee-meta">{story.author}</p>
+                        <p className="marquee-meta">{story.event}</p>
                       </div>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
           </div>
-        </div>
-
-        {/* Mobile Layout - Carousel */}
-        <div className="md:hidden no-card-hover">
-          <Carousel className="w-full" opts={{ align: "start", loop: false }}>
-            <CarouselContent className="ml-0 gap-3">
-              {mobileStories.map((story, index) => (
-                <CarouselItem key={index} className="basis-[78%] pl-0">
-                  <div className="revelao-card">
-                    <div className="relative h-[280px] overflow-hidden">
-                      <img 
-                        src={story.image} 
-                        alt={story.event}
-                        className="w-full h-full object-cover"
-                      />
-                      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/55 to-black/10" />
-                      <div className="absolute inset-x-0 bottom-0 p-4">
-                        <p className="text-white text-sm leading-relaxed">
-                          “{story.quote}”
-                        </p>
-                        <div className="mt-2 text-white/85">
-                          <p className="font-semibold text-sm">{story.author}</p>
-                          <p className="text-xs">{story.event}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-          </Carousel>
         </div>
       </div>
     </section>

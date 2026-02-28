@@ -83,6 +83,10 @@ export const translations = {
       videoSubtitle: "Ideal para bodas, cumpleaños y eventos corporativos.",
       videoLabel: "Revelao - Video demostración",
     },
+    gallery: {
+      title: "¿Para dónde es Revelao?",
+      subtitle: "Bodas, fiestas, eventos corporativos y más.",
+    },
     stories: {
       title: "Lo que dicen de nosotros",
       subtitle: "Eventos que crearon expectación y capturaron momentos únicos",
@@ -356,6 +360,10 @@ export const translations = {
       videoTitle: "Turn on the sound and feel the reveal hype.",
       videoSubtitle: "Perfect for weddings, birthdays and corporate events.",
       videoLabel: "Revelao - Demo video",
+    },
+    gallery: {
+      title: "Where is Revelao for?",
+      subtitle: "Weddings, parties, corporate events, and more.",
     },
     stories: {
       title: "What people say",
@@ -631,6 +639,10 @@ export const translations = {
       videoTitle: "Attiva l’audio e vivi il reveal.",
       videoSubtitle: "Ideale per matrimoni, compleanni ed eventi aziendali.",
       videoLabel: "Revelao - Video dimostrativo",
+    },
+    gallery: {
+      title: "Per quali eventi è Revelao?",
+      subtitle: "Matrimoni, feste, eventi aziendali e molto altro.",
     },
     stories: {
       title: "Cosa dicono di noi",

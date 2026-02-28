@@ -67,12 +67,13 @@ export const Features = () => {
               <div key={index} className="flex flex-col items-center text-center animate-fade-in" style={{
                 animationDelay: `${index * 150}ms`
               }}>
-                {/* Number */}
-                <div className="w-10 h-10 rounded-full bg-foreground flex items-center justify-center text-background text-lg font-bold mb-3">
-                  {index + 1}
+                <div className="flex items-center gap-2 text-foreground mb-3">
+                  <span className="inline-flex h-8 min-w-[32px] items-center justify-center rounded-full border border-foreground/20 bg-foreground/5 text-sm font-semibold text-foreground">
+                    0{index + 1}
+                  </span>
+                  <h3 className="text-base font-bold">{feature.title}</h3>
                 </div>
 
-                {/* Image */}
                 <div className="w-40 h-40 mb-4 flex items-center justify-center">
                   <img 
                     src={feature.image} 
@@ -81,10 +82,6 @@ export const Features = () => {
                   />
                 </div>
                 
-                {/* Text */}
-                <h3 className="text-base font-bold mb-2 text-foreground">
-                  {feature.title}
-                </h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   {feature.description}
                 </p>
@@ -102,12 +99,13 @@ export const Features = () => {
                 {features.map((feature, index) => (
                   <CarouselItem key={index}>
                     <div className="flex flex-col items-center text-center gap-4 p-4">
-                      {/* Number */}
-                      <div className="w-14 h-14 rounded-full bg-foreground flex items-center justify-center text-background text-xl font-bold">
-                        {index + 1}
+                      <div className="flex items-center gap-2 text-foreground">
+                        <span className="inline-flex h-8 min-w-[32px] items-center justify-center rounded-full border border-foreground/20 bg-foreground/5 text-sm font-semibold text-foreground">
+                          0{index + 1}
+                        </span>
+                        <h3 className="text-lg font-bold">{feature.title}</h3>
                       </div>
 
-                      {/* Image */}
                       <div className="w-40 h-40 flex items-center justify-center">
                         <img 
                           src={feature.image} 
@@ -116,15 +114,9 @@ export const Features = () => {
                         />
                       </div>
                       
-                      {/* Text */}
-                      <div>
-                        <h3 className="text-lg font-bold mb-2 text-foreground">
-                          {feature.title}
-                        </h3>
-                        <p className="text-muted-foreground leading-relaxed text-sm">
-                          {feature.description}
-                        </p>
-                      </div>
+                      <p className="text-muted-foreground leading-relaxed text-sm">
+                        {feature.description}
+                      </p>
                     </div>
                   </CarouselItem>
                 ))}
