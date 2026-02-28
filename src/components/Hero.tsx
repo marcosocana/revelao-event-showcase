@@ -1,15 +1,4 @@
 import { useEffect, useMemo, useRef } from "react";
-import heroImage11 from "@/assets/11.png";
-import heroImage12 from "@/assets/12.png";
-import heroImage13 from "@/assets/13.png";
-import heroImage14 from "@/assets/14.png";
-import heroImage15 from "@/assets/15.png";
-import heroImage16 from "@/assets/16.png";
-import heroImage17 from "@/assets/17.png";
-import heroImage18 from "@/assets/18.png";
-import heroImage19 from "@/assets/19.png";
-import heroImage20 from "@/assets/20.png";
-import heroImage21 from "@/assets/21.png";
 import heroVideoEsc1 from "@/assets/esc1.mp4";
 import heroVideoEsc2 from "@/assets/esc2.mp4";
 
@@ -17,17 +6,17 @@ export const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const heroTiles = [
-    heroImage11,
-    heroImage12,
-    heroImage13,
-    heroImage14,
-    heroImage15,
-    heroImage16,
-    heroImage17,
-    heroImage18,
-    heroImage19,
-    heroImage20,
-    heroImage21,
+    "/hero/11.png",
+    "/hero/12.png",
+    "/hero/13.png",
+    "/hero/14.png",
+    "/hero/15.png",
+    "/hero/16.png",
+    "/hero/17.png",
+    "/hero/18.png",
+    "/hero/19.png",
+    "/hero/20.png",
+    "/hero/21.png",
   ];
   const heroVideos = [
     heroVideoEsc1,
