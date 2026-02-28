@@ -799,5 +799,9 @@ All colors MUST be HSL.
       top: var(--hero-subtitle-top, var(--hero-top-offset, 100px));
       height: 220px;
     }
+
+    .heroContent h1 {
+      font-size: clamp(6.0206rem, 16.055vw, 14.0481rem);
+    }
   }
 }

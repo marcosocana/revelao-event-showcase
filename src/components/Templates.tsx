@@ -22,14 +22,14 @@ const templates = [
 
 const TemplateCard = ({ template }: { template: typeof templates[0] & { cta: string } }) => (
   <div className="revelao-card">
-    <div className="aspect-[3/4] bg-background overflow-hidden">
+    <div className="aspect-[3/4] bg-background overflow-hidden max-h-[360px]">
       <img 
         src={template.image} 
         alt={template.title}
         className="w-full h-full object-cover"
       />
     </div>
-    <div className="p-4">
+    <div className="p-3">
       <a 
         href={template.downloadUrl} 
         target="_blank" 

@@ -70,7 +70,7 @@ export const SuccessStories = () => {
                 {marqueeStories.map((story, index) => (
                   <div
                     key={`${story.event}-${loopIndex}-${index}`}
-                    className="success-card group flex w-[416px] shrink-0 gap-4 overflow-hidden rounded-lg bg-neutral-100 p-5 sm:w-[420px] lg:w-[520px]"
+                    className="success-card group flex w-[416px] shrink-0 gap-4 overflow-hidden rounded-lg bg-neutral-100 p-5 text-center items-center sm:w-[420px] lg:w-[520px]"
                   >
                     <div className="flex-1 overflow-hidden rounded-lg">
                       <img
@@ -80,7 +80,7 @@ export const SuccessStories = () => {
                         loading="lazy"
                       />
                     </div>
-                    <div className="flex flex-1 flex-col justify-between text-center">
+                    <div className="flex flex-1 flex-col justify-between text-center items-center">
                       <p className="text-base leading-[21px] tracking-[-0.01em] text-neutral-900">
                         “{story.quote}”
                       </p>

@@ -142,7 +142,7 @@ export const Hero = () => {
         </div>
         <div className="heroContent">
           <h1 className="heroTitleShimmer">Revelao</h1>
-          <p ref={subtitleRef}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <p ref={subtitleRef}>El momento más especial, desde todos los ángulos.</p>
         </div>
       </div>
     </section>
