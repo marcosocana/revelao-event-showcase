@@ -113,7 +113,15 @@ export const Hero = () => {
                         <div
                           key={`tile-${rowIndex}-${itemIndex}`}
                           className="heroGridItem"
-                          style={{ aspectRatio: `${ratio} / 1` }}
+                          style={{
+                            aspectRatio: `${ratio} / 1`,
+                            ["--hero-delay" as any]: `${(
+                              ((rowIndex * 7 + itemIndex) % 12) * 0.08
+                            ).toFixed(2)}s`,
+                            ["--hero-z" as any]: `translateZ(-${
+                              18 + ((rowIndex * 5 + itemIndex) % 18)
+                            }px)`,
+                          }}
                         >
                           {isVideo ? (
                             videoSrc ? (
