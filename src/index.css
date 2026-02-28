@@ -523,8 +523,8 @@ All colors MUST be HSL.
   .heroGridItem {
     border-radius: 16px;
     overflow: hidden;
-    background: #141414;
-    box-shadow: 0 18px 40px -28px rgba(0, 0, 0, 0.6);
+    background: #ffffff;
+    box-shadow: 0 14px 36px -26px rgba(0, 0, 0, 0.22);
     height: 100%;
     flex: 0 0 auto;
     opacity: 0;
