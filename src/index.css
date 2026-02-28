@@ -656,6 +656,10 @@ All colors MUST be HSL.
   }
 
   @media (max-width: 640px) {
+    .heroCtaWrap {
+      transform: translateY(210px);
+    }
+
     .ctaTextDesktop {
       display: none;
     }
