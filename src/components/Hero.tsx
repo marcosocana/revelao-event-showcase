@@ -1,21 +1,19 @@
 import { useEffect, useMemo, useRef } from "react";
-import testimonial1 from "@/assets/testimonio4-1.png";
-import testimonial2 from "@/assets/testimonio2-2.png";
-import testimonial3 from "@/assets/testimonio3-2.png";
-import testimonial4 from "@/assets/testimonio-6.png";
-import puebloQr from "@/assets/puebloqr.png";
-import nocheQr from "@/assets/nocheqr.png";
+import heroImage11 from "@/assets/11.png";
+import heroImage12 from "@/assets/12.png";
+import heroImage13 from "@/assets/13.png";
+import heroImage14 from "@/assets/14.png";
+import heroImage15 from "@/assets/15.png";
 
 export const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const heroTiles = [
-    testimonial4,
-    testimonial2,
-    testimonial1,
-    puebloQr,
-    testimonial3,
-    nocheQr,
+    heroImage11,
+    heroImage12,
+    heroImage13,
+    heroImage14,
+    heroImage15,
   ];
   const heroVideos = [
     "/videos/hero-1.mp4",
@@ -89,8 +87,15 @@ export const Hero = () => {
               >
                   {rowIndex === 0
                     ? null
-                  : row.ratios.map((ratio, itemIndex) => {
-                      const src = heroTiles[(rowIndex * 12 + itemIndex) % heroTiles.length];
+                  : (() => {
+                      let lastIndex = -1;
+                      return row.ratios.map((ratio, itemIndex) => {
+                        let srcIndex = (rowIndex * 13 + itemIndex) % heroTiles.length;
+                        if (srcIndex === lastIndex) {
+                          srcIndex = (srcIndex + 1) % heroTiles.length;
+                        }
+                        lastIndex = srcIndex;
+                        const src = heroTiles[srcIndex];
                       const videoSrc = heroVideos[itemIndex % heroVideos.length];
                       const isVideo = row.videoSlots.includes(itemIndex);
                       return (
@@ -121,7 +126,8 @@ export const Hero = () => {
                           )}
                         </div>
                       );
-                    })}
+                    });
+                    })()}
                 </div>
               ))}
             </div>
