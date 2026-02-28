@@ -15,6 +15,7 @@ export const Navbar = () => {
   const accessDemoUrl = getAccessDemoUrl(lang);
   const adminLoginUrl = getAdminLoginUrl(lang);
   const currentFlag = languageOptions.find((option) => option.value === lang)?.flag ?? "🇪🇸";
+
   return <nav className="fixed top-0 left-0 right-0 z-[9999] bg-white/70 backdrop-blur-xl border-b border-border/60 supports-[backdrop-filter]:bg-white/60">
       <div className="container px-4 mx-auto">
         <div className="flex items-center h-16">
@@ -89,7 +90,7 @@ export const Navbar = () => {
             </a>
             <Button 
               size="sm" 
-              className="bg-primary text-primary-foreground hover:bg-primary/90"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full"
               asChild
             >
               <a href={accessDemoUrl} target="_blank" rel="noopener noreferrer">
@@ -133,10 +134,16 @@ export const Navbar = () => {
             </a>
             <Button
               size="sm"
-              className="bg-primary text-primary-foreground hover:bg-primary/90"
+              className="navbarCtaMobile navCtaButton ctaRed rounded-full"
               asChild
             >
-              <a href={accessDemoUrl} target="_blank" rel="noopener noreferrer">
+              <a
+                href={accessDemoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-nav-cta
+                className="navCtaLink"
+              >
                 {t.nav.tryShort}
               </a>
             </Button>

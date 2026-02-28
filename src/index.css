@@ -17,7 +17,7 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 10%;
 
-    --primary: 5 85% 65%;
+    --primary: 0 84% 60%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 0 0% 96%;
@@ -68,7 +68,7 @@ All colors MUST be HSL.
     --popover: 0 0% 12%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 5 85% 65%;
+    --primary: 0 84% 60%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 0 0% 15%;
@@ -499,6 +499,7 @@ All colors MUST be HSL.
     width: 100%;
     will-change: transform;
     width: max-content;
+    height: var(--row-height);
   }
 
   .heroGridRow:nth-child(odd) {
@@ -565,8 +566,83 @@ All colors MUST be HSL.
     padding: 0 20px;
   }
 
+  .heroCtaWrap {
+    position: absolute;
+    inset: 0;
+    z-index: 998;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    transform: translateY(60px);
+  }
+
+  .ctaRed {
+    pointer-events: auto;
+    background: hsl(var(--primary));
+    color: #ffffff;
+    font-weight: 600;
+    border-radius: 9999px !important;
+    box-shadow: 0 18px 40px -26px rgba(239, 68, 68, 0.6);
+    transition: transform 200ms ease, box-shadow 200ms ease;
+  }
+
+  .ctaRed:hover {
+    transform: translateY(-1px) scale(1.02);
+    box-shadow: 0 22px 44px -28px rgba(239, 68, 68, 0.7);
+  }
+
+  .heroCtaButton {
+    font-size: 1.5rem;
+    padding: 18px 40px;
+  }
+
+  .ctaTextMobile {
+    display: none;
+  }
+
+  @media (max-width: 640px) {
+    .ctaTextDesktop {
+      display: none;
+    }
+
+    .ctaTextMobile {
+      display: inline;
+    }
+  }
+
+  .navCtaButton {
+    font-size: 0.95rem;
+    padding: 8px 16px;
+    border-radius: 9999px;
+  }
+
+  .navCtaLink {
+    border-radius: 9999px !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .navbarCtaMobile {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    max-width: none;
+    overflow: visible;
+    white-space: nowrap;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    transition: none;
+    border-radius: 9999px !important;
+  }
+
+  :root[data-scrolled="true"] .heroCtaWrap {
+    opacity: 1;
+  }
+
   .heroContent h1 {
-    font-size: clamp(4.875rem, 13vw, 11.375rem);
+    font-size: clamp(6.3375rem, 16.9vw, 14.7875rem);
     font-weight: 700;
     letter-spacing: -0.02em;
     margin: 0 0 -20px;
@@ -596,6 +672,62 @@ All colors MUST be HSL.
     -webkit-text-fill-color: transparent;
     animation: hero-shimmer 3s infinite both ease-in-out alternate;
     display: inline-block;
+  }
+
+  .reveal-blur {
+    backdrop-filter: blur(12px);
+    background: rgba(0, 0, 0, 0.15);
+    animation: reveal-clear 1.4s ease-in-out forwards;
+  }
+
+  .step-card {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 350ms ease, transform 350ms ease;
+  }
+
+  .step-card[data-visible="true"] {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .steps-layout {
+    align-items: start;
+  }
+
+  .steps-mockup {
+    align-self: start;
+  }
+
+  .steps-list {
+    padding-bottom: 240px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .step-card {
+      transition: none;
+      transform: none;
+      opacity: 1;
+    }
+  }
+
+  @keyframes reveal-clear {
+    0% {
+      backdrop-filter: blur(14px);
+      opacity: 1;
+    }
+    100% {
+      backdrop-filter: blur(0px);
+      opacity: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal-blur {
+      animation: none;
+      opacity: 0;
+      backdrop-filter: none;
+    }
   }
 
   @keyframes hero-shimmer {
@@ -628,9 +760,14 @@ All colors MUST be HSL.
       border-radius: 14px;
     }
 
-    .heroGridItem {
-      transform: scale(0.95);
-      transform-origin: center;
+    .heroGridRow {
+      height: calc(var(--row-height) * 0.92);
+    }
+  }
+
+  @media (max-width: 1028px) {
+    .heroGradientTop {
+      top: var(--hero-subtitle-top, var(--hero-top-offset, 100px));
     }
   }
 
@@ -645,7 +782,8 @@ All colors MUST be HSL.
 
     .heroGridItems {
       gap: 8px;
-      padding: 12px;
+      padding: 8px;
+      transform: translateY(-48px);
     }
 
     .heroGridRow {
@@ -656,9 +794,13 @@ All colors MUST be HSL.
       border-radius: 10px;
     }
 
-    .heroGridItem {
-      transform: scale(0.9);
-      transform-origin: center;
+    .heroGridRow {
+      height: calc(var(--row-height) * 0.85);
+    }
+
+    .heroGradientTop {
+      top: var(--hero-subtitle-top, var(--hero-top-offset, 100px));
+      height: 220px;
     }
   }
 }

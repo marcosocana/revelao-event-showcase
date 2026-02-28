@@ -32,7 +32,7 @@ export const translations = {
       blog: "Blog",
       faqs: "FAQs",
       access: "Accede a tu evento",
-      tryFree: "Pruebalo gratis",
+      tryFree: "Pruébalo gratis",
       accessShort: "Acceder",
       tryShort: "Probar gratis",
     },

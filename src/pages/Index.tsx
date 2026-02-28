@@ -1,6 +1,6 @@
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
-import { Features } from "@/components/Features";
+import { Features, FeaturesVideo } from "@/components/Features";
 import { EventGalleryFlow } from "@/components/EventGalleryFlow";
 import { Pricing } from "@/components/Pricing";
 import { Templates } from "@/components/Templates";
@@ -107,10 +107,10 @@ const Index = () => {
       <main className="pt-16">
         <Hero />
         <Features />
-        <EventGalleryFlow />
         <SuccessStories />
-        <Templates />
+        <FeaturesVideo />
         <Pricing />
+        <Templates />
         <BlogSection />
         <section className="py-4 md:py-6 bg-background">
           <div className="mx-auto w-full">
@@ -119,6 +119,7 @@ const Index = () => {
             </div>
           </div>
         </section>
+        <EventGalleryFlow />
         <section className="py-4 md:py-8 bg-background scroll-mt-12 md:scroll-mt-14" id="faqs">
           <div className="container px-4 mx-auto">
             <div className="max-w-3xl mx-auto">
