@@ -35,23 +35,23 @@ export const Navbar = () => {
               <a href="#como-funciona" className="text-muted-foreground hover:text-foreground transition-colors">
                 {t.nav.how}
               </a>
+              <a href="#precio" className="text-muted-foreground hover:text-foreground transition-colors">
+                {t.nav.pricing}
+              </a>
               <a href="#casos-de-exito" className="text-muted-foreground hover:text-foreground transition-colors">
                 {t.nav.testimonials}
               </a>
               <a href="#plantillas" className="text-muted-foreground hover:text-foreground transition-colors">
                 {t.nav.templates}
               </a>
-              <a href="#precio" className="text-muted-foreground hover:text-foreground transition-colors">
-                {t.nav.pricing}
+              <a href="#blog" className="text-muted-foreground hover:text-foreground transition-colors">
+                {t.nav.blog}
               </a>
-            <a href="#blog" className="text-muted-foreground hover:text-foreground transition-colors">
-              {t.nav.blog}
-            </a>
-            <div className="flex items-center gap-3">
-              <a href="#faqs" className="text-muted-foreground hover:text-foreground transition-colors">
-                {t.nav.faqs}
-              </a>
-              <DropdownMenu>
+              <div className="flex items-center gap-3">
+                <a href="#faqs" className="text-muted-foreground hover:text-foreground transition-colors">
+                  {t.nav.faqs}
+                </a>
+                <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <button
                     type="button"

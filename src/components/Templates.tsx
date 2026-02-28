@@ -53,7 +53,7 @@ export const Templates = () => {
     cta: t.templates.cta,
   }));
   return (
-    <section className="py-12 md:py-24 bg-primary/5" id="plantillas">
+    <section className="py-12 md:py-24 bg-transparent" id="plantillas">
       <div className="container px-4 mx-auto container-mobile-right-edge">
         <div className="max-w-6xl mx-auto">
           <div className="mb-12 text-center animate-fade-in">

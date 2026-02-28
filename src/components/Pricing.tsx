@@ -53,7 +53,7 @@ const PlanCard = ({ plan, perEvent, features }: { plan: { title: string; planId:
     className={[
       "relative revelao-card p-5 md:p-6",
       plan.badge ? "pt-9" : "",
-      plan.featured ? "border-primary/40 bg-primary/5 shadow-[0_20px_60px_-30px_rgba(180,38,38,0.35)]" : "border-border",
+      plan.featured ? "border-primary/40 bg-red-50 shadow-[0_20px_60px_-30px_rgba(0,0,0,0.18)]" : "border-border",
     ].join(" ")}
   >
     {plan.badge ? (
@@ -252,14 +252,26 @@ export const Pricing = () => {
     fallbackSubtitle: plan.subtitle ?? "",
     features: featureMap[lang]?.[plan.planId] ?? featureMap.es[plan.planId],
   }));
-  return <section className="py-10 md:py-16 bg-muted/30 scroll-mt-12 md:scroll-mt-14" id="precio">
+  return <section className="py-10 md:py-16 bg-transparent scroll-mt-12 md:scroll-mt-14" id="precio">
       <div className="container px-4 mx-auto container-mobile-right-edge">
         <div className="text-center mb-8 md:mb-10 animate-fade-in">
           <h2 className="font-bold mb-2 text-foreground md:text-5xl text-center text-3xl">
             {t.pricing.title}
           </h2>
-          <p className="text-base text-muted-foreground mb-6 text-center md:text-lg">
+          <p className="text-base text-muted-foreground mb-2 text-center md:text-lg">
             {t.pricing.subtitle}
+          </p>
+          <p className="text-base text-muted-foreground text-center md:text-lg">
+            Si no te encaja ninguno,{" "}
+            <a
+              className="text-foreground font-semibold hover:underline"
+              href={`https://wa.me/34695834018?text=${encodeURIComponent(whatsappMessage)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              escríbenos
+            </a>
+            .
           </p>
         </div>
 
@@ -285,16 +297,6 @@ export const Pricing = () => {
           </Carousel>
         </div>
 
-        <div className="text-center mt-6 text-sm text-muted-foreground">
-          {t.pricing.more}{" "}
-          <a
-            className="text-foreground font-semibold hover:underline"
-            href={`https://wa.me/34695834018?text=${encodeURIComponent(whatsappMessage)}`}
-          >
-            {t.pricing.whatsapp}
-          </a>
-          .
-        </div>
       </div>
     </section>;
 };

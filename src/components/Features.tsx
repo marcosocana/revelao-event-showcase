@@ -4,8 +4,8 @@ import step1Image from "@/assets/step-1-qr.svg";
 import step2Image from "@/assets/step-2-capture.svg";
 import step3Image from "@/assets/step-3-anticipation.svg";
 import step4Image from "@/assets/step-4-reveal.svg";
-import demoVideo from "@/assets/Revelao_31.mp4";
 import { useI18n, translations } from "@/lib/i18n";
+import demoVideo from "@/assets/Revelao_31.mp4";
 import { VideoDemo } from "@/components/VideoDemo";
 
 const featureImages = [step1Image, step2Image, step3Image, step4Image];
@@ -51,7 +51,7 @@ export const Features = () => {
   }, [api, isVisible]);
 
   return (
-    <section ref={sectionRef} className="py-12 md:py-24 bg-muted/30" id="como-funciona">
+    <section ref={sectionRef} className="py-12 md:py-24 bg-transparent" id="como-funciona">
       <div className="container px-4 mx-auto">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl md:text-5xl font-bold mb-4 text-foreground">
@@ -62,7 +62,7 @@ export const Features = () => {
           </p>
         </div>
 
-        <div className="revelao-card px-6 py-8 md:px-10 md:py-12">
+        <div className="revelao-card px-6 py-6 md:px-10 md:py-8">
           {/* Desktop Layout */}
           <div className="hidden md:grid grid-cols-4 gap-6 max-w-6xl mx-auto">
             {features.map((feature, index) => (
@@ -70,13 +70,13 @@ export const Features = () => {
                 animationDelay: `${index * 150}ms`
               }}>
                 <div className="flex items-center gap-2 text-foreground mb-3">
-                  <span className="inline-flex h-8 min-w-[32px] items-center justify-center rounded-full border border-foreground/20 bg-foreground/5 text-sm font-semibold text-foreground">
-                    0{index + 1}
-                  </span>
                   <h3 className="text-base font-bold">{feature.title}</h3>
                 </div>
 
-                <div className="w-40 h-40 mb-4 flex items-center justify-center">
+                <div className="relative w-40 h-40 mb-4 flex items-center justify-center">
+                  <span className="absolute left-2 top-2 inline-flex h-8 min-w-[32px] items-center justify-center rounded-full border border-foreground/20 bg-foreground/5 text-sm font-semibold text-foreground">
+                    0{index + 1}
+                  </span>
                   <img 
                     src={feature.image} 
                     alt={feature.title} 
@@ -102,13 +102,13 @@ export const Features = () => {
                   <CarouselItem key={index}>
                     <div className="flex flex-col items-center text-center gap-4 p-4">
                       <div className="flex items-center gap-2 text-foreground">
-                        <span className="inline-flex h-8 min-w-[32px] items-center justify-center rounded-full border border-foreground/20 bg-foreground/5 text-sm font-semibold text-foreground">
-                          0{index + 1}
-                        </span>
                         <h3 className="text-lg font-bold">{feature.title}</h3>
                       </div>
 
-                      <div className="w-40 h-40 flex items-center justify-center">
+                      <div className="relative w-40 h-40 flex items-center justify-center">
+                        <span className="absolute left-2 top-2 inline-flex h-8 min-w-[32px] items-center justify-center rounded-full border border-foreground/20 bg-foreground/5 text-sm font-semibold text-foreground">
+                          0{index + 1}
+                        </span>
                         <img 
                           src={feature.image} 
                           alt={feature.title} 
@@ -129,14 +129,23 @@ export const Features = () => {
           </div>
         </div>
 
-        <div id="video-demo" className="mt-8 md:mt-12 revelao-card bg-primary/5 px-6 py-8 md:px-10 md:py-12">
-          <div className="max-w-4xl mx-auto">
-            <VideoDemo src={demoVideo} />
-            <div className="mt-6 flex flex-col items-center gap-3 text-sm text-muted-foreground">
-              <span className="font-semibold text-foreground">{t.features.videoTitle}</span>
-              <span>{t.features.videoSubtitle}</span>
-            </div>
+      </div>
+    </section>
+  );
+};
+
+export const FeaturesVideo = () => {
+  const { lang } = useI18n();
+  const t = translations[lang];
+  return (
+    <section id="video-demo" className="py-12 md:py-24 bg-transparent">
+      <div className="container px-4 mx-auto">
+        <div className="max-w-4xl mx-auto">
+          <div className="mb-6 flex flex-col items-center gap-3 text-sm text-muted-foreground">
+            <span className="font-semibold text-foreground">{t.features.videoTitle}</span>
+            <span>{t.features.videoSubtitle}</span>
           </div>
+          <VideoDemo src={demoVideo} />
         </div>
       </div>
     </section>

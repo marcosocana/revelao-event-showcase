@@ -7,7 +7,7 @@ export const TrialReminder = () => {
   const accessDemoUrl = getAccessDemoUrl(lang);
 
   return (
-    <div className="w-full bg-primary/10 px-6 py-6 md:px-8 md:py-8 text-center">
+    <div className="w-full bg-muted/30 px-6 py-6 md:px-8 md:py-8 text-center">
       <h2 className="text-xl md:text-3xl font-bold text-foreground mb-3">
         {t.trialReminder.title}
       </h2>
@@ -17,7 +17,7 @@ export const TrialReminder = () => {
       <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
         <Button
           size="default"
-          className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 text-sm px-6 py-4"
+          className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 text-sm px-6 py-4 rounded-full"
           asChild
         >
           <a href={accessDemoUrl} target="_blank" rel="noopener noreferrer">

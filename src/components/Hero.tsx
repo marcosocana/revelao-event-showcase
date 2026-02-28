@@ -141,8 +141,14 @@ export const Hero = () => {
           </a>
         </div>
         <div className="heroContent">
-          <h1 className="heroTitleShimmer">Revelao</h1>
-          <p ref={subtitleRef}>El momento más especial, desde todos los ángulos.</p>
+          <div className="heroShimmerGroup">
+            <h1 className="heroTitleShimmer">Revelao</h1>
+            <p ref={subtitleRef}>
+              <strong className="heroSubtitleShimmer">
+                El momento más especial, desde todos los ángulos
+              </strong>
+            </p>
+          </div>
         </div>
       </div>
     </section>

@@ -621,6 +621,22 @@ All colors MUST be HSL.
     justify-content: center;
   }
 
+  .section-white {
+    background: #ffffff;
+  }
+
+  .section-gray {
+    background: #f5f5f5;
+  }
+
+  .section-white .revelao-card {
+    background: #f5f5f5;
+  }
+
+  .section-gray .revelao-card {
+    background: #ffffff;
+  }
+
   .navbarCtaMobile {
     opacity: 1;
     transform: translateY(0);
@@ -646,7 +662,8 @@ All colors MUST be HSL.
     text-shadow: none;
   }
 
-  .heroTitleShimmer {
+  .heroTitleShimmer,
+  .heroSubtitleShimmer {
     --bg-angle: -12;
     --bg-spread: 10;
     --offset: calc(var(--bg-spread) * 0.5ch);
@@ -671,6 +688,12 @@ All colors MUST be HSL.
     display: inline-block;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .heroShimmerGroup {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .reveal-blur {
@@ -743,6 +766,10 @@ All colors MUST be HSL.
     font-size: clamp(1.235rem, 2.08vw, 1.43rem);
     color: #111111;
     margin: -30px 0 0;
+  }
+
+  .heroContent p strong {
+    font-size: calc(1em + 2pt);
   }
 
   @media (max-width: 1030px) {

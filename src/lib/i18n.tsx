@@ -132,7 +132,7 @@ export const translations = {
       ],
     },
     templates: {
-      title: "Plantillas personalizadas",
+      title: "Plantillas",
       subtitle:
         "Descarga carteles con código QR para tu evento. Si no sabes cómo hacerlo, te lo hacemos nosotros de forma gratuita",
       cta: "Descargar",

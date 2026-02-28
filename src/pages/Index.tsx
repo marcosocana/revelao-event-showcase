@@ -1,13 +1,12 @@
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
-import { Features } from "@/components/Features";
+import { Features, FeaturesVideo } from "@/components/Features";
 import { EventGalleryFlow } from "@/components/EventGalleryFlow";
 import { Pricing } from "@/components/Pricing";
 import { Templates } from "@/components/Templates";
 import { FAQs } from "@/components/FAQs";
 import { SuccessStories } from "@/components/SuccessStories";
 import { FreeTrial } from "@/components/FreeTrial";
-import { CombinedCTABanner } from "@/components/CombinedCTABanner";
 import { Footer } from "@/components/Footer";
 import { PricingModal } from "@/components/PricingModal";
 import { BlogSection } from "@/components/BlogSection";
@@ -15,6 +14,7 @@ import { HomeSeoContent } from "@/components/HomeSeoContent";
 import IphoneMockup3D from "@/components/IphoneMockup3D";
 import { TrialReminder } from "@/components/TrialReminder";
 import WhatsAppFloating from "@/components/WhatsAppFloating";
+import { SimpleCTA } from "@/components/SimpleCTA";
 import { useState, useEffect } from "react";
 import { useI18n, translations } from "@/lib/i18n";
 
@@ -105,28 +105,42 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <main className="pt-16">
-        <Hero />
-        <Features />
-        <SuccessStories />
-        <Pricing />
-        <Templates />
-        <BlogSection />
-        <section className="py-4 md:py-6 bg-background">
-          <div className="mx-auto w-full">
-            <div className="w-full">
-              <FreeTrial />
+        <div className="section-white">
+          <Hero />
+        </div>
+        <div className="section-gray">
+          <Features />
+        </div>
+        <div className="section-white">
+          <FeaturesVideo />
+        </div>
+        <div className="section-gray">
+          <Pricing />
+        </div>
+        <div className="section-white">
+          <SuccessStories />
+        </div>
+        <div className="section-gray">
+          <Templates />
+        </div>
+        <div className="section-white">
+          <BlogSection />
+        </div>
+        <div className="section-gray">
+          <SimpleCTA />
+        </div>
+        <div className="section-white">
+          <section className="py-4 md:py-8 bg-transparent scroll-mt-12 md:scroll-mt-14" id="faqs">
+            <div className="container px-4 mx-auto">
+              <div className="max-w-3xl mx-auto">
+                <FAQs />
+              </div>
             </div>
-          </div>
-        </section>
-        <section className="py-4 md:py-8 bg-background scroll-mt-12 md:scroll-mt-14" id="faqs">
-          <div className="container px-4 mx-auto">
-            <div className="max-w-3xl mx-auto">
-              <FAQs />
-            </div>
-          </div>
-        </section>
-        <CombinedCTABanner />
-        <EventGalleryFlow />
+          </section>
+        </div>
+        <div className="section-white">
+          <EventGalleryFlow />
+        </div>
         <HomeSeoContent />
         <section className="py-4 md:py-6 bg-background">
           <div className="mx-auto w-full">

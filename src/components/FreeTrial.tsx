@@ -8,7 +8,7 @@ export const FreeTrial = () => {
   const t = translations[lang];
   const accessDemoUrl = getAccessDemoUrl(lang);
   return (
-    <div className="w-full bg-primary/10 px-6 py-6 md:px-8 md:py-8">
+    <div className="w-full bg-transparent px-6 py-6 md:px-8 md:py-8">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-center">
         <div className="text-center md:text-left">
           <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-3">
