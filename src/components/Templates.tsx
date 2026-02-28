@@ -21,15 +21,15 @@ const templates = [
 ];
 
 const TemplateCard = ({ template }: { template: typeof templates[0] & { cta: string } }) => (
-  <div className="revelao-card">
-    <div className="aspect-[3/4] bg-background overflow-hidden max-h-[360px]">
+  <div className="revelao-card w-fit">
+    <div className="bg-background overflow-hidden w-fit">
       <img 
         src={template.image} 
         alt={template.title}
-        className="w-full h-full object-cover"
+        className="block w-auto h-auto max-h-[280px] object-cover"
       />
     </div>
-    <div className="p-3">
+    <div className="p-2">
       <a 
         href={template.downloadUrl} 
         target="_blank" 
@@ -66,7 +66,7 @@ export const Templates = () => {
           </div>
 
           {/* Desktop Grid */}
-          <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-2 justify-items-center">
             {templatesWithCta.map((template) => (
               <TemplateCard key={template.id} template={template} />
             ))}
@@ -74,10 +74,10 @@ export const Templates = () => {
 
           {/* Mobile Carousel */}
           <div className="md:hidden px-0">
-            <Carousel className="w-full" opts={{ align: "start" }}>
-              <CarouselContent className="ml-0 gap-3">
+            <Carousel className="w-full" opts={{ align: "center" }}>
+              <CarouselContent className="ml-0 gap-4 justify-center">
                 {templatesWithCta.map((template) => (
-                  <CarouselItem key={template.id} className="basis-[77%] pl-0">
+                  <CarouselItem key={template.id} className="basis-[70%] pl-0 flex justify-center">
                     <TemplateCard template={template} />
                   </CarouselItem>
                 ))}
