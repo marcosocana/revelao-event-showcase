@@ -4,7 +4,7 @@ import step1Image from "@/assets/step-1-qr.svg";
 import step2Image from "@/assets/step-2-capture.svg";
 import step3Image from "@/assets/step-3-anticipation.svg";
 import step4Image from "@/assets/step-4-reveal.svg";
-import demoVideo from "@/assets/Revelao_2.mp4";
+import demoVideo from "@/assets/Revelao_31.mp4";
 import { useI18n, translations } from "@/lib/i18n";
 import { VideoDemo } from "@/components/VideoDemo";
 

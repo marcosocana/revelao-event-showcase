@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { useState } from "react";
 import ruedaVideo from "@/assets/rueda.mp4";
-import demoVideo from "@/assets/Revelao_2.mp4";
+import demoVideo from "@/assets/Revelao_31.mp4";
 import { getAccessDemoUrl, useI18n, translations } from "@/lib/i18n";
 import IphoneMockup3D from "@/components/IphoneMockup3D";
 import { VideoDemo } from "@/components/VideoDemo";
