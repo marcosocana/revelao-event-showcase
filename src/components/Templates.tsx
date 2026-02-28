@@ -10,14 +10,18 @@ import {
 import template1 from "@/assets/Plantilla1.png";
 import template2 from "@/assets/Plantilla2.png";
 import template3 from "@/assets/Plantilla3.png";
-import template4 from "@/assets/template-4.png";
+import template1Download from "@/assets/template-1.png";
+import template2Download from "@/assets/template-2.png";
+import template3Download from "@/assets/template-3.png";
+import template4 from "@/assets/Plantilla4.png";
+import template4Download from "@/assets/template-4.png";
 import { useI18n, translations } from "@/lib/i18n";
 
 const templates = [
-  { id: 1, title: "Julia y Alex", image: template1, downloadUrl: template1 },
-  { id: 2, title: "David y Jose", image: template2, downloadUrl: template2 },
-  { id: 3, title: "Paola y Toni", image: template3, downloadUrl: template3 },
-  { id: 4, title: "Christmas Album", image: template4, downloadUrl: template4 },
+  { id: 1, title: "Julia y Alex", image: template1, downloadUrl: template1Download },
+  { id: 2, title: "David y Jose", image: template2, downloadUrl: template2Download },
+  { id: 3, title: "Paola y Toni", image: template3, downloadUrl: template3Download },
+  { id: 4, title: "Christmas Album", image: template4, downloadUrl: template4Download },
 ];
 
 const TemplateCard = ({ template }: { template: typeof templates[0] & { cta: string } }) => (
