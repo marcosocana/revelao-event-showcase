@@ -133,6 +133,9 @@ export const Hero = () => {
                                 muted
                                 playsInline
                                 preload="metadata"
+                                onLoadedData={(event) => {
+                                  event.currentTarget.classList.add("is-loaded");
+                                }}
                               />
                             ) : (
                               <img
@@ -142,6 +145,9 @@ export const Hero = () => {
                                 loading="eager"
                                 decoding="async"
                                 className="heroGridImage"
+                                onLoad={(event) => {
+                                  event.currentTarget.classList.add("is-loaded");
+                                }}
                               />
                             )
                           ) : (
@@ -152,6 +158,9 @@ export const Hero = () => {
                               loading="eager"
                               decoding="async"
                               className="heroGridImage"
+                              onLoad={(event) => {
+                                event.currentTarget.classList.add("is-loaded");
+                              }}
                             />
                           )}
                         </div>
