@@ -18,9 +18,9 @@ import testimonial1 from "@/assets/testimonio4-1.png";
 import testimonial2 from "@/assets/testimonio2-2.png";
 import testimonial3 from "@/assets/testimonio3-2.png";
 import testimonial4 from "@/assets/testimonio-6.png";
-import template1 from "@/assets/template-1.png";
-import template2 from "@/assets/template-2.png";
-import template3 from "@/assets/template-3.png";
+import template1 from "@/assets/Plantilla1.png";
+import template2 from "@/assets/Plantilla2.png";
+import template3 from "@/assets/Plantilla3.png";
 import template4 from "@/assets/template-4.png";
 import WhatsAppFloating from "@/components/WhatsAppFloating";
 

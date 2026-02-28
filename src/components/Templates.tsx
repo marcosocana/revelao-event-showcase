@@ -7,9 +7,9 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import template1 from "@/assets/template-1.png";
-import template2 from "@/assets/template-2.png";
-import template3 from "@/assets/template-3.png";
+import template1 from "@/assets/Plantilla1.png";
+import template2 from "@/assets/Plantilla2.png";
+import template3 from "@/assets/Plantilla3.png";
 import template4 from "@/assets/template-4.png";
 import { useI18n, translations } from "@/lib/i18n";
 
