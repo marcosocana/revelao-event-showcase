@@ -116,15 +116,26 @@ export const Hero = () => {
                           style={{ aspectRatio: `${ratio} / 1` }}
                         >
                           {isVideo ? (
-                            <video
-                              src={videoSrc}
-                              className="heroGridImage"
-                              autoPlay
-                              loop
-                              muted
-                              playsInline
-                              preload="metadata"
-                            />
+                            videoSrc ? (
+                              <video
+                                src={videoSrc}
+                                className="heroGridImage"
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                                preload="metadata"
+                              />
+                            ) : (
+                              <img
+                                src={src}
+                                alt=""
+                                aria-hidden="true"
+                                loading="eager"
+                                decoding="async"
+                                className="heroGridImage"
+                              />
+                            )
                           ) : (
                             <img
                               src={src}
