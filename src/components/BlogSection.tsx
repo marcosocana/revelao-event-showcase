@@ -48,10 +48,10 @@ export const BlogSection = () => {
     <section id="blog" className="py-16 bg-transparent scroll-mt-12 md:scroll-mt-14">
       <div className="container px-4 mx-auto container-mobile-right-edge">
       <div className="mb-8 md:mb-10 text-center animate-fade-in">
-        <h2 className="font-bold mb-2 text-foreground md:text-5xl text-center text-3xl">
+        <h2 className="revelao-h2 mb-2 text-center">
           {t.blog.title}
         </h2>
-        <p className="text-base text-muted-foreground mb-2 text-center md:text-lg max-w-3xl mx-auto">
+        <p className="revelao-h3 mb-2 text-center max-w-3xl mx-auto">
           {t.blog.subtitle}
         </p>
       </div>
@@ -74,7 +74,7 @@ export const BlogSection = () => {
             </div>
             <div className="flex flex-1 flex-col gap-3 rounded-[8px] bg-neutral-100 p-4">
               <div>
-                <h3 className="text-[18px] font-normal leading-6 text-neutral-900">
+                <h3 className="revelao-h4">
                   {post.title}
                 </h3>
                 {/* fecha eliminada */}
@@ -112,7 +112,7 @@ export const BlogSection = () => {
                   </div>
                   <div className="flex flex-1 flex-col gap-3 rounded-[8px] bg-neutral-100 p-4">
                     <div>
-                      <h3 className="text-[18px] font-normal leading-6 text-neutral-900">
+                      <h3 className="revelao-h4">
                         {post.title}
                       </h3>
                       {/* fecha eliminada */}

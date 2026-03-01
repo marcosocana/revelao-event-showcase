@@ -271,6 +271,7 @@ export const translations = {
       plans: "Ver planes",
     },
     seoHome: {
+      title: "¿Qué es Revelao?",
       intro:
         "Revelao.cam es una galería de fotos para eventos con QR pensada para bodas, fiestas y celebraciones donde quieres reunir todas las imágenes en un solo lugar. En lugar de depender de grupos de WhatsApp o carpetas dispersas, creas un evento, compartes un código QR y tus invitados suben fotos al instante, sin app y sin registros largos. El resultado es una galería colaborativa limpia, organizada y lista para revivir el evento.",
       sections: [
@@ -550,6 +551,7 @@ export const translations = {
       plans: "See plans",
     },
     seoHome: {
+      title: "What is Revelao?",
       intro:
         "Revelao.cam is a QR-based photo gallery for events designed for weddings, parties and celebrations where you want all images in one place. Instead of relying on WhatsApp groups or messy folders, you create an event, share a QR code, and guests upload photos instantly without an app. The result is a clean, collaborative gallery ready to relive the day.",
       sections: [
@@ -829,6 +831,7 @@ export const translations = {
       plans: "Vedi piani",
     },
     seoHome: {
+      title: "Che cos'è Revelao?",
       intro:
         "Revelao.cam è una galleria fotografica per eventi con QR pensata per matrimoni, feste e celebrazioni dove vuoi tutte le immagini in un unico posto. Invece di usare gruppi WhatsApp o cartelle disordinate, crei un evento, condividi un QR e gli invitati caricano foto subito senza app. Il risultato è una galleria collaborativa pulita e pronta da rivivere.",
       sections: [

@@ -61,10 +61,10 @@ export const Templates = () => {
       <div className="container px-4 mx-auto container-mobile-right-edge">
         <div className="max-w-6xl mx-auto">
           <div className="mb-8 md:mb-10 text-center animate-fade-in">
-            <h2 className="font-bold mb-2 text-foreground md:text-5xl text-center text-3xl">
+            <h2 className="revelao-h2 mb-2 text-center">
               {t.templates.title}
             </h2>
-            <p className="text-base text-muted-foreground mb-2 text-center md:text-lg max-w-3xl mx-auto">
+            <p className="revelao-h3 mb-2 text-center max-w-3xl mx-auto">
               {t.templates.subtitle}
             </p>
           </div>

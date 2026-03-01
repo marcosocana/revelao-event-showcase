@@ -55,10 +55,10 @@ export const SuccessStories = () => {
     <section ref={sectionRef} className="py-12 md:py-24 bg-transparent" id="casos-de-exito">
       <div className="container px-4 mx-auto container-mobile-right-edge">
         <div className="text-center mb-8 md:mb-10 animate-fade-in">
-          <h2 className="font-bold mb-2 text-foreground md:text-5xl text-center text-3xl">
+          <h2 className="revelao-h2 mb-2 text-center">
             {t.stories.title}
           </h2>
-          <p className="text-base text-muted-foreground mb-2 text-center md:text-lg max-w-2xl mx-auto">
+          <p className="revelao-h3 mb-2 text-center max-w-2xl mx-auto">
             {t.stories.subtitle}
           </p>
         </div>

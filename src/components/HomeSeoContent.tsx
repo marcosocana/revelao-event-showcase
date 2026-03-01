@@ -12,6 +12,7 @@ export const HomeSeoContent = () => {
     <section className="container px-4 mx-auto py-12 md:py-16">
       <div className="max-w-5xl mx-auto grid gap-6">
         <div className="revelao-card border-0 bg-white p-6 md:p-8 no-card-hover">
+          <h2 className="text-2xl font-semibold mb-4">{t.title}</h2>
           <p className="text-muted-foreground">{t.intro}</p>
         </div>
         <div className={`grid gap-6 ${isExpanded ? "" : "max-md:max-h-[520px] max-md:overflow-hidden max-md:relative"}`}>

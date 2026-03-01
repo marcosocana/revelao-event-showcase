@@ -63,7 +63,7 @@ const PlanCard = ({ plan, perEvent, features }: { plan: { title: string; planId:
     ) : null}
 
     <div className="mb-5">
-      <h3 className="text-xl font-semibold text-foreground mb-1">{plan.title}</h3>
+      <h3 className="revelao-h4 mb-1">{plan.title}</h3>
       <p className="text-sm text-muted-foreground">
         {plan.subtitle ? plan.subtitle : plan.fallbackSubtitle}
       </p>
@@ -255,13 +255,13 @@ export const Pricing = () => {
   return <section className="py-10 md:py-16 bg-transparent scroll-mt-12 md:scroll-mt-14 no-card-hover" id="precio">
       <div className="container px-4 mx-auto container-mobile-right-edge">
         <div className="text-center mb-8 md:mb-10 animate-fade-in">
-          <h2 className="font-bold mb-2 text-foreground md:text-5xl text-center text-3xl">
+          <h2 className="revelao-h2 mb-2 text-center">
             {t.pricing.title}
           </h2>
-          <p className="text-base text-muted-foreground mb-2 text-center md:text-lg">
+          <p className="revelao-h3 mb-2 text-center">
             {t.pricing.subtitle}
           </p>
-          <p className="text-base text-muted-foreground text-center md:text-lg">
+          <p className="revelao-h3 text-center">
             Si no te encaja ninguno,{" "}
             <a
               className="text-foreground font-semibold hover:underline"

@@ -14,10 +14,10 @@ export const FAQs = ({ className }: FAQsProps) => {
   return (
     <div className={className}>
       <div className="text-center mb-8 md:mb-10 animate-fade-in">
-        <h2 className="font-bold mb-2 text-foreground md:text-5xl text-center text-3xl">
+        <h2 className="revelao-h2 mb-2 text-center">
           {t.faqs.title}
         </h2>
-        <p className="text-base text-muted-foreground mb-2 text-center md:text-lg">
+        <p className="revelao-h3 mb-2 text-center">
           {t.faqs.subtitle}
         </p>
       </div>
