@@ -40,10 +40,21 @@ export const VideoDemo = ({ className = "", src, poster }: VideoDemoProps) => {
     const video = videoRef.current;
     if (!video) return;
     if (isInView) {
+      video.muted = true;
+      video.defaultMuted = true;
+      video.setAttribute("muted", "");
+      video.setAttribute("playsinline", "");
+      video.autoplay = true;
       if (video.currentTime < 4) {
         video.currentTime = 4;
       }
-      video.play().catch(() => undefined);
+      const tryPlay = () => video.play().catch(() => undefined);
+      tryPlay();
+      const handleTouch = () => {
+        tryPlay();
+        window.removeEventListener("touchstart", handleTouch);
+      };
+      window.addEventListener("touchstart", handleTouch, { passive: true });
     } else {
       video.pause();
     }
