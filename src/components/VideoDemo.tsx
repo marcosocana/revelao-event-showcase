@@ -11,6 +11,7 @@ export const VideoDemo = ({ className = "", src, poster }: VideoDemoProps) => {
   const [isPaused, setIsPaused] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
+  const [isInView, setIsInView] = useState(false);
 
   useEffect(() => {
     const media = window.matchMedia("(max-width: 768px)");
@@ -19,6 +20,31 @@ export const VideoDemo = ({ className = "", src, poster }: VideoDemoProps) => {
     media.addEventListener("change", update);
     return () => media.removeEventListener("change", update);
   }, []);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+      },
+      { threshold: 0.4 }
+    );
+
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (isInView) {
+      video.play().catch(() => undefined);
+    } else {
+      video.pause();
+    }
+  }, [isInView]);
 
   const handleTogglePlay = () => {
     const video = videoRef.current;
