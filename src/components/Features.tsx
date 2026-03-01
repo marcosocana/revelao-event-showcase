@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade, Navigation, Pagination, A11y } from "swiper/modules";
 import "swiper/css";
@@ -19,16 +19,36 @@ const featureImages = [step1Image, step2Image, step3Image, step4Image];
 export const Features = () => {
   const { lang } = useI18n();
   const t = translations[lang];
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const swiperRef = useRef<import("swiper").Swiper | null>(null);
   const features = t.features.steps.map((step, index) => ({
     ...step,
     image: featureImages[index],
   }));
   useEffect(() => {
-    return () => {};
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        const swiper = swiperRef.current;
+        if (!swiper) return;
+        if (entry.isIntersecting) {
+          swiper.slideToLoop(0, 0);
+          swiper.autoplay?.start();
+        } else {
+          swiper.autoplay?.stop();
+        }
+      },
+      { threshold: 0.4 }
+    );
+
+    observer.observe(section);
+    return () => observer.disconnect();
   }, []);
 
   return (
-    <section className="py-12 md:py-24 bg-transparent" id="como-funciona">
+    <section ref={sectionRef} className="py-12 md:py-24 bg-transparent" id="como-funciona">
       <div className="container px-4 mx-auto">
         <div className="text-center mb-8 md:mb-10 animate-fade-in">
           <h2 className="font-bold mb-2 text-foreground md:text-5xl text-center text-3xl">
@@ -52,6 +72,9 @@ export const Features = () => {
               navigation={{ nextEl: ".features-next", prevEl: ".features-prev" }}
               pagination={{ el: ".features-pagination", clickable: true, bulletClass: "slider_bullet", bulletActiveClass: "is-active" }}
               a11y={{ enabled: true }}
+              onSwiper={(swiper) => {
+                swiperRef.current = swiper;
+              }}
             >
               {features.map((feature, index) => (
                 <SwiperSlide key={feature.title}>
