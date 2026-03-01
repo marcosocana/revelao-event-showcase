@@ -26,7 +26,7 @@ const templates = [
 
 const TemplateCard = ({ template }: { template: typeof templates[0] & { cta: string } }) => (
   <div className="revelao-card group flex flex-col w-[250px] sm:w-[270px] lg:w-[260px] transition-opacity hover:opacity-90">
-    <div className="bg-background overflow-hidden rounded-[6px]">
+    <div className="bg-background overflow-hidden rounded-[8px]">
       <img
         src={template.image}
         alt={template.title}

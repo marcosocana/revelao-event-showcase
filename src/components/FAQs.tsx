@@ -9,7 +9,7 @@ export const FAQs = ({ className }: FAQsProps) => {
   const { lang } = useI18n();
   const t = translations[lang];
   const faqs = t.faqs.items;
-  const [openIndex, setOpenIndex] = useState(0);
+  const [openIndex, setOpenIndex] = useState(-1);
   const items = useMemo(() => faqs.map((faq, index) => ({ ...faq, index })), [faqs]);
   return (
     <div className={className}>
@@ -28,7 +28,7 @@ export const FAQs = ({ className }: FAQsProps) => {
           return (
             <div
               key={faq.index}
-              className="overflow-hidden rounded-[16px] bg-neutral-100"
+              className="overflow-hidden rounded-[8px] bg-neutral-100"
             >
               <button
                 type="button"

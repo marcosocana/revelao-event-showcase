@@ -64,7 +64,7 @@ export const BlogSection = () => {
             to={`/blog/${post.slug}`}
             className="group flex h-full min-h-[320px] flex-col gap-2 overflow-clip transition-opacity hover:opacity-90"
           >
-            <div className="overflow-hidden rounded-[16px]">
+            <div className="overflow-hidden rounded-[8px]">
               <img
                 src={post.image}
                 alt={post.title}
@@ -72,7 +72,7 @@ export const BlogSection = () => {
                 style={{ aspectRatio: "4 / 3" }}
               />
             </div>
-            <div className="flex flex-1 flex-col gap-3 rounded-[16px] bg-neutral-100 p-4">
+            <div className="flex flex-1 flex-col gap-3 rounded-[8px] bg-neutral-100 p-4">
               <div>
                 <h3 className="text-[18px] font-normal leading-6 text-neutral-900">
                   {post.title}
@@ -102,7 +102,7 @@ export const BlogSection = () => {
                   to={`/blog/${post.slug}`}
                   className="group flex h-full min-h-[280px] flex-col gap-2 overflow-clip transition-opacity hover:opacity-90"
                 >
-                  <div className="overflow-hidden rounded-[16px]">
+                  <div className="overflow-hidden rounded-[8px]">
                     <img
                       src={post.image}
                       alt={post.title}
@@ -110,7 +110,7 @@ export const BlogSection = () => {
                       style={{ aspectRatio: "4 / 3" }}
                     />
                   </div>
-                  <div className="flex flex-1 flex-col gap-3 rounded-[16px] bg-neutral-100 p-4">
+                  <div className="flex flex-1 flex-col gap-3 rounded-[8px] bg-neutral-100 p-4">
                     <div>
                       <h3 className="text-[18px] font-normal leading-6 text-neutral-900">
                         {post.title}
