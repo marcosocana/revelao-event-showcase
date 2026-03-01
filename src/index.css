@@ -965,7 +965,7 @@ All colors MUST be HSL.
 
   @media (max-width: 640px) {
     .heroShimmerGroup {
-      transform: translateY(0px);
+      transform: translateY(30px);
     }
 
     .heroCtaWrap {
@@ -1001,6 +1001,12 @@ All colors MUST be HSL.
     .heroGradientTop {
       top: var(--hero-subtitle-top, var(--hero-top-offset, 100px));
       height: 220px;
+      background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 255, 255, 0.6) 45%,
+        rgba(255, 255, 255, 0) 100%
+      );
     }
 
     .heroContent h1 {
@@ -1009,6 +1015,7 @@ All colors MUST be HSL.
 
     .heroContent p {
       line-height: 1.1;
+      margin-top: 14px;
     }
   }
 
