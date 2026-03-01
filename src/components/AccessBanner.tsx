@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 
 export const AccessBanner = () => {
   return (
-    <section className="py-16 bg-muted/30">
+    <section className="py-16 bg-neutral-100">
       <div className="container px-4 mx-auto text-center">
         <h3 className="text-2xl md:text-3xl font-bold mb-4 text-foreground">
           ¿Ya has creado tu evento?

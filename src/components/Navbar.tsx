@@ -16,7 +16,7 @@ export const Navbar = () => {
   const adminLoginUrl = getAdminLoginUrl(lang);
   const currentFlag = languageOptions.find((option) => option.value === lang)?.flag ?? "🇪🇸";
 
-  return <nav className="fixed top-0 left-0 right-0 z-[9999] bg-white/70 backdrop-blur-xl border-b border-border/60 supports-[backdrop-filter]:bg-white/60">
+  return <nav className="fixed top-0 left-0 right-0 z-[9999] bg-white backdrop-blur-xl border-b border-border/60 supports-[backdrop-filter]:bg-white">
       <div className="container px-4 mx-auto">
         <div className="flex items-center h-16">
           {/* Left: Logo */}

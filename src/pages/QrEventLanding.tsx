@@ -536,7 +536,7 @@ const QrEventLanding = () => {
           showSticky ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4 pointer-events-none"
         }`}
       >
-        <div className="bg-white/95 backdrop-blur-sm border-b border-border">
+        <div className="bg-white backdrop-blur-sm border-b border-border">
           <div className="container px-4 mx-auto py-3 flex items-center justify-between">
             <img src={logo} alt="Revelao" className="h-7 w-auto" />
             <Button className="bg-primary text-primary-foreground hover:bg-primary/90" asChild>
@@ -559,7 +559,7 @@ const QrEventLanding = () => {
             >
               <source src={ruedaVideo} type="video/mp4" />
             </video>
-            <div className="absolute inset-0 bg-white/95 backdrop-blur-sm" />
+            <div className="absolute inset-0 bg-white backdrop-blur-sm" />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(240,106,95,0.2),_transparent_60%)]" />
           </div>
           <div className="absolute -top-16 -right-16 h-72 w-72 rounded-full bg-primary/10 blur-3xl" />
@@ -669,14 +669,14 @@ const QrEventLanding = () => {
           <div className="hidden md:grid max-w-5xl mx-auto grid-cols-1 md:grid-cols-2 gap-6">
             {stepsItems.map((item, idx) => (
               <div key={item.label.title} className="revelao-card">
-                <div className="relative bg-muted flex items-center justify-center p-4 w-full">
+                <div className="relative bg-neutral-100 flex items-center justify-center p-4 w-full">
                   <img
                     src={item.img}
                     alt={item.label.title}
                     className="w-[510px] h-[510px] object-contain"
                     style={{ filter: "grayscale(1) brightness(0)" }}
                   />
-                  <div className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-foreground">
+                  <div className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full bg-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-foreground">
                     <span className="flex h-6 w-6 items-center justify-center rounded-full bg-primary text-primary-foreground text-[11px] font-bold">
                       {idx + 1}
                     </span>
@@ -704,14 +704,14 @@ const QrEventLanding = () => {
                 {stepsItems.map((item, idx) => (
                   <CarouselItem key={item.label.title} className="basis-[82%] pl-0">
                     <div className="revelao-card h-full">
-                      <div className="relative bg-muted flex items-center justify-center p-4 w-full">
+                      <div className="relative bg-neutral-100 flex items-center justify-center p-4 w-full">
                         <img
                           src={item.img}
                           alt={item.label.title}
                           className="w-[510px] h-[510px] object-contain"
                           style={{ filter: "grayscale(1) brightness(0)" }}
                         />
-                        <div className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-foreground">
+                        <div className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full bg-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-foreground">
                           <span className="flex h-6 w-6 items-center justify-center rounded-full bg-primary text-primary-foreground text-[11px] font-bold">
                             {idx + 1}
                           </span>

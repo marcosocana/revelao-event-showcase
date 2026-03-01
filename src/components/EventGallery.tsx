@@ -26,7 +26,7 @@ export const EventGallery = () => {
   ];
 
   return (
-    <section className="py-12 md:py-24 bg-muted/30 gallery_section" id="para-donde">
+    <section className="py-12 md:py-24 bg-neutral-100 gallery_section" id="para-donde">
       <div className="container px-4 mx-auto">
         <div className="text-center mb-12 animate-fade-in">
           <h2 className="text-3xl md:text-5xl font-bold mb-4 text-foreground">
