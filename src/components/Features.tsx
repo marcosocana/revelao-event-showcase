@@ -39,7 +39,7 @@ export const Features = () => {
           </p>
         </div>
 
-        <div className="revelao-card overflow-visible px-4 py-6 md:px-12 md:py-12 bg-[radial-gradient(circle_at_20%_10%,rgba(239,68,68,0.28),transparent_55%),radial-gradient(circle_at_85%_85%,rgba(239,68,68,0.18),transparent_60%),linear-gradient(135deg,#f2f2f2,#ffffff)]">
+        <div className="revelao-card no-card-hover overflow-visible px-4 py-6 md:px-12 md:py-12 bg-[radial-gradient(circle_at_20%_10%,rgba(239,68,68,0.28),transparent_55%),radial-gradient(circle_at_85%_85%,rgba(239,68,68,0.18),transparent_60%),linear-gradient(135deg,#f2f2f2,#ffffff)]">
           <div className="relative">
             <Swiper
               className="features-swiper"
