@@ -55,28 +55,28 @@ export const translations = {
         "galería de fotos para eventos, evento con QR, compartir fotos sin app, bodas, fiestas, eventos corporativos",
     },
     features: {
-      title: "Cómo funciona",
+      title: "¿Cómo funciona?",
       subtitle: "Explora la experiencia Revelao en solo 4 pasos:",
       steps: [
         {
-          title: "Escanea el código QR",
+          title: "Escanea el código",
           description:
-            "Tus invitados escanean el código QR que encontrarán en carteles, tarjetas, etc...",
+            "Puede estar en carteles, pantallas, tarjetas, etc... Tus invitados lo deben escanear con sus teléfonos móviles.",
         },
         {
           title: "Captura los mejores momentos",
           description:
-            "Todos los invitados pueden tomar fotos durante el evento de forma anónima",
+            "Durante el evento tus invitados pueden hacer todas las fotos que quieran. Es anónimo, privado y sin descargarse apps. No hace falta registrarse ni dejar datos personales.",
         },
         {
-          title: "La expectación aumenta...",
+          title: "Espera el revelado",
           description:
-            "Las fotos permanecen ocultas durante el evento, creando misterio y emoción",
+            "Las fotos permanecen ocultas hasta que llegue el revelado. Nadie las podrá ver, creando misterio y emoción.",
         },
         {
-          title: "Día de revelado",
+          title: "Por fin llega el revelado",
           description:
-            "Al día siguiente, todas las fotos se revelan en una galería privada para revivir los mejores momentos y que todos puedan volver a revivir el evento",
+            "Al día siguiente, desde el mismo QR, todas las fotos se revelan en una galería privada. Todos tus invitados podrán ver las fotos de todos y volver a revivir los mejores momentos",
         },
       ],
       videoTitle: "Activa el sonido y siente el hype del revelado.",

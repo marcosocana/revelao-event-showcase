@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade, Navigation, Pagination, A11y } from "swiper/modules";
 import "swiper/css";
@@ -21,6 +21,7 @@ export const Features = () => {
   const t = translations[lang];
   const sectionRef = useRef<HTMLElement | null>(null);
   const swiperRef = useRef<import("swiper").Swiper | null>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
   const features = t.features.steps.map((step, index) => ({
     ...step,
     image: featureImages[index],
@@ -57,52 +58,107 @@ export const Features = () => {
   return (
     <section ref={sectionRef} className="py-12 md:py-24 bg-transparent" id="como-funciona">
       <div className="container px-4 mx-auto">
-        <div className="text-center mb-8 md:mb-10 animate-fade-in">
-          <h2 className="revelao-h2 mb-2 text-center">
-            {t.features.title}
-          </h2>
-          <p className="revelao-h3 mb-2 text-center max-w-2xl mx-auto">
-            {t.features.subtitle}
-          </p>
-        </div>
-
         <div className="revelao-card no-card-hover overflow-visible px-4 py-6 md:px-12 md:py-12 bg-[radial-gradient(circle_at_20%_10%,rgba(239,68,68,0.28),transparent_55%),radial-gradient(circle_at_85%_85%,rgba(239,68,68,0.18),transparent_60%),linear-gradient(135deg,#f5f5f5,#ffffff)]">
-          <div className="relative">
-            <Swiper
-              className="features-swiper"
-              modules={[Autoplay, EffectFade, Navigation, Pagination, A11y]}
-              effect="fade"
-              fadeEffect={{ crossFade: true }}
-              slidesPerView={1}
-              loop
-              autoplay={{ delay: 14000, disableOnInteraction: false }}
-              navigation={{ nextEl: ".features-next", prevEl: ".features-prev" }}
-              pagination={{ el: ".features-pagination", clickable: true, bulletClass: "slider_bullet", bulletActiveClass: "is-active" }}
-              a11y={{ enabled: true }}
-              onSwiper={(swiper) => {
-                swiperRef.current = swiper;
-              }}
-            >
-              {features.map((feature, index) => (
-                <SwiperSlide key={feature.title}>
-                  <div className="features-slide grid min-h-[52vh] grid-cols-1 gap-6 md:min-h-[60vh] md:gap-10 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] items-center">
-                    <div className="flex flex-col gap-4 md:gap-6 items-start text-left">
-                      <div className="text-sm font-semibold text-neutral-500 uppercase tracking-[0.2em]">
-                        Paso {index + 1}
-                      </div>
-                      <h3
-                        className="text-[2rem] md:text-[4.125rem] font-semibold tracking-tight leading-[1.05] text-transparent bg-clip-text"
-                        style={{
-                          backgroundImage:
-                            "linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary) / 0.7) 100%)",
-                        }}
-                      >
-                        {feature.title}
-                      </h3>
-                      <p className="text-sm md:text-lg leading-relaxed text-neutral-600 max-w-xl">
-                        {feature.description}
-                      </p>
+          <div className="grid min-h-[52vh] grid-cols-1 gap-10 md:min-h-[60vh] lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] items-center">
+            <div className="flex flex-col items-start text-left max-w-xl">
+              <h3 className="revelao-h4 mb-1 text-left text-foreground">
+                {t.features.title}
+              </h3>
+              <div className="mt-6 text-sm font-semibold text-neutral-500 uppercase tracking-[0.2em]">
+                Paso {activeIndex + 1}
+              </div>
+              <h3
+                className="mt-3 text-[2rem] md:text-[4.125rem] font-semibold tracking-tight leading-[1.05] text-transparent bg-clip-text"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary) / 0.7) 100%)",
+                }}
+              >
+                {features[activeIndex]?.title}
+              </h3>
+              <p className="mt-3 text-sm md:text-lg leading-relaxed text-neutral-600">
+                {features[activeIndex]?.description}
+              </p>
+
+              <div className="mt-8 flex items-center gap-3 w-full max-w-sm">
+                <button
+                  type="button"
+                  data-slider="previous"
+                  className={`features-prev circle-btn ${
+                    activeIndex === 0 ? "pointer-events-none opacity-20 text-muted-foreground" : ""
+                  }`}
+                  aria-label="Previous slide"
+                  aria-disabled={activeIndex === 0}
+                  disabled={activeIndex === 0}
+                >
+                  <div className="button-icon-wrap">
+                    <div className="accordion-line-wrap">
+                      <div className="accordion-icon_line cc-horizontal cc-accordion-card" />
+                      <div className="accordion-icon_line cc-vertical cc-accordion-card" />
                     </div>
+                    <div className="button-icon cc-arrow-left">←</div>
+                  </div>
+                </button>
+
+                <div className="flex items-center gap-1">
+                  {features.map((_, index) => (
+                    <button
+                      key={`step-dot-${index}`}
+                      type="button"
+                      className={`h-2 w-2 rounded-full transition-colors ${
+                        index === activeIndex ? "bg-foreground" : "bg-muted"
+                      }`}
+                      aria-label={`Ir al paso ${index + 1}`}
+                      aria-current={index === activeIndex}
+                      onClick={() => swiperRef.current?.slideTo(index)}
+                    />
+                  ))}
+                </div>
+
+                <button
+                  type="button"
+                  data-slider="next"
+                  className={`features-next circle-btn ${
+                    activeIndex === features.length - 1
+                      ? "pointer-events-none opacity-20 text-muted-foreground"
+                      : ""
+                  }`}
+                  aria-label="Next slide"
+                  aria-disabled={activeIndex === features.length - 1}
+                  disabled={activeIndex === features.length - 1}
+                >
+                  <div className="button-icon-wrap">
+                    <div className="accordion-line-wrap">
+                      <div className="accordion-icon_line cc-horizontal cc-accordion-card" />
+                      <div className="accordion-icon_line cc-vertical cc-accordion-card" />
+                    </div>
+                    <div className="button-icon cc-arrow-right">→</div>
+                  </div>
+                </button>
+              </div>
+            </div>
+
+            <div className="relative">
+              <Swiper
+                className="features-swiper"
+                modules={[Autoplay, EffectFade, Navigation, A11y]}
+                effect="fade"
+                fadeEffect={{ crossFade: true }}
+                slidesPerView={1}
+                loop={false}
+                autoplay={{ delay: 14000, disableOnInteraction: false, stopOnLastSlide: true }}
+                navigation={{ nextEl: ".features-next", prevEl: ".features-prev" }}
+                a11y={{ enabled: true }}
+                onSwiper={(swiper) => {
+                  swiperRef.current = swiper;
+                  setActiveIndex(swiper.realIndex ?? swiper.activeIndex);
+                }}
+                onSlideChange={(swiper) => {
+                  setActiveIndex(swiper.realIndex ?? swiper.activeIndex);
+                }}
+              >
+                {features.map((feature) => (
+                  <SwiperSlide key={feature.title}>
                     <div className="flex items-center justify-center">
                       <img
                         src={feature.image}
@@ -110,49 +166,9 @@ export const Features = () => {
                         className="h-[20rem] w-[20rem] md:h-[40rem] md:w-[40rem] object-contain drop-shadow-[0_20px_60px_rgba(0,0,0,0.22)]"
                       />
                     </div>
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-
-            <div className="module-slider_nav mt-6">
-              <div className="flex items-center justify-between">
-                <div className="flex-shrink-0">
-                  <button
-                    type="button"
-                    data-slider="previous"
-                    className="features-prev circle-btn"
-                    aria-label="Previous slide"
-                  >
-                    <div className="button-icon-wrap">
-                      <div className="accordion-line-wrap">
-                        <div className="accordion-icon_line cc-horizontal cc-accordion-card" />
-                        <div className="accordion-icon_line cc-vertical cc-accordion-card" />
-                      </div>
-                      <div className="button-icon cc-arrow-left">←</div>
-                    </div>
-                  </button>
-                </div>
-                <div className="flex-shrink-0">
-                  <div className="features-pagination slider_pagination swiper-pagination-bullets" />
-                </div>
-                <div className="flex-shrink-0">
-                  <button
-                    type="button"
-                    data-slider="next"
-                    className="features-next circle-btn"
-                    aria-label="Next slide"
-                  >
-                    <div className="button-icon-wrap">
-                      <div className="accordion-line-wrap">
-                        <div className="accordion-icon_line cc-horizontal cc-accordion-card" />
-                        <div className="accordion-icon_line cc-vertical cc-accordion-card" />
-                      </div>
-                      <div className="button-icon cc-arrow-right">→</div>
-                    </div>
-                  </button>
-                </div>
-              </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
             </div>
           </div>
         </div>

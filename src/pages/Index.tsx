@@ -3,6 +3,8 @@ import { Hero } from "@/components/Hero";
 import { Features, FeaturesVideo } from "@/components/Features";
 import { EventGalleryFlow } from "@/components/EventGalleryFlow";
 import { Pricing } from "@/components/Pricing";
+import { KpiStrip } from "@/components/KpiStrip";
+import { WhyRevelaoSection } from "@/components/WhyRevelaoSection";
 import { Templates } from "@/components/Templates";
 import { FAQs } from "@/components/FAQs";
 import { SuccessStories } from "@/components/SuccessStories";
@@ -147,7 +149,13 @@ const Index = () => {
           <Pricing />
         </div>
         <div className="section-white reveal-on-scroll">
+          <WhyRevelaoSection />
+        </div>
+        <div className="section-white reveal-on-scroll">
           <BlogSection />
+        </div>
+        <div className="section-white reveal-on-scroll">
+          <KpiStrip />
         </div>
         <div className="section-gray reveal-on-scroll">
           <SimpleCTA />
