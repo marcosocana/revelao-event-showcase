@@ -39,17 +39,41 @@ export const VideoDemo = ({ className = "", src, poster }: VideoDemoProps) => {
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
+
+    const seekToStart = () => {
+      if (video.currentTime < 4) {
+        try {
+          video.currentTime = 4;
+        } catch {
+          // iOS may block programmatic seeking until playback starts.
+        }
+      }
+    };
+
+    const handlePlaying = () => {
+      if (isMobile) {
+        seekToStart();
+      }
+    };
+
+    video.addEventListener("playing", handlePlaying);
+
     if (isInView) {
       video.muted = true;
       video.defaultMuted = true;
       video.setAttribute("muted", "");
       video.setAttribute("playsinline", "");
       video.autoplay = true;
-      if (video.currentTime < 4) {
-        video.currentTime = 4;
+
+      if (!isMobile) {
+        seekToStart();
       }
+
       const tryPlay = () => video.play().catch(() => undefined);
       tryPlay();
+      requestAnimationFrame(tryPlay);
+      setTimeout(tryPlay, 200);
+
       const handleTouch = () => {
         tryPlay();
         window.removeEventListener("touchstart", handleTouch);
@@ -58,7 +82,11 @@ export const VideoDemo = ({ className = "", src, poster }: VideoDemoProps) => {
     } else {
       video.pause();
     }
-  }, [isInView]);
+
+    return () => {
+      video.removeEventListener("playing", handlePlaying);
+    };
+  }, [isInView, isMobile]);
 
   const handleTogglePlay = () => {
     const video = videoRef.current;
@@ -87,7 +115,7 @@ export const VideoDemo = ({ className = "", src, poster }: VideoDemoProps) => {
         ref={videoRef}
         src={src}
         poster={poster}
-        preload="metadata"
+        preload="auto"
         loop
         muted={isMuted}
         playsInline
@@ -95,7 +123,7 @@ export const VideoDemo = ({ className = "", src, poster }: VideoDemoProps) => {
         controls={false}
         onLoadedMetadata={(event) => {
           const video = event.currentTarget;
-          if (video.currentTime < 4) {
+          if (!isMobile && video.currentTime < 4) {
             video.currentTime = 4;
           }
           if (isInView && video.paused) {

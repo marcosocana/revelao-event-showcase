@@ -425,6 +425,12 @@ All colors MUST be HSL.
     will-change: transform;
   }
 
+  @media (max-width: 640px) {
+    .animate-marquee-right {
+      animation-duration: 70s;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .animate-marquee-right {
       animation: none;
