@@ -20,7 +20,7 @@ import { useI18n, translations } from "@/lib/i18n";
 const templates = [
   { id: 1, title: "Julia y Alex", image: template1, downloadUrl: template1Download },
   { id: 2, title: "David y Jose", image: template2, downloadUrl: template3Download },
-  { id: 3, title: "Paola y Toni", image: template3, downloadUrl: template3Download },
+  { id: 3, title: "Paola y Toni", image: template3, downloadUrl: template2Download },
   { id: 4, title: "Christmas Album", image: template4, downloadUrl: template4Download },
 ];
 

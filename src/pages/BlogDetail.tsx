@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Footer } from "@/components/Footer";
 import { getBlogPosts } from "@/lib/blogStore";
-import { FreeTrial } from "@/components/FreeTrial";
 import WhatsAppFloating from "@/components/WhatsAppFloating";
 import { useI18n } from "@/lib/i18n";
 import { Button } from "@/components/ui/button";
@@ -108,7 +107,20 @@ const BlogDetail = () => {
         </div>
         <div className="h-16" />
       </main>
-      <FreeTrial />
+      <section className="py-10 md:py-14 bg-transparent no-card-hover">
+        <div className="container px-4 mx-auto">
+          <div className="revelao-card bg-neutral-100 p-6 md:p-8 text-center">
+            <a
+              href="https://acceso.revelao.cam/nuevoeventodemo"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="heroCtaButton ctaRed inline-flex items-center justify-center"
+            >
+              Pruébalo gratis
+            </a>
+          </div>
+        </div>
+      </section>
       <WhatsAppFloating />
       <Footer />
     </div>

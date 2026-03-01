@@ -29,7 +29,7 @@ export const VideoDemo = ({ className = "", src, poster }: VideoDemoProps) => {
       ([entry]) => {
         setIsInView(entry.isIntersecting);
       },
-      { threshold: 0.4 }
+      { threshold: 0.2, rootMargin: "0px 0px -10% 0px" }
     );
 
     observer.observe(video);
@@ -40,6 +40,9 @@ export const VideoDemo = ({ className = "", src, poster }: VideoDemoProps) => {
     const video = videoRef.current;
     if (!video) return;
     if (isInView) {
+      if (video.currentTime < 4) {
+        video.currentTime = 4;
+      }
       video.play().catch(() => undefined);
     } else {
       video.pause();
