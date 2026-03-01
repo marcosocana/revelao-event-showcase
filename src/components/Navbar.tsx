@@ -35,14 +35,14 @@ export const Navbar = () => {
               <a href="#como-funciona" className="text-muted-foreground hover:text-foreground transition-colors">
                 {t.nav.how}
               </a>
-              <a href="#precio" className="text-muted-foreground hover:text-foreground transition-colors">
-                {t.nav.pricing}
-              </a>
               <a href="#casos-de-exito" className="text-muted-foreground hover:text-foreground transition-colors">
                 {t.nav.testimonials}
               </a>
               <a href="#plantillas" className="text-muted-foreground hover:text-foreground transition-colors">
                 {t.nav.templates}
+              </a>
+              <a href="#precio" className="text-muted-foreground hover:text-foreground transition-colors">
+                {t.nav.pricing}
               </a>
               <a href="#blog" className="text-muted-foreground hover:text-foreground transition-colors">
                 {t.nav.blog}

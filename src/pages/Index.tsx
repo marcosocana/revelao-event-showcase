@@ -138,13 +138,13 @@ const Index = () => {
           <FeaturesVideo />
         </div>
         <div className="section-gray reveal-on-scroll">
-          <Pricing />
-        </div>
-        <div className="section-white reveal-on-scroll">
           <SuccessStories />
         </div>
-        <div className="section-gray reveal-on-scroll">
+        <div className="section-white reveal-on-scroll">
           <Templates />
+        </div>
+        <div className="section-gray reveal-on-scroll">
+          <Pricing />
         </div>
         <div className="section-white reveal-on-scroll">
           <BlogSection />

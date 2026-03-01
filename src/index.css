@@ -406,8 +406,8 @@ All colors MUST be HSL.
     pointer-events: none;
     background: linear-gradient(
       to right,
-      hsl(var(--background) / 1),
-      hsl(var(--background) / 0)
+      #f5f5f5,
+      rgba(245, 245, 245, 0)
     );
   }
 
