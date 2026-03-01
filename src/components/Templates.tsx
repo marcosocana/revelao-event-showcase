@@ -60,11 +60,11 @@ export const Templates = () => {
     <section className="py-12 md:py-24 bg-transparent no-card-hover" id="plantillas">
       <div className="container px-4 mx-auto container-mobile-right-edge">
         <div className="max-w-6xl mx-auto">
-          <div className="mb-12 text-center animate-fade-in">
-            <h2 className="font-bold mb-4 text-foreground md:text-5xl text-3xl">
+          <div className="mb-8 md:mb-10 text-center animate-fade-in">
+            <h2 className="font-bold mb-2 text-foreground md:text-5xl text-center text-3xl">
               {t.templates.title}
             </h2>
-            <p className="text-base text-muted-foreground md:text-xl max-w-3xl mx-auto">
+            <p className="text-base text-muted-foreground mb-2 text-center md:text-lg max-w-3xl mx-auto">
               {t.templates.subtitle}
             </p>
           </div>

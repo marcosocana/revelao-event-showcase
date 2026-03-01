@@ -53,7 +53,7 @@ const PlanCard = ({ plan, perEvent, features }: { plan: { title: string; planId:
     className={[
       "relative revelao-card p-5 md:p-6 transition-opacity hover:opacity-90",
       plan.badge ? "pt-9" : "",
-      plan.featured ? "revelao-card--featured border-primary/40 bg-red-50 shadow-[0_20px_60px_-30px_rgba(0,0,0,0.18)]" : "border-border",
+      plan.featured ? "revelao-card--featured border-primary/40 bg-red-50" : "border-border",
     ].join(" ")}
   >
     {plan.badge ? (

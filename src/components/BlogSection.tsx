@@ -47,11 +47,11 @@ export const BlogSection = () => {
   return (
     <section id="blog" className="py-16 bg-transparent scroll-mt-12 md:scroll-mt-14">
       <div className="container px-4 mx-auto container-mobile-right-edge">
-      <div className="mb-12 text-center animate-fade-in">
-        <h2 className="font-bold mb-4 text-foreground md:text-5xl text-3xl">
+      <div className="mb-8 md:mb-10 text-center animate-fade-in">
+        <h2 className="font-bold mb-2 text-foreground md:text-5xl text-center text-3xl">
           {t.blog.title}
         </h2>
-        <p className="text-base text-muted-foreground md:text-xl max-w-3xl mx-auto">
+        <p className="text-base text-muted-foreground mb-2 text-center md:text-lg max-w-3xl mx-auto">
           {t.blog.subtitle}
         </p>
       </div>
@@ -64,7 +64,7 @@ export const BlogSection = () => {
             to={`/blog/${post.slug}`}
             className="group flex h-full min-h-[320px] flex-col gap-2 overflow-clip transition-opacity hover:opacity-90"
           >
-            <div className="overflow-hidden rounded-[4px]">
+            <div className="overflow-hidden rounded-[16px]">
               <img
                 src={post.image}
                 alt={post.title}
@@ -72,7 +72,7 @@ export const BlogSection = () => {
                 style={{ aspectRatio: "4 / 3" }}
               />
             </div>
-            <div className="flex flex-1 flex-col gap-3 rounded-[8px] bg-neutral-100 p-4">
+            <div className="flex flex-1 flex-col gap-3 rounded-[16px] bg-neutral-100 p-4">
               <div>
                 <h3 className="text-[18px] font-normal leading-6 text-neutral-900">
                   {post.title}
@@ -102,7 +102,7 @@ export const BlogSection = () => {
                   to={`/blog/${post.slug}`}
                   className="group flex h-full min-h-[280px] flex-col gap-2 overflow-clip transition-opacity hover:opacity-90"
                 >
-                  <div className="overflow-hidden rounded-[4px]">
+                  <div className="overflow-hidden rounded-[16px]">
                     <img
                       src={post.image}
                       alt={post.title}
@@ -110,7 +110,7 @@ export const BlogSection = () => {
                       style={{ aspectRatio: "4 / 3" }}
                     />
                   </div>
-                  <div className="flex flex-1 flex-col gap-3 rounded-[8px] bg-neutral-100 p-4">
+                  <div className="flex flex-1 flex-col gap-3 rounded-[16px] bg-neutral-100 p-4">
                     <div>
                       <h3 className="text-[18px] font-normal leading-6 text-neutral-900">
                         {post.title}

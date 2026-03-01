@@ -192,7 +192,7 @@ All colors MUST be HSL.
   }
 
   .revelao-card {
-    @apply bg-card border border-border rounded-2xl shadow-sm overflow-hidden transition-transform duration-300 md:hover:-translate-y-1;
+    @apply bg-card rounded-[16px] overflow-hidden transition-transform duration-300 md:hover:-translate-y-1;
   }
 
   .no-card-hover .revelao-card {
@@ -779,6 +779,14 @@ All colors MUST be HSL.
     transform: translateY(0);
   }
 
+  .features-swiper .swiper-slide {
+    pointer-events: none;
+  }
+
+  .features-swiper .swiper-slide-active {
+    pointer-events: auto;
+  }
+
   .section-white {
     background: #ffffff;
   }
@@ -865,6 +873,7 @@ All colors MUST be HSL.
     display: inline-flex;
     flex-direction: column;
     align-items: center;
+    transform: translateY(-20px);
   }
 
   .reveal-blur {

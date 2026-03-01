@@ -13,26 +13,26 @@ export const FAQs = ({ className }: FAQsProps) => {
   const items = useMemo(() => faqs.map((faq, index) => ({ ...faq, index })), [faqs]);
   return (
     <div className={className}>
-      <div className="text-center mb-16 animate-fade-in">
-        <h2 className="text-3xl md:text-5xl font-bold mb-4 text-foreground">
+      <div className="text-center mb-8 md:mb-10 animate-fade-in">
+        <h2 className="font-bold mb-2 text-foreground md:text-5xl text-center text-3xl">
           {t.faqs.title}
         </h2>
-        <p className="text-lg text-muted-foreground">
+        <p className="text-base text-muted-foreground mb-2 text-center md:text-lg">
           {t.faqs.subtitle}
         </p>
       </div>
 
-      <div className="animate-fade-in-up opacity-100 flex w-full max-w-[680px] flex-col gap-3 pt-12 mx-auto">
+      <div className="animate-fade-in-up opacity-100 flex w-full max-w-[680px] flex-col gap-3 pt-0 mx-auto">
         {items.map((faq) => {
           const isOpen = faq.index === openIndex;
           return (
             <div
               key={faq.index}
-              className="overflow-hidden rounded-[10px] bg-white shadow-[0_14px_32px_-22px_rgba(0,0,0,0.22)]"
+              className="overflow-hidden rounded-[16px] bg-neutral-100"
             >
               <button
                 type="button"
-                className="flex w-full cursor-pointer items-center bg-white px-4 py-3 text-left"
+                className="flex w-full cursor-pointer items-center bg-neutral-100 px-4 py-3 text-left"
                 onClick={() => setOpenIndex((current) => (current === faq.index ? -1 : faq.index))}
               >
                 <div className="flex size-10 shrink-0 items-center justify-center">
@@ -52,7 +52,7 @@ export const FAQs = ({ className }: FAQsProps) => {
               </button>
               <div
                 className={[
-                  "grid bg-white transition-all duration-200",
+                  "grid bg-neutral-100 transition-all duration-200",
                   isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
                 ].join(" ")}
               >
