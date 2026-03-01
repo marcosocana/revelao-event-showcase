@@ -39,7 +39,7 @@ export const Features = () => {
           </p>
         </div>
 
-        <div className="revelao-card overflow-visible px-6 py-8 md:px-12 md:py-12 bg-[radial-gradient(circle_at_20%_10%,rgba(239,68,68,0.28),transparent_55%),radial-gradient(circle_at_85%_85%,rgba(239,68,68,0.18),transparent_60%),linear-gradient(135deg,#f2f2f2,#ffffff)]">
+        <div className="revelao-card overflow-visible px-4 py-6 md:px-12 md:py-12 bg-[radial-gradient(circle_at_20%_10%,rgba(239,68,68,0.28),transparent_55%),radial-gradient(circle_at_85%_85%,rgba(239,68,68,0.18),transparent_60%),linear-gradient(135deg,#f2f2f2,#ffffff)]">
           <div className="relative">
             <Swiper
               className="features-swiper"
@@ -55,13 +55,13 @@ export const Features = () => {
             >
               {features.map((feature, index) => (
                 <SwiperSlide key={feature.title}>
-                  <div className="features-slide grid min-h-[60vh] grid-cols-1 gap-10 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] items-center">
-                    <div className="flex flex-col gap-6 items-start text-left">
+                  <div className="features-slide grid min-h-[52vh] grid-cols-1 gap-6 md:min-h-[60vh] md:gap-10 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] items-center">
+                    <div className="flex flex-col gap-4 md:gap-6 items-start text-left">
                       <div className="text-sm font-semibold text-neutral-500 uppercase tracking-[0.2em]">
                         Paso {index + 1}
                       </div>
                       <h3
-                        className="text-[2.8rem] md:text-[4.125rem] font-semibold tracking-tight leading-[1.05] text-transparent bg-clip-text"
+                        className="text-[2rem] md:text-[4.125rem] font-semibold tracking-tight leading-[1.05] text-transparent bg-clip-text"
                         style={{
                           backgroundImage:
                             "linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary) / 0.7) 100%)",
@@ -69,7 +69,7 @@ export const Features = () => {
                       >
                         {feature.title}
                       </h3>
-                      <p className="text-base md:text-lg leading-relaxed text-neutral-600 max-w-xl">
+                      <p className="text-sm md:text-lg leading-relaxed text-neutral-600 max-w-xl">
                         {feature.description}
                       </p>
                     </div>
@@ -77,7 +77,7 @@ export const Features = () => {
                       <img
                         src={feature.image}
                         alt={feature.title}
-                        className="h-[26rem] w-[26rem] md:h-[40rem] md:w-[40rem] object-contain drop-shadow-[0_20px_60px_rgba(0,0,0,0.22)]"
+                        className="h-[20rem] w-[20rem] md:h-[40rem] md:w-[40rem] object-contain drop-shadow-[0_20px_60px_rgba(0,0,0,0.22)]"
                       />
                     </div>
                   </div>

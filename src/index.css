@@ -984,6 +984,14 @@ All colors MUST be HSL.
   }
 
   @media (max-width: 640px) {
+    .heroShimmerGroup {
+      transform: translateY(0px);
+    }
+
+    .heroCtaWrap {
+      transform: translateY(190px);
+    }
+
     .heroGridSection {
       min-height: 80vh;
     }
