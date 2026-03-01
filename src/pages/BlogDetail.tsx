@@ -72,7 +72,7 @@ const BlogDetail = () => {
             </Link>
             <Button
               size="sm"
-              className="bg-primary text-primary-foreground hover:bg-primary/90"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full"
               asChild
             >
               <a href="https://acceso.revelao.cam/nuevoeventodemo" target="_blank" rel="noopener noreferrer">
@@ -110,14 +110,15 @@ const BlogDetail = () => {
       <section className="py-10 md:py-14 bg-transparent no-card-hover">
         <div className="container px-4 mx-auto">
           <div className="revelao-card bg-neutral-100 p-6 md:p-8 text-center">
-            <a
-              href="https://acceso.revelao.cam/nuevoeventodemo"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="heroCtaButton ctaRed inline-flex items-center justify-center"
+            <Button
+              size="lg"
+              className="rounded-full bg-neutral-200 text-foreground hover:bg-neutral-300 px-10 py-6 text-lg"
+              asChild
             >
-              Pruébalo gratis
-            </a>
+              <a href="https://acceso.revelao.cam/nuevoeventodemo" target="_blank" rel="noopener noreferrer">
+                Pruébalo gratis
+              </a>
+            </Button>
           </div>
         </div>
       </section>

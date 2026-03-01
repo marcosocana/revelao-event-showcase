@@ -80,7 +80,7 @@ export const VideoDemo = ({ className = "", src, poster }: VideoDemoProps) => {
         loop
         muted={isMuted}
         playsInline
-        autoPlay
+        autoPlay={false}
         controls={isMobile}
         onLoadedMetadata={(event) => {
           const video = event.currentTarget;
@@ -90,7 +90,7 @@ export const VideoDemo = ({ className = "", src, poster }: VideoDemoProps) => {
         }}
         onCanPlay={(event) => {
           const video = event.currentTarget;
-          if (video.paused) {
+          if (isInView && video.paused) {
             video.play().catch(() => undefined);
           }
         }}
