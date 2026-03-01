@@ -10,6 +10,7 @@ export const VideoDemo = ({ className = "", src, poster }: VideoDemoProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPaused, setIsPaused] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
+  const [keepPlaying, setKeepPlaying] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isInView, setIsInView] = useState(false);
 
@@ -29,12 +30,15 @@ export const VideoDemo = ({ className = "", src, poster }: VideoDemoProps) => {
       ([entry]) => {
         setIsInView(entry.isIntersecting);
       },
-      { threshold: 0.2, rootMargin: "0px 0px -10% 0px" }
+      {
+        threshold: isMobile ? 0.01 : 0.2,
+        rootMargin: isMobile ? "0px 0px -5% 0px" : "0px 0px -10% 0px",
+      }
     );
 
     observer.observe(video);
     return () => observer.disconnect();
-  }, []);
+  }, [isMobile]);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -58,11 +62,12 @@ export const VideoDemo = ({ className = "", src, poster }: VideoDemoProps) => {
 
     video.addEventListener("playing", handlePlaying);
 
-    if (isInView) {
+    if (isInView || keepPlaying) {
       video.muted = true;
       video.defaultMuted = true;
       video.setAttribute("muted", "");
       video.setAttribute("playsinline", "");
+      video.setAttribute("webkit-playsinline", "");
       video.autoplay = true;
 
       if (!isMobile) {
@@ -78,15 +83,15 @@ export const VideoDemo = ({ className = "", src, poster }: VideoDemoProps) => {
         tryPlay();
         window.removeEventListener("touchstart", handleTouch);
       };
-      window.addEventListener("touchstart", handleTouch, { passive: true });
-    } else {
-      video.pause();
-    }
+        window.addEventListener("touchstart", handleTouch, { passive: true });
+      } else {
+        video.pause();
+      }
 
     return () => {
       video.removeEventListener("playing", handlePlaying);
     };
-  }, [isInView, isMobile]);
+  }, [isInView, isMobile, keepPlaying]);
 
   const handleTogglePlay = () => {
     const video = videoRef.current;
@@ -105,6 +110,10 @@ export const VideoDemo = ({ className = "", src, poster }: VideoDemoProps) => {
     if (!video) return;
     video.muted = !video.muted;
     setIsMuted(video.muted);
+    if (!video.muted) {
+      setKeepPlaying(true);
+      video.play().catch(() => undefined);
+    }
   };
 
   return (
@@ -126,13 +135,13 @@ export const VideoDemo = ({ className = "", src, poster }: VideoDemoProps) => {
           if (!isMobile && video.currentTime < 4) {
             video.currentTime = 4;
           }
-          if (isInView && video.paused) {
+          if ((isInView || keepPlaying) && video.paused) {
             video.play().catch(() => undefined);
           }
         }}
         onCanPlay={(event) => {
           const video = event.currentTarget;
-          if (isInView && video.paused) {
+          if ((isInView || keepPlaying) && video.paused) {
             video.play().catch(() => undefined);
           }
         }}
