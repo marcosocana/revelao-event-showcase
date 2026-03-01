@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type VideoDemoProps = {
   className?: string;
@@ -10,6 +10,15 @@ export const VideoDemo = ({ className = "", src, poster }: VideoDemoProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPaused, setIsPaused] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const media = window.matchMedia("(max-width: 768px)");
+    const update = () => setIsMobile(media.matches);
+    update();
+    media.addEventListener("change", update);
+    return () => media.removeEventListener("change", update);
+  }, []);
 
   const handleTogglePlay = () => {
     const video = videoRef.current;
@@ -43,10 +52,17 @@ export const VideoDemo = ({ className = "", src, poster }: VideoDemoProps) => {
         muted={isMuted}
         playsInline
         autoPlay
+        controls={isMobile}
         onLoadedMetadata={(event) => {
           const video = event.currentTarget;
           if (video.currentTime < 4) {
             video.currentTime = 4;
+          }
+        }}
+        onCanPlay={(event) => {
+          const video = event.currentTarget;
+          if (video.paused) {
+            video.play().catch(() => undefined);
           }
         }}
         className="aspect-[940/532] w-full object-cover transition-opacity duration-500 opacity-100"
