@@ -112,7 +112,7 @@ const BlogDetail = () => {
           <div className="revelao-card bg-neutral-100 p-6 md:p-8 text-center">
             <Button
               size="lg"
-              className="rounded-full bg-neutral-200 text-foreground hover:bg-neutral-300 px-10 py-6 text-lg"
+              className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 px-10 py-6 text-lg"
               asChild
             >
               <a href="https://acceso.revelao.cam/nuevoeventodemo" target="_blank" rel="noopener noreferrer">

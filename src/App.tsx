@@ -8,6 +8,7 @@ import BlogDetail from "./pages/BlogDetail";
 import BlogAdmin from "./pages/BlogAdmin";
 import NotFound from "./pages/NotFound";
 import QrEventLanding from "./pages/QrEventLanding";
+import PruebasLanding from "./pages/PruebasLanding";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { LanguageProvider } from "@/lib/i18n";
 
@@ -26,6 +27,7 @@ const App = () => (
             <Route path="/evento-qr" element={<QrEventLanding />} />
             <Route path="/en/qr-event" element={<QrEventLanding />} />
             <Route path="/it/evento-qr" element={<QrEventLanding />} />
+            <Route path="/pruebas" element={<PruebasLanding />} />
             <Route path="/blog/:slug" element={<BlogDetail />} />
             <Route path="/blog/admin" element={<BlogAdmin />} />
             <Route path="/acceso" element={<Navigate to="https://tomorrow-snap-reveal.vercel.app" replace />} />

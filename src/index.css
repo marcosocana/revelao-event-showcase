@@ -1051,3 +1051,54 @@ All colors MUST be HSL.
     }
   }
 }
+
+@layer utilities {
+  .qr-float {
+    animation: qr-float 44s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  .qr-float-b {
+    animation-duration: 56s;
+    animation-delay: -10s;
+  }
+
+  .qr-float-c {
+    animation-duration: 64s;
+    animation-delay: -16s;
+  }
+
+  .qr-float-d {
+    animation-duration: 50s;
+    animation-delay: -12s;
+  }
+
+  .qr-zoom {
+    animation: qr-zoom 40s ease-in-out infinite;
+    transform-origin: center;
+  }
+
+  @keyframes qr-float {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+    50% {
+      transform: translate3d(0, -24px, 0);
+    }
+    100% {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  @keyframes qr-zoom {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.06);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+}
