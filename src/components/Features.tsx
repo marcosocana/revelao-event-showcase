@@ -68,7 +68,7 @@ export const Features = () => {
               fadeEffect={{ crossFade: true }}
               slidesPerView={1}
               loop
-              autoplay={{ delay: 7000, disableOnInteraction: false }}
+              autoplay={{ delay: 14000, disableOnInteraction: false }}
               navigation={{ nextEl: ".features-next", prevEl: ".features-prev" }}
               pagination={{ el: ".features-pagination", clickable: true, bulletClass: "slider_bullet", bulletActiveClass: "is-active" }}
               a11y={{ enabled: true }}
