@@ -25,6 +25,13 @@ export const Features = () => {
     ...step,
     image: featureImages[index],
   }));
+
+  useEffect(() => {
+    featureImages.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
   useEffect(() => {
     const section = sectionRef.current;
     if (!section) return;
