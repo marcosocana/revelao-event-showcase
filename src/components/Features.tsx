@@ -1,9 +1,14 @@
-import { useEffect, useState, useRef } from "react";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from "@/components/ui/carousel";
-import step1Image from "@/assets/step-1-qr.svg";
-import step2Image from "@/assets/step-2-capture.svg";
-import step3Image from "@/assets/step-3-anticipation.svg";
-import step4Image from "@/assets/step-4-reveal.svg";
+import { useEffect } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, EffectFade, Navigation, Pagination, A11y } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/effect-fade";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import step1Image from "@/assets/11.png";
+import step2Image from "@/assets/22.png";
+import step3Image from "@/assets/33.png";
+import step4Image from "@/assets/44.png";
 import { useI18n, translations } from "@/lib/i18n";
 import demoVideo from "@/assets/Revelao_4.mp4";
 import demoPoster from "@/assets/Revelao_4_poster.jpg";
@@ -18,41 +23,12 @@ export const Features = () => {
     ...step,
     image: featureImages[index],
   }));
-  const [api, setApi] = useState<CarouselApi>();
-  const sectionRef = useRef<HTMLElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsVisible(entry.isIntersecting);
-      },
-      { threshold: 0.3 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
+    return () => {};
   }, []);
 
-  useEffect(() => {
-    if (!api || !isVisible) return;
-    
-    const interval = setInterval(() => {
-      api.scrollNext();
-    }, 10000);
-    
-    return () => clearInterval(interval);
-  }, [api, isVisible]);
-
   return (
-    <section ref={sectionRef} className="py-12 md:py-24 bg-transparent" id="como-funciona">
+    <section className="py-12 md:py-24 bg-transparent" id="como-funciona">
       <div className="container px-4 mx-auto">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl md:text-5xl font-bold mb-4 text-foreground">
@@ -63,73 +39,93 @@ export const Features = () => {
           </p>
         </div>
 
-        <div className="revelao-card px-6 py-6 md:px-10 md:py-8">
-          {/* Desktop Layout */}
-          <div className="hidden md:grid grid-cols-4 gap-6 max-w-6xl mx-auto">
-            {features.map((feature, index) => (
-              <div key={index} className="flex flex-col items-center text-center animate-fade-in" style={{
-                animationDelay: `${index * 150}ms`
-              }}>
-                <div className="flex items-center gap-2 text-foreground mb-3">
-                  <h3 className="text-base font-bold">{feature.title}</h3>
-                </div>
-
-                <div className="relative w-40 h-40 mb-4 flex items-center justify-center">
-                  <span className="absolute left-2 top-2 inline-flex h-8 min-w-[32px] items-center justify-center rounded-full border border-foreground/20 bg-foreground/5 text-sm font-semibold text-foreground">
-                    0{index + 1}
-                  </span>
-                  <img 
-                    src={feature.image} 
-                    alt={feature.title} 
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-                
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {feature.description}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          {/* Mobile Layout - Carousel */}
-          <div className="md:hidden">
-            <Carousel setApi={setApi} className="max-w-sm mx-auto" opts={{
-              align: "start",
-              loop: false
-            }}>
-              <CarouselContent>
-                {features.map((feature, index) => (
-                  <CarouselItem key={index}>
-                    <div className="flex flex-col items-center text-center gap-4 p-4">
-                      <div className="flex items-center gap-2 text-foreground">
-                        <h3 className="text-lg font-bold">{feature.title}</h3>
+        <div className="revelao-card overflow-visible px-6 py-8 md:px-12 md:py-12 bg-[radial-gradient(circle_at_20%_10%,rgba(239,68,68,0.28),transparent_55%),radial-gradient(circle_at_85%_85%,rgba(239,68,68,0.18),transparent_60%),linear-gradient(135deg,#f2f2f2,#ffffff)]">
+          <div className="relative">
+            <Swiper
+              className="features-swiper"
+              modules={[Autoplay, EffectFade, Navigation, Pagination, A11y]}
+              effect="fade"
+              fadeEffect={{ crossFade: true }}
+              slidesPerView={1}
+              loop
+              autoplay={{ delay: 7000, disableOnInteraction: false }}
+              navigation={{ nextEl: ".features-next", prevEl: ".features-prev" }}
+              pagination={{ el: ".features-pagination", clickable: true, bulletClass: "slider_bullet", bulletActiveClass: "is-active" }}
+              a11y={{ enabled: true }}
+            >
+              {features.map((feature, index) => (
+                <SwiperSlide key={feature.title}>
+                  <div className="features-slide grid min-h-[60vh] grid-cols-1 gap-10 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] items-center">
+                    <div className="flex flex-col gap-6 items-start text-left">
+                      <div className="text-sm font-semibold text-neutral-500 uppercase tracking-[0.2em]">
+                        Paso {index + 1}
                       </div>
-
-                      <div className="relative w-40 h-40 flex items-center justify-center">
-                        <span className="absolute left-2 top-2 inline-flex h-8 min-w-[32px] items-center justify-center rounded-full border border-foreground/20 bg-foreground/5 text-sm font-semibold text-foreground">
-                          0{index + 1}
-                        </span>
-                        <img 
-                          src={feature.image} 
-                          alt={feature.title} 
-                          className="w-full h-full object-contain"
-                        />
-                      </div>
-                      
-                      <p className="text-muted-foreground leading-relaxed text-sm">
+                      <h3
+                        className="text-[2.8rem] md:text-[4.125rem] font-semibold tracking-tight leading-[1.05] text-transparent bg-clip-text"
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary) / 0.7) 100%)",
+                        }}
+                      >
+                        {feature.title}
+                      </h3>
+                      <p className="text-base md:text-lg leading-relaxed text-neutral-600 max-w-xl">
                         {feature.description}
                       </p>
                     </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious className="left-2 disabled:opacity-0 disabled:pointer-events-none" />
-              <CarouselNext className="right-2 disabled:opacity-0 disabled:pointer-events-none" />
-            </Carousel>
+                    <div className="flex items-center justify-center">
+                      <img
+                        src={feature.image}
+                        alt={feature.title}
+                        className="h-[26rem] w-[26rem] md:h-[40rem] md:w-[40rem] object-contain drop-shadow-[0_20px_60px_rgba(0,0,0,0.22)]"
+                      />
+                    </div>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+
+            <div className="module-slider_nav mt-6">
+              <div className="flex items-center justify-between">
+                <div className="flex-shrink-0">
+                  <button
+                    type="button"
+                    data-slider="previous"
+                    className="features-prev circle-btn"
+                    aria-label="Previous slide"
+                  >
+                    <div className="button-icon-wrap">
+                      <div className="accordion-line-wrap">
+                        <div className="accordion-icon_line cc-horizontal cc-accordion-card" />
+                        <div className="accordion-icon_line cc-vertical cc-accordion-card" />
+                      </div>
+                      <div className="button-icon cc-arrow-left">←</div>
+                    </div>
+                  </button>
+                </div>
+                <div className="flex-shrink-0">
+                  <div className="features-pagination slider_pagination swiper-pagination-bullets" />
+                </div>
+                <div className="flex-shrink-0">
+                  <button
+                    type="button"
+                    data-slider="next"
+                    className="features-next circle-btn"
+                    aria-label="Next slide"
+                  >
+                    <div className="button-icon-wrap">
+                      <div className="accordion-line-wrap">
+                        <div className="accordion-icon_line cc-horizontal cc-accordion-card" />
+                        <div className="accordion-icon_line cc-vertical cc-accordion-card" />
+                      </div>
+                      <div className="button-icon cc-arrow-right">→</div>
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-
       </div>
     </section>
   );

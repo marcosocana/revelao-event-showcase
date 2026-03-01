@@ -682,6 +682,103 @@ All colors MUST be HSL.
     justify-content: center;
   }
 
+  .module-slider_nav {
+    margin-top: 24px;
+  }
+
+  .circle-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 9999px;
+    border: 1px solid rgba(17, 17, 17, 0.12);
+    background: rgba(255, 255, 255, 0.9);
+    color: #111111;
+    box-shadow: 0 8px 18px -12px rgba(0, 0, 0, 0.25);
+    transition: transform 200ms ease, box-shadow 200ms ease, background 200ms ease;
+  }
+
+  .circle-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 22px -12px rgba(0, 0, 0, 0.3);
+    background: #ffffff;
+  }
+
+  .button-icon-wrap {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .accordion-line-wrap {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .accordion-icon_line {
+    position: absolute;
+    background: #111111;
+    border-radius: 9999px;
+    opacity: 0.25;
+  }
+
+  .accordion-icon_line.cc-horizontal {
+    width: 16px;
+    height: 2px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .accordion-icon_line.cc-vertical {
+    width: 2px;
+    height: 16px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .slider_pagination {
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .slider_bullet {
+    width: 8px;
+    height: 8px;
+    border-radius: 9999px;
+    background: rgba(17, 17, 17, 0.25);
+    border: none;
+    padding: 0;
+  }
+
+  .slider_bullet.is-active {
+    background: rgba(17, 17, 17, 0.75);
+  }
+
+  .features-swiper,
+  .features-swiper .swiper-wrapper,
+  .features-swiper .swiper-slide {
+    overflow: visible;
+  }
+
+  .features-slide {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 900ms ease, transform 900ms ease;
+  }
+
+  .features-swiper .swiper-slide-active .features-slide {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
   .section-white {
     background: #ffffff;
   }

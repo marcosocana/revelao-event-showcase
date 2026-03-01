@@ -9,10 +9,10 @@ import corazon from "@/assets/corazon.svg";
 import logo from "@/assets/ico.png";
 import phoneMockup from "@/assets/phone-mockup.png";
 import ruedaVideo from "@/assets/Revelao_4.mp4";
-import stepQr from "@/assets/step-1-qr.svg";
-import stepCapture from "@/assets/step-2-capture.svg";
-import stepAnticipation from "@/assets/step-3-anticipation.svg";
-import stepReveal from "@/assets/step-4-reveal.svg";
+import stepQr from "@/assets/1.png";
+import stepCapture from "@/assets/2.png";
+import stepAnticipation from "@/assets/3.png";
+import stepReveal from "@/assets/4.png";
 import bodaQrImage from "@/assets/boda-qr.png";
 import testimonial1 from "@/assets/testimonio4-1.png";
 import testimonial2 from "@/assets/testimonio2-2.png";
@@ -673,7 +673,7 @@ const QrEventLanding = () => {
                   <img
                     src={item.img}
                     alt={item.label.title}
-                    className="w-[204px] h-[204px] object-contain"
+                    className="w-[510px] h-[510px] object-contain"
                     style={{ filter: "grayscale(1) brightness(0)" }}
                   />
                   <div className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-foreground">
@@ -708,7 +708,7 @@ const QrEventLanding = () => {
                         <img
                           src={item.img}
                           alt={item.label.title}
-                          className="w-[204px] h-[204px] object-contain"
+                          className="w-[510px] h-[510px] object-contain"
                           style={{ filter: "grayscale(1) brightness(0)" }}
                         />
                         <div className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-foreground">

@@ -77,9 +77,7 @@ export const BlogSection = () => {
                 <h3 className="text-[18px] font-normal leading-6 text-neutral-900">
                   {post.title}
                 </h3>
-                <span className="font-mono text-[11px] leading-[17.6px] text-neutral-500">
-                  {post.date}
-                </span>
+                {/* fecha eliminada */}
               </div>
               <p className="text-sm leading-5 text-neutral-500 line-clamp-3 min-h-[60px]">
                 {truncateText(post.excerpt, MAX_BLOG_DESC_CHARS)}
@@ -117,9 +115,7 @@ export const BlogSection = () => {
                       <h3 className="text-[18px] font-normal leading-6 text-neutral-900">
                         {post.title}
                       </h3>
-                      <span className="font-mono text-[11px] leading-[17.6px] text-neutral-500">
-                        {post.date}
-                      </span>
+                      {/* fecha eliminada */}
                     </div>
                     <p className="text-sm leading-5 text-neutral-500 line-clamp-3 min-h-[60px]">
                       {truncateText(post.excerpt, MAX_BLOG_DESC_CHARS)}
