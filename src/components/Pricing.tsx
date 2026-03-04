@@ -93,7 +93,7 @@ const PlanCard = ({ plan, perEvent, features }: { plan: { title: string; planId:
     </ul>
 
     <Button
-      className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+      className="w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded-full"
       asChild
     >
       <a href={plan.stripeUrl} target="_blank" rel="noopener noreferrer">

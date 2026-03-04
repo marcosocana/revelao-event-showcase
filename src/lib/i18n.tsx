@@ -89,7 +89,7 @@ export const translations = {
     },
     stories: {
       title: "Lo que dicen de nosotros",
-      subtitle: "Eventos que crearon expectación y capturaron momentos únicos",
+      subtitle: "",
       items: [
         {
           event: "Boda de Laura y Carlos",
@@ -134,7 +134,7 @@ export const translations = {
     templates: {
       title: "Plantillas",
       subtitle:
-        "Descarga carteles con código QR para tu evento. Si no sabes cómo hacerlo, te lo hacemos nosotros de forma gratuita",
+        "Usa nuestras plantillas gratuítas. Si no sabes usarlas, escríbenos y te contamos cómo",
       cta: "Descargar",
     },
     pricing: {

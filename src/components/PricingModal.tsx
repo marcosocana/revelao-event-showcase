@@ -252,13 +252,13 @@ export const PricingModal = ({ open, onOpenChange }: PricingModalProps) => {
             </ul>
 
             {resolvedStripeUrl ? (
-              <Button className="w-full" variant="default" asChild>
+              <Button className="w-full rounded-full" variant="default" asChild>
                 <a href={resolvedStripeUrl} target="_blank" rel="noopener noreferrer">
                   {currentCta}
                 </a>
               </Button>
             ) : (
-              <Button className="w-full" variant="default" asChild>
+              <Button className="w-full rounded-full" variant="default" asChild>
                 <a href={`https://wa.me/34695834018?text=${encodeURIComponent(whatsappMessage)}`}>
                   {t.pricingModal.contact}
                 </a>

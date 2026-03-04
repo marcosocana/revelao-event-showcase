@@ -58,9 +58,11 @@ export const SuccessStories = () => {
           <h2 className="revelao-h2 mb-2 text-center">
             {t.stories.title}
           </h2>
-          <p className="revelao-h3 mb-2 text-center max-w-2xl mx-auto">
-            {t.stories.subtitle}
-          </p>
+          {t.stories.subtitle ? (
+            <p className="revelao-h3 mb-2 text-center max-w-2xl mx-auto">
+              {t.stories.subtitle}
+            </p>
+          ) : null}
         </div>
 
         <div className="success-marquee">

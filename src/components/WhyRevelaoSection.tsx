@@ -11,7 +11,7 @@ export const WhyRevelaoSection = () => {
               Sin apps ni registros
             </h4>
             <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
-              Tus invitados solo escanean el QR y suben fotos, vídeos y mensajes de voz al instante. Sin descargas. Sin cuentas. Sin fricción.
+              Tus invitados solo escanean el QR y suben fotos, vídeos y mensajes de voz al instante. Sin descargas.
             </p>
           </article>
 
@@ -26,16 +26,16 @@ export const WhyRevelaoSection = () => {
 
           <article className="group rounded-3xl border border-border/60 bg-white/80 p-6 md:p-7 shadow-[0_14px_40px_rgba(15,23,42,0.08)] transition-shadow hover:shadow-[0_18px_50px_rgba(15,23,42,0.12)]">
             <h4 className="text-xl md:text-2xl font-semibold text-foreground mb-2">
-              Revelación al día siguiente
+              Revelado al día siguiente
             </h4>
             <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
-              Nada se ve ni se escucha en tiempo real. Todo se desbloquea a la vez en el Revelado, generando expectativa y emoción compartida.
+              El contenido no aparece en tiempo real. Se desbloquea todo a la vez al día siguiente.
             </p>
           </article>
 
           <article className="group rounded-3xl border border-border/60 bg-white/80 p-6 md:p-7 shadow-[0_14px_40px_rgba(15,23,42,0.08)] transition-shadow hover:shadow-[0_18px_50px_rgba(15,23,42,0.12)]">
             <h4 className="text-xl md:text-2xl font-semibold text-foreground mb-2">
-              Experiencia colectiva real
+              Experiencia colectiva y real
             </h4>
             <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
               Todos pueden ver y escuchar lo de todos. Un recuerdo común, no carpetas sueltas ni enlaces perdidos.
