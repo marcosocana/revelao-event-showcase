@@ -11,7 +11,6 @@ import step3Image from "@/assets/how-step-esperando.png";
 import step4Image from "@/assets/how-step-revelado.png";
 import { useI18n, translations } from "@/lib/i18n";
 import demoVideo from "@/assets/Revelao_4.mp4";
-import demoPoster from "@/assets/Revelao_4_poster.jpg";
 import { VideoDemo } from "@/components/VideoDemo";
 
 const featureImages = [step1Image, step2Image, step3Image, step4Image];
@@ -188,7 +187,7 @@ export const FeaturesVideo = () => {
             <span className="font-semibold text-foreground">{t.features.videoTitle}</span>
             <span>{t.features.videoSubtitle}</span>
           </div>
-          <VideoDemo src={demoVideo} poster={demoPoster} />
+          <VideoDemo src={demoVideo} />
         </div>
       </div>
     </section>

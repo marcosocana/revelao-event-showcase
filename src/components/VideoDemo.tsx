@@ -3,10 +3,9 @@ import { useEffect, useRef, useState } from "react";
 type VideoDemoProps = {
   className?: string;
   src: string;
-  poster?: string;
 };
 
-export const VideoDemo = ({ className = "", src, poster }: VideoDemoProps) => {
+export const VideoDemo = ({ className = "", src }: VideoDemoProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isPaused, setIsPaused] = useState(false);
@@ -95,7 +94,6 @@ export const VideoDemo = ({ className = "", src, poster }: VideoDemoProps) => {
       <video
         ref={videoRef}
         src={src}
-        poster={poster}
         preload="auto"
         loop
         muted={isMuted}
