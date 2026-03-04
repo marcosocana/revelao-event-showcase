@@ -68,7 +68,7 @@ export const Features = () => {
                 Paso {activeIndex + 1}
               </div>
               <h3
-                className="mt-3 text-[2rem] md:text-[4.125rem] font-semibold tracking-tight leading-[1.05] text-transparent bg-clip-text"
+                className="mt-3 text-[2rem] md:text-[4.125rem] font-semibold tracking-tight leading-[1.12] text-transparent bg-clip-text"
                 style={{
                   backgroundImage:
                     "linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary) / 0.7) 100%)",
