@@ -16,7 +16,7 @@ const plans = [
     price: "0€",
     stripeUrl: "https://acceso.revelao.cam/nuevoeventodemo",
     cta: "Pruébalo gratis",
-    subtitle: "10 fotos · 3 vídeos · 6 audios",
+    subtitle: "Hasta 10 fotos",
   },
   {
     title: "Start",
@@ -116,7 +116,7 @@ export const Pricing = () => {
   const featureMap: Record<string, Record<string, string[]>> = {
     es: {
       demo: [
-        "10 fotos · 3 vídeos · 6 audios",
+        "Hasta 10 fotos",
         "Galería activa 10 días",
         "Sin descarga en alta calidad",
         "Personalización básica",
@@ -158,7 +158,7 @@ export const Pricing = () => {
     },
     en: {
       demo: [
-        "10 photos · 3 videos · 6 audios",
+        "Up to 10 photos",
         "Gallery active for 10 days",
         "No high‑quality downloads",
         "Basic customization",
@@ -200,7 +200,7 @@ export const Pricing = () => {
     },
     it: {
       demo: [
-        "10 foto · 3 video · 6 audio",
+        "Fino a 10 foto",
         "Galleria attiva 10 giorni",
         "Nessun download in alta qualità",
         "Personalizzazione base",

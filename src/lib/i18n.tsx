@@ -151,7 +151,7 @@ export const translations = {
         "Soporte para dudas",
       ],
       plans: [
-        { title: "Demo", subtitle: "10 fotos · 3 vídeos · 6 audios", cta: "Pruébalo gratis" },
+        { title: "Demo", subtitle: "Hasta 10 fotos", cta: "Pruébalo gratis" },
         { title: "Start", subtitle: "200 fotos · 30 vídeos · 60 audios", cta: "Elegir" },
         { title: "Plus", subtitle: "1200 fotos · 90 vídeos · 200 audios", cta: "Elegir", badge: "Más popular" },
         { title: "Pro", subtitle: "Fotos, vídeos y audios ilimitados", cta: "Elegir" },
@@ -430,7 +430,7 @@ export const translations = {
         "Support",
       ],
       plans: [
-        { title: "Demo", subtitle: "10 photos · 3 videos · 6 audios", cta: "Try for free" },
+        { title: "Demo", subtitle: "Up to 10 photos", cta: "Try for free" },
         { title: "Start", subtitle: "200 photos · 30 videos · 60 audios", cta: "Choose" },
         { title: "Plus", subtitle: "1200 photos · 90 videos · 200 audios", cta: "Choose", badge: "Most popular" },
         { title: "Pro", subtitle: "Unlimited photos, videos and audios", cta: "Choose" },
@@ -710,7 +710,7 @@ export const translations = {
         "Supporto",
       ],
       plans: [
-        { title: "Demo", subtitle: "10 foto · 3 video · 6 audio", cta: "Prova gratis" },
+        { title: "Demo", subtitle: "Fino a 10 foto", cta: "Prova gratis" },
         { title: "Start", subtitle: "200 foto · 30 video · 60 audio", cta: "Scegli" },
         { title: "Plus", subtitle: "1200 foto · 90 video · 200 audio", cta: "Scegli", badge: "Più popolare" },
         { title: "Pro", subtitle: "Foto, video e audio illimitati", cta: "Scegli" },
