@@ -16,7 +16,7 @@ const plans = [
     price: "0€",
     stripeUrl: "https://acceso.revelao.cam/nuevoeventodemo",
     cta: "Pruébalo gratis",
-    subtitle: "Hasta 10 fotos",
+    subtitle: "10 fotos · 3 vídeos · 6 audios",
   },
   {
     title: "Start",
@@ -24,7 +24,7 @@ const plans = [
     price: "39€",
     stripeUrl: "https://buy.stripe.com/dRmdR2fCVbTMgIv0nl3ks06",
     cta: "Elegir",
-    subtitle: "Hasta 200 fotos",
+    subtitle: "200 fotos · 30 vídeos · 60 audios",
   },
   {
     title: "Plus",
@@ -32,7 +32,7 @@ const plans = [
     price: "79€",
     stripeUrl: "https://buy.stripe.com/00w9AM3UdaPIfEr4DB3ks05",
     cta: "Elegir",
-    subtitle: "Hasta 1200 fotos",
+    subtitle: "1200 fotos · 90 vídeos · 200 audios",
     featured: true,
     badge: "Más popular",
   },
@@ -42,7 +42,7 @@ const plans = [
     price: "149€",
     stripeUrl: "https://buy.stripe.com/7sY3co8at3ngfErc633ks04",
     cta: "Elegir",
-    subtitle: "Fotos ilimitadas",
+    subtitle: "Fotos, vídeos y audios ilimitados",
   },
 ];
 
@@ -116,7 +116,7 @@ export const Pricing = () => {
   const featureMap: Record<string, Record<string, string[]>> = {
     es: {
       demo: [
-        "Hasta 10 fotos",
+        "10 fotos · 3 vídeos · 6 audios",
         "Galería activa 10 días",
         "Sin descarga en alta calidad",
         "Personalización básica",
@@ -124,7 +124,7 @@ export const Pricing = () => {
         "Panel básico de gestión",
       ],
       small: [
-        "Hasta 200 fotos",
+        "200 fotos · 30 vídeos · 60 audios",
         "Galería 20 días",
         "Descarga en alta calidad",
         "Personalización completa",
@@ -134,7 +134,7 @@ export const Pricing = () => {
         "Ideal para celebraciones íntimas",
       ],
       medium: [
-        "Hasta 1200 fotos",
+        "1200 fotos · 90 vídeos · 200 audios",
         "Galería 60 días",
         "Descarga en alta calidad",
         "Personalización completa",
@@ -145,7 +145,7 @@ export const Pricing = () => {
         "Ideal para bodas y eventos medianos",
       ],
       xxl: [
-        "Fotos ilimitadas",
+        "Fotos, vídeos y audios ilimitados",
         "Galería 90 días",
         "Marca blanca personalizada (sin referencia a Revelao)",
         "Descarga en alta calidad",
@@ -158,7 +158,7 @@ export const Pricing = () => {
     },
     en: {
       demo: [
-        "Up to 10 photos",
+        "10 photos · 3 videos · 6 audios",
         "Gallery active for 10 days",
         "No high‑quality downloads",
         "Basic customization",
@@ -166,7 +166,7 @@ export const Pricing = () => {
         "Basic management panel",
       ],
       small: [
-        "Up to 200 photos",
+        "200 photos · 30 videos · 60 audios",
         "Gallery for 20 days",
         "High‑quality downloads",
         "Full customization",
@@ -176,7 +176,7 @@ export const Pricing = () => {
         "Ideal for intimate celebrations",
       ],
       medium: [
-        "Up to 1200 photos",
+        "1200 photos · 90 videos · 200 audios",
         "Gallery for 60 days",
         "High‑quality downloads",
         "Full customization",
@@ -187,7 +187,7 @@ export const Pricing = () => {
         "Ideal for weddings and mid‑size events",
       ],
       xxl: [
-        "Unlimited photos",
+        "Unlimited photos, videos and audios",
         "Gallery for 90 days",
         "Custom white‑label (no Revelao branding)",
         "High‑quality downloads",
@@ -200,7 +200,7 @@ export const Pricing = () => {
     },
     it: {
       demo: [
-        "Fino a 10 foto",
+        "10 foto · 3 video · 6 audio",
         "Galleria attiva 10 giorni",
         "Nessun download in alta qualità",
         "Personalizzazione base",
@@ -208,7 +208,7 @@ export const Pricing = () => {
         "Pannello di gestione base",
       ],
       small: [
-        "Fino a 200 foto",
+        "200 foto · 30 video · 60 audio",
         "Galleria 20 giorni",
         "Download in alta qualità",
         "Personalizzazione completa",
@@ -218,7 +218,7 @@ export const Pricing = () => {
         "Ideale per celebrazioni intime",
       ],
       medium: [
-        "Fino a 1200 foto",
+        "1200 foto · 90 video · 200 audio",
         "Galleria 60 giorni",
         "Download in alta qualità",
         "Personalizzazione completa",
@@ -229,7 +229,7 @@ export const Pricing = () => {
         "Ideale per matrimoni ed eventi medi",
       ],
       xxl: [
-        "Foto illimitate",
+        "Foto, video e audio illimitati",
         "Galleria 90 giorni",
         "White label personalizzato (senza riferimenti a Revelao)",
         "Download in alta qualità",

@@ -54,7 +54,7 @@ export const PricingModal = ({ open, onOpenChange }: PricingModalProps) => {
   const featureMap: Record<string, Record<string, string[]>> = {
     es: {
       demo: [
-        "Hasta 10 fotos",
+        "10 fotos · 3 vídeos · 6 audios",
         "Galería activa 10 días",
         "Sin descarga en alta calidad",
         "Personalización básica",
@@ -62,7 +62,7 @@ export const PricingModal = ({ open, onOpenChange }: PricingModalProps) => {
         "Panel básico de gestión",
       ],
       small: [
-        "Hasta 200 fotos",
+        "200 fotos · 30 vídeos · 60 audios",
         "Galería 20 días",
         "Descarga en alta calidad",
         "Personalización completa",
@@ -72,7 +72,7 @@ export const PricingModal = ({ open, onOpenChange }: PricingModalProps) => {
         "Ideal para celebraciones íntimas",
       ],
       medium: [
-        "Hasta 1200 fotos",
+        "1200 fotos · 90 vídeos · 200 audios",
         "Galería 60 días",
         "Descarga en alta calidad",
         "Personalización completa",
@@ -83,7 +83,7 @@ export const PricingModal = ({ open, onOpenChange }: PricingModalProps) => {
         "Ideal para bodas y eventos medianos",
       ],
       xxl: [
-        "Fotos ilimitadas",
+        "Fotos, vídeos y audios ilimitados",
         "Galería 90 días",
         "Marca blanca personalizada (sin referencia a Revelao)",
         "Descarga en alta calidad",
@@ -96,7 +96,7 @@ export const PricingModal = ({ open, onOpenChange }: PricingModalProps) => {
     },
     en: {
       demo: [
-        "Up to 10 photos",
+        "10 photos · 3 videos · 6 audios",
         "Gallery active for 10 days",
         "No high‑quality downloads",
         "Basic customization",
@@ -104,7 +104,7 @@ export const PricingModal = ({ open, onOpenChange }: PricingModalProps) => {
         "Basic management panel",
       ],
       small: [
-        "Up to 200 photos",
+        "200 photos · 30 videos · 60 audios",
         "Gallery for 20 days",
         "High‑quality downloads",
         "Full customization",
@@ -114,7 +114,7 @@ export const PricingModal = ({ open, onOpenChange }: PricingModalProps) => {
         "Ideal for intimate celebrations",
       ],
       medium: [
-        "Up to 1200 photos",
+        "1200 photos · 90 videos · 200 audios",
         "Gallery for 60 days",
         "High‑quality downloads",
         "Full customization",
@@ -125,7 +125,7 @@ export const PricingModal = ({ open, onOpenChange }: PricingModalProps) => {
         "Ideal for weddings and mid‑size events",
       ],
       xxl: [
-        "Unlimited photos",
+        "Unlimited photos, videos and audios",
         "Gallery for 90 days",
         "Custom white‑label (no Revelao branding)",
         "High‑quality downloads",
@@ -138,7 +138,7 @@ export const PricingModal = ({ open, onOpenChange }: PricingModalProps) => {
     },
     it: {
       demo: [
-        "Fino a 10 foto",
+        "10 foto · 3 video · 6 audio",
         "Galleria attiva 10 giorni",
         "Nessun download in alta qualità",
         "Personalizzazione base",
@@ -146,7 +146,7 @@ export const PricingModal = ({ open, onOpenChange }: PricingModalProps) => {
         "Pannello di gestione base",
       ],
       small: [
-        "Fino a 200 foto",
+        "200 foto · 30 video · 60 audio",
         "Galleria 20 giorni",
         "Download in alta qualità",
         "Personalizzazione completa",
@@ -156,7 +156,7 @@ export const PricingModal = ({ open, onOpenChange }: PricingModalProps) => {
         "Ideale per celebrazioni intime",
       ],
       medium: [
-        "Fino a 1200 foto",
+        "1200 foto · 90 video · 200 audio",
         "Galleria 60 giorni",
         "Download in alta qualità",
         "Personalizzazione completa",
@@ -167,7 +167,7 @@ export const PricingModal = ({ open, onOpenChange }: PricingModalProps) => {
         "Ideale per matrimoni ed eventi medi",
       ],
       xxl: [
-        "Foto illimitate",
+        "Foto, video e audio illimitati",
         "Galleria 90 giorni",
         "White label personalizzato (senza riferimenti a Revelao)",
         "Download in alta qualità",
