@@ -50,9 +50,9 @@ export const translations = {
     seoHomeMeta: {
       title: "Galería de Fotos para Eventos con QR | Sin App | Revelao.cam",
       description:
-        "Galería colaborativa para bodas, fiestas o eventos con QR. Comparte fotos sin app y crea un evento gratis en minutos. Empieza ahora con Revelao.cam.",
+        "Galería colaborativa para bodas, fiestas o eventos con QR. Comparte fotos, vídeos y mensajes de voz sin app y crea un evento gratis en minutos. Empieza ahora con Revelao.cam.",
       keywords:
-        "galería de fotos para eventos, evento con QR, compartir fotos sin app, bodas, fiestas, eventos corporativos",
+        "galería para eventos con QR, compartir fotos y vídeos sin app, mensajes de voz en eventos, bodas, fiestas, eventos corporativos",
     },
     features: {
       title: "¿Cómo funciona?",
@@ -187,12 +187,12 @@ export const translations = {
         {
           q: "¿Cómo funciona Revelao?",
           a:
-            "¡Muy fácil! Contáctanos y te explicamos cómo dar de alta tu evento. Todos los invitados —ya sea en una boda, cumpleaños, cena de empresa o concierto— podrán subir sus fotos a la plataforma durante el evento. Y aquí viene la magia: al día siguiente ocurre la \"revelación\". Todas las imágenes estarán disponibles, de forma anónima, en nuestra plataforma para que todos las disfruten.",
+            "¡Muy fácil! Contáctanos y te explicamos cómo dar de alta tu evento. Todos los invitados —ya sea en una boda, cumpleaños, cena de empresa o concierto— podrán subir sus fotos, vídeos y mensajes de voz durante el evento. Y aquí viene la magia: al día siguiente ocurre el \"Revelado\". Todo el contenido estará disponible, de forma anónima, en nuestra plataforma para que todos lo disfruten.",
         },
         {
-          q: "¿Por qué esperar para ver las fotos?",
+          q: "¿Por qué esperar para ver el contenido?",
           a:
-            "Porque esa es la esencia de Revelao.cam: recuperar la emoción de no saber cómo salieron tus fotos hasta que se revelan. Es parte de la experiencia divertida, nostálgica y única.",
+            "Porque esa es la esencia de Revelao.cam: recuperar la emoción de no saber qué han capturado tus invitados hasta que se revela todo. Fotos, vídeos y mensajes de voz aparecen a la vez, creando una experiencia divertida, nostálgica y única.",
         },
         {
           q: "¿Necesito instalar algo?",
@@ -205,17 +205,17 @@ export const translations = {
             "Sí, Revelao.cam está optimizado para móviles (iOS y Android) y ordenadores. Solo asegúrate de usar un navegador actualizado.",
         },
         {
-          q: "¿Cuántas fotos puedo hacer?",
-          a: "Cada plan tiene unas características concretas. Elige el que mejor se adapte a tu evento.",
+          q: "¿Cuánto contenido puedo subir?",
+          a: "Cada plan incluye un número concreto de fotos, vídeos y mensajes de voz (o ilimitado, según plan). Elige el que mejor se adapte a tu evento.",
         },
         {
-          q: "¿Qué pasa cuando se revelan las fotos?",
+          q: "¿Qué pasa cuando se revela el contenido?",
           a:
-            "Todos los invitados podrán acceder al mismo QR o entrar en nuestra web para ver el evento. Desde ahí podrán visualizar todas las fotos, descargarlas, dar likes, compartirlas y mucho más.",
+            "Todos los invitados podrán acceder al mismo QR o entrar en nuestra web para ver el evento. Desde ahí podrán visualizar fotos, vídeos y audios, descargarlos, dar likes, compartirlos y mucho más.",
         },
         {
           q: "¿Es seguro?",
-          a: "Sí. Tus fotos son privadas y solo quienes tengan el código QR podrán verlas.",
+          a: "Sí. Tu contenido es privado y solo quienes tengan el código QR podrán verlo o escucharlo.",
         },
         {
           q: "¿Cuánto cuesta?",
@@ -273,30 +273,30 @@ export const translations = {
     seoHome: {
       title: "¿Qué es Revelao?",
       intro:
-        "Revelao.cam es una galería de fotos para eventos con QR pensada para bodas, fiestas y celebraciones donde quieres reunir todas las imágenes en un solo lugar. En lugar de depender de grupos de WhatsApp o carpetas dispersas, creas un evento, compartes un código QR y tus invitados suben fotos al instante, sin app y sin registros largos. El resultado es una galería colaborativa limpia, organizada y lista para revivir el evento.",
+        "Revelao.cam es una galería privada para eventos con QR pensada para bodas, fiestas y celebraciones donde quieres reunir todas las fotos, vídeos y mensajes de voz en un solo lugar. En lugar de depender de grupos de WhatsApp o carpetas dispersas, creas un evento, compartes un código QR y tus invitados suben contenido al instante, sin app y sin registros largos. El resultado es una experiencia colaborativa limpia, organizada y lista para revivir el evento.",
       sections: [
         {
-          title: "¿Por qué una galería de fotos para eventos con QR?",
+          title: "¿Por qué una galería colaborativa para eventos con QR?",
           body: [
-            "En eventos reales la gente hace fotos en muchos móviles y luego es un caos encontrarlas. Con Revelao, la galería se centraliza desde el primer minuto. Cada invitado escanea el QR y accede directamente a subir sus fotos. No hay fricción, por eso la participación es más alta y la colección final es mucho más completa.",
+            "En eventos reales la gente capta momentos desde muchos móviles y luego es un caos reunirlos. Con Revelao, todo se centraliza desde el primer minuto. Cada invitado escanea el QR y accede directamente a subir fotos, vídeos y audios. No hay fricción, por eso la participación es más alta y la colección final es mucho más completa.",
             "Además, al ser una galería colaborativa, todos pueden aportar desde cualquier lugar del evento y en cualquier momento. El QR puede estar en mesas, carteles o tarjetas. Así, la experiencia es simple y natural para cualquier invitado.",
-            "El resultado es una galería de fotos para eventos que no depende de una sola persona. Todos contribuyen y la historia del evento queda completa.",
+            "El resultado es una galería de evento que no depende de una sola persona. Todos contribuyen y la historia del evento queda completa.",
           ],
         },
         {
           title: "Sin app, rápido y con control total",
           body: [
-            "La mayoría de soluciones fallan porque obligan a descargar una app. Aquí no hace falta: el acceso es por navegador y el QR abre el evento en segundos. Eso elimina barreras y mejora la cantidad de fotos subidas.",
+            "La mayoría de soluciones fallan porque obligan a descargar una app. Aquí no hace falta: el acceso es por navegador y el QR abre el evento en segundos. Eso elimina barreras y mejora la cantidad de contenido subido.",
             "Tú decides cuánto dura la subida y cuándo se revela el contenido. La galería queda protegida y lista para compartir con los invitados cuando quieras.",
-            "También puedes descargar todas las fotos al final o mantenerlas disponibles durante el tiempo que necesites.",
+            "También puedes descargar todas las fotos, vídeos y audios al final o mantenerlos disponibles durante el tiempo que necesites.",
           ],
         },
         {
           title: "Ideal para bodas, fiestas y eventos corporativos",
           body: [
-            "Para una boda, el QR te permite reunir fotos de todos los invitados sin perder nada. Para una fiesta, crea un ambiente colaborativo y divertido. Para eventos corporativos, centraliza la cobertura y facilita el acceso a la galería final.",
-            "En todos los casos, Revelao te ofrece una galería de fotos para eventos con QR, sin app y con una experiencia clara para anfitriones e invitados.",
-            "Funciona igual de bien para aniversarios, graduaciones o reuniones familiares donde todos quieren compartir fotos.",
+            "Para una boda, el QR te permite reunir fotos, vídeos y mensajes de voz de todos los invitados sin perder nada. Para una fiesta, crea un ambiente colaborativo y divertido. Para eventos corporativos, centraliza la cobertura y facilita el acceso a la galería final.",
+            "En todos los casos, Revelao te ofrece una galería privada para eventos con QR, sin app y con una experiencia clara para anfitriones e invitados.",
+            "Funciona igual de bien para aniversarios, graduaciones o reuniones familiares donde todos quieren compartir recuerdos.",
           ],
         },
       ],
