@@ -1,5 +1,12 @@
 const BASE_DATE = "2026-03-01";
-const BASE = { events: 179, weddings: 88, photos: 161700, users: 24321 };
+const BASE = {
+  events: 179,
+  weddings: 88,
+  photos: 161700,
+  videos: 35512,
+  voiceNotes: 55210,
+  users: 24321,
+};
 const INCREMENTS = { eventsPerDay: 1, weddingsPerDays: 8, photosPerDay: 111, usersPerDay: 11 };
 
 const getDaysSinceBase = () => {
@@ -17,6 +24,8 @@ export const KpiStrip = () => {
   const events = BASE.events + days * INCREMENTS.eventsPerDay;
   const weddings = BASE.weddings + Math.floor(days / INCREMENTS.weddingsPerDays);
   const photos = BASE.photos + days * INCREMENTS.photosPerDay;
+  const videos = BASE.videos;
+  const voiceNotes = BASE.voiceNotes;
   const users = BASE.users + days * INCREMENTS.usersPerDay;
 
   return (
@@ -27,7 +36,7 @@ export const KpiStrip = () => {
             Desde que empezamos...
           </p>
         </div>
-        <dl className="grid grid-cols-2 md:grid-cols-4 gap-6 py-5 md:py-7 text-center">
+        <dl className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 py-5 md:py-7 text-center">
           <div className="flex flex-col items-center gap-1">
             <dd className="text-2xl md:text-3xl font-semibold text-foreground">
               +{formatNumber(events)}
@@ -50,6 +59,22 @@ export const KpiStrip = () => {
             </dd>
             <dt className="text-xs uppercase tracking-[0.28em] text-muted-foreground">
               Fotos
+            </dt>
+          </div>
+          <div className="flex flex-col items-center gap-1">
+            <dd className="text-2xl md:text-3xl font-semibold text-foreground">
+              +{formatNumber(videos)}
+            </dd>
+            <dt className="text-xs uppercase tracking-[0.28em] text-muted-foreground">
+              Videos
+            </dt>
+          </div>
+          <div className="flex flex-col items-center gap-1">
+            <dd className="text-2xl md:text-3xl font-semibold text-foreground">
+              +{formatNumber(voiceNotes)}
+            </dd>
+            <dt className="text-xs uppercase tracking-[0.28em] text-muted-foreground">
+              Mensajes de voz
             </dt>
           </div>
           <div className="flex flex-col items-center gap-1">

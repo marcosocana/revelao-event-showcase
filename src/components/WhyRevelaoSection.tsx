@@ -11,7 +11,7 @@ export const WhyRevelaoSection = () => {
               Sin apps ni registros
             </h4>
             <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
-              Tus invitados solo escanean el QR y suben sus fotos al instante. Sin descargas. Sin cuentas. Sin fricción.
+              Tus invitados solo escanean el QR y suben fotos, vídeos y mensajes de voz al instante. Sin descargas. Sin cuentas. Sin fricción.
             </p>
           </article>
 
@@ -29,7 +29,7 @@ export const WhyRevelaoSection = () => {
               Revelación al día siguiente
             </h4>
             <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
-              Las fotos no aparecen en tiempo real. Se desbloquean todas a la vez, generando expectativa y emoción compartida.
+              Nada se ve ni se escucha en tiempo real. Todo se desbloquea a la vez en el Revelado, generando expectativa y emoción compartida.
             </p>
           </article>
 
@@ -38,7 +38,7 @@ export const WhyRevelaoSection = () => {
               Experiencia colectiva real
             </h4>
             <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
-              Todos pueden ver las fotos de todos. Un recuerdo común, no carpetas sueltas ni enlaces perdidos.
+              Todos pueden ver y escuchar lo de todos. Un recuerdo común, no carpetas sueltas ni enlaces perdidos.
             </p>
           </article>
         </div>

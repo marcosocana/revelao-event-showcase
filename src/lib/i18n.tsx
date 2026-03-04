@@ -94,19 +94,19 @@ export const translations = {
         {
           event: "Boda de Laura y Carlos",
           quote:
-            "Las fotos anónimas crearon un ambiente mágico. Al día siguiente todos estábamos pegados al móvil esperando la revelación.",
+            "Las fotos, vídeos y mensajes de voz anónimos crearon un ambiente mágico. Al día siguiente todos estábamos pegados al móvil esperando la revelación.",
           author: "Laura M.",
         },
         {
           event: "Cumpleaños de 30",
           quote:
-            "Mis amigos se volvieron locos subiendo fotos. No saber qué había capturado cada uno hizo la espera insoportable (en el buen sentido).",
+            "Mis amigos se volvieron locos subiendo fotos, vídeos y audios. No saber qué había capturado cada uno hizo la espera insoportable (en el buen sentido).",
           author: "Diego R.",
         },
         {
           event: "Cena de empresa",
           quote:
-            "Usamos Revelao.cam en nuestro evento corporativo. El nivel de participación fue increíble, todo el equipo involucrado.",
+            "Usamos Revelao.cam en nuestro evento corporativo. El nivel de participación con fotos, vídeos y mensajes de voz fue increíble, todo el equipo involucrado.",
           author: "Ana S., HR Manager",
         },
       ],
@@ -114,19 +114,19 @@ export const translations = {
         {
           event: "Fiesta de pueblo",
           quote:
-            "En la fiesta del pueblo todo el mundo escaneó el QR y subió fotos sin parar. Al día siguiente fue un espectáculo verlas todas juntas.",
+            "En la fiesta del pueblo todo el mundo escaneó el QR y subió fotos, vídeos y audios sin parar. Al día siguiente fue un espectáculo verlo y escucharlo todo junto.",
           author: "María G.",
         },
         {
           event: "Aniversario de 25 años",
           quote:
-            "Una forma única de capturar momentos especiales. Nuestros invitados no pararon de hacer fotos durante toda la celebración.",
+            "Una forma única de capturar momentos especiales. Nuestros invitados no pararon de subir fotos, vídeos y mensajes de voz durante toda la celebración.",
           author: "Roberto P.",
         },
         {
           event: "Boda",
           quote:
-            "En nuestra boda los invitados se engancharon al momento del revelado. Fue emocionante ver las fotos aparecer todas a la vez.",
+            "En nuestra boda los invitados se engancharon al momento del revelado. Fue emocionante ver y escuchar todo aparecer a la vez.",
           author: "Claudia T.",
         },
       ],
@@ -373,19 +373,19 @@ export const translations = {
         {
           event: "Laura & Carlos' wedding",
           quote:
-            "The anonymous photos created a magical atmosphere. The next day we were glued to our phones waiting for the reveal.",
+            "Anonymous photos, videos and voice notes created a magical atmosphere. The next day we were glued to our phones waiting for the reveal.",
           author: "Laura M.",
         },
         {
           event: "30th birthday",
           quote:
-            "My friends went crazy uploading photos. Not knowing what each person captured made the wait thrilling.",
+            "My friends went crazy uploading photos, videos and voice notes. Not knowing what each person captured made the wait thrilling.",
           author: "Diego R.",
         },
         {
           event: "Company dinner",
           quote:
-            "We used Revelao.cam at our corporate event. Participation was incredible; the whole team was involved.",
+            "We used Revelao.cam at our corporate event. Participation with photos, videos and voice notes was incredible; the whole team was involved.",
           author: "Ana S., HR Manager",
         },
       ],
@@ -393,19 +393,19 @@ export const translations = {
         {
           event: "Graduation party",
           quote:
-            "Everyone participated actively. The anticipation to see the photos the next day was amazing.",
+            "Everyone participated actively. The anticipation to see and listen to all the content the next day was amazing.",
           author: "Maria G.",
         },
         {
           event: "25th anniversary",
           quote:
-            "A unique way to capture special moments. Our guests never stopped taking photos.",
+            "A unique way to capture special moments. Our guests never stopped uploading photos, videos and voice notes.",
           author: "Robert P.",
         },
         {
           event: "Networking event",
           quote:
-            "Revelao broke the ice naturally. Everyone wanted to join and see what others captured.",
+            "Revelao broke the ice naturally. Everyone wanted to join and see and listen to what others captured.",
           author: "Claudia T.",
         },
       ],
@@ -653,19 +653,19 @@ export const translations = {
         {
           event: "Matrimonio di Laura e Carlos",
           quote:
-            "Le foto anonime hanno creato un’atmosfera magica. Il giorno dopo eravamo tutti incollati al telefono.",
+            "Foto, video e messaggi vocali anonimi hanno creato un’atmosfera magica. Il giorno dopo eravamo tutti incollati al telefono.",
           author: "Laura M.",
         },
         {
           event: "Compleanno dei 30",
           quote:
-            "I miei amici hanno caricato tantissime foto. L’attesa è stata bellissima.",
+            "I miei amici hanno caricato tantissime foto, video e audio. L’attesa è stata bellissima.",
           author: "Diego R.",
         },
         {
           event: "Cena aziendale",
           quote:
-            "Abbiamo usato Revelao.cam al nostro evento corporate. Partecipazione incredibile.",
+            "Abbiamo usato Revelao.cam al nostro evento corporate. Partecipazione incredibile con foto, video e messaggi vocali.",
           author: "Ana S., HR Manager",
         },
       ],
@@ -673,19 +673,19 @@ export const translations = {
         {
           event: "Festa di laurea",
           quote:
-            "Tutti hanno partecipato attivamente. L’attesa per le foto era incredibile.",
+            "Tutti hanno partecipato attivamente. L’attesa per vedere e ascoltare i contenuti era incredibile.",
           author: "Maria G.",
         },
         {
           event: "Anniversario di 25 anni",
           quote:
-            "Un modo unico per catturare momenti speciali. Gli invitati non hanno smesso di scattare foto.",
+            "Un modo unico per catturare momenti speciali. Gli invitati non hanno smesso di caricare foto, video e messaggi vocali.",
           author: "Roberto P.",
         },
         {
           event: "Evento di networking",
           quote:
-            "Revelao ha rotto il ghiaccio in modo naturale. Tutti volevano partecipare.",
+            "Revelao ha rotto il ghiaccio in modo naturale. Tutti volevano partecipare e scoprire foto, video e audio degli altri.",
           author: "Claudia T.",
         },
       ],
