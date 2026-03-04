@@ -66,17 +66,17 @@ export const translations = {
         {
           title: "Captura los mejores momentos",
           description:
-            "Durante el evento tus invitados pueden hacer todas las fotos que quieran. Es anónimo, privado y sin descargarse apps. No hace falta registrarse ni dejar datos personales.",
+            "Durante el evento, tus invitados pueden subir todas las fotos, vídeos y mensajes de voz que quieran. Es anónimo y privado: sin apps, sin registros y sin dejar datos personales.",
         },
         {
           title: "Espera el revelado",
           description:
-            "Las fotos permanecen ocultas hasta que llegue el revelado. Nadie las podrá ver, creando misterio y emoción.",
+            "Las fotos, vídeos y mensajes de voz permanecen ocultos hasta el Revelado. Nadie puede verlos ni escucharlos antes, creando misterio y emoción.",
         },
         {
           title: "Por fin llega el revelado",
           description:
-            "Al día siguiente, desde el mismo QR, todas las fotos se revelan en una galería privada. Todos tus invitados podrán ver las fotos de todos y volver a revivir los mejores momentos",
+            "Al día siguiente, desde el mismo QR, se abre el Revelado: todas las fotos, vídeos y mensajes de voz aparecen en una galería privada. Así, todos tus invitados podrán ver y escuchar lo de todos y revivir los mejores momentos.",
         },
       ],
       videoTitle: "Activa el sonido y siente el hype del revelado.",

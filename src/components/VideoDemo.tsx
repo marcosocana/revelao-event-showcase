@@ -8,96 +8,70 @@ type VideoDemoProps = {
 
 export const VideoDemo = ({ className = "", src, poster }: VideoDemoProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const [isPaused, setIsPaused] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
-  const [keepPlaying, setKeepPlaying] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-  const [isInView, setIsInView] = useState(false);
+  const [isInView, setIsInView] = useState(true);
 
   useEffect(() => {
-    const media = window.matchMedia("(max-width: 768px)");
-    const update = () => setIsMobile(media.matches);
-    update();
-    media.addEventListener("change", update);
-    return () => media.removeEventListener("change", update);
-  }, []);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
+    const target = containerRef.current;
+    if (!target) return;
     const observer = new IntersectionObserver(
       ([entry]) => {
         setIsInView(entry.isIntersecting);
       },
       {
-        threshold: isMobile ? 0.01 : 0.2,
-        rootMargin: isMobile ? "0px 0px -5% 0px" : "0px 0px -10% 0px",
+        threshold: 0.25,
+        rootMargin: "0px 0px -8% 0px",
       }
     );
 
-    observer.observe(video);
+    observer.observe(target);
     return () => observer.disconnect();
-  }, [isMobile]);
+  }, []);
 
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
-
-    const seekToStart = () => {
-      if (video.currentTime < 4) {
-        try {
-          video.currentTime = 4;
-        } catch {
-          // iOS may block programmatic seeking until playback starts.
-        }
-      }
+    const tryPlay = () => {
+      video.play().catch(() => undefined);
     };
 
-    const handlePlaying = () => {
-      if (isMobile) {
-        seekToStart();
-      }
-    };
-
-    video.addEventListener("playing", handlePlaying);
-
-    if (isInView || keepPlaying) {
-      video.muted = true;
-      video.defaultMuted = true;
-      video.setAttribute("muted", "");
-      video.setAttribute("playsinline", "");
-      video.setAttribute("webkit-playsinline", "");
-      video.autoplay = true;
-
-      if (!isMobile) {
-        seekToStart();
-      }
-
-      const tryPlay = () => video.play().catch(() => undefined);
-      tryPlay();
-      requestAnimationFrame(tryPlay);
-      setTimeout(tryPlay, 200);
-
-      const handleTouch = () => {
+    const handleVisibility = () => {
+      if (document.visibilityState !== "hidden" && isInView) {
         tryPlay();
-        window.removeEventListener("touchstart", handleTouch);
-      };
-        window.addEventListener("touchstart", handleTouch, { passive: true });
-      } else {
-        video.pause();
       }
+    };
+
+    video.muted = isMuted;
+    video.defaultMuted = isMuted;
+    video.autoplay = true;
+    video.setAttribute("playsinline", "");
+    video.setAttribute("webkit-playsinline", "");
+
+    if (isInView) {
+      tryPlay();
+      setTimeout(tryPlay, 120);
+    } else {
+      video.pause();
+      setIsPaused(true);
+    }
+
+    const handleTouchStart = () => tryPlay();
+    document.addEventListener("visibilitychange", handleVisibility);
+    window.addEventListener("touchstart", handleTouchStart, { passive: true });
 
     return () => {
-      video.removeEventListener("playing", handlePlaying);
+      document.removeEventListener("visibilitychange", handleVisibility);
+      window.removeEventListener("touchstart", handleTouchStart);
     };
-  }, [isInView, isMobile, keepPlaying]);
+  }, [isInView, isMuted]);
 
   const handleTogglePlay = () => {
     const video = videoRef.current;
     if (!video) return;
     if (video.paused) {
-      video.play();
+      video.play().catch(() => undefined);
       setIsPaused(false);
       return;
     }
@@ -110,15 +84,13 @@ export const VideoDemo = ({ className = "", src, poster }: VideoDemoProps) => {
     if (!video) return;
     video.muted = !video.muted;
     setIsMuted(video.muted);
-    if (!video.muted) {
-      setKeepPlaying(true);
-      video.play().catch(() => undefined);
-    }
+    video.play().catch(() => undefined);
   };
 
   return (
     <div
-      className={`relative mx-auto max-w-[940px] overflow-hidden rounded-[8px] animate-fade-in ${className}`}
+      ref={containerRef}
+      className={`relative mx-auto max-w-[940px] overflow-hidden rounded-[14px] bg-black animate-fade-in ${className}`}
     >
       <video
         ref={videoRef}
@@ -132,20 +104,17 @@ export const VideoDemo = ({ className = "", src, poster }: VideoDemoProps) => {
         controls={false}
         onLoadedMetadata={(event) => {
           const video = event.currentTarget;
-          if (!isMobile && video.currentTime < 4) {
-            video.currentTime = 4;
-          }
-          if ((isInView || keepPlaying) && video.paused) {
+          if (isInView && video.paused) {
             video.play().catch(() => undefined);
           }
         }}
         onCanPlay={(event) => {
           const video = event.currentTarget;
-          if ((isInView || keepPlaying) && video.paused) {
+          if (isInView && video.paused) {
             video.play().catch(() => undefined);
           }
         }}
-        className="aspect-[940/532] w-full object-cover transition-opacity duration-500 opacity-100"
+        className="block aspect-video w-full object-contain transition-opacity duration-500 opacity-100"
       />
       <button
         type="button"
