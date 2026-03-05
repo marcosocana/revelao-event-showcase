@@ -1,11 +1,13 @@
 import { useEffect, useRef, useState } from "react";
+import { Pause, Play, Volume2, VolumeX } from "lucide-react";
 
 type VideoDemoProps = {
   className?: string;
   src: string;
+  poster?: string;
 };
 
-export const VideoDemo = ({ className = "", src }: VideoDemoProps) => {
+export const VideoDemo = ({ className = "", src, poster }: VideoDemoProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isPaused, setIsPaused] = useState(false);
@@ -89,12 +91,14 @@ export const VideoDemo = ({ className = "", src }: VideoDemoProps) => {
   return (
     <div
       ref={containerRef}
-      className={`relative mx-auto max-w-[940px] overflow-hidden rounded-[14px] bg-black animate-fade-in ${className}`}
+      className={`relative mx-auto max-w-[940px] overflow-hidden rounded-[8px] opacity-0 animate-fade-in-up ${className}`}
     >
       <video
         ref={videoRef}
         src={src}
-        preload="auto"
+        data-src={src}
+        poster={poster}
+        preload="none"
         loop
         muted={isMuted}
         playsInline
@@ -112,7 +116,7 @@ export const VideoDemo = ({ className = "", src }: VideoDemoProps) => {
             video.play().catch(() => undefined);
           }
         }}
-        className="block aspect-video w-full object-contain transition-opacity duration-500 opacity-100"
+        className="aspect-[940/532] w-full object-cover transition-opacity duration-500 opacity-100"
       />
       <button
         type="button"
@@ -120,38 +124,7 @@ export const VideoDemo = ({ className = "", src }: VideoDemoProps) => {
         onClick={handleTogglePlay}
         className="absolute bottom-3 left-3 flex size-10 items-center justify-center rounded-full bg-black/55 backdrop-blur-xl transition-opacity hover:bg-black/70"
       >
-        {isPaused ? (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="size-5 text-white"
-          >
-            <polygon points="6 3 20 12 6 21 6 3" />
-          </svg>
-        ) : (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="size-5 text-white"
-          >
-            <rect x="14" y="4" width="4" height="16" rx="1" />
-            <rect x="6" y="4" width="4" height="16" rx="1" />
-          </svg>
-        )}
+        {isPaused ? <Play className="size-5 text-white" /> : <Pause className="size-5 text-white" />}
       </button>
       <button
         type="button"
@@ -159,41 +132,7 @@ export const VideoDemo = ({ className = "", src }: VideoDemoProps) => {
         onClick={handleToggleMute}
         className="absolute bottom-3 right-3 flex size-10 items-center justify-center rounded-full bg-black/55 backdrop-blur-xl transition-opacity hover:bg-black/70"
       >
-        {isMuted ? (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="size-5 text-white"
-          >
-            <path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z" />
-            <line x1="22" y1="9" x2="16" y2="15" />
-            <line x1="16" y1="9" x2="22" y2="15" />
-          </svg>
-        ) : (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="size-5 text-white"
-          >
-            <path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z" />
-            <path d="M16 9a5 5 0 0 1 0 6" />
-            <path d="M19 5a10 10 0 0 1 0 14" />
-          </svg>
-        )}
+        {isMuted ? <VolumeX className="size-5 text-white" /> : <Volume2 className="size-5 text-white" />}
       </button>
     </div>
   );
