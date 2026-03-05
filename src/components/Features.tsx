@@ -9,13 +9,11 @@ import step1Image from "@/assets/11.png";
 import step2Image from "@/assets/how-step-captura.png";
 import step3Image from "@/assets/how-step-esperando.png";
 import step4Image from "@/assets/how-step-revelado.png";
+import landingVideoSrc from "@/assets/RevelaoComprimido.mp4";
 import { useI18n, translations } from "@/lib/i18n";
 import { VideoDemo } from "@/components/VideoDemo";
 
 const featureImages = [step1Image, step2Image, step3Image, step4Image];
-const landingVideoSrc = "https://res.cloudinary.com/dxsntpljd/video/upload/v1769500843/Mito_Launch_Baja_kkfx2d.mp4";
-const landingVideoPoster =
-  "https://res.cloudinary.com/dxsntpljd/video/upload/so_0,w_1920,q_auto,f_auto/v1769500843/Mito_Launch_Baja_kkfx2d.jpg";
 
 export const Features = () => {
   const { lang } = useI18n();
@@ -189,7 +187,7 @@ export const FeaturesVideo = () => {
             <span className="font-semibold text-foreground">{t.features.videoTitle}</span>
             <span>{t.features.videoSubtitle}</span>
           </div>
-          <VideoDemo src={landingVideoSrc} poster={landingVideoPoster} />
+          <VideoDemo src={landingVideoSrc} />
         </div>
       </div>
     </section>

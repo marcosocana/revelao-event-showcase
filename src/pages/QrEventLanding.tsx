@@ -9,7 +9,7 @@ import { useI18n, getAccessDemoUrl, translations } from "@/lib/i18n";
 import corazon from "@/assets/corazon.svg";
 import logo from "@/assets/ico.png";
 import phoneMockup from "@/assets/phone-mockup.png";
-import ruedaVideo from "@/assets/Revelao_4.mp4";
+import ruedaVideo from "@/assets/RevelaoComprimido.mp4";
 import stepQr from "@/assets/11.png";
 import stepCapture from "@/assets/22.png";
 import stepAnticipation from "@/assets/33.png";
