@@ -91,7 +91,7 @@ export const VideoDemo = ({ className = "", src, poster }: VideoDemoProps) => {
   return (
     <div
       ref={containerRef}
-      className={`relative mx-auto max-w-[940px] overflow-hidden rounded-[8px] opacity-0 animate-fade-in-up ${className}`}
+      className={`relative mx-auto max-w-[940px] overflow-hidden rounded-[8px] opacity-100 ${className}`}
     >
       <video
         ref={videoRef}
