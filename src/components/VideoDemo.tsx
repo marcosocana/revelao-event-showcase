@@ -10,7 +10,7 @@ type VideoDemoProps = {
 export const VideoDemo = ({ className = "", src, poster }: VideoDemoProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const [isPaused, setIsPaused] = useState(false);
+  const [isPaused, setIsPaused] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
   const [isInView, setIsInView] = useState(true);
 
@@ -35,7 +35,10 @@ export const VideoDemo = ({ className = "", src, poster }: VideoDemoProps) => {
     const video = videoRef.current;
     if (!video) return;
     const tryPlay = () => {
-      video.play().catch(() => undefined);
+      video
+        .play()
+        .then(() => setIsPaused(false))
+        .catch(() => setIsPaused(true));
     };
 
     const handleVisibility = () => {
@@ -72,8 +75,10 @@ export const VideoDemo = ({ className = "", src, poster }: VideoDemoProps) => {
     const video = videoRef.current;
     if (!video) return;
     if (video.paused) {
-      video.play().catch(() => undefined);
-      setIsPaused(false);
+      video
+        .play()
+        .then(() => setIsPaused(false))
+        .catch(() => setIsPaused(true));
       return;
     }
     video.pause();
@@ -116,6 +121,8 @@ export const VideoDemo = ({ className = "", src, poster }: VideoDemoProps) => {
             video.play().catch(() => undefined);
           }
         }}
+        onPlay={() => setIsPaused(false)}
+        onPause={() => setIsPaused(true)}
         className="aspect-[940/532] w-full object-cover transition-opacity duration-500 opacity-100"
       />
       <button
