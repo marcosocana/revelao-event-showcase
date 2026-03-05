@@ -192,6 +192,8 @@ export const PricingModal = ({ open, onOpenChange }: PricingModalProps) => {
   const currentLabel = translatedPlans.find((plan) => plan.planId === currentPlan.planId)?.label ?? currentPlan.planId;
   const currentSubtitle = translatedPlans.find((plan) => plan.planId === currentPlan.planId)?.subtitle ?? "";
   const currentCta = translatedPlans.find((plan) => plan.planId === currentPlan.planId)?.cta ?? t.pricingModal.choose;
+  const normalizedSubtitle = currentSubtitle.trim().toLowerCase();
+  const visibleFeatures = currentFeatures.filter((feature) => feature.trim().toLowerCase() !== normalizedSubtitle);
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -235,7 +237,7 @@ export const PricingModal = ({ open, onOpenChange }: PricingModalProps) => {
             </div>
 
             <ul className="space-y-4 mb-8">
-              {currentFeatures.map((feature, index) => {
+              {visibleFeatures.map((feature, index) => {
                 const normalized = feature.toLowerCase();
                 const isIdeal =
                   normalized.startsWith("ideal para") ||

@@ -48,14 +48,18 @@ const plans = [
 
 const whatsappMessage = "Hola! Estoy interesado en contratar Revelao.cam. ¿Puedes darme más información?";
 
-const PlanCard = ({ plan, perEvent, features }: { plan: { title: string; planId: string; price: string; stripeUrl: string; cta: string; subtitle: string; featured?: boolean; badge?: string; fallbackSubtitle: string }; perEvent: string; features: string[] }) => (
-  <div
-    className={[
-      "relative revelao-card p-5 md:p-6 transition-opacity hover:opacity-90",
-      plan.badge ? "pt-9" : "",
-      plan.featured ? "revelao-card--featured border border-red-400 bg-red-50" : "border-border",
-    ].join(" ")}
-  >
+const PlanCard = ({ plan, perEvent, features }: { plan: { title: string; planId: string; price: string; stripeUrl: string; cta: string; subtitle: string; featured?: boolean; badge?: string; fallbackSubtitle: string }; perEvent: string; features: string[] }) => {
+  const subtitleText = (plan.subtitle || plan.fallbackSubtitle || "").trim().toLowerCase();
+  const visibleFeatures = features.filter((feature) => feature.trim().toLowerCase() !== subtitleText);
+
+  return (
+    <div
+      className={[
+        "relative revelao-card p-5 md:p-6 transition-opacity hover:opacity-90",
+        plan.badge ? "pt-9" : "",
+        plan.featured ? "revelao-card--featured border border-red-400 bg-red-50" : "border-border",
+      ].join(" ")}
+    >
     {plan.badge ? (
       <span className="absolute right-4 top-4 rounded-full bg-primary text-primary-foreground text-xs font-semibold px-3 py-1">
         {plan.badge}
@@ -74,7 +78,7 @@ const PlanCard = ({ plan, perEvent, features }: { plan: { title: string; planId:
     </div>
 
     <ul className="space-y-2.5 mb-5">
-      {features.map((feature) => (
+      {visibleFeatures.map((feature) => (
         (() => {
           const isIdeal =
             feature.toLowerCase().startsWith("ideal para") ||
@@ -101,7 +105,8 @@ const PlanCard = ({ plan, perEvent, features }: { plan: { title: string; planId:
       </a>
     </Button>
   </div>
-);
+  );
+};
 
 export const Pricing = () => {
   const { lang } = useI18n();
