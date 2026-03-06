@@ -56,27 +56,32 @@ export const translations = {
     },
     features: {
       title: "¿Cómo funciona?",
-      subtitle: "Explora la experiencia Revelao en solo 4 pasos:",
+      subtitle: "Explora la experiencia Revelao en solo 5 pasos:",
       steps: [
+        {
+          title: "Crea tu evento en Revelao",
+          description:
+            "Lo primero es dar de alta tu evento en Revelao. Puedes crearlo gratis, configurar el nombre del evento, una descripción y una imagen de fondo personalizada. Se generará un código QR para imprimirlo y colocarlo en carteles, pantallas o donde quieras.",
+        },
         {
           title: "Escanea el código",
           description:
-            "Puede estar en carteles, pantallas, tarjetas, etc... Tus invitados lo deben escanear con sus teléfonos móviles.",
+            "Durante el evento, tus invitados podrán escanear el código QR desde carteles, pantallas, tarjetas, etc., usando sus teléfonos móviles.",
         },
         {
           title: "Captura los mejores momentos",
           description:
-            "Durante el evento, tus invitados pueden subir todas las fotos, vídeos y mensajes de voz que quieran. Es anónimo y privado: sin apps, sin registros y sin dejar datos personales.",
+            "Mientras transcurre el evento, tus invitados pueden subir todas las fotos, vídeos y mensajes de voz que quieran. Es anónimo y privado: sin apps, sin registros y sin dejar datos personales.",
         },
         {
           title: "Espera el revelado",
           description:
-            "Las fotos, vídeos y mensajes de voz permanecen ocultos hasta el Revelado. Nadie puede verlos ni escucharlos antes, creando misterio y emoción.",
+            "Una vez se termina el evento, las fotos, vídeos y mensajes de voz permanecen ocultos hasta el Revelado. Nadie puede verlos ni escucharlos antes, creando misterio y emoción.",
         },
         {
           title: "Por fin llega el revelado",
           description:
-            "Al día siguiente, desde el mismo QR, se abre el Revelado: todas las fotos, vídeos y mensajes de voz aparecen en una galería privada. Así, todos tus invitados podrán ver y escuchar lo de todos y revivir los mejores momentos.",
+            "Al día siguiente del evento, desde el mismo QR, se abre el Revelado: todas las fotos, vídeos y mensajes de voz aparecen en una galería privada. Así, todos tus invitados podrán ver y escuchar lo de todos y revivir los mejores momentos.",
         },
       ],
       videoTitle: "Activa el sonido y siente el hype del revelado.",
@@ -187,7 +192,7 @@ export const translations = {
         {
           q: "¿Cómo funciona Revelao?",
           a:
-            "¡Muy fácil! Contáctanos y te explicamos cómo dar de alta tu evento. Todos los invitados —ya sea en una boda, cumpleaños, cena de empresa o concierto— podrán subir sus fotos, vídeos y mensajes de voz durante el evento. Y aquí viene la magia: al día siguiente ocurre el \"Revelado\". Todo el contenido estará disponible, de forma anónima, en nuestra plataforma para que todos lo disfruten.",
+            "¡Muy fácil! Creas tu evento directamente desde la web en pocos minutos. Configuras nombre, descripción e imagen de fondo, generas tu QR y tus invitados suben fotos, vídeos y mensajes de voz durante el evento. Al día siguiente llega el \"Revelado\" y todo el contenido aparece junto en la galería privada.",
         },
         {
           q: "¿Por qué esperar para ver el contenido?",
@@ -211,7 +216,7 @@ export const translations = {
         {
           q: "¿Qué pasa cuando se revela el contenido?",
           a:
-            "Todos los invitados podrán acceder al mismo QR o entrar en nuestra web para ver el evento. Desde ahí podrán visualizar fotos, vídeos y audios, descargarlos, dar likes, compartirlos y mucho más.",
+            "Todos los invitados podrán acceder al mismo QR o entrar en la web para ver el evento. Desde ahí podrán visualizar fotos, vídeos y mensajes de voz, descargarlos, dar likes, compartirlos y mucho más.",
         },
         {
           q: "¿Es seguro?",
@@ -335,8 +340,13 @@ export const translations = {
     },
     features: {
       title: "How it works",
-      subtitle: "Explore the Revelao experience in just 4 steps:",
+      subtitle: "Explore the Revelao experience in just 5 steps:",
       steps: [
+        {
+          title: "Create your event in Revelao",
+          description:
+            "First, create your event in Revelao. You can start for free, set the event name, add a description and a custom background image. You will get a QR code to print and place on posters, screens, or wherever you want.",
+        },
         {
           title: "Scan the QR code",
           description:
@@ -466,12 +476,12 @@ export const translations = {
         {
           q: "How does Revelao work?",
           a:
-            "Very easy! Contact us and we’ll explain how to set up your event. Guests can upload photos during the event. The next day comes the reveal: all images are available anonymously for everyone to enjoy.",
+            "It’s very simple: you create your event directly on the website in minutes. You set the name, description and background image, generate the QR, and guests upload photos, videos and voice notes during the event. The next day, the reveal opens and all content appears together in the private gallery.",
         },
         {
-          q: "Why wait to see the photos?",
+          q: "Why wait to see the content?",
           a:
-            "Because it’s the essence of Revelao.cam: bringing back the excitement of not knowing until the reveal.",
+            "Because that’s the essence of Revelao.cam: bringing back the excitement of not knowing what was captured until the reveal.",
         },
         {
           q: "Do I need to install anything?",
@@ -484,18 +494,18 @@ export const translations = {
             "Yes, Revelao.cam is optimized for mobile (iOS and Android) and desktop. Just use an updated browser.",
         },
         {
-          q: "How many photos can I take?",
-          a: "Each plan has specific features. Choose the one that best fits your event.",
+          q: "How much content can I upload?",
+          a: "Each plan includes a specific number of photos, videos and voice notes (or unlimited, depending on plan). Choose the one that best fits your event.",
         },
         {
-          q: "What happens when photos are revealed?",
+          q: "What happens when content is revealed?",
           a:
-            "Guests can access the same QR or the website to view, download, like and share all photos.",
+            "Guests can access the same QR or the website to view, download, like and share photos, videos and voice notes.",
         },
         {
           q: "Is it safe?",
           a:
-            "Yes. Your photos are private and only people with the QR code can see them.",
+            "Yes. Your content is private and only people with the QR code can access it.",
         },
         {
           q: "How much does it cost?",
@@ -615,8 +625,13 @@ export const translations = {
     },
     features: {
       title: "Come funziona",
-      subtitle: "Scopri l’esperienza Revelao in soli 4 passaggi:",
+      subtitle: "Scopri l’esperienza Revelao in soli 5 passaggi:",
       steps: [
+        {
+          title: "Crea il tuo evento su Revelao",
+          description:
+            "Per prima cosa crea il tuo evento su Revelao. Puoi farlo gratis, impostare il nome dell’evento, una descrizione e un’immagine di sfondo personalizzata. Verrà generato un codice QR da stampare e posizionare su poster, schermi o dove preferisci.",
+        },
         {
           title: "Scansiona il QR",
           description:
@@ -746,12 +761,12 @@ export const translations = {
         {
           q: "Come funziona Revelao?",
           a:
-            "È semplice! Contattaci e ti spieghiamo come creare l’evento. Gli invitati caricano le foto durante l’evento, e il giorno dopo avviene la rivelazione.",
+            "È semplicissimo: crei il tuo evento direttamente dal sito in pochi minuti. Imposti nome, descrizione e immagine di sfondo, generi il QR e gli invitati caricano foto, video e messaggi vocali durante l’evento. Il giorno dopo arriva la rivelazione e tutto il contenuto appare insieme nella galleria privata.",
         },
         {
-          q: "Perché aspettare per vedere le foto?",
+          q: "Perché aspettare per vedere i contenuti?",
           a:
-            "Perché è l’essenza di Revelao.cam: l’emozione della rivelazione.",
+            "Perché è l’essenza di Revelao.cam: l’emozione di non sapere cosa è stato catturato fino alla rivelazione.",
         },
         {
           q: "Devo installare qualcosa?",
@@ -764,18 +779,18 @@ export const translations = {
             "Sì, Revelao.cam è ottimizzato per mobile e desktop. Usa un browser aggiornato.",
         },
         {
-          q: "Quante foto posso fare?",
-          a: "Ogni piano ha caratteristiche specifiche. Scegli quello più adatto al tuo evento.",
+          q: "Quanti contenuti posso caricare?",
+          a: "Ogni piano include un numero specifico di foto, video e messaggi vocali (o illimitato, in base al piano). Scegli quello più adatto al tuo evento.",
         },
         {
-          q: "Cosa succede quando le foto vengono rivelate?",
+          q: "Cosa succede quando i contenuti vengono rivelati?",
           a:
-            "Gli invitati possono accedere al QR o al sito per vedere, scaricare e condividere le foto.",
+            "Gli invitati possono accedere al QR o al sito per vedere, scaricare, mettere like e condividere foto, video e messaggi vocali.",
         },
         {
           q: "È sicuro?",
           a:
-            "Sì. Le foto sono private e solo chi ha il QR può vederle.",
+            "Sì. I contenuti sono privati e solo chi ha il QR può vederli o ascoltarli.",
         },
         {
           q: "Quanto costa?",

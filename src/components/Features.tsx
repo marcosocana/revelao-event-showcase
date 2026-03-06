@@ -5,19 +5,21 @@ import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import step0Image from "@/assets/Group3535.png";
 import step1Image from "@/assets/11.png";
 import step2Image from "@/assets/how-step-captura.png";
 import step3Image from "@/assets/how-step-esperando.png";
 import step4Image from "@/assets/how-step-revelado.png";
 import landingVideoSrc from "@/assets/RevelaoComprimido.mp4";
-import { useI18n, translations } from "@/lib/i18n";
+import { getAccessDemoUrl, useI18n, translations } from "@/lib/i18n";
 import { VideoDemo } from "@/components/VideoDemo";
 
-const featureImages = [step1Image, step2Image, step3Image, step4Image];
+const featureImages = [step0Image, step1Image, step2Image, step3Image, step4Image];
 
 export const Features = () => {
   const { lang } = useI18n();
   const t = translations[lang];
+  const accessDemoUrl = getAccessDemoUrl(lang);
   const sectionRef = useRef<HTMLElement | null>(null);
   const swiperRef = useRef<import("swiper").Swiper | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -55,11 +57,11 @@ export const Features = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-12 md:py-24 bg-transparent" id="como-funciona">
+    <section ref={sectionRef} className="py-8 md:py-8 bg-transparent" id="como-funciona">
       <div className="container px-4 mx-auto">
-        <div className="revelao-card no-card-hover overflow-visible px-4 py-6 md:px-12 md:py-12 bg-[radial-gradient(circle_at_20%_10%,rgba(239,68,68,0.28),transparent_55%),radial-gradient(circle_at_85%_85%,rgba(239,68,68,0.18),transparent_60%),linear-gradient(135deg,#f5f5f5,#ffffff)]">
-          <div className="grid min-h-[52vh] grid-cols-1 gap-10 md:min-h-[60vh] lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] items-center">
-            <div className="flex flex-col items-start text-left max-w-xl">
+        <div className="revelao-card no-card-hover overflow-visible px-4 py-3 md:px-10 md:py-3 bg-[radial-gradient(circle_at_20%_10%,rgba(239,68,68,0.28),transparent_55%),radial-gradient(circle_at_85%_85%,rgba(239,68,68,0.18),transparent_60%),linear-gradient(135deg,#f5f5f5,#ffffff)]">
+          <div className="grid min-h-[40vh] grid-cols-1 gap-6 md:min-h-[36vh] lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] items-center">
+            <div className="flex flex-col items-start text-left max-w-lg">
               <h3 className="revelao-h4 mb-1 text-left text-foreground">
                 {t.features.title}
               </h3>
@@ -67,7 +69,7 @@ export const Features = () => {
                 Paso {activeIndex + 1}
               </div>
               <h3
-                className="mt-3 text-[2rem] md:text-[4.125rem] font-semibold tracking-tight leading-[1.12] text-transparent bg-clip-text"
+                className="mt-3 text-[1.75rem] md:text-[3.35rem] font-semibold tracking-tight leading-[1.12] text-transparent bg-clip-text"
                 style={{
                   backgroundImage:
                     "linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary) / 0.7) 100%)",
@@ -78,6 +80,16 @@ export const Features = () => {
               <p className="mt-3 text-sm md:text-lg leading-relaxed text-neutral-600">
                 {features[activeIndex]?.description}
               </p>
+              {activeIndex === 0 ? (
+                <a
+                  href={accessDemoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-5 inline-flex items-center justify-center rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground hover:bg-primary/90"
+                >
+                  {lang === "en" ? "Create event" : lang === "it" ? "Crea evento" : "Crear evento"}
+                </a>
+              ) : null}
 
               <div className="mt-8 flex items-center gap-3 w-full max-w-sm">
                 <button
@@ -162,7 +174,7 @@ export const Features = () => {
                       <img
                         src={feature.image}
                         alt={feature.title}
-                        className="h-[20rem] w-[20rem] md:h-[40rem] md:w-[40rem] object-contain drop-shadow-[0_20px_60px_rgba(0,0,0,0.22)]"
+                        className="h-[25rem] w-[25rem] md:h-[52rem] md:w-[52rem] object-contain drop-shadow-[0_20px_60px_rgba(0,0,0,0.22)]"
                       />
                     </div>
                   </SwiperSlide>
