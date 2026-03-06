@@ -8,7 +8,7 @@ import "swiper/css/pagination";
 import step0Image from "@/assets/Group3535.png";
 import step1Image from "@/assets/11.png";
 import step2Image from "@/assets/how-step-captura.png";
-import step3Image from "@/assets/how-step-esperando.png";
+import step3Image from "@/assets/how-step-captura.png";
 import step4Image from "@/assets/how-step-revelado.png";
 import landingVideoSrc from "@/assets/RevelaoComprimido.mp4";
 import { getAccessDemoUrl, useI18n, translations } from "@/lib/i18n";
