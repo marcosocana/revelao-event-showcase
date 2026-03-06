@@ -66,7 +66,7 @@ export const translations = {
         {
           title: "Escanea el código",
           description:
-            "Durante el evento, tus invitados podrán escanear el código QR desde carteles, pantallas, tarjetas, etc., usando sus teléfonos móviles.",
+            "Durante el evento, tus invitados podrán escanear el código QR usando sus teléfonos móviles.",
         },
         {
           title: "Captura los mejores momentos",
