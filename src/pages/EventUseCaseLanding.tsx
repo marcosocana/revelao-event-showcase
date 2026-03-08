@@ -42,6 +42,14 @@ type UseCaseContent = {
   faqs: Array<{ q: string; a: string }>;
 };
 
+type UseCaseViewCopy = {
+  heroTitle: string;
+  howTitle: string;
+  highlights: string[];
+  ctaTitle: string;
+  ctaText: string;
+};
+
 const contentBySlug: Record<string, UseCaseContent> = {
   bodas: {
     title: "Revelao para Bodas",
@@ -273,6 +281,87 @@ const contentBySlug: Record<string, UseCaseContent> = {
   },
 };
 
+const viewCopyBySlug: Record<string, UseCaseViewCopy> = {
+  bodas: {
+    heroTitle:
+      "Convierte tu boda en una experiencia colectiva con fotos, vídeos y mensajes de voz que se revelan al día siguiente.",
+    howTitle: "¿Cómo funciona en una boda?",
+    highlights: [
+      "Alta del evento en 2 minutos",
+      "Participación rápida de invitados",
+      "Revelado con máxima emoción",
+    ],
+    ctaTitle: "Empieza hoy con tu boda demo gratis",
+    ctaText:
+      "Prueba el flujo real de tu boda: QR, subida de contenido y revelado. Si te encaja, escalas cuando quieras.",
+  },
+  comuniones: {
+    heroTitle:
+      "Crea un recuerdo familiar completo de la Primera Comunión y reúnete al día siguiente para vivir el revelado con todos.",
+    howTitle: "¿Cómo funciona en una Primera Comunión?",
+    highlights: [
+      "Configuración rápida para familias",
+      "Participación simple para todas las edades",
+      "Recuerdo ordenado y compartido",
+    ],
+    ctaTitle: "Empieza hoy con tu demo de Primera Comunión",
+    ctaText:
+      "Activa tu evento, comparte el QR y reúne fotos, vídeos y audios de toda la familia en una sola galería privada.",
+  },
+  cumpleanos: {
+    heroTitle:
+      "Haz de tu cumpleaños una experiencia compartida: todos suben su visión del evento y el revelado lo convierte en un recuerdo único.",
+    howTitle: "¿Cómo funciona en un cumpleaños?",
+    highlights: [
+      "Perfecto para grupos pequeños o grandes",
+      "Subida instantánea sin app",
+      "Revelado que prolonga la fiesta",
+    ],
+    ctaTitle: "Empieza hoy con tu demo de cumpleaños",
+    ctaText:
+      "Monta tu evento en minutos y consigue una galería viva con fotos, vídeos y audios de todos los invitados.",
+  },
+  empresa: {
+    heroTitle:
+      "Centraliza en un solo canal la cobertura real de tu evento corporativo, con participación alta y una experiencia cuidada.",
+    howTitle: "¿Cómo funciona en un evento de empresa?",
+    highlights: [
+      "Activación rápida con QR",
+      "Cobertura colaborativa del equipo",
+      "Contenido listo para comunicación interna",
+    ],
+    ctaTitle: "Empieza hoy con tu demo para empresa",
+    ctaText:
+      "Valida el flujo completo en un evento real y activa una galería privada profesional para tu equipo o clientes.",
+  },
+  conferencias: {
+    heroTitle:
+      "Recoge la perspectiva de asistentes, staff y ponentes para multiplicar el valor de tu conferencia antes y después del evento.",
+    howTitle: "¿Cómo funciona en una conferencia?",
+    highlights: [
+      "Más participación del público",
+      "Cobertura distribuida y ordenada",
+      "Material reutilizable post-evento",
+    ],
+    ctaTitle: "Empieza hoy con tu demo de conferencia",
+    ctaText:
+      "Crea tu evento con QR y reúne contenido de sesiones, networking y backstage en una única experiencia privada.",
+  },
+  "cenas-navidad": {
+    heroTitle:
+      "Haz que la cena de Navidad no termine al acabar la noche: guarda los mejores momentos y revívelos todos juntos en el revelado.",
+    howTitle: "¿Cómo funciona en una cena de Navidad?",
+    highlights: [
+      "Ideal para empresas y grupos",
+      "Momento compartido al día siguiente",
+      "Recuerdos espontáneos en un solo lugar",
+    ],
+    ctaTitle: "Empieza hoy con tu demo de cena de Navidad",
+    ctaText:
+      "Lanza tu evento en minutos y captura la energía de la noche con fotos, vídeos y audios en una galería privada.",
+  },
+};
+
 const EventUseCaseLanding = () => {
   const { slug = "" } = useParams();
   const { lang } = useI18n();
@@ -294,6 +383,7 @@ const EventUseCaseLanding = () => {
   }, [slug]);
 
   const content = useMemo(() => contentBySlug[normalizedSlug] ?? contentBySlug.bodas, [normalizedSlug]);
+  const viewCopy = useMemo(() => viewCopyBySlug[normalizedSlug] ?? viewCopyBySlug.bodas, [normalizedSlug]);
   const useCaseName = content.title.replace("Revelao para ", "");
   const useCaseLower = useCaseName.toLowerCase();
   const heroImages = useMemo(() => {
@@ -374,9 +464,7 @@ const EventUseCaseLanding = () => {
                 <div className="inline-flex items-center rounded-full border border-primary/25 bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-primary">
                   {useCaseName} · Demo gratuita disponible
                 </div>
-                <h1 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
-                  {content.title} con fotos, vídeos y audios en una galería privada con revelado al día siguiente
-                </h1>
+                <h1 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">{viewCopy.heroTitle}</h1>
                 <p className="text-base md:text-lg text-muted-foreground max-w-2xl">{content.subtitle}</p>
                 <div className="flex flex-wrap gap-2">
                   {content.bullets.map((bullet) => (
@@ -445,11 +533,7 @@ const EventUseCaseLanding = () => {
         <section className="section-gray py-8">
           <div className="container px-4 mx-auto">
             <div className="grid gap-4 md:grid-cols-3">
-              {[
-                "Alta del evento en 2 minutos",
-                "Participación rápida de invitados",
-                "Revelado con máxima emoción",
-              ].map((item) => (
+              {viewCopy.highlights.map((item) => (
                 <div key={item} className="revelao-card p-5 text-sm md:text-base font-medium">
                   <div className="flex items-start gap-2">
                     <CheckCircle2 className="h-4 w-4 mt-0.5 text-primary" />
@@ -464,7 +548,7 @@ const EventUseCaseLanding = () => {
         <div className="section-gray">
           <Features
             id={`como-funciona-${normalizedSlug}`}
-            titleOverride={`¿Cómo funciona en ${useCaseLower}?`}
+            titleOverride={viewCopy.howTitle}
             ctaOverride="Crear evento"
             cardClassName="!bg-white"
             stepsOverride={featureSteps}
@@ -504,10 +588,8 @@ const EventUseCaseLanding = () => {
         <section className="section-white pb-12">
           <div className="container px-4 mx-auto">
             <div className="revelao-card !bg-white p-6 md:p-8 text-center">
-              <h2 className="text-2xl md:text-3xl font-semibold">Empieza hoy con tu evento demo gratis</h2>
-              <p className="mt-2 text-muted-foreground max-w-2xl mx-auto">
-                Prueba el flujo real de tu evento: QR, subida de contenido y revelado. Si te encaja, escalas cuando quieras.
-              </p>
+              <h2 className="text-2xl md:text-3xl font-semibold">{viewCopy.ctaTitle}</h2>
+              <p className="mt-2 text-muted-foreground max-w-2xl mx-auto">{viewCopy.ctaText}</p>
               <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
                 <Button className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90" asChild>
                   <a href={accessDemoUrl} target="_blank" rel="noopener noreferrer">
