@@ -16,16 +16,38 @@ import { VideoDemo } from "@/components/VideoDemo";
 
 const featureImages = [step0Image, step1Image, step2Image, step3Image, step4Image];
 
-export const Features = () => {
+type FeatureStepOverride = {
+  title: string;
+  description: string;
+};
+
+type FeaturesProps = {
+  id?: string;
+  titleOverride?: string;
+  stepsOverride?: FeatureStepOverride[];
+  ctaOverride?: string;
+  stepLabelOverride?: string;
+  cardClassName?: string;
+};
+
+export const Features = ({
+  id = "como-funciona",
+  titleOverride,
+  stepsOverride,
+  ctaOverride,
+  stepLabelOverride = "Paso",
+  cardClassName,
+}: FeaturesProps = {}) => {
   const { lang } = useI18n();
   const t = translations[lang];
   const accessDemoUrl = getAccessDemoUrl(lang);
   const sectionRef = useRef<HTMLElement | null>(null);
   const swiperRef = useRef<import("swiper").Swiper | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
-  const features = t.features.steps.map((step, index) => ({
+  const sourceSteps = stepsOverride ?? t.features.steps;
+  const features = sourceSteps.map((step, index) => ({
     ...step,
-    image: featureImages[index],
+    image: featureImages[index % featureImages.length],
   }));
 
   useEffect(() => {
@@ -57,16 +79,18 @@ export const Features = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-8 md:py-8 bg-transparent" id="como-funciona">
+    <section ref={sectionRef} className="py-8 md:py-8 bg-transparent" id={id}>
       <div className="container px-4 mx-auto">
-        <div className="revelao-card no-card-hover overflow-visible px-4 py-3 md:px-10 md:py-3 bg-[radial-gradient(circle_at_20%_10%,rgba(239,68,68,0.28),transparent_55%),radial-gradient(circle_at_85%_85%,rgba(239,68,68,0.18),transparent_60%),linear-gradient(135deg,#f5f5f5,#ffffff)]">
+        <div
+          className={`revelao-card no-card-hover overflow-visible px-4 py-3 md:px-10 md:py-3 bg-[radial-gradient(circle_at_20%_10%,rgba(239,68,68,0.28),transparent_55%),radial-gradient(circle_at_85%_85%,rgba(239,68,68,0.18),transparent_60%),linear-gradient(135deg,#f5f5f5,#ffffff)] ${cardClassName ?? ""}`}
+        >
           <div className="grid min-h-[40vh] grid-cols-1 gap-6 md:min-h-[36vh] lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] items-center">
             <div className="flex flex-col items-start text-left max-w-lg">
               <h3 className="revelao-h4 mb-1 text-left text-foreground">
-                {t.features.title}
+                {titleOverride ?? t.features.title}
               </h3>
               <div className="mt-6 text-sm font-semibold text-neutral-500 uppercase tracking-[0.2em]">
-                Paso {activeIndex + 1}
+                {stepLabelOverride} {activeIndex + 1}
               </div>
               <h3
                 className="mt-3 text-[1.75rem] md:text-[3.35rem] font-semibold tracking-tight leading-[1.12] text-transparent bg-clip-text"
@@ -87,7 +111,7 @@ export const Features = () => {
                   rel="noopener noreferrer"
                   className="mt-5 inline-flex items-center justify-center rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground hover:bg-primary/90"
                 >
-                  {lang === "en" ? "Create event" : lang === "it" ? "Crea evento" : "Crear evento"}
+                  {ctaOverride ?? (lang === "en" ? "Create event" : lang === "it" ? "Crea evento" : "Crear evento")}
                 </a>
               ) : null}
 

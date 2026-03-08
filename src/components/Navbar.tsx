@@ -15,6 +15,16 @@ export const Navbar = () => {
   const accessDemoUrl = getAccessDemoUrl(lang);
   const adminLoginUrl = getAdminLoginUrl(lang);
   const currentFlag = languageOptions.find((option) => option.value === lang)?.flag ?? "🇪🇸";
+  const eventsRoot = "/events";
+  const eventsLabel = lang === "en" ? "Events" : lang === "it" ? "Eventi" : "Eventos";
+  const eventsItems = [
+    { label: lang === "en" ? "Weddings" : lang === "it" ? "Matrimoni" : "Bodas", href: `${eventsRoot}/boda` },
+    { label: lang === "en" ? "Communions" : lang === "it" ? "Comunioni" : "Comuniones", href: `${eventsRoot}/comuniones` },
+    { label: lang === "en" ? "Birthdays" : lang === "it" ? "Compleanni" : "Cumpleaños", href: `${eventsRoot}/cumpleanos` },
+    { label: lang === "en" ? "Companies" : lang === "it" ? "Aziende" : "Empresa", href: `${eventsRoot}/empresa` },
+    { label: lang === "en" ? "Conferences" : lang === "it" ? "Conferenze" : "Conferencias", href: `${eventsRoot}/conferencias` },
+    { label: lang === "en" ? "Christmas Dinners" : lang === "it" ? "Cene di Natale" : "Cenas de navidad", href: `${eventsRoot}/cenas-navidad` },
+  ];
 
   return <nav className="fixed top-0 left-0 right-0 z-[9999] bg-white backdrop-blur-xl border-b border-border/60 supports-[backdrop-filter]:bg-white">
       <div className="container px-4 mx-auto">
@@ -35,15 +45,29 @@ export const Navbar = () => {
               <a href="#como-funciona" className="text-muted-foreground hover:text-foreground transition-colors">
                 {t.nav.how}
               </a>
-              <a href="#casos-de-exito" className="text-muted-foreground hover:text-foreground transition-colors">
-                {t.nav.testimonials}
-              </a>
-              <a href="#plantillas" className="text-muted-foreground hover:text-foreground transition-colors">
-                {t.nav.templates}
-              </a>
               <a href="#precio" className="text-muted-foreground hover:text-foreground transition-colors">
                 {t.nav.pricing}
               </a>
+              <div className="relative group">
+                <button type="button" className="text-muted-foreground hover:text-foreground transition-colors">
+                  {eventsLabel}
+                </button>
+                <div className="invisible opacity-0 group-hover:visible group-hover:opacity-100 absolute left-0 top-full mt-2 w-56 rounded-xl border border-border bg-white shadow-xl transition-all duration-150 z-[10000]">
+                  <div className="py-2">
+                    {eventsItems.map((item) => (
+                      <a
+                        key={item.href}
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block px-4 py-2 text-sm text-muted-foreground hover:bg-muted hover:text-foreground"
+                      >
+                        {item.label}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </div>
               <a href="#blog" className="text-muted-foreground hover:text-foreground transition-colors">
                 {t.nav.blog}
               </a>

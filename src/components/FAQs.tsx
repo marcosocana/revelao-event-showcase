@@ -3,23 +3,28 @@ import { useI18n, translations } from "@/lib/i18n";
 
 type FAQsProps = {
   className?: string;
+  title?: string;
+  subtitle?: string;
+  items?: Array<{ q: string; a: string }>;
 };
 
-export const FAQs = ({ className }: FAQsProps) => {
+export const FAQs = ({ className, title, subtitle, items: itemsOverride }: FAQsProps) => {
   const { lang } = useI18n();
   const t = translations[lang];
-  const faqs = t.faqs.items;
+  const faqs = itemsOverride ?? t.faqs.items;
   const [openIndex, setOpenIndex] = useState(-1);
   const items = useMemo(() => faqs.map((faq, index) => ({ ...faq, index })), [faqs]);
   return (
     <div className={className}>
       <div className="text-center mb-8 md:mb-10 animate-fade-in">
         <h2 className="revelao-h2 mb-2 text-center">
-          {t.faqs.title}
+          {title ?? t.faqs.title}
         </h2>
-        <p className="revelao-h3 mb-2 text-center">
-          {t.faqs.subtitle}
-        </p>
+        {(subtitle ?? t.faqs.subtitle) ? (
+          <p className="revelao-h3 mb-2 text-center">
+            {subtitle ?? t.faqs.subtitle}
+          </p>
+        ) : null}
       </div>
 
       <div className="animate-fade-in-up opacity-100 flex w-full max-w-[680px] flex-col gap-3 pt-0 mx-auto">
