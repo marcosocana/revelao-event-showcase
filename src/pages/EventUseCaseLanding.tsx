@@ -61,13 +61,15 @@ const contentBySlug: Record<string, UseCaseContent> = {
       "Galería privada con revelado al día siguiente",
     ],
     intro:
-      "En una boda hay cientos de momentos que los novios no llegan a ver en directo. Revelao centraliza todo lo que capturan tus invitados en una sola galería privada para que no se pierda nada: fotos espontáneas, vídeos emocionales y mensajes de voz únicos.",
+      "En una boda suceden cientos de momentos que los novios no llegan a ver en directo. Revelao reúne en una sola galería privada todo lo que capturan vuestros invitados para que no se pierda nada: fotos espontáneas, vídeos llenos de emoción y mensajes de voz que os harán volver a ese día.",
     valueTitle: "¿Por qué funciona tan bien en bodas?",
     valuePoints: [
-      "Participación alta desde el minuto uno: escanean el QR y suben en segundos.",
-      "Sin fricción: no hay que instalar apps ni crear cuentas.",
-      "Misterio y emoción: nada se ve en tiempo real y todo aparece junto en el Revelado.",
-      "Recuerdo colectivo real: todos pueden ver y escuchar lo de todos al día siguiente.",
+      "Momentos que no visteis: Mientras estáis viviendo vuestro gran día, pasan muchas cosas a vuestro alrededor: abrazos, lágrimas, risas, bailes y escenas que también forman parte de vuestra historia.",
+      "Participación natural: Tus invitados solo tienen que escanear el QR para empezar a subir contenido. Es tan fácil que participa mucha más gente, desde el cóctel hasta la fiesta.",
+      "Sin apps ni registros: Nadie tiene que descargar nada ni crear una cuenta. Cuanta menos fricción hay, más espontánea es la participación y más recuerdos se generan.",
+      "Fotos, vídeos y audios: No todo se recuerda mejor con una foto. Revelao también recoge vídeos y mensajes de voz para que la experiencia sea más viva, más completa y mucho más emocional.",
+      "La emoción de esperar: Durante la boda, nada se muestra en tiempo real. Todo permanece oculto hasta el día siguiente, creando expectación y haciendo que el Revelado se viva como un momento especial.",
+      "Un recuerdo compartido de verdad: Al día siguiente, todos descubrís la galería privada con las aportaciones de todos. Una boda vista desde muchas miradas, reunida en un solo lugar.",
     ],
     flowTitle: "Cómo aplicarlo en tu boda",
     flowSteps: [
@@ -283,8 +285,7 @@ const contentBySlug: Record<string, UseCaseContent> = {
 
 const viewCopyBySlug: Record<string, UseCaseViewCopy> = {
   bodas: {
-    heroTitle:
-      "Convierte tu boda en una experiencia colectiva con fotos, vídeos y mensajes de voz que se revelan al día siguiente.",
+    heroTitle: "La boda se vive una vez. El recuerdo puede descubrirse dos veces.",
     howTitle: "¿Cómo funciona en una boda?",
     highlights: [
       "Alta del evento en 2 minutos",
@@ -420,11 +421,17 @@ const EventUseCaseLanding = () => {
     "Recuerdo compartido",
   ];
   const iconCycle = [QrCode, Camera, Video, Mic, Sparkles, Heart];
-  const differentials = content.valuePoints.map((point, index) => ({
-    icon: iconCycle[index % iconCycle.length],
-    title: cardTitles[index % cardTitles.length],
-    text: point,
-  }));
+  const differentials = content.valuePoints.map((point, index) => {
+    const separatorIndex = point.indexOf(":");
+    const hasSeparator = separatorIndex > 0;
+    const title = hasSeparator ? point.slice(0, separatorIndex).trim() : cardTitles[index % cardTitles.length];
+    const text = hasSeparator ? point.slice(separatorIndex + 1).trim() : point;
+    return {
+      icon: iconCycle[index % iconCycle.length],
+      title,
+      text,
+    };
+  });
 
   const featureSteps = content.flowSteps.map((step, index) => ({
     title: `Paso ${index + 1}`,
