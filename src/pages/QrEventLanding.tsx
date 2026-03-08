@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
 import { useLocation } from "react-router-dom";
-import Lottie from "lottie-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
@@ -23,7 +22,6 @@ import template1 from "@/assets/Plantilla1.png";
 import template2 from "@/assets/Plantilla2.png";
 import template3 from "@/assets/Plantilla3.png";
 import template4 from "@/assets/template-4.png";
-import eventQrLottie from "@/assets/event-qr-lottie.json";
 import WhatsAppFloating from "@/components/WhatsAppFloating";
 
 const getLangFromPath = (pathname: string) => {
@@ -590,7 +588,7 @@ const QrEventLanding = () => {
         <section className="py-12 md:py-16">
           <div className="container px-4 mx-auto flex justify-center">
             <div className="w-full max-w-5xl">
-              <Lottie animationData={eventQrLottie} loop autoplay className="w-full h-auto" />
+              <img src={bodaQrImage} alt="Evento QR" className="w-full h-auto rounded-xl object-cover" />
             </div>
           </div>
         </section>

@@ -1,4 +1,5 @@
 import icon from "@/assets/ico.png";
+import { useLocation } from "react-router-dom";
 
 type FooterProps = {
   text?: string;
@@ -7,6 +8,13 @@ type FooterProps = {
 };
 
 export const Footer = ({ text, keywordsTitle, keywords = [] }: FooterProps) => {
+  const { pathname } = useLocation();
+  const langPrefix = pathname.startsWith("/en")
+    ? "/en"
+    : pathname.startsWith("/it")
+      ? "/it"
+      : "";
+
   return (
     <footer className="py-10 border-t border-border">
       <div className="container px-4 mx-auto">
@@ -38,17 +46,22 @@ export const Footer = ({ text, keywordsTitle, keywords = [] }: FooterProps) => {
           ) : null}
         </div>
 
-        <div className="mt-8 flex items-center justify-between md:justify-center">
+        <div className="mt-8 flex flex-wrap items-center justify-between gap-3 md:justify-center">
           <div className="flex items-center gap-2 md:hidden">
             <img src={icon} alt="Revelao" className="h-5 w-auto" />
             <span className="text-sm font-semibold text-foreground">Revelao.cam</span>
           </div>
-          <a
-            href="/blog/admin"
-            className="text-xs text-muted-foreground hover:text-foreground transition-colors"
-          >
-            © 2026 Revelao.cam
-          </a>
+          <div className="flex items-center gap-4 text-xs text-muted-foreground">
+            <a href={`${langPrefix}/terms`} className="hover:text-foreground transition-colors">
+              Términos y condiciones
+            </a>
+            <a href={`${langPrefix}/privacy`} className="hover:text-foreground transition-colors">
+              Política de privacidad
+            </a>
+            <a href="/blog/admin" className="hover:text-foreground transition-colors">
+              © 2026 Revelao.cam
+            </a>
+          </div>
         </div>
       </div>
     </footer>
