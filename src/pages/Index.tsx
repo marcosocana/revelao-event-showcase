@@ -48,6 +48,27 @@ const Index = () => {
     },
   ];
 
+  const openExample = (url: string) => {
+    if (typeof window === "undefined") return;
+
+    const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
+    if (isDesktop) {
+      const width = 430;
+      const height = 860;
+      const left = window.screenX + Math.max(0, (window.outerWidth - width) / 2);
+      const top = window.screenY + Math.max(0, (window.outerHeight - height) / 2);
+      const features = `popup=yes,width=${width},height=${height},left=${Math.round(left)},top=${Math.round(top)},resizable=yes,scrollbars=yes`;
+      const popup = window.open("", "revelao-mobile-preview", features);
+      if (popup) {
+        popup.location.href = url;
+        popup.focus();
+        return;
+      }
+    }
+
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
+
   useEffect(() => {
     const saved = localStorage.getItem("revelao-lang");
     if (saved) return;
@@ -172,23 +193,23 @@ const Index = () => {
               <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
                 {exampleCards.map((card) => (
                   <div key={card.title} className="revelao-card no-card-hover p-6 flex flex-col items-center text-center gap-5">
-                    <a
-                      href={card.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <button
+                      type="button"
+                      onClick={() => openExample(card.url)}
                       className="rounded-xl bg-white p-3 border border-border inline-flex"
-                      aria-label={`Abrir ${card.title}`}
+                      aria-label={`Ver ejemplo: ${card.title}`}
                     >
                       <img src={card.qrSrc} alt={card.title} className="h-[132px] w-[132px] object-contain" />
-                    </a>
+                    </button>
                     <div className="space-y-1">
                       <h3 className="text-xl font-semibold text-foreground">{card.title}</h3>
                       <p className="text-sm text-muted-foreground">{card.description}</p>
                     </div>
-                    <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full" asChild>
-                      <a href={card.url} target="_blank" rel="noopener noreferrer">
+                    <Button
+                      className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full"
+                      onClick={() => openExample(card.url)}
+                    >
                         Ver ejemplo
-                      </a>
                     </Button>
                   </div>
                 ))}
