@@ -279,8 +279,11 @@ const Index = () => {
                 Cerrar
               </Button>
             </div>
-            <div className="flex flex-1 items-center justify-center" onClick={(e) => e.stopPropagation()}>
-              <div className="relative h-[85vh] max-h-[852px] w-auto max-w-[95vw] aspect-[393/852]">
+            <div className="flex flex-1 items-center justify-center">
+              <div
+                className="relative h-[85vh] max-h-[852px] w-auto max-w-[95vw] aspect-[393/852]"
+                onClick={(e) => e.stopPropagation()}
+              >
                 <button
                   type="button"
                   onClick={closeExampleModal}
