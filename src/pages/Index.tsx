@@ -42,7 +42,7 @@ const Index = () => {
   const exampleCards = [
     {
       title: "Evento en curso",
-      description: "Mira cómo se ve y funciona un evento mientras sigue activo.",
+      description: "Mira cómo se ve y funciona un evento mientras está activo.",
       url: "https://acceso.revelao.cam/events/KrErAopl",
       qrSrc: qrExampleInProgress,
     },
