@@ -804,6 +804,7 @@ All colors MUST be HSL.
     padding-right: 16px !important;
     transition: none;
     border-radius: 9999px !important;
+    box-shadow: none !important;
   }
 
   :root[data-scrolled="true"] .heroCtaWrap {
