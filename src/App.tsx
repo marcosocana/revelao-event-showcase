@@ -12,6 +12,7 @@ import PruebasLanding from "./pages/PruebasLanding";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import EventUseCaseLanding from "./pages/EventUseCaseLanding";
+import DemoEnvironment from "./pages/DemoEnvironment";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { LanguageProvider } from "@/lib/i18n";
 
@@ -34,6 +35,7 @@ const App = () => (
             <Route path="/events/:slug" element={<EventUseCaseLanding />} />
             <Route path="/en/events/:slug" element={<EventUseCaseLanding />} />
             <Route path="/it/eventi/:slug" element={<EventUseCaseLanding />} />
+            <Route path="/entornodemo" element={<DemoEnvironment />} />
             <Route path="/terms" element={<TermsAndConditions />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/en/terms" element={<TermsAndConditions />} />
