@@ -198,7 +198,7 @@ export const Features = ({
                       <img
                         src={feature.image}
                         alt={feature.title}
-                        className="h-[25rem] w-[25rem] md:h-[52rem] md:w-[52rem] object-contain drop-shadow-[0_20px_60px_rgba(0,0,0,0.22)]"
+                        className="h-[25rem] w-[25rem] md:h-[52rem] md:w-[52rem] object-contain drop-shadow-[0_8px_20px_rgba(0,0,0,0.06)]"
                       />
                     </div>
                   </SwiperSlide>
