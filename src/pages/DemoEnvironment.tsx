@@ -56,7 +56,7 @@ const DemoEnvironment = () => {
               {item.url ? (
                 <Button className="mt-3 w-full rounded-full bg-primary text-primary-foreground hover:bg-primary/90" asChild>
                   <a href={item.url} target="_blank" rel="noopener noreferrer">
-                    Ver estado
+                    Ver ejemplo
                   </a>
                 </Button>
               ) : (
