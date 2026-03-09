@@ -105,13 +105,15 @@ const contentBySlug: Record<string, UseCaseContent> = {
       "Recuerdo familiar completo y ordenado",
     ],
     intro:
-      "En una Primera Comunión pasan muchísimas cosas a la vez: ceremonia, fotos familiares, celebración y momentos espontáneos entre amigos. Revelao centraliza todo en un único espacio privado para que no se pierda ningún recuerdo.",
-    valueTitle: "¿Por qué encaja tan bien en una Primera Comunión?",
+      "En una comunión pasan muchos momentos que la familia no alcanza a ver completos: abrazos, juegos, mesas, sorpresas, vídeos espontáneos y pequeños detalles que también forman parte de un día muy especial. Revelao reúne todo lo que capturan vuestros invitados en una sola galería privada para que no se pierda nada.",
+    valueTitle: "La comunión se celebra en un día. Los recuerdos siguen apareciendo después.",
     valuePoints: [
-      "Participan padres, abuelos, padrinos y amigos sin complicaciones técnicas.",
-      "Evitas perder archivos entre grupos de WhatsApp y móviles distintos.",
-      "El revelado genera ilusión y alarga la emoción del día especial.",
-      "Todo queda ordenado en una galería privada lista para compartir en familia.",
+      "Pequeños momentos que también importan: Mientras disfrutáis de la celebración, van ocurriendo escenas alrededor que merecen quedar guardadas: saludos, risas, reencuentros y gestos espontáneos.",
+      "Participación desde el principio: Tus invitados solo tienen que escanear el QR para empezar a subir fotos, vídeos y audios en segundos, de forma sencilla y natural.",
+      "Sin apps ni registros: Nadie tiene que descargar nada ni crearse una cuenta. Cuanto más fácil es participar, más contenido se comparte y más completo queda el recuerdo.",
+      "Mucho más que fotos: La comunión no solo se recuerda en imágenes. Revelao también permite guardar vídeos y mensajes de voz para conservar mejor la emoción del día.",
+      "La ilusión del Revelado: Durante la celebración, nada se muestra en tiempo real. Todo permanece oculto hasta después, haciendo que el Revelado se convierta en un momento especial.",
+      "Un recuerdo para toda la familia: Al día siguiente, todos podéis entrar en la galería privada y revivir la comunión desde distintas miradas, en un solo lugar.",
     ],
     flowTitle: "Cómo usar Revelao en una Primera Comunión",
     flowSteps: [
@@ -147,12 +149,15 @@ const contentBySlug: Record<string, UseCaseContent> = {
       "Recuerdos completos del evento",
     ],
     intro:
-      "En los cumpleaños siempre hay momentos espontáneos que no entran en la cámara principal. Revelao te ayuda a capturarlos todos.",
+      "En un cumpleaños siempre pasan momentos que el anfitrión no llega a ver del todo: risas improvisadas, sorpresas, brindis, vídeos espontáneos y mensajes que nacen en mitad de la fiesta. Revelao reúne todo lo que capturan tus invitados en una sola galería privada para que no se pierda nada.",
     valueTitle: "Por qué usar Revelao en cumpleaños",
     valuePoints: [
-      "Configuración rápida en pocos minutos.",
-      "Subidas inmediatas sin instalar nada.",
-      "Galería compartida para todos los asistentes.",
+      "Todo lo que no llegaste a ver: Mientras disfrutas de tu cumpleaños, van pasando un montón de momentos a tu alrededor que también merecen quedarse guardados.",
+      "Participación desde el primer minuto: Tus invitados solo tienen que escanear el QR para empezar a subir fotos, vídeos y audios en segundos, sin cortar el ritmo de la celebración.",
+      "Sin apps ni complicaciones: Nadie tiene que descargar nada ni registrarse. Cuanto más fácil es participar, más natural es todo y más recuerdos se generan.",
+      "Recuerdos más vivos: No todo cabe en una foto. Revelao también recoge vídeos y mensajes de voz para que puedas revivir la energía real de la fiesta.",
+      "La sorpresa del Revelado: Durante el cumpleaños, el contenido permanece oculto. Todo se descubre después, haciendo que el Revelado sea parte de la experiencia.",
+      "Una galería compartida de verdad: Al día siguiente, todos podéis entrar en la galería privada y revivir juntos el cumpleaños desde muchas miradas distintas.",
     ],
     flowTitle: "Cómo funciona en cumpleaños",
     flowSteps: [
@@ -310,8 +315,7 @@ const viewCopyBySlug: Record<string, UseCaseViewCopy> = {
       "Activa tu evento, comparte el QR y reúne fotos, vídeos y audios de toda la familia en una sola galería privada.",
   },
   cumpleanos: {
-    heroTitle:
-      "Haz de tu cumpleaños una experiencia compartida: todos suben su visión del evento y el revelado lo convierte en un recuerdo único.",
+    heroTitle: "El cumpleaños dura unas horas. Los recuerdos pueden seguir apareciendo después.",
     howTitle: "¿Cómo funciona en un cumpleaños?",
     highlights: [
       "Perfecto para grupos pequeños o grandes",
