@@ -171,7 +171,7 @@ const Index = () => {
             <div className="container px-4 mx-auto">
               <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
                 {exampleCards.map((card) => (
-                  <div key={card.title} className="revelao-card p-6 flex flex-col items-center text-center gap-5">
+                  <div key={card.title} className="revelao-card no-card-hover p-6 flex flex-col items-center text-center gap-5">
                     <a
                       href={card.url}
                       target="_blank"
