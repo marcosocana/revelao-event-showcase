@@ -17,8 +17,11 @@ import IphoneMockup3D from "@/components/IphoneMockup3D";
 import { TrialReminder } from "@/components/TrialReminder";
 import WhatsAppFloating from "@/components/WhatsAppFloating";
 import { SimpleCTA } from "@/components/SimpleCTA";
+import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 import { useI18n, translations } from "@/lib/i18n";
+import qrExampleInProgress from "@/assets/encurso.png";
+import qrExampleFinished from "@/assets/terminado.png";
 
 const Index = () => {
   const [isPricingModalOpen, setIsPricingModalOpen] = useState(false);
@@ -29,6 +32,21 @@ const Index = () => {
     window.addEventListener('openPricingModal', handleOpenModal);
     return () => window.removeEventListener('openPricingModal', handleOpenModal);
   }, []);
+
+  const exampleCards = [
+    {
+      title: "Evento en curso",
+      description: "Mira cómo se ve y funciona un evento mientras sigue activo.",
+      url: "https://acceso.revelao.cam/events/KrErAopl",
+      qrSrc: qrExampleInProgress,
+    },
+    {
+      title: "Evento terminado",
+      description: "Descubre cómo queda la galería una vez finaliza el evento.",
+      url: "https://acceso.revelao.cam/events/O8igAtwS",
+      qrSrc: qrExampleFinished,
+    },
+  ];
 
   useEffect(() => {
     const saved = localStorage.getItem("revelao-lang");
@@ -143,13 +161,43 @@ const Index = () => {
           <SuccessStories />
         </div>
         <div className="section-white reveal-on-scroll">
-          <Templates />
+          <WhyRevelaoSection />
         </div>
         <div className="section-gray reveal-on-scroll">
           <Pricing />
         </div>
         <div className="section-white reveal-on-scroll">
-          <WhyRevelaoSection />
+          <section className="py-10 md:py-12 bg-transparent">
+            <div className="container px-4 mx-auto">
+              <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+                {exampleCards.map((card) => (
+                  <div key={card.title} className="revelao-card p-6 flex flex-col items-center text-center gap-5">
+                    <a
+                      href={card.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="rounded-xl bg-white p-3 border border-border inline-flex"
+                      aria-label={`Abrir ${card.title}`}
+                    >
+                      <img src={card.qrSrc} alt={card.title} className="h-[132px] w-[132px] object-contain" />
+                    </a>
+                    <div className="space-y-1">
+                      <h3 className="text-xl font-semibold text-foreground">{card.title}</h3>
+                      <p className="text-sm text-muted-foreground">{card.description}</p>
+                    </div>
+                    <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full" asChild>
+                      <a href={card.url} target="_blank" rel="noopener noreferrer">
+                        Ver ejemplo
+                      </a>
+                    </Button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        </div>
+        <div className="section-white reveal-on-scroll">
+          <Templates />
         </div>
         <div className="section-white reveal-on-scroll">
           <BlogSection />
