@@ -19,12 +19,18 @@ import WhatsAppFloating from "@/components/WhatsAppFloating";
 import { SimpleCTA } from "@/components/SimpleCTA";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
+import { X } from "lucide-react";
 import { useI18n, translations } from "@/lib/i18n";
 import qrExampleInProgress from "@/assets/encurso.png";
 import qrExampleFinished from "@/assets/terminado.png";
 
 const Index = () => {
   const [isPricingModalOpen, setIsPricingModalOpen] = useState(false);
+  const [exampleModal, setExampleModal] = useState<{ open: boolean; url: string; title: string }>({
+    open: false,
+    url: "",
+    title: "",
+  });
   const { lang, setLang } = useI18n();
 
   useEffect(() => {
@@ -48,25 +54,12 @@ const Index = () => {
     },
   ];
 
-  const openExample = (url: string) => {
-    if (typeof window === "undefined") return;
+  const openExample = (url: string, title: string) => {
+    setExampleModal({ open: true, url, title });
+  };
 
-    const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
-    if (isDesktop) {
-      const width = 430;
-      const height = 860;
-      const left = window.screenX + Math.max(0, (window.outerWidth - width) / 2);
-      const top = window.screenY + Math.max(0, (window.outerHeight - height) / 2);
-      const features = `popup=yes,width=${width},height=${height},left=${Math.round(left)},top=${Math.round(top)},resizable=yes,scrollbars=yes`;
-      const popup = window.open("", "revelao-mobile-preview", features);
-      if (popup) {
-        popup.location.href = url;
-        popup.focus();
-        return;
-      }
-    }
-
-    window.open(url, "_blank", "noopener,noreferrer");
+  const closeExampleModal = () => {
+    setExampleModal({ open: false, url: "", title: "" });
   };
 
   useEffect(() => {
@@ -165,6 +158,24 @@ const Index = () => {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    if (!exampleModal.open) {
+      document.body.style.overflow = "";
+      return;
+    }
+
+    document.body.style.overflow = "hidden";
+    const handleEsc = (event: KeyboardEvent) => {
+      if (event.key === "Escape") closeExampleModal();
+    };
+
+    window.addEventListener("keydown", handleEsc);
+    return () => {
+      window.removeEventListener("keydown", handleEsc);
+      document.body.style.overflow = "";
+    };
+  }, [exampleModal.open]);
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -195,7 +206,7 @@ const Index = () => {
                   <div key={card.title} className="revelao-card no-card-hover p-6 flex flex-col items-center text-center gap-5">
                     <button
                       type="button"
-                      onClick={() => openExample(card.url)}
+                      onClick={() => openExample(card.url, card.title)}
                       className="rounded-xl bg-white p-3 border border-border inline-flex"
                       aria-label={`Ver ejemplo: ${card.title}`}
                     >
@@ -207,7 +218,7 @@ const Index = () => {
                     </div>
                     <Button
                       className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full"
-                      onClick={() => openExample(card.url)}
+                      onClick={() => openExample(card.url, card.title)}
                     >
                         Ver ejemplo
                     </Button>
@@ -252,6 +263,46 @@ const Index = () => {
           </div>
         </section>
       </main>
+      {exampleModal.open ? (
+        <div
+          className="fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm"
+          onClick={closeExampleModal}
+        >
+          <div className="absolute inset-0 flex flex-col p-4 md:p-6">
+            <div className="mx-auto flex w-full max-w-6xl items-center justify-between pb-4 text-white">
+              <p className="text-sm md:text-base font-medium">{exampleModal.title}</p>
+              <Button
+                variant="secondary"
+                onClick={closeExampleModal}
+                className="bg-white/20 text-white hover:bg-white/30"
+              >
+                Cerrar
+              </Button>
+            </div>
+            <div className="flex flex-1 items-center justify-center" onClick={(e) => e.stopPropagation()}>
+              <div className="relative h-[85vh] max-h-[852px] w-auto max-w-[95vw] aspect-[393/852]">
+                <button
+                  type="button"
+                  onClick={closeExampleModal}
+                  aria-label="Cerrar modal"
+                  className="absolute -right-4 -top-4 z-20 rounded-full bg-black p-2 text-white shadow-lg hover:bg-black/85"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+                <div className="h-full w-full overflow-hidden rounded-[38px] border-[10px] border-black bg-black shadow-2xl">
+                <iframe
+                  src={exampleModal.url}
+                  title={`Preview ${exampleModal.title}`}
+                  className="h-full w-full bg-white"
+                  allow="camera; microphone; autoplay; clipboard-write; web-share"
+                  loading="lazy"
+                />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : null}
       <Footer />
       <WhatsAppFloating />
       <PricingModal open={isPricingModalOpen} onOpenChange={setIsPricingModalOpen} />
