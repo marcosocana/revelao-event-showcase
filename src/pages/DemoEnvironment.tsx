@@ -11,25 +11,25 @@ const demoStates: DemoStateItem[] = [
     title: "Sin empezar",
     description:
       "El evento aun no ha comenzado. Los invitados ven la cuenta atras y no pueden subir contenido.",
-    url: "https://acceso.revelao.cam/events/uI6F2Kfv",
+    url: "https://acceso.revelao.cam/events/uI6F2Kfv?demo_env=1",
   },
   {
     title: "En curso",
     description:
       "El evento esta activo. Los invitados pueden subir fotos, videos y audios en tiempo real.",
-    url: "https://acceso.revelao.cam/events/KrErAopl",
+    url: "https://acceso.revelao.cam/events/KrErAopl?demo_env=1",
   },
   {
     title: "Terminado",
     description:
       "El evento termino y el contenido queda bloqueado hasta la hora configurada del revelado.",
-    url: "https://acceso.revelao.cam/events/p2Yro6yz",
+    url: "https://acceso.revelao.cam/events/p2Yro6yz?demo_env=1",
   },
   {
     title: "Revelado",
     description:
       "El contenido ya esta revelado y disponible en galeria para visualizar, compartir y descargar.",
-    url: "https://acceso.revelao.cam/events/O8igAtwS",
+    url: "https://acceso.revelao.cam/events/O8igAtwS?demo_env=1",
   },
   {
     title: "Caducado",
