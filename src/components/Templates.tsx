@@ -91,7 +91,7 @@ export const Templates = () => {
 
           <div className="mt-8 flex justify-center">
             <a href="/crearplantilla">
-              <Button className="rounded-full bg-[#d62828] px-8 text-white hover:bg-[#b71f1f]">
+              <Button className="rounded-full bg-primary px-8 text-primary-foreground hover:bg-primary/90">
                 Crear plantilla
               </Button>
             </a>
