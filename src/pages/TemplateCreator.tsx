@@ -243,32 +243,32 @@ const buildDefaultLayout = (width: number, height: number): Record<BaseElementKe
   const isLandscape = width > height;
 
   if (!isLandscape) {
-    const titleWidth = width * 0.44;
-    const descriptionWidth = width * 0.56;
-    const portraitQrSize = Math.min(width, height) * 0.27;
-    const portraitLogoWidth = Math.min(width * 0.12, 120);
+    const titleWidth = width * 0.5;
+    const descriptionWidth = width * 0.62;
+    const portraitQrSize = Math.min(width, height) * 0.31;
+    const portraitLogoWidth = Math.min(width * 0.16, 150);
 
     return {
       title: {
         x: width / 2 - titleWidth / 2,
-        y: height * 0.085,
+        y: height * 0.075,
         width: titleWidth,
-        fontSize: Math.round(width * 0.053),
+        fontSize: Math.round(width * 0.061),
       },
       description: {
         x: width / 2 - descriptionWidth / 2,
-        y: height * 0.315,
+        y: height * 0.305,
         width: descriptionWidth,
-        fontSize: Math.round(width * 0.0125),
+        fontSize: Math.round(width * 0.014),
       },
       qr: {
         x: width / 2 - portraitQrSize / 2,
-        y: height * 0.56,
+        y: height * 0.535,
         width: portraitQrSize,
       },
       logo: {
         x: width / 2 - portraitLogoWidth / 2,
-        y: height * 0.91,
+        y: height * 0.895,
         width: portraitLogoWidth,
       },
     };
