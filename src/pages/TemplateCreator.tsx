@@ -15,7 +15,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useToast } from "@/components/ui/use-toast";
-import revelaoLogo from "@/assets/logo-revelao.png";
 
 type TemplateFormat = "table-card" | "entrance-poster" | "table-poster" | "custom";
 type BackgroundMode = "solid" | "gradient" | "image";
@@ -243,32 +242,32 @@ const buildDefaultLayout = (width: number, height: number): Record<BaseElementKe
   const isLandscape = width > height;
 
   if (!isLandscape) {
-    const titleWidth = width * 0.5;
-    const descriptionWidth = width * 0.62;
-    const portraitQrSize = Math.min(width, height) * 0.31;
-    const portraitLogoWidth = Math.min(width * 0.16, 150);
+    const titleWidth = width * 0.54;
+    const descriptionWidth = width * 0.64;
+    const portraitQrSize = Math.min(width, height) * 0.33;
+    const portraitLogoWidth = Math.min(width * 0.13, 120);
 
     return {
       title: {
         x: width / 2 - titleWidth / 2,
-        y: height * 0.075,
+        y: height * 0.07,
         width: titleWidth,
-        fontSize: Math.round(width * 0.061),
+        fontSize: Math.round(width * 0.067),
       },
       description: {
         x: width / 2 - descriptionWidth / 2,
-        y: height * 0.305,
+        y: height * 0.315,
         width: descriptionWidth,
-        fontSize: Math.round(width * 0.014),
+        fontSize: Math.round(width * 0.0148),
       },
       qr: {
         x: width / 2 - portraitQrSize / 2,
-        y: height * 0.535,
+        y: height * 0.53,
         width: portraitQrSize,
       },
       logo: {
         x: width / 2 - portraitLogoWidth / 2,
-        y: height * 0.895,
+        y: height * 0.915,
         width: portraitLogoWidth,
       },
     };
@@ -353,8 +352,6 @@ const PosterCanvas = ({
   onPointerDownElement,
   interactive = false,
 }: PosterProps) => {
-  const logoSrc = logoImageUrl ?? revelaoLogo;
-
   const renderHandle = (key: SelectionKey) => {
     if (!interactive || selectedElement !== key) return null;
     return (
@@ -499,24 +496,26 @@ const PosterCanvas = ({
         </div>
       </button>
 
-      <button
-        type="button"
-        onPointerDown={(event) => onPointerDownElement?.(event, "logo", "move")}
-        onClick={() => onSelectElement?.("logo")}
-        className="absolute bg-transparent p-0"
-        style={{
-          left: `${layout.logo.x}px`,
-          top: `${layout.logo.y}px`,
-          width: `${layout.logo.width}px`,
-          cursor: interactive ? "move" : "default",
-        }}
-      >
-        <div className="relative">
-          <img src={logoSrc} alt="Logo" className="w-full object-contain" />
-          {renderSelection("logo")}
-          {renderHandle("logo")}
-        </div>
-      </button>
+      {logoImageUrl ? (
+        <button
+          type="button"
+          onPointerDown={(event) => onPointerDownElement?.(event, "logo", "move")}
+          onClick={() => onSelectElement?.("logo")}
+          className="absolute bg-transparent p-0"
+          style={{
+            left: `${layout.logo.x}px`,
+            top: `${layout.logo.y}px`,
+            width: `${layout.logo.width}px`,
+            cursor: interactive ? "move" : "default",
+          }}
+        >
+          <div className="relative">
+            <img src={logoImageUrl} alt="Logo" className="w-full object-contain" />
+            {renderSelection("logo")}
+            {renderHandle("logo")}
+          </div>
+        </button>
+      ) : null}
     </div>
   );
 };
