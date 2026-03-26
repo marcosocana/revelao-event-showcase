@@ -13,6 +13,7 @@ import TermsAndConditions from "./pages/TermsAndConditions";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import EventUseCaseLanding from "./pages/EventUseCaseLanding";
 import DemoEnvironment from "./pages/DemoEnvironment";
+import TemplateCreator from "./pages/TemplateCreator";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { LanguageProvider } from "@/lib/i18n";
 
@@ -46,6 +47,7 @@ const App = () => (
             <Route path="/blog/:slug" element={<BlogDetail />} />
             <Route path="/blog/admin" element={<BlogAdmin />} />
             <Route path="/acceso" element={<Navigate to="https://tomorrow-snap-reveal.vercel.app" replace />} />
+            <Route path="/crearplantilla" element={<TemplateCreator />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

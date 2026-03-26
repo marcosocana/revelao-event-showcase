@@ -88,6 +88,14 @@ export const Templates = () => {
               </CarouselContent>
             </Carousel>
           </div>
+
+          <div className="mt-8 flex justify-center">
+            <a href="/crearplantilla">
+              <Button className="rounded-full bg-[#d62828] px-8 text-white hover:bg-[#b71f1f]">
+                Crear plantilla
+              </Button>
+            </a>
+          </div>
         </div>
       </div>
     </section>
