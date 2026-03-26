@@ -242,6 +242,38 @@ const buildDefaultLayout = (width: number, height: number): Record<BaseElementKe
   const logoWidth = Math.min(width * 0.18, 320);
   const isLandscape = width > height;
 
+  if (!isLandscape) {
+    const titleWidth = width * 0.44;
+    const descriptionWidth = width * 0.56;
+    const portraitQrSize = Math.min(width, height) * 0.27;
+    const portraitLogoWidth = Math.min(width * 0.12, 120);
+
+    return {
+      title: {
+        x: width / 2 - titleWidth / 2,
+        y: height * 0.085,
+        width: titleWidth,
+        fontSize: Math.round(width * 0.053),
+      },
+      description: {
+        x: width / 2 - descriptionWidth / 2,
+        y: height * 0.315,
+        width: descriptionWidth,
+        fontSize: Math.round(width * 0.0125),
+      },
+      qr: {
+        x: width / 2 - portraitQrSize / 2,
+        y: height * 0.56,
+        width: portraitQrSize,
+      },
+      logo: {
+        x: width / 2 - portraitLogoWidth / 2,
+        y: height * 0.91,
+        width: portraitLogoWidth,
+      },
+    };
+  }
+
   return {
     title: {
       x: isLandscape ? width * 0.09 : width * 0.13,
@@ -494,13 +526,13 @@ const TemplateCreator = () => {
   const previewAreaRef = useRef<HTMLDivElement>(null);
   const exportRef = useRef<HTMLDivElement>(null);
 
-  const [format, setFormat] = useState<TemplateFormat>("entrance-poster");
+  const [format, setFormat] = useState<TemplateFormat>("custom");
   const [customWidthCm, setCustomWidthCm] = useState("29.7");
   const [customHeightCm, setCustomHeightCm] = useState("42");
 
   const [titleFontId, setTitleFontId] = useState("parisienne");
   const [descriptionFontId, setDescriptionFontId] = useState("system");
-  const [eventName, setEventName] = useState("David y Jose");
+  const [eventName, setEventName] = useState("David y María");
   const [description, setDescription] = useState(DEFAULT_DESCRIPTION);
 
   const [titleColor, setTitleColor] = useState("#5e804b");
