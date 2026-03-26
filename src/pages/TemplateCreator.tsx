@@ -524,6 +524,9 @@ const TemplateCreator = () => {
   const { toast } = useToast();
   const previewAreaRef = useRef<HTMLDivElement>(null);
   const exportRef = useRef<HTMLDivElement>(null);
+  const [isDesktop, setIsDesktop] = useState(() =>
+    typeof window === "undefined" ? true : window.innerWidth >= 1024,
+  );
 
   const [format, setFormat] = useState<TemplateFormat>("custom");
   const [customWidthCm, setCustomWidthCm] = useState("29.7");
@@ -580,6 +583,16 @@ const TemplateCreator = () => {
   const activeTitleFont = FONT_OPTIONS.find((font) => font.id === titleFontId) ?? FONT_OPTIONS[0];
   const activeDescriptionFont =
     FONT_OPTIONS.find((font) => font.id === descriptionFontId) ?? FONT_OPTIONS[0];
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const handleResize = () => setIsDesktop(window.innerWidth >= 1024);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     FONT_OPTIONS.forEach((font) => {
@@ -838,6 +851,19 @@ const TemplateCreator = () => {
       setIsExporting(false);
     }
   };
+
+  if (!isDesktop) {
+    return (
+      <div className="flex min-h-[100dvh] items-center justify-center bg-[#f2f1ed] px-6 py-12">
+        <Card className="w-full max-w-xl border-white/70 bg-white/95 p-8 text-center shadow-[0_24px_80px_-42px_rgba(15,23,42,0.45)]">
+          <p className="text-2xl font-semibold text-slate-900">Creador de plantillas</p>
+          <p className="mt-4 text-base leading-7 text-slate-600">
+            El creador de plantillas de Revelao solo esta disponible en ordenador.
+          </p>
+        </Card>
+      </div>
+    );
+  }
 
   return (
     <div className="h-[100dvh] overflow-hidden bg-[#f2f1ed] px-4 py-4 md:px-6">
