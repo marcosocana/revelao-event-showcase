@@ -631,6 +631,7 @@ const TemplateCreator = () => {
   const [backgroundAspectRatio, setBackgroundAspectRatio] = useState(1);
   const [presetBackgrounds, setPresetBackgrounds] = useState<PresetBackground[]>([]);
   const [isLoadingPresetBackgrounds, setIsLoadingPresetBackgrounds] = useState(true);
+  const [presetBackgroundsError, setPresetBackgroundsError] = useState<string | null>(null);
 
   const [qrImageUrl, setQrImageUrl] = useState<string | null>(null);
   const [logoImageUrl, setLogoImageUrl] = useState<string | null>(null);
@@ -696,6 +697,7 @@ const TemplateCreator = () => {
 
     const loadPresetBackgrounds = async () => {
       setIsLoadingPresetBackgrounds(true);
+      setPresetBackgroundsError(null);
 
       if (!isActive) return;
 
@@ -712,6 +714,11 @@ const TemplateCreator = () => {
       if (rootError) {
         console.error("Error loading preset template backgrounds:", rootError);
         setPresetBackgrounds([]);
+        setPresetBackgroundsError(
+          rootError.message?.toLowerCase().includes("bucket")
+            ? "No se encontró el bucket `plantillas-fondos` en el proyecto de Supabase configurado en esta app."
+            : "No se pudieron cargar los fondos predeterminados desde Supabase.",
+        );
         setIsLoadingPresetBackgrounds(false);
         return;
       }
@@ -760,6 +767,12 @@ const TemplateCreator = () => {
       }
 
       const allFiles = Array.from(filePaths).sort((a, b) => a.localeCompare(b, "es"));
+
+      if (allFiles.length === 0) {
+        setPresetBackgroundsError(
+          "El bucket existe, pero el listado público ha devuelto 0 archivos. Revisa que esta app apunte al proyecto correcto de Supabase y que `anon` pueda listar `storage.objects`.",
+        );
+      }
 
       setPresetBackgrounds(
         allFiles.map((item) => ({
@@ -1386,9 +1399,20 @@ const TemplateCreator = () => {
                           })}
                         </div>
                       ) : (
-                        <p className="text-sm text-slate-500">
-                          No hay fondos publicados en `plantillas-fondos`.
-                        </p>
+                        <div className="space-y-2">
+                          <p className="text-sm text-slate-500">
+                            No hay fondos disponibles para esta configuración.
+                          </p>
+                          {presetBackgroundsError ? (
+                            <p className="text-sm text-amber-700">
+                              {presetBackgroundsError}
+                            </p>
+                          ) : (
+                            <p className="text-sm text-slate-500">
+                              No hay fondos publicados en `plantillas-fondos`.
+                            </p>
+                          )}
+                        </div>
                       )}
                     </div>
                   </div>
