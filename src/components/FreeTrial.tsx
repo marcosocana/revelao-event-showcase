@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Sparkles } from "lucide-react";
 import { getAccessDemoUrl, useI18n, translations } from "@/lib/i18n";
-import bodaQr from "@/assets/boda-qr.png";
+import bodaQr from "@/assets/boda-qr.jpg";
 
 export const FreeTrial = () => {
   const { lang } = useI18n();

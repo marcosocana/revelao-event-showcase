@@ -288,6 +288,9 @@ const formatPresetBackgroundLabel = (path: string) =>
     .trim()
     .replace(/\b\w/g, (char) => char.toUpperCase()) || path;
 
+const IMAGE_PATH_PATTERN = /\.(png|jpe?g|webp|gif|avif|svg)$/i;
+const isImagePath = (value: string) => IMAGE_PATH_PATTERN.test(value);
+
 const buildDefaultLayout = (width: number, height: number): Record<BaseElementKey, EditableElement> => {
   const qrSize = Math.min(width, height) * 0.34;
   const logoWidth = Math.min(width * 0.18, 320);
@@ -694,63 +697,76 @@ const TemplateCreator = () => {
     const loadPresetBackgrounds = async () => {
       setIsLoadingPresetBackgrounds(true);
 
-      const { data, error } = await supabase.storage
-        .from("plantillas-fondos")
-        .list("", {
+      if (!isActive) return;
+
+      const listFolder = async (folderPath: string) =>
+        supabase.storage.from("plantillas-fondos").list(folderPath, {
           limit: 100,
           sortBy: { column: "name", order: "asc" },
         });
 
+      const { data: rootData, error: rootError } = await listFolder("");
+
       if (!isActive) return;
 
-      if (error) {
-        console.error("Error loading preset template backgrounds:", error);
+      if (rootError) {
+        console.error("Error loading preset template backgrounds:", rootError);
         setPresetBackgrounds([]);
         setIsLoadingPresetBackgrounds(false);
         return;
       }
 
-      const folders = (data ?? [])
-        .filter((item) => !item.id)
-        .map((item) => item.name)
-        .filter(Boolean);
+      const filePaths = new Set<string>();
+      const visitedFolders = new Set<string>([""]);
+      const queue: Array<{ folderPath: string; depth: number; entries: Array<{ name: string }> }> = [
+        {
+          folderPath: "",
+          depth: 0,
+          entries: (rootData ?? []).map((item) => ({ name: item.name })),
+        },
+      ];
 
-      const nestedResults = await Promise.all(
-        folders.map(async (folder) => {
-          const { data: nestedData, error: nestedError } = await supabase.storage
-            .from("plantillas-fondos")
-            .list(folder, {
-              limit: 100,
-              sortBy: { column: "name", order: "asc" },
-            });
+      while (queue.length > 0) {
+        const current = queue.shift();
+        if (!current) break;
 
-          if (nestedError) {
-            console.error(`Error loading preset template backgrounds from ${folder}:`, nestedError);
-            return [];
+        for (const entry of current.entries) {
+          const entryPath = current.folderPath ? `${current.folderPath}/${entry.name}` : entry.name;
+
+          if (isImagePath(entryPath)) {
+            filePaths.add(entryPath);
+            continue;
           }
 
-          return (nestedData ?? []).map((item) => ({ ...item, folder }));
-        }),
-      );
+          if (current.depth >= 3 || visitedFolders.has(entryPath)) {
+            continue;
+          }
 
-      const rootFiles = (data ?? [])
-        .filter((item) => item.id)
-        .map((item) => ({ ...item, folder: "" }));
+          visitedFolders.add(entryPath);
+          const { data: nestedData, error: nestedError } = await listFolder(entryPath);
 
-      const allFiles = [...rootFiles, ...nestedResults.flat()]
-        .map((item) => ({
-          ...item,
-          path: item.folder ? `${item.folder}/${item.name}` : item.name,
-        }))
-        .filter((item) => /\.(png|jpe?g|webp|gif|avif|svg)$/i.test(item.name))
-        .sort((a, b) => a.path.localeCompare(b.path, "es"));
+          if (nestedError) {
+            continue;
+          }
+
+          if (nestedData?.length) {
+            queue.push({
+              folderPath: entryPath,
+              depth: current.depth + 1,
+              entries: nestedData.map((item) => ({ name: item.name })),
+            });
+          }
+        }
+      }
+
+      const allFiles = Array.from(filePaths).sort((a, b) => a.localeCompare(b, "es"));
 
       setPresetBackgrounds(
         allFiles.map((item) => ({
-          name: item.name,
-          label: formatPresetBackgroundLabel(item.path),
-          path: item.path,
-          publicUrl: supabase.storage.from("plantillas-fondos").getPublicUrl(item.path).data.publicUrl,
+          name: item.split("/").pop() || item,
+          label: formatPresetBackgroundLabel(item),
+          path: item,
+          publicUrl: supabase.storage.from("plantillas-fondos").getPublicUrl(item).data.publicUrl,
         })),
       );
       setIsLoadingPresetBackgrounds(false);

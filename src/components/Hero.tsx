@@ -10,17 +10,17 @@ export const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const heroTiles = [
-    "/hero/11.png",
-    "/hero/12.png",
-    "/hero/13.png",
-    "/hero/14.png",
-    "/hero/15.png",
-    "/hero/16.png",
-    "/hero/17.png",
-    "/hero/18.png",
-    "/hero/19.png",
-    "/hero/20.png",
-    "/hero/21.png",
+    "/hero/11.jpg",
+    "/hero/12.jpg",
+    "/hero/13.jpg",
+    "/hero/14.jpg",
+    "/hero/15.jpg",
+    "/hero/16.jpg",
+    "/hero/17.jpg",
+    "/hero/18.jpg",
+    "/hero/19.jpg",
+    "/hero/20.jpg",
+    "/hero/21.jpg",
   ];
   const heroVideos = [
     heroVideoEsc1,

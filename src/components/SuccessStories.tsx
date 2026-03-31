@@ -1,9 +1,9 @@
-import testimonial1 from "@/assets/testimonio4-1.png";
-import testimonial2 from "@/assets/testimonio2-2.png";
-import testimonial3 from "@/assets/testimonio3-2.png";
-import testimonial4 from "@/assets/testimonio-6.png";
-import puebloQr from "@/assets/puebloqr.png";
-import nocheQr from "@/assets/nocheqr.png";
+import testimonial1 from "@/assets/testimonio4-1.jpg";
+import testimonial2 from "@/assets/testimonio2-2.jpg";
+import testimonial3 from "@/assets/testimonio3-2.jpg";
+import testimonial4 from "@/assets/testimonio-6.jpg";
+import puebloQr from "@/assets/puebloqr.jpg";
+import nocheQr from "@/assets/nocheqr.jpg";
 import { useEffect, useRef, useState } from "react";
 import { useI18n, translations } from "@/lib/i18n";
 
