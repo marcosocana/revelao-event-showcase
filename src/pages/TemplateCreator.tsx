@@ -15,13 +15,14 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useToast } from "@/components/ui/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 type TemplateFormat = "table-card" | "entrance-poster" | "table-poster" | "custom";
 type BackgroundMode = "solid" | "gradient" | "image";
 type GradientType = "linear" | "radial" | "conic";
 type AlignMode = "left" | "center" | "right";
 type BaseElementKey = "title" | "description" | "qr" | "logo";
-type SelectionKey = BaseElementKey | `decor-${string}`;
+type SelectionKey = "background" | BaseElementKey | `decor-${string}`;
 type FontOption = {
   id: string;
   label: string;
@@ -44,12 +45,26 @@ type DecorativeElement = {
   width: number;
 };
 
+type BackgroundElement = {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+};
+
+type PresetBackground = {
+  name: string;
+  label: string;
+  path: string;
+  publicUrl: string;
+};
+
 type ActiveGesture = {
   key: SelectionKey;
   mode: "move" | "resize";
   startX: number;
   startY: number;
-  origin: EditableElement | DecorativeElement;
+  origin: EditableElement | DecorativeElement | BackgroundElement;
 };
 
 const FONT_OPTIONS: FontOption[] = [
@@ -236,6 +251,43 @@ const readFileAsDataUrl = (file: File) =>
     reader.readAsDataURL(file);
   });
 
+const loadImageDimensions = (src: string) =>
+  new Promise<{ width: number; height: number }>((resolve, reject) => {
+    const image = new Image();
+    image.crossOrigin = "anonymous";
+    image.onload = () => resolve({ width: image.naturalWidth, height: image.naturalHeight });
+    image.onerror = () => reject(new Error("No se pudo cargar la imagen"));
+    image.src = src;
+  });
+
+const buildBackgroundLayout = (
+  canvasWidth: number,
+  canvasHeight: number,
+  imageWidth: number,
+  imageHeight: number,
+): BackgroundElement => {
+  const scale = Math.max(canvasWidth / imageWidth, canvasHeight / imageHeight);
+  const width = imageWidth * scale;
+  const height = imageHeight * scale;
+
+  return {
+    x: (canvasWidth - width) / 2,
+    y: (canvasHeight - height) / 2,
+    width,
+    height,
+  };
+};
+
+const formatPresetBackgroundLabel = (path: string) =>
+  path
+    .split("/")
+    .pop()
+    ?.replace(/\.[^.]+$/, "")
+    .replace(/[-_]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .replace(/\b\w/g, (char) => char.toUpperCase()) || path;
+
 const buildDefaultLayout = (width: number, height: number): Record<BaseElementKey, EditableElement> => {
   const qrSize = Math.min(width, height) * 0.34;
   const logoWidth = Math.min(width * 0.18, 320);
@@ -312,6 +364,7 @@ type PosterProps = {
   canvasHeight: number;
   backgroundCss: string;
   backgroundImageUrl: string | null;
+  backgroundLayout: BackgroundElement | null;
   titleText: string;
   descriptionText: string;
   titleFont: FontOption;
@@ -335,6 +388,7 @@ const PosterCanvas = ({
   canvasHeight,
   backgroundCss,
   backgroundImageUrl,
+  backgroundLayout,
   titleText,
   descriptionText,
   titleFont,
@@ -376,13 +430,36 @@ const PosterCanvas = ({
         width: `${canvasWidth}px`,
         height: `${canvasHeight}px`,
         background: backgroundCss,
-        backgroundImage: backgroundImageUrl ? `url(${backgroundImageUrl})` : undefined,
-        backgroundSize: backgroundImageUrl ? "cover" : undefined,
-        backgroundPosition: backgroundImageUrl ? "center" : undefined,
-        backgroundRepeat: backgroundImageUrl ? "no-repeat" : undefined,
         borderRadius: "4px",
       }}
     >
+      {backgroundImageUrl && backgroundLayout ? (
+        <button
+          type="button"
+          onPointerDown={(event) => onPointerDownElement?.(event, "background", "move")}
+          onClick={() => onSelectElement?.("background")}
+          className="absolute bg-transparent p-0"
+          style={{
+            left: `${backgroundLayout.x}px`,
+            top: `${backgroundLayout.y}px`,
+            width: `${backgroundLayout.width}px`,
+            height: `${backgroundLayout.height}px`,
+            cursor: interactive ? "move" : "default",
+          }}
+        >
+          <div className="relative h-full w-full">
+            <img
+              src={backgroundImageUrl}
+              alt=""
+              className="h-full w-full object-cover"
+              draggable={false}
+            />
+            {renderSelection("background")}
+            {renderHandle("background")}
+          </div>
+        </button>
+      ) : null}
+
       {decorativeElements.map((item) => {
         const key = `decor-${item.id}` as const;
 
@@ -547,6 +624,10 @@ const TemplateCreator = () => {
   const [backgroundColorA, setBackgroundColorA] = useState("#f2ddb2");
   const [backgroundColorB, setBackgroundColorB] = useState("#ead29e");
   const [backgroundImageUrl, setBackgroundImageUrl] = useState<string | null>(null);
+  const [backgroundLayout, setBackgroundLayout] = useState<BackgroundElement | null>(null);
+  const [backgroundAspectRatio, setBackgroundAspectRatio] = useState(1);
+  const [presetBackgrounds, setPresetBackgrounds] = useState<PresetBackground[]>([]);
+  const [isLoadingPresetBackgrounds, setIsLoadingPresetBackgrounds] = useState(true);
 
   const [qrImageUrl, setQrImageUrl] = useState<string | null>(null);
   const [logoImageUrl, setLogoImageUrl] = useState<string | null>(null);
@@ -608,6 +689,81 @@ const TemplateCreator = () => {
   }, []);
 
   useEffect(() => {
+    let isActive = true;
+
+    const loadPresetBackgrounds = async () => {
+      setIsLoadingPresetBackgrounds(true);
+
+      const { data, error } = await supabase.storage
+        .from("plantillas-fondos")
+        .list("", {
+          limit: 100,
+          sortBy: { column: "name", order: "asc" },
+        });
+
+      if (!isActive) return;
+
+      if (error) {
+        console.error("Error loading preset template backgrounds:", error);
+        setPresetBackgrounds([]);
+        setIsLoadingPresetBackgrounds(false);
+        return;
+      }
+
+      const folders = (data ?? [])
+        .filter((item) => !item.id)
+        .map((item) => item.name)
+        .filter(Boolean);
+
+      const nestedResults = await Promise.all(
+        folders.map(async (folder) => {
+          const { data: nestedData, error: nestedError } = await supabase.storage
+            .from("plantillas-fondos")
+            .list(folder, {
+              limit: 100,
+              sortBy: { column: "name", order: "asc" },
+            });
+
+          if (nestedError) {
+            console.error(`Error loading preset template backgrounds from ${folder}:`, nestedError);
+            return [];
+          }
+
+          return (nestedData ?? []).map((item) => ({ ...item, folder }));
+        }),
+      );
+
+      const rootFiles = (data ?? [])
+        .filter((item) => item.id)
+        .map((item) => ({ ...item, folder: "" }));
+
+      const allFiles = [...rootFiles, ...nestedResults.flat()]
+        .map((item) => ({
+          ...item,
+          path: item.folder ? `${item.folder}/${item.name}` : item.name,
+        }))
+        .filter((item) => /\.(png|jpe?g|webp|gif|avif|svg)$/i.test(item.name))
+        .sort((a, b) => a.path.localeCompare(b.path, "es"));
+
+      setPresetBackgrounds(
+        allFiles.map((item) => ({
+          name: item.name,
+          label: formatPresetBackgroundLabel(item.path),
+          path: item.path,
+          publicUrl: supabase.storage.from("plantillas-fondos").getPublicUrl(item.path).data.publicUrl,
+        })),
+      );
+      setIsLoadingPresetBackgrounds(false);
+    };
+
+    void loadPresetBackgrounds();
+
+    return () => {
+      isActive = false;
+    };
+  }, []);
+
+  useEffect(() => {
     setLayout(buildDefaultLayout(canvasWidth, canvasHeight));
     setDecorativeElements((current) =>
       current.map((item) => ({
@@ -617,6 +773,28 @@ const TemplateCreator = () => {
       })),
     );
   }, [canvasHeight, canvasWidth]);
+
+  useEffect(() => {
+    if (!backgroundImageUrl) return;
+
+    setBackgroundLayout((current) => {
+      if (!current) return current;
+      const nextX = Math.min(current.x, canvasWidth - current.width);
+      const nextY = Math.min(current.y, canvasHeight - current.height);
+      const resolvedX = Number.isFinite(nextX) ? nextX : current.x;
+      const resolvedY = Number.isFinite(nextY) ? nextY : current.y;
+
+      if (resolvedX === current.x && resolvedY === current.y) {
+        return current;
+      }
+
+      return {
+        ...current,
+        x: resolvedX,
+        y: resolvedY,
+      };
+    });
+  }, [backgroundImageUrl, canvasHeight, canvasWidth]);
 
   useEffect(() => {
     if (!previewAreaRef.current) return;
@@ -647,6 +825,31 @@ const TemplateCreator = () => {
     const handlePointerMove = (event: PointerEvent) => {
       const dx = (event.clientX - gesture.startX) / previewScale;
       const dy = (event.clientY - gesture.startY) / previewScale;
+
+      if (gesture.key === "background") {
+        setBackgroundLayout((current) => {
+          if (!current) return current;
+
+          if (gesture.mode === "move") {
+            return {
+              ...current,
+              x: (gesture.origin as BackgroundElement).x + dx,
+              y: (gesture.origin as BackgroundElement).y + dy,
+            };
+          }
+
+          const origin = gesture.origin as BackgroundElement;
+          const nextWidth = Math.max(canvasWidth * 0.15, origin.width + dx);
+          const nextHeight = nextWidth / backgroundAspectRatio;
+
+          return {
+            ...current,
+            width: nextWidth,
+            height: nextHeight,
+          };
+        });
+        return;
+      }
 
       if (isDecorativeSelection(gesture.key)) {
         const decorId = gesture.key.replace("decor-", "");
@@ -697,7 +900,7 @@ const TemplateCreator = () => {
       window.removeEventListener("pointermove", handlePointerMove);
       window.removeEventListener("pointerup", handlePointerUp);
     };
-  }, [gesture, previewScale]);
+  }, [backgroundAspectRatio, canvasWidth, gesture, previewScale]);
 
   const handlePointerDownElement = (
     event: ReactPointerEvent,
@@ -710,7 +913,9 @@ const TemplateCreator = () => {
 
     const origin = isDecorativeSelection(key)
       ? decorativeElements.find((item) => item.id === key.replace("decor-", ""))
-      : layout[key];
+      : key === "background"
+        ? backgroundLayout
+        : layout[key];
 
     if (!origin) return;
 
@@ -791,22 +996,78 @@ const TemplateCreator = () => {
     }
   };
 
-  const handleBackgroundImagePick = async (event: ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (!file) return;
-
+  const applyBackgroundImage = async (src: string) => {
     try {
-      const dataUrl = await readFileAsDataUrl(file);
-      setBackgroundImageUrl(dataUrl);
+      const { width, height } = await loadImageDimensions(src);
+      setBackgroundAspectRatio(width / height);
+      setBackgroundLayout(buildBackgroundLayout(canvasWidth, canvasHeight, width, height));
+      setBackgroundImageUrl(src);
       setBackgroundMode("image");
+      setSelectedElement("background");
     } catch {
       toast({
         title: "No se pudo cargar la imagen de fondo",
         description: "Prueba con un archivo PNG o JPG.",
         variant: "destructive",
       });
+    }
+  };
+
+  const handleBackgroundImagePick = async (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    try {
+      const dataUrl = await readFileAsDataUrl(file);
+      await applyBackgroundImage(dataUrl);
     } finally {
       event.target.value = "";
+    }
+  };
+
+  const clearBackgroundImage = () => {
+    setBackgroundImageUrl(null);
+    setBackgroundLayout(null);
+    setBackgroundAspectRatio(1);
+    if (selectedElement === "background") {
+      setSelectedElement(null);
+    }
+  };
+
+  const nudgeBackground = (axis: "x" | "y", delta: number) => {
+    setBackgroundLayout((current) => {
+      if (!current) return current;
+      return {
+        ...current,
+        [axis]: current[axis] + delta,
+      };
+    });
+    setSelectedElement("background");
+  };
+
+  const resizeBackground = (scaleDelta: number) => {
+    setBackgroundLayout((current) => {
+      if (!current) return current;
+      const nextWidth = Math.max(canvasWidth * 0.15, current.width * scaleDelta);
+      const nextHeight = nextWidth / backgroundAspectRatio;
+      return {
+        ...current,
+        width: nextWidth,
+        height: nextHeight,
+      };
+    });
+    setSelectedElement("background");
+  };
+
+  const resetBackgroundFraming = async () => {
+    if (!backgroundImageUrl) return;
+    try {
+      const { width, height } = await loadImageDimensions(backgroundImageUrl);
+      setBackgroundAspectRatio(width / height);
+      setBackgroundLayout(buildBackgroundLayout(canvasWidth, canvasHeight, width, height));
+      setSelectedElement("background");
+    } catch (error) {
+      console.error("Error resetting background framing:", error);
     }
   };
 
@@ -1044,22 +1305,124 @@ const TemplateCreator = () => {
                 )}
               </div>
               {backgroundMode === "image" && (
-                <div className="space-y-2">
-                  <Label htmlFor="background-upload">Imagen de fondo</Label>
-                  <label
-                    htmlFor="background-upload"
-                    className="flex min-h-[116px] cursor-pointer flex-col items-center justify-center rounded-3xl border border-dashed border-[#d8ccb8] bg-white px-4 text-center text-sm text-slate-500 transition hover:border-[#bba17d] hover:bg-[#f7f0e4]"
-                  >
-                    <ImagePlus className="mb-2 h-5 w-5" />
-                    {backgroundImageUrl ? "Cambiar imagen de fondo" : "Subir imagen de fondo"}
-                  </label>
-                  <Input
-                    id="background-upload"
-                    type="file"
-                    accept="image/*"
-                    className="hidden"
-                    onChange={(e) => void handleBackgroundImagePick(e)}
-                  />
+                <div className="space-y-4">
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between gap-3">
+                      <Label>Fondos predeterminados</Label>
+                      {backgroundImageUrl ? (
+                        <div className="flex items-center gap-2">
+                          <Button
+                            type="button"
+                            variant="outline"
+                            size="sm"
+                            onClick={() => setSelectedElement("background")}
+                          >
+                            Seleccionar fondo
+                          </Button>
+                          <Button
+                            type="button"
+                            variant="outline"
+                            size="sm"
+                            onClick={() => void resetBackgroundFraming()}
+                          >
+                            Reset
+                          </Button>
+                          <Button
+                            type="button"
+                            variant="outline"
+                            size="sm"
+                            onClick={clearBackgroundImage}
+                          >
+                            Quitar
+                          </Button>
+                        </div>
+                      ) : null}
+                    </div>
+                    <div className="rounded-3xl border border-[#d8ccb8] bg-white p-3">
+                      {isLoadingPresetBackgrounds ? (
+                        <p className="text-sm text-slate-500">Cargando fondos...</p>
+                      ) : presetBackgrounds.length > 0 ? (
+                        <div className="grid grid-cols-2 gap-3">
+                          {presetBackgrounds.map((item) => {
+                            const isActive = backgroundImageUrl === item.publicUrl;
+                            return (
+                              <button
+                                key={item.path}
+                                type="button"
+                                onClick={() => void applyBackgroundImage(item.publicUrl)}
+                                className={`overflow-hidden rounded-2xl border text-left transition ${
+                                  isActive
+                                    ? "border-slate-900 ring-2 ring-slate-900/15"
+                                    : "border-[#e8ddcd] hover:border-[#bba17d]"
+                                }`}
+                              >
+                                <img
+                                  src={item.publicUrl}
+                                  alt={item.name}
+                                  className="aspect-[4/3] w-full object-cover"
+                                  loading="lazy"
+                                />
+                                <div className="px-3 py-2 text-xs text-slate-600">
+                                  {item.label}
+                                </div>
+                              </button>
+                            );
+                          })}
+                        </div>
+                      ) : (
+                        <p className="text-sm text-slate-500">
+                          No hay fondos publicados en `plantillas-fondos`.
+                        </p>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="background-upload">Imagen de fondo propia</Label>
+                    <label
+                      htmlFor="background-upload"
+                      className="flex min-h-[116px] cursor-pointer flex-col items-center justify-center rounded-3xl border border-dashed border-[#d8ccb8] bg-white px-4 text-center text-sm text-slate-500 transition hover:border-[#bba17d] hover:bg-[#f7f0e4]"
+                    >
+                      <ImagePlus className="mb-2 h-5 w-5" />
+                      {backgroundImageUrl ? "Cambiar imagen de fondo" : "Subir imagen de fondo"}
+                    </label>
+                    <Input
+                      id="background-upload"
+                      type="file"
+                      accept="image/*"
+                      className="hidden"
+                      onChange={(e) => void handleBackgroundImagePick(e)}
+                    />
+                  </div>
+
+                  {backgroundImageUrl ? (
+                    <div className="rounded-3xl border border-[#d8ccb8] bg-white p-4 space-y-4">
+                      <p className="text-sm font-medium text-slate-900">Ajuste del fondo</p>
+                      <div className="grid grid-cols-2 gap-2">
+                        <Button type="button" variant="outline" size="sm" onClick={() => nudgeBackground("x", -20)}>
+                          Mover izq.
+                        </Button>
+                        <Button type="button" variant="outline" size="sm" onClick={() => nudgeBackground("x", 20)}>
+                          Mover der.
+                        </Button>
+                        <Button type="button" variant="outline" size="sm" onClick={() => nudgeBackground("y", -20)}>
+                          Mover arriba
+                        </Button>
+                        <Button type="button" variant="outline" size="sm" onClick={() => nudgeBackground("y", 20)}>
+                          Mover abajo
+                        </Button>
+                        <Button type="button" variant="outline" size="sm" onClick={() => resizeBackground(0.95)}>
+                          Zoom -
+                        </Button>
+                        <Button type="button" variant="outline" size="sm" onClick={() => resizeBackground(1.05)}>
+                          Zoom +
+                        </Button>
+                      </div>
+                      <p className="text-sm text-slate-600">
+                        También puedes moverlo y redimensionarlo directamente desde la previsualización igual que el resto de elementos.
+                      </p>
+                    </div>
+                  ) : null}
                 </div>
               )}
             </div>
@@ -1136,6 +1499,7 @@ const TemplateCreator = () => {
                   canvasHeight={canvasHeight}
                   backgroundCss={backgroundCss}
                   backgroundImageUrl={backgroundMode === "image" ? backgroundImageUrl : null}
+                  backgroundLayout={backgroundMode === "image" ? backgroundLayout : null}
                   titleText={eventName}
                   descriptionText={description}
                   titleFont={activeTitleFont}
@@ -1175,6 +1539,7 @@ const TemplateCreator = () => {
             canvasHeight={canvasHeight}
             backgroundCss={backgroundCss}
             backgroundImageUrl={backgroundMode === "image" ? backgroundImageUrl : null}
+            backgroundLayout={backgroundMode === "image" ? backgroundLayout : null}
             titleText={eventName}
             descriptionText={description}
             titleFont={activeTitleFont}
