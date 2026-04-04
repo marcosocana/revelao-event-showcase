@@ -57,6 +57,7 @@ type PresetBackground = {
   label: string;
   path: string;
   publicUrl: string;
+  thumbnailUrl: string;
 };
 
 type ActiveGesture = {
@@ -780,6 +781,14 @@ const TemplateCreator = () => {
           label: formatPresetBackgroundLabel(item),
           path: item,
           publicUrl: supabase.storage.from("plantillas-fondos").getPublicUrl(item).data.publicUrl,
+          thumbnailUrl: supabase.storage.from("plantillas-fondos").getPublicUrl(item, {
+            transform: {
+              width: 360,
+              height: 270,
+              quality: 60,
+              resize: "cover",
+            },
+          }).data.publicUrl,
         })),
       );
       setIsLoadingPresetBackgrounds(false);
@@ -1386,10 +1395,11 @@ const TemplateCreator = () => {
                                 }`}
                               >
                                 <img
-                                  src={item.publicUrl}
+                                  src={item.thumbnailUrl}
                                   alt={item.name}
                                   className="aspect-[4/3] w-full object-cover"
                                   loading="lazy"
+                                  decoding="async"
                                 />
                                 <div className="px-3 py-2 text-xs text-slate-600">
                                   {item.label}
