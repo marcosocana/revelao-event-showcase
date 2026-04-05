@@ -332,7 +332,6 @@ const QrEventLanding = () => {
                     src={item.img}
                     alt={item.label.title}
                     className="w-[510px] h-[510px] object-contain"
-                    style={{ filter: "grayscale(1) brightness(0)" }}
                   />
                   <div className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full bg-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-foreground">
                     <span className="flex h-6 w-6 items-center justify-center rounded-full bg-primary text-primary-foreground text-[11px] font-bold">
@@ -367,7 +366,6 @@ const QrEventLanding = () => {
                           src={item.img}
                           alt={item.label.title}
                           className="w-[510px] h-[510px] object-contain"
-                          style={{ filter: "grayscale(1) brightness(0)" }}
                         />
                         <div className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full bg-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-foreground">
                           <span className="flex h-6 w-6 items-center justify-center rounded-full bg-primary text-primary-foreground text-[11px] font-bold">
