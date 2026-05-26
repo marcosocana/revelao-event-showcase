@@ -10,6 +10,7 @@
     "blog:publish": "node scripts/publish-blog-post.mjs",
     "blog:publish:today": "node scripts/publish-blog-post.mjs --today",
     "blog:preview": "node scripts/publish-blog-post.mjs --dry-run",
+    "blog:card": "node scripts/generate-blog-card.mjs",
     "blog:generate:today": "node scripts/generate-daily-blog-post.mjs",
     "blog:auto:today": "node scripts/generate-daily-blog-post.mjs --publish",
     "lint": "eslint .",
