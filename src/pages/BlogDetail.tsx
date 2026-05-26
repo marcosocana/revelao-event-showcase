@@ -151,7 +151,7 @@ const BlogDetail = () => {
       <main className="pt-20 container px-4 mx-auto">
         <div className="max-w-3xl mx-auto">
           <Button asChild variant="secondary" size="sm">
-            <a href="/blog">Volver atrás</a>
+            <a href="https://www.revelao.cam">Volver atrás</a>
           </Button>
           <h1 className="mt-6 text-3xl md:text-4xl font-bold tracking-tight text-foreground">
             {post.title}
