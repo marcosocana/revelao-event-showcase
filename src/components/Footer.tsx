@@ -7,6 +7,11 @@ const seoLinks = [
   { href: "/bodas/galeria-privada-boda", label: "Galería privada boda" },
   { href: "/bodas/recopilar-fotos-invitados", label: "Recopilar fotos invitados" },
   { href: "/bodas/fotos-videos-audio-boda", label: "Fotos, vídeos y audios" },
+  { href: "/bodas/codigo-qr-boda", label: "Código QR boda" },
+  { href: "/bodas/subir-fotos-boda-sin-app", label: "Subir fotos sin app" },
+  { href: "/bodas/album-colaborativo-boda", label: "Álbum colaborativo" },
+  { href: "/bodas/revelado-fotos-boda", label: "Revelado fotos boda" },
+  { href: "/bodas/cartel-qr-boda", label: "Cartel QR boda" },
   { href: "/eventos/bodas", label: "Revelao para bodas" },
 ];
 

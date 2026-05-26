@@ -237,8 +237,100 @@ const weddingSeoPages = [
     "Guarda fotos, vídeos y mensajes de audio de tus invitados en una galería privada de boda creada con QR.",
     "fotos boda qr, videos boda invitados, mensajes audio boda, recuerdos de boda",
     "Fotos, vídeos y audios de boda",
+    "Convierte cada móvil de los invitados en una pequeña cámara documental de la boda.",
+    "Es ideal para parejas que quieren conservar no solo imágenes bonitas, sino también voces, movimiento y felicitaciones espontáneas.",
   ],
-].map(([pagePath, title, description, keywords, h1]) => ({
+  [
+    "/bodas/codigo-qr-boda",
+    "Código QR para boda: cómo usarlo para guardar recuerdos",
+    "Descubre cómo usar un código QR en tu boda para que los invitados suban fotos, vídeos y audios sin apps ni complicaciones.",
+    "codigo qr boda, qr boda, qr para fotos de boda, fotos invitados boda",
+    "Código QR para boda",
+    "Un código QR de boda funciona como una puerta directa a la galería privada del evento.",
+    "La clave está en colocarlo donde los invitados ya prestan atención: bienvenida, mesas, barra, photocall y zona de baile.",
+  ],
+  [
+    "/bodas/album-colaborativo-boda",
+    "Álbum colaborativo de boda con fotos de todos los invitados",
+    "Crea un álbum colaborativo de boda donde tus invitados aportan fotos, vídeos y mensajes de audio desde su móvil.",
+    "album colaborativo boda, galeria fotos boda invitados, compartir fotos boda",
+    "Álbum colaborativo de boda",
+    "Un álbum colaborativo permite que la boda se recuerde desde muchas miradas, no solo desde la cámara principal.",
+    "Cada invitado aporta escenas distintas: mesas, abrazos, bailes, risas, brindis y pequeños momentos que completan la historia.",
+  ],
+  [
+    "/bodas/subir-fotos-boda-sin-app",
+    "Subir fotos de boda sin app: la forma más fácil para invitados",
+    "Haz que tus invitados suban fotos de la boda sin instalar ninguna app: solo escanean un QR y comparten sus recuerdos.",
+    "subir fotos boda sin app, fotos boda qr, compartir fotos boda",
+    "Subir fotos de boda sin app",
+    "Cuanta menos fricción tenga el proceso, más invitados participan y más recuerdos llegan a la pareja.",
+    "Eliminar instalaciones, registros y pasos innecesarios es una de las mejores formas de aumentar la participación.",
+  ],
+  [
+    "/bodas/compartir-fotos-boda",
+    "Compartir fotos de boda: cómo reunirlas sin perder calidad",
+    "Consejos para compartir fotos de boda en una galería privada, evitando conversaciones dispersas y archivos perdidos.",
+    "compartir fotos boda, recopilar fotos invitados boda, galeria privada boda",
+    "Compartir fotos de boda",
+    "Compartir fotos después de una boda suele acabar en mensajes sueltos, carpetas incompletas y archivos que nunca llegan.",
+    "Un flujo con QR centraliza el momento de compartir mientras la emoción sigue viva y la participación es más natural.",
+  ],
+  [
+    "/bodas/revelado-fotos-boda",
+    "Revelado de fotos de boda: revive el día desde tus invitados",
+    "El momento del revelado convierte las fotos, vídeos y audios de los invitados en una segunda experiencia emocional tras la boda.",
+    "revelado fotos boda, recuerdos de boda, galeria privada boda",
+    "Revelado de fotos de boda",
+    "El revelado transforma una galería en una experiencia: descubrir después lo que pasó desde la mirada de todos.",
+    "Funciona especialmente bien porque la pareja ya no está pendiente de organizar nada, solo de revivir el día con calma.",
+  ],
+  [
+    "/bodas/cartel-qr-boda",
+    "Cartel QR para boda: dónde ponerlo y qué texto usar",
+    "Ideas para crear un cartel QR de boda que los invitados entiendan rápido y usen para subir sus fotos y vídeos.",
+    "cartel qr boda, codigo qr boda, qr para fotos de boda",
+    "Cartel QR para boda",
+    "Un buen cartel QR debe ser visible, claro y estar cerca de los momentos donde los invitados ya tienen el móvil en la mano.",
+    "El texto debe pedir una acción concreta, como subir fotos de la boda o dejar un recuerdo para el revelado.",
+  ],
+  [
+    "/bodas/tarjetas-qr-boda",
+    "Tarjetas QR para boda: ideas para mesas, invitaciones y detalles",
+    "Usa tarjetas QR en tu boda para que los invitados compartan fotos, vídeos y audios desde cualquier momento del evento.",
+    "tarjetas qr boda, codigo qr boda, compartir fotos boda",
+    "Tarjetas QR para boda",
+    "Las tarjetas QR funcionan muy bien en mesas, invitaciones, minutas y pequeños detalles porque acompañan al invitado de forma natural.",
+    "Son una forma discreta de recordar la dinámica sin interrumpir el ritmo de la celebración.",
+  ],
+  [
+    "/bodas/app-fotos-boda",
+    "App de fotos para boda vs QR sin app: qué elegir",
+    "Compara una app de fotos para boda con una galería QR sin app y descubre qué opción facilita más la participación.",
+    "app fotos boda, subir fotos boda sin app, fotos boda qr",
+    "App de fotos para boda vs QR sin app",
+    "Una app puede parecer completa, pero muchos invitados no quieren descargar nada durante una boda.",
+    "Un QR sin app reduce pasos y hace que compartir recuerdos sea más rápido, especialmente en momentos sociales como el cóctel o la fiesta.",
+  ],
+  [
+    "/bodas/whatsapp-fotos-boda",
+    "Fotos de boda por WhatsApp: por qué se pierden recuerdos",
+    "Enviar fotos de boda por WhatsApp parece cómodo, pero suele mezclar archivos, reducir calidad y dejar recuerdos importantes fuera.",
+    "whatsapp fotos boda, compartir fotos boda, galeria privada boda",
+    "Fotos de boda por WhatsApp",
+    "WhatsApp es útil para hablar, pero no siempre es el mejor lugar para conservar los recuerdos de una boda.",
+    "Una galería privada evita que las fotos se mezclen con conversaciones y permite reunir también vídeos y mensajes de audio.",
+  ],
+  [
+    "/bodas/checklist-fotos-invitados-boda",
+    "Checklist para recopilar fotos de invitados en tu boda",
+    "Una checklist práctica para no perder fotos de invitados: QR, carteles, recordatorios, momentos clave y galería privada.",
+    "checklist fotos boda, recopilar fotos invitados boda, fotos invitados boda",
+    "Checklist para recopilar fotos de invitados",
+    "Preparar el sistema antes de la boda evita tener que perseguir fotos cuando el evento ya ha pasado.",
+    "La mejor estrategia combina QR visible, mensajes claros, recordatorios en momentos clave y una galería privada fácil de usar.",
+  ],
+].map(([pagePath, title, description, keywords, h1, intro, useCase]) => ({
   path: pagePath,
   title,
   description,
@@ -246,7 +338,9 @@ const weddingSeoPages = [
   image: "/og-image.jpg",
   bodyHtml:
     `<main><article><h1>${escapeHtml(h1)}</h1><p>${escapeHtml(description)}</p>` +
+    `<p>${escapeHtml(intro)}</p>` +
     "<h2>Cómo ayuda Revelao</h2><p>Los invitados escanean un QR y suben fotos, vídeos y mensajes de audio desde el móvil, sin instalar aplicaciones. Todo queda reunido en una galería privada que puede revelarse después de la boda.</p>" +
+    `<h2>Cuándo tiene más sentido</h2><p>${escapeHtml(useCase)}</p>` +
     "<h2>Por qué mejora el recuerdo de la boda</h2><p>Además de las fotos oficiales, la pareja recibe momentos espontáneos desde muchas miradas: mesas, baile, cóctel, discursos y mensajes personales.</p>" +
     "<h2>Qué puedes recopilar</h2><ul><li>Fotos espontáneas de invitados durante la ceremonia, el cóctel y la fiesta.</li><li>Vídeos cortos de brindis, bailes, discursos y momentos inesperados.</li><li>Mensajes de audio con felicitaciones y recuerdos personales.</li></ul>" +
     "<h2>Dónde colocar el QR</h2><p>Funciona especialmente bien en la entrada, las mesas, el seating plan, la barra, el photocall y la zona de baile. Cuanto más natural sea encontrarlo, más recuerdos suben los invitados.</p>" +
