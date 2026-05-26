@@ -28,6 +28,33 @@
       ]
     }
   ],
+  "redirects": [
+    {
+      "source": "/blog/cdigos-qr-para-bodas-qu-son-y-por-qu-cada-vez-ms-parejas-los-usan",
+      "destination": "/blog/codigos-qr-para-bodas-que-son-y-por-que-cada-vez-mas-parejas-los-usan",
+      "permanent": true
+    },
+    {
+      "source": "/blog/15-ideas-originales-para-bodas-en-espaa-que-sorprendern-a-tus-invitados",
+      "destination": "/blog/15-ideas-originales-para-bodas-en-espana-que-sorprenderan-a-tus-invitados",
+      "permanent": true
+    },
+    {
+      "source": "/blog/tendencias-en-bodas-en-espaa-2026-tecnologa-emocin-y-experiencias-compartidas",
+      "destination": "/blog/tendencias-bodas-espana-2026-tecnologia-emocion-experiencias-compartidas",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cmo-recoger-las-fotos-de-todos-los-invitados-en-tu-boda-sin-perseguir-a-nadie",
+      "destination": "/blog/como-recoger-fotos-invitados-boda-sin-perseguir-a-nadie",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cmo-recoger-todas-las-fotos-de-tu-boda-sin-whatsapp-gua-2026",
+      "destination": "/blog/como-recoger-fotos-boda-sin-whatsapp-guia-2026",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/" }
   ]

@@ -1,5 +1,6 @@
 import { blogPostsByLang, type BlogLanguage, type BlogPost } from "@/data/blogPosts";
 import { supabase } from "@/integrations/supabase/client";
+import { getCanonicalBlogSlug } from "@/lib/blogSlugAliases";
 
 type BlogRow = {
   id: string;
@@ -21,7 +22,7 @@ const toBlogPost = (row: BlogRow): BlogPost => {
       )
     : "";
   return {
-    slug: row.slug,
+    slug: getCanonicalBlogSlug(row.slug),
     title: row.title,
     excerpt: row.excerpt,
     contentHtml: row.content_html,

@@ -6,6 +6,20 @@ const rootDir = process.cwd();
 const distDir = path.join(rootDir, "dist");
 const templatePath = path.join(distDir, "index.html");
 const siteUrl = "https://revelao.cam";
+const blogSlugAliases = {
+  "cdigos-qr-para-bodas-qu-son-y-por-qu-cada-vez-ms-parejas-los-usan":
+    "codigos-qr-para-bodas-que-son-y-por-que-cada-vez-mas-parejas-los-usan",
+  "15-ideas-originales-para-bodas-en-espaa-que-sorprendern-a-tus-invitados":
+    "15-ideas-originales-para-bodas-en-espana-que-sorprenderan-a-tus-invitados",
+  "tendencias-en-bodas-en-espaa-2026-tecnologa-emocin-y-experiencias-compartidas":
+    "tendencias-bodas-espana-2026-tecnologia-emocion-experiencias-compartidas",
+  "cmo-recoger-las-fotos-de-todos-los-invitados-en-tu-boda-sin-perseguir-a-nadie":
+    "como-recoger-fotos-invitados-boda-sin-perseguir-a-nadie",
+  "cmo-recoger-todas-las-fotos-de-tu-boda-sin-whatsapp-gua-2026":
+    "como-recoger-fotos-boda-sin-whatsapp-guia-2026",
+};
+
+const getCanonicalBlogSlug = (slug) => blogSlugAliases[slug] || slug;
 
 const loadEnvFile = (filePath) => {
   if (!fs.existsSync(filePath)) return;
@@ -34,6 +48,17 @@ const escapeHtml = (value = "") =>
     .replaceAll('"', "&quot;");
 
 const stripHtml = (value = "") => value.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
+const isRemoteImage = (value = "") => /^https?:\/\//.test(value);
+const isLocalImage = (value = "") => value.startsWith("/");
+const isIndexableImage = (value = "") => isRemoteImage(value) || isLocalImage(value);
+
+const getAbsoluteImage = (value = "") => {
+  if (!isIndexableImage(value)) return `${siteUrl}/og-image.jpg`;
+  return isRemoteImage(value) ? value : `${siteUrl}${value}`;
+};
+
+const sanitizeBlogHtml = (value = "") =>
+  value.replace(/<img\b[^>]*\bsrc=["']data:[^"']+["'][^>]*>/gi, "");
 
 const toIsoDate = (value) => {
   if (!value) return new Date().toISOString().slice(0, 10);
@@ -113,7 +138,7 @@ const setTag = (html, pattern, replacement) =>
 
 const renderPage = (template, page) => {
   const canonical = `${siteUrl}${page.path === "/" ? "/" : page.path}`;
-  const image = page.image?.startsWith("http") ? page.image : `${siteUrl}${page.image || "/og-image.jpg"}`;
+  const image = getAbsoluteImage(page.image);
   const jsonLd = JSON.stringify(page.schema);
   let html = template;
   html = html.replace(/<html lang="[^"]*">/, '<html lang="es">');
@@ -427,12 +452,12 @@ const getSupabaseBlogPosts = async () => {
     if (!response.ok) return [];
     const rows = await response.json();
     return rows.map((row) => ({
-      slug: row.slug,
+      slug: getCanonicalBlogSlug(row.slug),
       title: row.title,
       excerpt: row.excerpt,
       image: row.image_url,
       tags: row.tags || [],
-      contentHtml: row.content_html,
+      contentHtml: sanitizeBlogHtml(row.content_html),
       updatedAt: row.updated_at,
     }));
   } catch {
@@ -451,9 +476,9 @@ const getBlogPages = async () => {
       title: `${post.title} | Revelao.cam`,
       description,
       keywords: Array.isArray(post.tags) ? post.tags.join(", ") : "",
-      image: post.image,
+      image: isIndexableImage(post.image) ? post.image : "/og-image.jpg",
       lastmod: toIsoDate(post.updatedAt),
-      bodyHtml: `<main><article><h1>${escapeHtml(post.title)}</h1>${post.image ? `<img src="${escapeHtml(post.image)}" alt="${escapeHtml(post.title)}" loading="eager" decoding="async" fetchpriority="high" />` : ""}${post.contentHtml}</article></main>`,
+      bodyHtml: `<main><article><h1>${escapeHtml(post.title)}</h1>${isIndexableImage(post.image) ? `<img src="${escapeHtml(post.image)}" alt="${escapeHtml(post.title)}" loading="eager" decoding="async" fetchpriority="high" />` : ""}${post.contentHtml}</article></main>`,
       schema: {
         "@context": "https://schema.org",
         "@graph": [
@@ -461,7 +486,7 @@ const getBlogPages = async () => {
             "@type": "BlogPosting",
             headline: post.title,
             description,
-            image: post.image?.startsWith("http") ? post.image : `${siteUrl}${post.image || ""}`,
+            image: getAbsoluteImage(post.image),
             mainEntityOfPage: `${siteUrl}/blog/${post.slug}`,
             author: baseSchema,
             publisher: baseSchema,
