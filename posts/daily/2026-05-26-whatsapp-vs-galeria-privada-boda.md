@@ -3,7 +3,7 @@ lang: es
 title: "WhatsApp o galería privada: dónde guardar las fotos de boda de tus invitados"
 slug: "whatsapp-vs-galeria-privada-fotos-boda"
 excerpt: "Compara WhatsApp y una galería privada para recopilar fotos de boda sin perder recuerdos entre chats, descargas y mensajes sueltos."
-image: "/blog/2026-05-26-como-funciona-revelao-portada.avif"
+image: "/blog/2026-05-26-whatsapp-vs-galeria-privada-portada.avif"
 tags: ["Bodas", "QR", "Galería privada"]
 publishDate: 2026-05-26
 ---
@@ -24,7 +24,7 @@ Lo que se complica es usarlo como archivo principal. Las fotos llegan en distint
 
 También hay un punto de privacidad. En un grupo, todos ven quién sube qué y la conversación puede desviarse. En una galería privada, la acción es más directa: escanear, subir y listo.
 
-![Invitados de boda subiendo recuerdos desde el móvil](/blog/2026-05-26-como-funciona-revelao-audio-video.avif)
+![Invitados de boda comparando un chat con una galería privada](/blog/2026-05-26-whatsapp-vs-galeria-privada-detalle.avif)
 
 ## Una galería privada reduce la fricción
 
