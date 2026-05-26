@@ -555,6 +555,242 @@ const weddingLongLandingContent = {
       ],
     ],
   },
+  "/bodas/whatsapp-vs-galeria-privada-fotos-boda": {
+    cta: "Probar galería privada para mi boda",
+    related: [
+      ["/bodas/whatsapp-fotos-boda", "Fotos de boda por WhatsApp"],
+      ["/bodas/galeria-privada-boda", "Galería privada para boda"],
+      ["/bodas/qr-fotos-boda", "QR para fotos de boda"],
+    ],
+    faqs: [
+      {
+        question: "¿WhatsApp sirve para recoger fotos de boda?",
+        answer:
+          "Sirve para avisar o recordar el enlace, pero no es la mejor opción para organizar y conservar todos los recuerdos de la boda.",
+      },
+      {
+        question: "¿Qué ventaja tiene una galería privada?",
+        answer:
+          "Centraliza fotos, vídeos y audios en un único espacio, evita chats dispersos y facilita el momento del revelado.",
+      },
+      {
+        question: "¿Puedo usar WhatsApp y galería privada a la vez?",
+        answer:
+          "Sí. Lo recomendable es usar WhatsApp como canal de recordatorio y la galería privada como lugar donde se suben y guardan los recuerdos.",
+      },
+    ],
+    sections: [
+      [
+        "WhatsApp vs galería privada: la comparación real",
+        [
+          "WhatsApp parece la forma más rápida de pedir fotos de boda porque todos lo tienen en el móvil. El problema aparece después: archivos mezclados con conversaciones, fotos enviadas por chats separados, vídeos que no llegan y recuerdos que se quedan en el carrete de cada invitado.",
+          "Una galería privada funciona con otra lógica. En lugar de depender de mensajes sueltos, la pareja crea un espacio único para la boda y los invitados suben sus fotos, vídeos y audios escaneando un QR. La conversación puede seguir en WhatsApp, pero el archivo importante queda ordenado.",
+          "La decisión no es si WhatsApp es útil o no. La pregunta correcta es qué herramienta debe conservar los recuerdos. Para avisar, WhatsApp funciona. Para guardar una boda, una galería privada es mucho más sólida.",
+        ],
+      ],
+      [
+        "Participación de invitados",
+        [
+          "En WhatsApp, la participación suele depender de la memoria de cada invitado. Muchos prometen enviar fotos después, pero el día siguiente llega con viajes, cansancio y conversaciones acumuladas. La intención era buena, pero el recuerdo no siempre llega.",
+          "Con una galería privada y QR, el gesto ocurre durante la boda. El invitado escanea cuando acaba de hacer la foto o grabar el vídeo. Esa inmediatez aumenta la participación porque no convierte la subida en una tarea pendiente.",
+          "Además, hay invitados que no quieren escribir en un grupo grande o compartir ciertos momentos con todos. Una subida directa a la galería permite participar de forma más privada y cómoda.",
+        ],
+      ],
+      [
+        "Orden, calidad y privacidad",
+        [
+          "WhatsApp mezcla fotos con audios, respuestas, emojis y conversaciones. Si la pareja quiere reconstruir la boda después, tiene que buscar, descargar y ordenar manualmente. Ese trabajo suele acabar incompleto.",
+          "La galería privada reúne el contenido bajo el mismo evento. Fotos, vídeos y mensajes de audio llegan al mismo lugar y pueden revisarse con calma. También evita depender de que alguien reenvíe archivos desde otro chat.",
+          "Para una boda, la privacidad importa. Una galería pensada para el evento permite separar el recuerdo de la conversación social. No todo tiene que vivir en un grupo donde participan decenas de personas.",
+        ],
+      ],
+      [
+        "Cuándo elegir cada opción",
+        [
+          "Usa WhatsApp para comunicar: enviar el enlace antes de la boda, recordar el QR durante el evento o avisar de que la galería ya está lista. Es el canal que la gente mira rápido.",
+          "Usa una galería privada para recopilar y conservar. Ahí es donde conviene recibir las fotos espontáneas, los vídeos del baile y los mensajes de audio que la pareja descubrirá después.",
+          "La mejor estrategia comercial no es sustituir por completo WhatsApp, sino darle un papel correcto. WhatsApp informa; Revelao guarda, ordena y convierte el contenido en una experiencia de revelado.",
+        ],
+      ],
+    ],
+  },
+  "/bodas/google-drive-vs-qr-boda": {
+    cta: "Crear QR de boda sin carpetas",
+    related: [
+      ["/bodas/qr-fotos-boda", "QR para fotos de boda"],
+      ["/bodas/subir-fotos-boda-sin-app", "Subir fotos sin app"],
+      ["/bodas/galeria-privada-boda", "Galería privada para boda"],
+    ],
+    faqs: [
+      {
+        question: "¿Google Drive sirve para fotos de boda?",
+        answer:
+          "Puede servir como carpeta de almacenamiento, pero no está pensado como experiencia sencilla para invitados durante una boda.",
+      },
+      {
+        question: "¿Qué diferencia hay entre Drive y un QR de boda?",
+        answer:
+          "Drive organiza archivos en carpetas; un QR de boda guía al invitado para subir recuerdos sin app y reúne el contenido en una experiencia privada del evento.",
+      },
+      {
+        question: "¿El QR sustituye a una copia de seguridad?",
+        answer:
+          "No. El QR ayuda a recopilar recuerdos. Después puedes descargar o guardar una copia donde prefieras.",
+      },
+    ],
+    sections: [
+      [
+        "Google Drive vs QR de boda: dos usos distintos",
+        [
+          "Google Drive es una buena herramienta para almacenar documentos y carpetas. Pero una boda no se comporta como una oficina. Los invitados están celebrando, moviéndose, hablando y sacando el móvil en momentos espontáneos. Pedirles que entren en una carpeta y entiendan permisos puede reducir mucho la participación.",
+          "Un QR de boda está diseñado para el contexto del evento. El invitado escanea, abre una página clara y sube fotos, vídeos o audios sin instalar nada. La experiencia está pensada para actuar rápido, no para gestionar archivos.",
+          "La diferencia principal es la intención. Drive responde a “dónde guardo archivos”. Un QR de boda responde a “cómo consigo que más invitados suban recuerdos mientras ocurre la boda”.",
+        ],
+      ],
+      [
+        "Permisos y fricción",
+        [
+          "En Google Drive, los permisos pueden generar dudas: quién puede ver, quién puede editar, si hace falta cuenta de Google, dónde se sube cada archivo o si el enlace permite escribir. Aunque todo esté bien configurado, muchos invitados no quieren pensarlo durante la fiesta.",
+          "Con Revelao, la pantalla de subida reduce el proceso a una acción concreta. No hay carpetas que elegir ni estructura que entender. Esa sencillez es lo que convierte una intención bonita en participación real.",
+          "Cuantos más pasos hay, más recuerdos se pierden. En bodas, la facilidad no es un detalle técnico: es la diferencia entre recibir veinte archivos o construir una galería completa.",
+        ],
+      ],
+      [
+        "Experiencia para la pareja",
+        [
+          "Una carpeta de Drive puede acabar llena de nombres de archivo, duplicados y vídeos sin contexto. La pareja recibe contenido, sí, pero no necesariamente una experiencia preparada para revivir la boda.",
+          "Una galería privada puede ordenar el contenido alrededor del evento, sumar mensajes de audio y preparar el momento del revelado. La pareja no solo descarga archivos: descubre la boda desde los móviles de sus invitados.",
+          "Después, si quiere guardar una copia externa, puede hacerlo. Pero la captura inicial debería ser lo más simple posible para quienes están en la celebración.",
+        ],
+      ],
+      [
+        "Cuándo usar Drive y cuándo usar QR",
+        [
+          "Drive puede ser útil para una copia interna, una entrega final o un backup posterior. No es mala herramienta; simplemente no es la mejor puerta de entrada para invitados.",
+          "El QR debe estar en carteles, mesas, invitaciones o photocall porque funciona en el lugar donde nace el recuerdo. Es visible, rápido y fácil de explicar.",
+          "La combinación ideal es recopilar con QR y conservar después como prefieras. Revelao cubre la parte crítica: conseguir que los invitados participen sin convertirlo en una tarea.",
+        ],
+      ],
+    ],
+  },
+  "/bodas/app-fotos-boda-vs-qr-sin-app": {
+    cta: "Crear galería QR sin app",
+    related: [
+      ["/bodas/app-fotos-boda", "App de fotos para boda"],
+      ["/bodas/subir-fotos-boda-sin-app", "Subir fotos sin app"],
+      ["/bodas/qr-fotos-boda", "QR para fotos de boda"],
+    ],
+    faqs: [
+      {
+        question: "¿Es mejor una app de fotos o un QR sin app?",
+        answer:
+          "Para participación durante la boda, un QR sin app suele funcionar mejor porque evita descargas, registros y permisos innecesarios.",
+      },
+      {
+        question: "¿Una app puede tener más funciones?",
+        answer:
+          "Sí, pero más funciones no siempre significan más uso. En una boda, la prioridad es que los invitados participen en segundos.",
+      },
+      {
+        question: "¿El QR funciona en iPhone y Android?",
+        answer:
+          "Sí. Al abrirse en navegador, funciona desde móviles iPhone y Android sin instalación previa.",
+      },
+    ],
+    sections: [
+      [
+        "App de fotos de boda vs QR sin app",
+        [
+          "Una app de fotos para boda puede sonar completa, pero introduce una barrera en el peor momento posible. El invitado tiene que descargar, esperar, aceptar permisos y quizá crear una cuenta. Durante una celebración, cada paso extra reduce la participación.",
+          "Un QR sin app elimina esa fricción. El invitado escanea desde la cámara del móvil, abre una página y sube su recuerdo. Es una experiencia más ligera y más fácil de explicar en un cartel o tarjeta de mesa.",
+          "La comparación no va de tecnología avanzada contra tecnología simple. Va de comportamiento real de invitados. La mejor herramienta es la que la gente usa sin pensarlo.",
+        ],
+      ],
+      [
+        "Instalación, registro y permisos",
+        [
+          "Las apps dependen de la conexión, del espacio en el móvil, de la tienda de aplicaciones y de que el usuario quiera instalar algo para un evento puntual. Algunas personas lo harán, pero muchas lo dejarán para luego.",
+          "El QR sin app reduce el compromiso. No pide al invitado que adopte una herramienta nueva; solo le pide que comparta una foto, un vídeo o un audio en ese instante.",
+          "Esto es especialmente importante en bodas con edades variadas. Una experiencia web sencilla funciona mejor para amigos jóvenes, familiares mayores y personas que no quieren tocar demasiados ajustes del móvil.",
+        ],
+      ],
+      [
+        "Qué opción consigue más recuerdos",
+        [
+          "Si una app tiene más funciones pero menos invitados la usan, la galería acaba vacía. En cambio, una experiencia QR puede parecer más directa, pero precisamente por eso recibe más contenido espontáneo.",
+          "Las mejores fotos de invitados suelen capturarse en momentos rápidos: una mesa riéndose, un abrazo, una copa en la barra, un baile improvisado. El sistema debe estar listo para esos segundos.",
+          "Revelao prioriza ese flujo: escanear, seleccionar y subir. Menos pasos, más recuerdos, menos dependencia de recordatorios después de la boda.",
+        ],
+      ],
+      [
+        "Cuándo tiene sentido cada opción",
+        [
+          "Una app puede tener sentido si quieres una comunidad cerrada que usará la herramienta durante mucho tiempo. Para una boda concreta, donde la participación se concentra en unas horas, el QR sin app suele ser más eficaz.",
+          "También es más fácil integrarlo físicamente: cartel de bienvenida, tarjetas QR, minutas, photocall o pantalla del DJ. El QR se convierte en parte del evento, no en una descarga pendiente.",
+          "Si tu prioridad comercial es recibir fotos, vídeos y audios de la boda, elige el camino con menos fricción. La participación vale más que una lista larga de funciones.",
+        ],
+      ],
+    ],
+  },
+  "/bodas/fotografo-profesional-fotos-invitados-boda": {
+    cta: "Combinar fotógrafo y QR",
+    related: [
+      ["/bodas/qr-fotos-boda", "QR para fotos de boda"],
+      ["/bodas/checklist-fotos-invitados-boda", "Checklist para fotos de invitados"],
+      ["/bodas/revelado-fotos-boda", "Revelado de fotos de boda"],
+    ],
+    faqs: [
+      {
+        question: "¿El QR sustituye al fotógrafo de boda?",
+        answer:
+          "No. El fotógrafo profesional cubre el reportaje principal. El QR complementa con recuerdos espontáneos capturados por invitados.",
+      },
+      {
+        question: "¿Por qué combinar fotógrafo y fotos de invitados?",
+        answer:
+          "Porque el fotógrafo no puede estar en todas partes y los invitados capturan momentos íntimos, mesas, bromas y reacciones desde dentro de la celebración.",
+      },
+      {
+        question: "¿Cómo explicar esto a los invitados?",
+        answer:
+          "Con un cartel simple: “El fotógrafo captura lo esencial, tú puedes dejarnos tu mirada escaneando este QR”.",
+      },
+    ],
+    sections: [
+      [
+        "Fotógrafo profesional + fotos de invitados: no compiten",
+        [
+          "El fotógrafo profesional es una de las inversiones más importantes de una boda. Su trabajo aporta mirada, técnica, criterio y seguridad en los momentos clave. Un QR para fotos de invitados no sustituye eso; lo complementa.",
+          "Los invitados están dentro de escenas a las que el fotógrafo no siempre llega: una conversación en una mesa, una broma en la barra, un vídeo espontáneo antes del baile o un audio de un familiar emocionado.",
+          "La combinación funciona porque cada fuente tiene un papel distinto. El reportaje profesional cuenta la boda con intención estética. Las fotos de invitados añaden memoria emocional desde dentro.",
+        ],
+      ],
+      [
+        "Qué captura mejor el fotógrafo",
+        [
+          "El fotógrafo debe centrarse en ceremonia, pareja, familia, detalles, luz, composición y momentos irrepetibles. Es quien garantiza que la boda tenga un relato visual cuidado y consistente.",
+          "También sabe anticipar escenas importantes: entrada, votos, anillos, salida, retratos, discursos y primer baile. Esas imágenes requieren oficio y no deberían depender de móviles.",
+          "Por eso conviene presentar el QR como complemento, no como sustituto. La pareja gana más recuerdos sin restar valor al trabajo profesional.",
+        ],
+      ],
+      [
+        "Qué capturan mejor los invitados",
+        [
+          "Los invitados capturan cercanía. Están sentados en mesas, se mueven con sus grupos, ven reacciones laterales y graban vídeos desde ángulos muy personales. Sus fotos quizá no son perfectas, pero suelen tener verdad.",
+          "También pueden dejar mensajes de audio. Esto añade una dimensión que el reportaje fotográfico no cubre: voces, bromas, felicitaciones y recuerdos contados en primera persona.",
+          "Con Revelao, todo ese material llega a una galería privada sin que la pareja tenga que perseguirlo después. El QR transforma móviles dispersos en una memoria colectiva.",
+        ],
+      ],
+      [
+        "Cómo coordinarlo el día de la boda",
+        [
+          "La mejor forma de combinar ambos mundos es avisar con claridad. El fotógrafo sigue haciendo su trabajo y los invitados pueden subir sus recuerdos personales escaneando un QR visible en mesas, entrada, barra o photocall.",
+          "También puedes pedir al wedding planner o al DJ que lo recuerde en un momento concreto. No hace falta interrumpir la boda: basta una frase breve antes del baile o durante el cóctel.",
+          "Después llega el revelado. La pareja recibe el reportaje profesional por un lado y descubre la galería de invitados por otro. Juntas, ambas miradas hacen que la boda se recuerde con más profundidad.",
+        ],
+      ],
+    ],
+  },
 };
 
 const weddingSeoStrategy = {
@@ -582,6 +818,26 @@ const weddingSeoStrategy = {
     primaryKeyword: "whatsapp fotos boda",
     role: "soporte",
     keywords: "whatsapp fotos boda, fotos boda por whatsapp, alternativa whatsapp boda",
+  },
+  "/bodas/whatsapp-vs-galeria-privada-fotos-boda": {
+    primaryKeyword: "whatsapp vs galeria privada fotos boda",
+    role: "comparativa",
+    keywords: "whatsapp vs galeria privada fotos boda, alternativa whatsapp fotos boda, galeria privada fotos boda",
+  },
+  "/bodas/google-drive-vs-qr-boda": {
+    primaryKeyword: "google drive vs qr boda",
+    role: "comparativa",
+    keywords: "google drive vs qr boda, google drive fotos boda, qr boda fotos invitados",
+  },
+  "/bodas/app-fotos-boda-vs-qr-sin-app": {
+    primaryKeyword: "app fotos boda vs qr sin app",
+    role: "comparativa",
+    keywords: "app fotos boda vs qr sin app, app fotos boda, qr sin app boda",
+  },
+  "/bodas/fotografo-profesional-fotos-invitados-boda": {
+    primaryKeyword: "fotografo profesional fotos invitados boda",
+    role: "comparativa",
+    keywords: "fotografo profesional fotos invitados boda, fotos invitados boda, combinar fotografo boda qr",
   },
   "/bodas/subir-fotos-boda-sin-app": {
     primaryKeyword: "subir fotos boda sin app",
@@ -634,6 +890,10 @@ const weddingClusterSupportLinks = [
   ["/bodas/cartel-qr-boda", "Cartel QR para boda"],
   ["/bodas/tarjetas-qr-boda", "Tarjetas QR para mesas e invitaciones"],
   ["/bodas/whatsapp-fotos-boda", "WhatsApp vs galería privada"],
+  ["/bodas/whatsapp-vs-galeria-privada-fotos-boda", "Comparativa: WhatsApp vs galería privada"],
+  ["/bodas/google-drive-vs-qr-boda", "Comparativa: Google Drive vs QR de boda"],
+  ["/bodas/app-fotos-boda-vs-qr-sin-app", "Comparativa: app de fotos vs QR sin app"],
+  ["/bodas/fotografo-profesional-fotos-invitados-boda", "Fotógrafo profesional + fotos de invitados"],
   ["/bodas/subir-fotos-boda-sin-app", "Subir fotos de boda sin app"],
   ["/bodas/revelado-fotos-boda", "Momento del revelado de fotos"],
   ["/bodas/galeria-privada-boda", "Galería privada para boda"],
@@ -808,6 +1068,34 @@ const weddingSeoPages = [
     "Checklist para recopilar fotos de invitados",
     "Preparar el sistema antes de la boda evita tener que perseguir fotos cuando el evento ya ha pasado.",
     "La mejor estrategia combina QR visible, mensajes claros, recordatorios en momentos clave y una galería privada fácil de usar.",
+  ],
+  [
+    "/bodas/whatsapp-vs-galeria-privada-fotos-boda",
+    "WhatsApp vs galería privada para fotos de boda | Revelao.cam",
+    "Compara pedir fotos de boda por WhatsApp con usar una galería privada con QR para no perder recuerdos de invitados.",
+    "whatsapp vs galeria privada fotos boda",
+    "WhatsApp vs galería privada para fotos de boda",
+  ],
+  [
+    "/bodas/google-drive-vs-qr-boda",
+    "Google Drive vs QR de boda: qué funciona mejor para invitados",
+    "Compara Google Drive con un QR de boda para recopilar fotos, vídeos y audios de invitados sin carpetas confusas.",
+    "google drive vs qr boda",
+    "Google Drive vs QR de boda",
+  ],
+  [
+    "/bodas/app-fotos-boda-vs-qr-sin-app",
+    "App de fotos de boda vs QR sin app: comparativa para parejas",
+    "Descubre si conviene usar una app de fotos para boda o un QR sin app para que participen más invitados.",
+    "app fotos boda vs qr sin app",
+    "App de fotos de boda vs QR sin app",
+  ],
+  [
+    "/bodas/fotografo-profesional-fotos-invitados-boda",
+    "Fotógrafo profesional y fotos de invitados: cómo combinarlos",
+    "Aprende cómo combinar el reportaje profesional de boda con fotos, vídeos y audios de invitados recopilados con QR.",
+    "fotografo profesional fotos invitados boda",
+    "Fotógrafo profesional + fotos de invitados",
   ],
 ].map(([pagePath, title, description, keywords, h1, intro, useCase]) => ({
   path: pagePath,
