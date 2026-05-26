@@ -249,6 +249,73 @@ const defaultWeddingFaqs = [
 ];
 
 const weddingLongLandingContent = {
+  "/bodas/qr-fotos-boda": {
+    cta: "Crear mi QR para fotos de boda",
+    related: [
+      ["/bodas/cartel-qr-boda", "Cartel QR para boda"],
+      ["/bodas/tarjetas-qr-boda", "Tarjetas QR para mesas"],
+      ["/bodas/whatsapp-fotos-boda", "WhatsApp vs galería privada"],
+    ],
+    faqs: [
+      {
+        question: "¿Qué es un QR para fotos de boda?",
+        answer:
+          "Es un código que los invitados escanean con su móvil para subir fotos, vídeos y mensajes de audio a una galería privada de la boda.",
+      },
+      {
+        question: "¿Los invitados necesitan instalar una app?",
+        answer:
+          "No. El QR abre una página en el navegador del móvil para que puedan participar sin descargar nada.",
+      },
+      {
+        question: "¿Por qué es mejor que pedir fotos por WhatsApp?",
+        answer:
+          "Porque centraliza todos los recuerdos en una galería privada, evita chats dispersos y facilita descubrir el contenido en el momento del revelado.",
+      },
+    ],
+    sections: [
+      [
+        "La guía principal para recoger fotos de boda con QR",
+        [
+          "Un QR para fotos de boda sirve para que los invitados suban sus recuerdos en el mismo momento en que los están viviendo. En lugar de pedir archivos días después, la pareja crea una galería privada y coloca un código QR en puntos visibles de la celebración.",
+          "Esta página funciona como guía pilar del cluster de Revelao sobre bodas y QR. Desde aquí se conectan temas más concretos como carteles, tarjetas de mesa, alternativas a WhatsApp, subida sin app y momento del revelado.",
+          "El objetivo principal es aumentar la participación sin complicar la experiencia. Si el invitado tiene que descargar una app o registrarse, muchas fotos se quedan en su móvil. Si solo tiene que escanear y subir, el recuerdo llega cuando todavía está fresco.",
+        ],
+      ],
+      [
+        "Qué recuerdos puede aportar cada invitado",
+        [
+          "El fotógrafo profesional es imprescindible, pero no puede estar en todas partes a la vez. Los invitados capturan mesas, abrazos, vídeos de la barra, bromas antes del baile, reacciones espontáneas y pequeños momentos que completan la historia del día.",
+          "Con Revelao, esos recuerdos no se limitan a fotos. También pueden subirse vídeos y mensajes de audio. Esto permite guardar voces, felicitaciones y anécdotas que tienen un valor emocional enorme cuando la boda ya ha pasado.",
+          "La galería privada ayuda a que todo quede en un único lugar. La pareja no tiene que revisar conversaciones, descargar archivos sueltos ni perseguir a quienes prometieron enviar fotos después.",
+        ],
+      ],
+      [
+        "Dónde colocar el QR para conseguir más participación",
+        [
+          "La colocación del QR importa tanto como la herramienta. En la entrada sirve para presentar la dinámica. En las mesas funciona como recordatorio. En la barra y el photocall aparece justo cuando los invitados suelen sacar el móvil.",
+          "También conviene repetir el mensaje en distintos soportes: cartel principal, tarjetas pequeñas, minutas o un recordatorio del DJ antes de la fiesta. La repetición bien planteada no molesta, simplemente hace que más personas recuerden participar.",
+          "El texto debe ser directo. Frases como “Escanea y sube tus fotos de la boda” o “Déjanos un recuerdo para el revelado” funcionan mejor que explicaciones largas. Primero la acción, después los detalles.",
+        ],
+      ],
+      [
+        "Cómo encaja con carteles, tarjetas y WhatsApp",
+        [
+          "El QR para fotos de boda es la página pilar porque resuelve la intención principal: recoger fotos de invitados. Las páginas de cartel QR y tarjetas QR explican soportes concretos para mostrar ese mismo QR durante el evento.",
+          "La página de WhatsApp vs galería privada aborda otra duda frecuente: por qué no basta con crear un grupo y pedir fotos después. WhatsApp puede servir para recordar el enlace, pero no debería ser el archivo principal de la boda.",
+          "La subida sin app es otra pieza del cluster. Cuantos menos pasos haya, más recuerdos llegan. Por eso el flujo ideal es escanear, elegir foto, vídeo o audio y subir directamente desde el navegador.",
+        ],
+      ],
+      [
+        "El valor del revelado después de la boda",
+        [
+          "Recoger fotos con QR no solo consiste en almacenar archivos. El momento del revelado convierte esa galería en una segunda experiencia: la pareja descubre escenas que no vio, mensajes que no esperaba y vídeos grabados desde dentro de la celebración.",
+          "Este enfoque también mejora la calidad del recuerdo. Los invitados participan durante la boda, pero la pareja puede verlo después con calma, sin estar pendiente del móvil durante el evento.",
+          "Si buscas una solución completa, empieza por la página pilar de QR para fotos de boda y profundiza después en los soportes específicos: cartel, tarjetas, subida sin app, WhatsApp y revelado.",
+        ],
+      ],
+    ],
+  },
   "/bodas/codigo-qr-boda": {
     cta: "Crear mi QR de boda",
     related: [
@@ -490,6 +557,107 @@ const weddingLongLandingContent = {
   },
 };
 
+const weddingSeoStrategy = {
+  "/bodas/qr-fotos-boda": {
+    primaryKeyword: "qr fotos boda",
+    role: "pilar",
+    keywords: "qr fotos boda, qr para fotos de boda, fotos boda invitados qr",
+  },
+  "/bodas/codigo-qr-boda": {
+    primaryKeyword: "codigo qr boda",
+    role: "soporte",
+    keywords: "codigo qr boda, codigo qr para bodas, crear qr boda",
+  },
+  "/bodas/cartel-qr-boda": {
+    primaryKeyword: "cartel qr boda",
+    role: "soporte",
+    keywords: "cartel qr boda, cartel para qr boda, texto cartel qr boda",
+  },
+  "/bodas/tarjetas-qr-boda": {
+    primaryKeyword: "tarjetas qr boda",
+    role: "soporte",
+    keywords: "tarjetas qr boda, tarjetas con qr boda, qr mesas boda",
+  },
+  "/bodas/whatsapp-fotos-boda": {
+    primaryKeyword: "whatsapp fotos boda",
+    role: "soporte",
+    keywords: "whatsapp fotos boda, fotos boda por whatsapp, alternativa whatsapp boda",
+  },
+  "/bodas/subir-fotos-boda-sin-app": {
+    primaryKeyword: "subir fotos boda sin app",
+    role: "soporte",
+    keywords: "subir fotos boda sin app, compartir fotos boda sin app, invitados suben fotos boda",
+  },
+  "/bodas/revelado-fotos-boda": {
+    primaryKeyword: "revelado fotos boda",
+    role: "soporte",
+    keywords: "revelado fotos boda, revelar fotos boda invitados, recuerdos boda revelado",
+  },
+  "/bodas/galeria-privada-boda": {
+    primaryKeyword: "galeria privada boda",
+    role: "soporte",
+    keywords: "galeria privada boda, galeria fotos boda invitados, album privado boda",
+  },
+  "/bodas/recopilar-fotos-invitados": {
+    primaryKeyword: "recopilar fotos invitados boda",
+    role: "soporte",
+    keywords: "recopilar fotos invitados boda, recoger fotos invitados boda, fotos invitados boda",
+  },
+  "/bodas/fotos-videos-audio-boda": {
+    primaryKeyword: "fotos videos audio boda",
+    role: "soporte",
+    keywords: "fotos videos audio boda, videos boda invitados, mensajes audio boda",
+  },
+  "/bodas/album-colaborativo-boda": {
+    primaryKeyword: "album colaborativo boda",
+    role: "soporte",
+    keywords: "album colaborativo boda, album fotos invitados boda, galeria colaborativa boda",
+  },
+  "/bodas/compartir-fotos-boda": {
+    primaryKeyword: "compartir fotos boda",
+    role: "soporte",
+    keywords: "compartir fotos boda, compartir fotos invitados boda, enviar fotos boda",
+  },
+  "/bodas/app-fotos-boda": {
+    primaryKeyword: "app fotos boda",
+    role: "soporte",
+    keywords: "app fotos boda, app para fotos de boda, qr sin app boda",
+  },
+  "/bodas/checklist-fotos-invitados-boda": {
+    primaryKeyword: "checklist fotos boda",
+    role: "soporte",
+    keywords: "checklist fotos boda, checklist fotos invitados boda, lista fotos boda",
+  },
+};
+
+const weddingClusterSupportLinks = [
+  ["/bodas/cartel-qr-boda", "Cartel QR para boda"],
+  ["/bodas/tarjetas-qr-boda", "Tarjetas QR para mesas e invitaciones"],
+  ["/bodas/whatsapp-fotos-boda", "WhatsApp vs galería privada"],
+  ["/bodas/subir-fotos-boda-sin-app", "Subir fotos de boda sin app"],
+  ["/bodas/revelado-fotos-boda", "Momento del revelado de fotos"],
+  ["/bodas/galeria-privada-boda", "Galería privada para boda"],
+];
+
+const renderWeddingClusterLinks = (pagePath) => {
+  const strategy = weddingSeoStrategy[pagePath];
+  if (!strategy) return "";
+  const links =
+    strategy.role === "pilar"
+      ? weddingClusterSupportLinks.filter(([href]) => href !== pagePath)
+      : [["/bodas/qr-fotos-boda", "Guía pilar: QR para fotos de boda"], ...weddingClusterSupportLinks.filter(([href]) => href !== pagePath)];
+  const intro =
+    strategy.role === "pilar"
+      ? "Esta es la página pilar del cluster sobre QR para fotos de boda. Desde aquí puedes profundizar en carteles, tarjetas, alternativas a WhatsApp, subida sin app y revelado."
+      : `Esta página trabaja la intención específica “${strategy.primaryKeyword}”. Para la guía general del cluster, empieza por la página pilar de QR para fotos de boda.`;
+
+  return (
+    `<section><h2>Cluster SEO de bodas y QR</h2><p>${escapeHtml(intro)}</p><ul>` +
+    links.map(([href, label]) => `<li><a href="${href}">${escapeHtml(label)}</a></li>`).join("") +
+    "</ul></section>"
+  );
+};
+
 const renderLongWeddingLandingBody = ({ h1, description, pagePath }) => {
   const content = weddingLongLandingContent[pagePath];
   if (!content) return null;
@@ -514,7 +682,9 @@ const renderLongWeddingLandingBody = ({ h1, description, pagePath }) => {
           `<h3>${escapeHtml(faq.question)}</h3><p>${escapeHtml(faq.answer)}</p>`,
       )
       .join("")}` +
-    `<h2>También te puede interesar</h2><ul>${relatedLinks}</ul></article></main>`
+    `<h2>También te puede interesar</h2><ul>${relatedLinks}</ul>` +
+    renderWeddingClusterLinks(pagePath) +
+    "</article></main>"
   );
 };
 
@@ -643,7 +813,7 @@ const weddingSeoPages = [
   path: pagePath,
   title,
   description,
-  keywords,
+  keywords: weddingSeoStrategy[pagePath]?.keywords || keywords,
   image: "/og-image.jpg",
   bodyHtml:
     renderLongWeddingLandingBody({ h1, description, pagePath }) ||
@@ -654,7 +824,9 @@ const weddingSeoPages = [
       "<h2>Por qué mejora el recuerdo de la boda</h2><p>Además de las fotos oficiales, la pareja recibe momentos espontáneos desde muchas miradas: mesas, baile, cóctel, discursos y mensajes personales.</p>" +
       "<h2>Qué puedes recopilar</h2><ul><li>Fotos espontáneas de invitados durante la ceremonia, el cóctel y la fiesta.</li><li>Vídeos cortos de brindis, bailes, discursos y momentos inesperados.</li><li>Mensajes de audio con felicitaciones y recuerdos personales.</li></ul>" +
       "<h2>Dónde colocar el QR</h2><p>Funciona especialmente bien en la entrada, las mesas, el seating plan, la barra, el photocall y la zona de baile. Cuanto más natural sea encontrarlo, más recuerdos suben los invitados.</p>" +
-      "<h2>Por qué no usar solo WhatsApp</h2><p>Los grupos de WhatsApp mezclan conversaciones, reducen la calidad de algunos archivos y dejan muchas fotos perdidas en móviles personales. Una galería privada centraliza todo y permite revivir la boda con calma.</p></article></main>"),
+      "<h2>Por qué no usar solo WhatsApp</h2><p>Los grupos de WhatsApp mezclan conversaciones, reducen la calidad de algunos archivos y dejan muchas fotos perdidas en móviles personales. Una galería privada centraliza todo y permite revivir la boda con calma.</p>" +
+      renderWeddingClusterLinks(pagePath) +
+      "</article></main>"),
   schema: {
     "@context": "https://schema.org",
     "@graph": [
