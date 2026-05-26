@@ -1,9 +1,11 @@
-name: Generate and publish daily blog post
+name: Generate and publish blog posts
 
 on:
   schedule:
     # 07:00 in Spain during daylight saving time (CEST, UTC+2).
     - cron: "0 5 * * *"
+    # 22:45 in Spain during daylight saving time (CEST, UTC+2).
+    - cron: "45 20 * * *"
   workflow_dispatch:
 
 permissions:
