@@ -3,7 +3,7 @@ lang: es
 title: "Por qué no deberías perderte ninguna de las mejores fotos de tu boda"
 slug: "captar-mejores-fotos-boda"
 excerpt: "Las mejores fotos de una boda no siempre las hace el fotógrafo: muchas están en los móviles de tus invitados. Así puedes reunirlas sin perder momentos únicos."
-image: "/blog/2026-05-27-captar-mejores-fotos-boda-portada.png"
+image: "/blog/2026-05-27-captar-mejores-fotos-boda-portada.avif"
 tags: ["Bodas", "Fotos boda QR", "Recuerdos"]
 publishDate: 2026-05-27
 ---
@@ -24,7 +24,7 @@ Ahí está la magia: cada móvil guarda una parte distinta de la historia. Si no
 
 Usar un QR para fotos de boda ayuda justo en ese punto. No sustituye al fotógrafo, lo complementa. Permite que los invitados suban sus fotos y vídeos al momento, sin instalar una app y sin tener que acordarse días después.
 
-![Invitados de boda captando momentos de noche con un QR para subir fotos](/blog/2026-05-27-captar-mejores-fotos-boda-noche.png)
+![Invitados de boda captando momentos de noche con un QR para subir fotos](/blog/2026-05-27-captar-mejores-fotos-boda-noche.avif)
 
 ## El riesgo real es pensar que ya te las enviarán
 

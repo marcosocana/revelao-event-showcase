@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import heroVideoEsc1 from "@/assets/esc1.mp4";
 import heroVideoEsc2 from "@/assets/esc2.mp4";
 import heroVideoEsc33 from "@/assets/esc33.mp4";
@@ -9,18 +9,19 @@ import heroVideoEsc6 from "@/assets/esc6.mp4";
 export const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
+  const [enableHeroVideos, setEnableHeroVideos] = useState(false);
   const heroTiles = [
-    "/hero/11.jpg",
-    "/hero/12.jpg",
-    "/hero/13.jpg",
-    "/hero/14.jpg",
-    "/hero/15.jpg",
-    "/hero/16.jpg",
-    "/hero/17.jpg",
-    "/hero/18.jpg",
-    "/hero/19.jpg",
-    "/hero/20.jpg",
-    "/hero/21.jpg",
+    "/hero/11.avif",
+    "/hero/12.avif",
+    "/hero/13.avif",
+    "/hero/14.avif",
+    "/hero/15.avif",
+    "/hero/16.avif",
+    "/hero/17.avif",
+    "/hero/18.avif",
+    "/hero/19.avif",
+    "/hero/20.avif",
+    "/hero/21.avif",
   ];
   const heroVideos = [
     heroVideoEsc1,
@@ -76,6 +77,22 @@ export const Hero = () => {
     return () => window.removeEventListener("resize", updateSubtitleOffset);
   }, []);
 
+  useEffect(() => {
+    const connection = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const mobileViewport = window.matchMedia("(max-width: 767px)").matches;
+    if (connection?.saveData || prefersReducedMotion || mobileViewport) return;
+
+    const loadVideos = () => setEnableHeroVideos(true);
+    const idleCallback = window.requestIdleCallback?.(loadVideos, { timeout: 3500 });
+    const fallbackTimer = window.setTimeout(loadVideos, 3500);
+
+    return () => {
+      if (idleCallback) window.cancelIdleCallback?.(idleCallback);
+      window.clearTimeout(fallbackTimer);
+    };
+  }, []);
+
   return (
     <section className="heroGridSection" id="inicio" aria-label="Revelao hero">
       <div
@@ -109,30 +126,33 @@ export const Hero = () => {
                       const videoIndex = Math.floor(itemIndex / 4);
                       const videoSrc = heroVideos[videoIndex % heroVideos.length];
                       const isVideo = (itemIndex + 1) % 4 === 0;
+                      const itemStyle: React.CSSProperties & {
+                        "--hero-delay": string;
+                        "--hero-z": string;
+                      } = {
+                        aspectRatio: `${ratio} / 1`,
+                        "--hero-delay": `${(((rowIndex * 7 + itemIndex) % 12) * 0.08).toFixed(
+                          2,
+                        )}s`,
+                        "--hero-z": `translateZ(-${18 + ((rowIndex * 5 + itemIndex) % 18)}px)`,
+                      };
                       return (
                         <div
                           key={`tile-${rowIndex}-${itemIndex}`}
                           className="heroGridItem"
-                          style={{
-                            aspectRatio: `${ratio} / 1`,
-                            ["--hero-delay" as any]: `${(
-                              ((rowIndex * 7 + itemIndex) % 12) * 0.08
-                            ).toFixed(2)}s`,
-                            ["--hero-z" as any]: `translateZ(-${
-                              18 + ((rowIndex * 5 + itemIndex) % 18)
-                            }px)`,
-                          }}
+                          style={itemStyle}
                         >
-                          {isVideo ? (
+                          {isVideo && enableHeroVideos ? (
                             videoSrc ? (
                               <video
                                 src={videoSrc}
+                                poster={src}
                                 className="heroGridImage"
                                 autoPlay
                                 loop
                                 muted
                                 playsInline
-                                preload="metadata"
+                                preload="none"
                                 onLoadedData={(event) => {
                                   event.currentTarget.classList.add("is-loaded");
                                 }}
@@ -142,8 +162,9 @@ export const Hero = () => {
                                 src={src}
                                 alt=""
                                 aria-hidden="true"
-                                loading="eager"
+                                loading="lazy"
                                 decoding="async"
+                                fetchPriority="low"
                                 className="heroGridImage"
                                 onLoad={(event) => {
                                   event.currentTarget.classList.add("is-loaded");
@@ -155,8 +176,9 @@ export const Hero = () => {
                               src={src}
                               alt=""
                               aria-hidden="true"
-                              loading="eager"
+                              loading="lazy"
                               decoding="async"
+                              fetchPriority="low"
                               className="heroGridImage"
                               onLoad={(event) => {
                                 event.currentTarget.classList.add("is-loaded");

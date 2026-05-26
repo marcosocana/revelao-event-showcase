@@ -68,6 +68,8 @@ export const BlogSection = () => {
               <img
                 src={post.image}
                 alt={post.title}
+                loading="lazy"
+                decoding="async"
                 className="w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                 style={{ aspectRatio: "4 / 3" }}
               />
@@ -106,6 +108,8 @@ export const BlogSection = () => {
                     <img
                       src={post.image}
                       alt={post.title}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                       style={{ aspectRatio: "4 / 3" }}
                     />

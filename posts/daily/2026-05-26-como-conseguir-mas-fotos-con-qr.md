@@ -3,7 +3,7 @@ lang: es
 title: "Cómo conseguir más fotos de tus invitados usando un QR"
 slug: "como-conseguir-mas-fotos-invitados-qr"
 excerpt: "Un plan sencillo para que el QR no pase desapercibido y la galería del evento se llene de recuerdos reales."
-image: "/blog/2026-05-26-qr-eventos-portada.png"
+image: "/blog/2026-05-26-qr-eventos-portada.avif"
 tags: ["Eventos", "QR", "Participación"]
 publishDate: 2026-05-26
 ---
@@ -20,7 +20,7 @@ El QR funciona mejor cuando está cerca de los puntos de atención: entrada, bar
 
 Una buena regla práctica: si una persona no ve el QR durante los primeros cinco minutos, probablemente no lo verá en toda la celebración.
 
-![Flujo para escanear un QR y subir fotos a una galería privada](/blog/2026-05-26-flujo-qr-galeria.png)
+![Flujo para escanear un QR y subir fotos a una galería privada](/blog/2026-05-26-flujo-qr-galeria.avif)
 
 ## Usa una frase corta y directa
 

@@ -29,6 +29,7 @@ export const SuccessStories = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    const section = sectionRef.current;
     const observer = new IntersectionObserver(
       ([entry]) => {
         setIsVisible(entry.isIntersecting);
@@ -36,13 +37,13 @@ export const SuccessStories = () => {
       { threshold: 0.3 }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    if (section) {
+      observer.observe(section);
     }
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+      if (section) {
+        observer.unobserve(section);
       }
     };
   }, []);

@@ -6,11 +6,12 @@ import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import step0Image from "@/assets/Group3535.jpg";
-import step1Image from "@/assets/11.png";
-import step2Image from "@/assets/how-step-captura.png";
-import step3Image from "@/assets/how-step-esperando.png";
-import step4Image from "@/assets/how-step-revelado.png";
+import step1Image from "@/assets/11.jpg";
+import step2Image from "@/assets/how-step-captura.jpg";
+import step3Image from "@/assets/how-step-esperando.jpg";
+import step4Image from "@/assets/how-step-revelado.jpg";
 import landingVideoSrc from "@/assets/RevelaoComprimido.mp4";
+import landingVideoPoster from "@/assets/Revelao_4_poster.jpg";
 import { getAccessDemoUrl, useI18n, translations } from "@/lib/i18n";
 import { VideoDemo } from "@/components/VideoDemo";
 
@@ -198,6 +199,8 @@ export const Features = ({
                       <img
                         src={feature.image}
                         alt={feature.title}
+                        loading="lazy"
+                        decoding="async"
                         className="h-[25rem] w-[25rem] md:h-[52rem] md:w-[52rem] object-contain drop-shadow-[0_12px_28px_rgba(0,0,0,0.12)]"
                       />
                     </div>
@@ -223,7 +226,7 @@ export const FeaturesVideo = () => {
             <span className="font-semibold text-foreground">{t.features.videoTitle}</span>
             <span>{t.features.videoSubtitle}</span>
           </div>
-          <VideoDemo src={landingVideoSrc} />
+          <VideoDemo src={landingVideoSrc} poster={landingVideoPoster} />
         </div>
       </div>
     </section>

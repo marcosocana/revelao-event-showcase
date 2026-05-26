@@ -20,14 +20,14 @@ import {
   Sparkles,
   Video,
 } from "lucide-react";
-import weddingQr from "@/assets/boda-qr.png";
-import weddingHeroImage from "@/assets/image 368.png";
-import nightEventImage from "@/assets/nocheqr.png";
-import villageEventImage from "@/assets/puebloqr.png";
-import stepOneImage from "@/assets/11.png";
-import stepTwoImage from "@/assets/22.png";
-import stepThreeImage from "@/assets/33.png";
-import stepFourImage from "@/assets/44.png";
+import weddingQr from "@/assets/boda-qr.avif";
+import weddingHeroImage from "@/assets/image 368.avif";
+import nightEventImage from "@/assets/nocheqr.avif";
+import villageEventImage from "@/assets/puebloqr.avif";
+import stepOneImage from "@/assets/11.jpg";
+import stepTwoImage from "@/assets/22.avif";
+import stepThreeImage from "@/assets/33.avif";
+import stepFourImage from "@/assets/44.avif";
 
 type UseCaseContent = {
   title: string;

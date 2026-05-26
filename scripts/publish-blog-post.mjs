@@ -135,6 +135,7 @@ const getMimeType = (filePath) => {
   const ext = path.extname(filePath).toLowerCase();
   if (ext === ".jpg" || ext === ".jpeg") return "image/jpeg";
   if (ext === ".webp") return "image/webp";
+  if (ext === ".avif") return "image/avif";
   if (ext === ".gif") return "image/gif";
   if (ext === ".svg") return "image/svg+xml";
   return "image/png";

@@ -161,6 +161,9 @@ const BlogDetail = () => {
               <img
                 src={post.image}
                 alt={post.title}
+                loading="eager"
+                decoding="async"
+                fetchPriority="high"
                 className="w-full h-auto max-h-[360px] md:max-h-[420px] object-cover"
               />
             </div>

@@ -3,7 +3,7 @@ lang: es
 title: "Cómo funciona Revelao: fotos, vídeos y mensajes de audio para recordar tu boda"
 slug: "como-funciona-revelao-fotos-videos-audio-boda"
 excerpt: "Revelao permite que tus invitados suban fotos, vídeos y mensajes de audio con un QR, sin instalar apps y con una galería privada que se revela después."
-image: "/blog/2026-05-26-como-funciona-revelao-portada.png"
+image: "/blog/2026-05-26-como-funciona-revelao-portada.avif"
 tags: ["Bodas", "QR boda", "Fotos y vídeos"]
 publishDate: 2026-05-26
 ---
@@ -34,7 +34,7 @@ Revelao está pensado para recoger distintos tipos de recuerdos:
 
 Así, la galería no se queda solo en imágenes bonitas. También guarda voces, movimiento y pequeñas escenas que completan la memoria del día.
 
-![Invitados de boda subiendo fotos, vídeos y mensajes de audio con un QR](/blog/2026-05-26-como-funciona-revelao-audio-video.png)
+![Invitados de boda subiendo fotos, vídeos y mensajes de audio con un QR](/blog/2026-05-26-como-funciona-revelao-audio-video.avif)
 
 ## Paso 3: todo queda reunido en una galería privada
 

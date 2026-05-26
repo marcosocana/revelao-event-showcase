@@ -79,7 +79,10 @@ const parseFrontmatter = (raw) => {
 
 const renderInlineMarkdown = (value) => {
   let html = escapeHtml(value);
-  html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" />');
+  html = html.replace(
+    /!\[([^\]]*)\]\(([^)]+)\)/g,
+    '<img src="$2" alt="$1" loading="lazy" decoding="async" />',
+  );
   html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
   html = html.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
   html = html.replace(/\*([^*]+)\*/g, "<em>$1</em>");
@@ -450,7 +453,7 @@ const getBlogPages = async () => {
       keywords: Array.isArray(post.tags) ? post.tags.join(", ") : "",
       image: post.image,
       lastmod: toIsoDate(post.updatedAt),
-      bodyHtml: `<main><article><h1>${escapeHtml(post.title)}</h1>${post.image ? `<img src="${escapeHtml(post.image)}" alt="${escapeHtml(post.title)}" />` : ""}${post.contentHtml}</article></main>`,
+      bodyHtml: `<main><article><h1>${escapeHtml(post.title)}</h1>${post.image ? `<img src="${escapeHtml(post.image)}" alt="${escapeHtml(post.title)}" loading="eager" decoding="async" fetchpriority="high" />` : ""}${post.contentHtml}</article></main>`,
       schema: {
         "@context": "https://schema.org",
         "@graph": [

@@ -12,14 +12,17 @@ export const VideoDemo = ({ className = "", src, poster }: VideoDemoProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isPaused, setIsPaused] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
-  const [isInView, setIsInView] = useState(true);
+  const [isInView, setIsInView] = useState(false);
+  const [hasLoadedSrc, setHasLoadedSrc] = useState(false);
 
   useEffect(() => {
     const target = containerRef.current;
     if (!target) return;
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setIsInView(entry.isIntersecting);
+        const visible = entry.isIntersecting;
+        setIsInView(visible);
+        if (visible) setHasLoadedSrc(true);
       },
       {
         threshold: 0.25,
@@ -100,7 +103,7 @@ export const VideoDemo = ({ className = "", src, poster }: VideoDemoProps) => {
     >
       <video
         ref={videoRef}
-        src={src}
+        src={hasLoadedSrc ? src : undefined}
         data-src={src}
         poster={poster}
         preload="none"

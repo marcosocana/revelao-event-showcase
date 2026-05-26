@@ -231,6 +231,35 @@ const generateImage = async ({ prompt, filePath }) => {
   throw new Error("OpenAI no devolvio una imagen utilizable.");
 };
 
+const convertImageToAvif = (sourcePath) => {
+  const avifPath = sourcePath.replace(/\.[^.]+$/, ".avif");
+  const result = spawnSync(
+    "ffmpeg",
+    [
+      "-y",
+      "-i",
+      sourcePath,
+      "-vf",
+      "scale=1400:-2",
+      "-frames:v",
+      "1",
+      "-c:v",
+      "libsvtav1",
+      "-crf",
+      "35",
+      avifPath,
+    ],
+    { cwd: rootDir, stdio: "ignore" },
+  );
+
+  if (result.status === 0 && fs.existsSync(avifPath)) {
+    fs.rmSync(sourcePath, { force: true });
+    return avifPath;
+  }
+
+  return sourcePath;
+};
+
 const writePost = async ({ date, postData }) => {
   fs.mkdirSync(postsDir, { recursive: true });
   fs.mkdirSync(publicBlogDir, { recursive: true });
@@ -245,13 +274,18 @@ const writePost = async ({ date, postData }) => {
     suffix += 1;
   }
 
-  const featuredImage = `/blog/${date}-${fileSlug}-portada.png`;
-  const inlineImage = `/blog/${date}-${fileSlug}-detalle.png`;
-  const featuredImagePath = path.join(rootDir, "public", featuredImage);
-  const inlineImagePath = path.join(rootDir, "public", inlineImage);
+  const featuredImagePng = `/blog/${date}-${fileSlug}-portada.png`;
+  const inlineImagePng = `/blog/${date}-${fileSlug}-detalle.png`;
+  const featuredImagePath = path.join(rootDir, "public", featuredImagePng);
+  const inlineImagePath = path.join(rootDir, "public", inlineImagePng);
 
   await generateImage({ prompt: postData.featuredImagePrompt, filePath: featuredImagePath });
   await generateImage({ prompt: postData.inlineImagePrompt, filePath: inlineImagePath });
+
+  const optimizedFeaturedImagePath = convertImageToAvif(featuredImagePath);
+  const optimizedInlineImagePath = convertImageToAvif(inlineImagePath);
+  const featuredImage = `/blog/${path.basename(optimizedFeaturedImagePath)}`;
+  const inlineImage = `/blog/${path.basename(optimizedInlineImagePath)}`;
 
   const bodyMarkdown = postData.bodyMarkdown.replace(
     "{{INLINE_IMAGE}}",
