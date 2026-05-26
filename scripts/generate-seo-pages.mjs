@@ -768,7 +768,7 @@ const getBlogPages = async () => {
             "@type": "BreadcrumbList",
             itemListElement: [
               { "@type": "ListItem", position: 1, name: "Inicio", item: `${siteUrl}/` },
-              { "@type": "ListItem", position: 2, name: "Blog", item: `${siteUrl}/#blog` },
+              { "@type": "ListItem", position: 2, name: "Blog", item: `${siteUrl}/blog` },
               { "@type": "ListItem", position: 3, name: post.title, item: `${siteUrl}/blog/${post.slug}` },
             ],
           },
@@ -778,28 +778,109 @@ const getBlogPages = async () => {
   });
 };
 
-const getBlogIndexPage = (blogPages) => ({
-  path: "/blog",
-  title: "Blog de bodas con QR, fotos de invitados y recuerdos | Revelao.cam",
-  description:
-    "Guías sobre QR para bodas, galerías privadas, fotos de invitados, vídeos, mensajes de audio y el momento del revelado.",
-  keywords: "blog bodas qr, fotos boda qr, qr boda, recopilar fotos invitados boda",
-  image: "/og-image.jpg",
-  bodyHtml:
-    "<main><h1>Blog de bodas con QR y recuerdos de invitados</h1><p>Ideas prácticas para recopilar fotos, vídeos y mensajes de audio de una boda con Revelao.</p><ul>" +
-    blogPages
-      .map((page) => `<li><a href="${page.path}">${escapeHtml(page.title.replace(" | Revelao.cam", ""))}</a><p>${escapeHtml(page.description)}</p></li>`)
-      .join("") +
-    "</ul></main>",
-  schema: {
-    "@context": "https://schema.org",
-    "@type": "Blog",
-    name: "Blog de Revelao",
-    description: "Consejos sobre bodas, QR, fotos de invitados y galerías privadas.",
-    url: `${siteUrl}/blog`,
-    publisher: baseSchema,
+const blogHubCategories = [
+  {
+    name: "QR en bodas",
+    href: "/bodas/codigo-qr-boda",
+    description: "Guías para crear, colocar y explicar códigos QR en bodas sin complicar la experiencia de los invitados.",
   },
-});
+  {
+    name: "Fotos de invitados",
+    href: "/bodas/qr-fotos-boda",
+    description: "Ideas para recopilar fotos espontáneas, vídeos cortos y recuerdos que no siempre aparecen en el reportaje oficial.",
+  },
+  {
+    name: "Alternativas a WhatsApp",
+    href: "/bodas/whatsapp-fotos-boda",
+    description: "Comparativas y consejos para no perder archivos en grupos, chats privados o mensajes enviados días después.",
+  },
+  {
+    name: "Mensajes de audio",
+    href: "/bodas/mensajes-audio-boda",
+    description: "Cómo recoger felicitaciones, voces de familiares y anécdotas que hacen más emocionante el momento del revelado.",
+  },
+];
+
+const blogHubInternalLinks = [
+  ["/bodas/cartel-qr-boda", "Cartel QR para boda"],
+  ["/bodas/subir-fotos-boda-sin-app", "Subir fotos de boda sin app"],
+  ["/bodas/galeria-privada-boda", "Galería privada para boda"],
+  ["/bodas/checklist-fotos-invitados-boda", "Checklist para no perder fotos"],
+  ["/bodas/revelado-fotos-boda", "El momento del revelado"],
+  ["/bodas/wedding-planner-qr-boda", "QR para wedding planners"],
+];
+
+const getBlogIndexPage = (blogPages) => {
+  const posts = blogPages.slice(0, 12);
+  const latestPostsHtml = posts
+    .map(
+      (page) =>
+        `<article><h3><a href="${page.path}">${escapeHtml(page.title.replace(" | Revelao.cam", ""))}</a></h3><p>${escapeHtml(page.description)}</p></article>`,
+    )
+    .join("");
+  const categoriesHtml = blogHubCategories
+    .map(
+      (category) =>
+        `<li><h3><a href="${category.href}">${escapeHtml(category.name)}</a></h3><p>${escapeHtml(category.description)}</p></li>`,
+    )
+    .join("");
+  const internalLinksHtml = blogHubInternalLinks
+    .map(([href, label]) => `<li><a href="${href}">${escapeHtml(label)}</a></li>`)
+    .join("");
+
+  return {
+    path: "/blog",
+    title: "Blog de bodas con QR, fotos de invitados y recuerdos | Revelao.cam",
+    description:
+      "Guías sobre QR para bodas, galerías privadas, fotos de invitados, vídeos, mensajes de audio y el momento del revelado.",
+    keywords: "blog bodas qr, fotos boda qr, qr boda, recopilar fotos invitados boda",
+    image: "/og-image.jpg",
+    bodyHtml:
+      "<main><article>" +
+      "<h1>Blog de bodas con QR, fotos de invitados y recuerdos</h1>" +
+      "<p>El blog de Revelao reúne guías prácticas para parejas, wedding planners y espacios de celebración que quieren guardar más recuerdos reales de una boda. Aquí encontrarás ideas para usar códigos QR, recopilar fotos de invitados, recibir vídeos, conservar mensajes de audio y preparar un momento de revelado emocionante después del evento.</p>" +
+      "<p>El objetivo no es subir contenido por subir. Cada artículo responde a una duda concreta: dónde colocar el QR, cómo conseguir que más invitados participen, qué hacer para no depender de WhatsApp, cómo explicar la dinámica en un cartel y cómo convertir los móviles de la boda en una memoria compartida.</p>" +
+      "<h2>Categorías principales</h2><ul>" +
+      categoriesHtml +
+      "</ul>" +
+      "<h2>Últimos artículos del blog</h2>" +
+      latestPostsHtml +
+      "<h2>Guías SEO sobre bodas, QR y galerías privadas</h2>" +
+      "<p>Una boda se vive desde muchos puntos de vista. El fotógrafo profesional captura los momentos esenciales, pero los invitados guardan escenas espontáneas: una mesa que se ríe, un vídeo de la barra, un abrazo antes del baile, una felicitación en audio o una reacción que los novios no pudieron ver en directo.</p>" +
+      "<p>Por eso Revelao trabaja alrededor de una idea sencilla: hacer que compartir recuerdos sea tan fácil como escanear un QR. Sin instalar apps, sin perseguir a los invitados días después y sin mezclar fotos importantes en conversaciones de WhatsApp. La galería privada centraliza fotos, vídeos y mensajes de audio para que la pareja pueda descubrirlos con calma.</p>" +
+      "<p>Si estás organizando una boda, empieza por decidir dónde aparecerá el QR: entrada, seating plan, mesas, barra, photocall y zona de baile. Después, acompáñalo con un mensaje corto y repetido en todos los soportes. Cuanto más claro sea el gesto, más recuerdos llegarán al revelado.</p>" +
+      "<h2>Landings recomendadas</h2><ul>" +
+      internalLinksHtml +
+      "</ul>" +
+      '<p><a href="https://acceso.revelao.cam/nuevoeventodemo">Crear mi evento con QR</a></p>' +
+      "</article></main>",
+    schema: {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Blog",
+          name: "Blog de Revelao",
+          description: "Consejos sobre bodas, QR, fotos de invitados y galerías privadas.",
+          url: `${siteUrl}/blog`,
+          publisher: baseSchema,
+          blogPost: posts.map((page) => ({
+            "@type": "BlogPosting",
+            headline: page.title.replace(" | Revelao.cam", ""),
+            url: `${siteUrl}${page.path}`,
+            description: page.description,
+          })),
+        },
+        {
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Inicio", item: `${siteUrl}/` },
+            { "@type": "ListItem", position: 2, name: "Blog", item: `${siteUrl}/blog` },
+          ],
+        },
+      ],
+    },
+  };
+};
 
 const writeSitemap = (pages) => {
   const entries = pages

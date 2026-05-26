@@ -10,6 +10,7 @@ import { LanguageProvider } from "@/lib/i18n";
 
 const queryClient = new QueryClient();
 const Index = lazy(() => import("./pages/Index"));
+const BlogHub = lazy(() => import("./pages/BlogHub"));
 const BlogDetail = lazy(() => import("./pages/BlogDetail"));
 const BlogAdmin = lazy(() => import("./pages/BlogAdmin"));
 const NotFound = lazy(() => import("./pages/NotFound"));
@@ -51,7 +52,7 @@ const App = () => (
               <Route path="/it/terms" element={<TermsAndConditions />} />
               <Route path="/it/privacy" element={<PrivacyPolicy />} />
               <Route path="/pruebas" element={<PruebasLanding />} />
-              <Route path="/blog" element={<Index />} />
+              <Route path="/blog" element={<BlogHub />} />
               <Route path="/blog/:slug" element={<BlogDetail />} />
               <Route path="/blog/admin" element={<BlogAdmin />} />
               <Route path="/acceso" element={<Navigate to="https://tomorrow-snap-reveal.vercel.app" replace />} />

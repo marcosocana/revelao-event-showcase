@@ -116,7 +116,7 @@ const BlogDetail = () => {
         <main className="pt-20 container px-4 mx-auto">
           <p className="text-muted-foreground">No encontramos ese artículo.</p>
           <div className="mt-6">
-            <Link to="/#blog" className="text-primary hover:underline">
+            <Link to="/blog" className="text-primary hover:underline">
               Volver al blog
             </Link>
           </div>
@@ -151,7 +151,7 @@ const BlogDetail = () => {
       <main className="pt-20 container px-4 mx-auto">
         <div className="max-w-3xl mx-auto">
           <Button asChild variant="secondary" size="sm">
-            <a href="/#blog">Volver atrás</a>
+            <a href="/blog">Volver atrás</a>
           </Button>
           <h1 className="mt-6 text-3xl md:text-4xl font-bold tracking-tight text-foreground">
             {post.title}
