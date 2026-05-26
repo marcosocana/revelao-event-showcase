@@ -1,6 +1,15 @@
 import icon from "@/assets/ico.png";
 import { useLocation } from "react-router-dom";
 
+const seoLinks = [
+  { href: "/blog", label: "Blog" },
+  { href: "/bodas/qr-fotos-boda", label: "QR para fotos de boda" },
+  { href: "/bodas/galeria-privada-boda", label: "Galería privada boda" },
+  { href: "/bodas/recopilar-fotos-invitados", label: "Recopilar fotos invitados" },
+  { href: "/bodas/fotos-videos-audio-boda", label: "Fotos, vídeos y audios" },
+  { href: "/eventos/bodas", label: "Revelao para bodas" },
+];
+
 type FooterProps = {
   text?: string;
   keywordsTitle?: string;
@@ -58,11 +67,18 @@ export const Footer = ({ text, keywordsTitle, keywords = [] }: FooterProps) => {
             <a href={`${langPrefix}/privacy`} className="hover:text-foreground transition-colors">
               Política de privacidad
             </a>
-            <a href="/blog/admin" className="hover:text-foreground transition-colors">
+            <span>
               © 2026 Revelao.cam
-            </a>
+            </span>
           </div>
         </div>
+        <nav aria-label="Enlaces SEO de bodas" className="mt-6 flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs text-muted-foreground">
+          {seoLinks.map((link) => (
+            <a key={link.href} href={link.href} className="hover:text-foreground transition-colors">
+              {link.label}
+            </a>
+          ))}
+        </nav>
       </div>
     </footer>
   );

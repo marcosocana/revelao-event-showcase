@@ -108,7 +108,7 @@ const Index = () => {
     setProperty("og:description", meta.description);
     setProperty("og:url", canonicalUrl);
     setProperty("og:type", "website");
-    setProperty("og:image", "https://www.revelao.cam/og-image.jpg");
+    setProperty("og:image", "https://revelao.cam/og-image.jpg");
 
     let canonical = document.querySelector(`link[rel="canonical"]`);
     if (!canonical) {
@@ -123,7 +123,7 @@ const Index = () => {
       "@type": "Organization",
       name: "Revelao.cam",
       url: "https://revelao.cam/",
-      logo: "https://revelao.cam/favicon.png",
+      logo: "https://revelao.cam/favicon.ico",
     };
     let ld = document.getElementById("ld-org");
     if (!ld) {

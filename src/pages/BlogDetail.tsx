@@ -32,6 +32,71 @@ const BlogDetail = () => {
     };
   }, [slug, lang]);
 
+  useEffect(() => {
+    if (!post) return;
+    const canonicalUrl = `https://revelao.cam/blog/${post.slug}`;
+    const title = `${post.title} | Revelao.cam`;
+    const description = post.excerpt;
+    const image = post.image?.startsWith("http") ? post.image : `https://revelao.cam${post.image}`;
+    document.title = title;
+
+    const setMeta = (name: string, value: string) => {
+      let tag = document.querySelector(`meta[name="${name}"]`);
+      if (!tag) {
+        tag = document.createElement("meta");
+        tag.setAttribute("name", name);
+        document.head.appendChild(tag);
+      }
+      tag.setAttribute("content", value);
+    };
+    const setProperty = (property: string, value: string) => {
+      let tag = document.querySelector(`meta[property="${property}"]`);
+      if (!tag) {
+        tag = document.createElement("meta");
+        tag.setAttribute("property", property);
+        document.head.appendChild(tag);
+      }
+      tag.setAttribute("content", value);
+    };
+
+    setMeta("description", description);
+    setMeta("keywords", post.tags?.join(", ") || "qr boda, fotos boda qr, galería privada boda");
+    setProperty("og:title", title);
+    setProperty("og:description", description);
+    setProperty("og:url", canonicalUrl);
+    setProperty("og:image", image);
+    setProperty("og:type", "article");
+    setMeta("twitter:title", title);
+    setMeta("twitter:description", description);
+    setMeta("twitter:image", image);
+
+    let canonical = document.querySelector(`link[rel="canonical"]`);
+    if (!canonical) {
+      canonical = document.createElement("link");
+      canonical.setAttribute("rel", "canonical");
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute("href", canonicalUrl);
+
+    let ld = document.getElementById("ld-blog-post");
+    if (!ld) {
+      ld = document.createElement("script");
+      ld.setAttribute("type", "application/ld+json");
+      ld.setAttribute("id", "ld-blog-post");
+      document.head.appendChild(ld);
+    }
+    ld.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      headline: post.title,
+      description,
+      image,
+      mainEntityOfPage: canonicalUrl,
+      author: { "@type": "Organization", name: "Revelao.cam", url: "https://revelao.cam" },
+      publisher: { "@type": "Organization", name: "Revelao.cam", url: "https://revelao.cam" },
+    });
+  }, [post]);
+
   if (loading) {
     return (
       <div className="min-h-screen bg-background">

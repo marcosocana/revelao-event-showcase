@@ -375,6 +375,10 @@ const EventUseCaseLanding = () => {
   const normalizedSlug = useMemo(() => {
     const aliases: Record<string, string> = {
       boda: "bodas",
+      "qr-fotos-boda": "bodas",
+      "galeria-privada-boda": "bodas",
+      "recopilar-fotos-invitados": "bodas",
+      "fotos-videos-audio-boda": "bodas",
       wedding: "bodas",
       weddings: "bodas",
       comunion: "comuniones",
@@ -443,8 +447,55 @@ const EventUseCaseLanding = () => {
   }));
 
   useEffect(() => {
-    document.title = `${content.title} | Revelao.cam`;
-  }, [content.title]);
+    const canonicalPath = window.location.pathname;
+    const titleByPath: Record<string, string> = {
+      "/bodas/qr-fotos-boda": "QR para fotos de boda: galería privada sin app | Revelao.cam",
+      "/bodas/galeria-privada-boda": "Galería privada para boda con QR | Revelao.cam",
+      "/bodas/recopilar-fotos-invitados": "Cómo recopilar fotos de invitados de boda | Revelao.cam",
+      "/bodas/fotos-videos-audio-boda": "Fotos, vídeos y audios de boda con QR | Revelao.cam",
+    };
+    const descriptionByPath: Record<string, string> = {
+      "/bodas/qr-fotos-boda": "Crea un QR para que tus invitados suban fotos de la boda sin instalar apps. Todo queda reunido en una galería privada.",
+      "/bodas/galeria-privada-boda": "Reúne fotos, vídeos y mensajes de audio de tu boda en una galería privada con revelado al día siguiente.",
+      "/bodas/recopilar-fotos-invitados": "Ideas prácticas para recopilar todas las fotos de invitados de una boda con QR, sin WhatsApp ni carpetas dispersas.",
+      "/bodas/fotos-videos-audio-boda": "Guarda fotos, vídeos y mensajes de audio de tus invitados con un QR sencillo para bodas.",
+    };
+    const title = titleByPath[canonicalPath] || `${content.title} | Revelao.cam`;
+    const description = descriptionByPath[canonicalPath] || content.subtitle;
+    document.title = title;
+
+    const setMeta = (name: string, value: string) => {
+      let tag = document.querySelector(`meta[name="${name}"]`);
+      if (!tag) {
+        tag = document.createElement("meta");
+        tag.setAttribute("name", name);
+        document.head.appendChild(tag);
+      }
+      tag.setAttribute("content", value);
+    };
+    const setProperty = (property: string, value: string) => {
+      let tag = document.querySelector(`meta[property="${property}"]`);
+      if (!tag) {
+        tag = document.createElement("meta");
+        tag.setAttribute("property", property);
+        document.head.appendChild(tag);
+      }
+      tag.setAttribute("content", value);
+    };
+    setMeta("description", description);
+    setMeta("keywords", "qr boda, fotos boda qr, qr para fotos de boda, galería privada boda, recopilar fotos invitados boda");
+    setProperty("og:title", title);
+    setProperty("og:description", description);
+    setProperty("og:url", `https://revelao.cam${canonicalPath}`);
+
+    let canonical = document.querySelector(`link[rel="canonical"]`);
+    if (!canonical) {
+      canonical = document.createElement("link");
+      canonical.setAttribute("rel", "canonical");
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute("href", `https://revelao.cam${canonicalPath}`);
+  }, [content.title, content.subtitle]);
 
   return (
     <div className="min-h-screen bg-background no-card-hover">
