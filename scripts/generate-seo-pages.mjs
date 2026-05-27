@@ -150,6 +150,7 @@ const renderPage = (template, page) => {
   html = setTag(html, /<meta property="og:description" content="[^"]*" \/>/, `<meta property="og:description" content="${escapeHtml(page.description)}" />`);
   html = setTag(html, /<meta property="og:url" content="[^"]*" \/>/, `<meta property="og:url" content="${canonical}" />`);
   html = setTag(html, /<meta property="og:image" content="[^"]*" \/>/, `<meta property="og:image" content="${image}" />`);
+  html = setTag(html, /<meta property="og:type" content="[^"]*" \/>/, `<meta property="og:type" content="${escapeHtml(page.ogType || "website")}" />`);
   html = setTag(html, /<meta name="twitter:title" content="[^"]*" \/>/, `<meta name="twitter:title" content="${escapeHtml(page.title)}" />`);
   html = setTag(html, /<meta name="twitter:description" content="[^"]*" \/>/, `<meta name="twitter:description" content="${escapeHtml(page.description)}" />`);
   html = setTag(html, /<meta name="twitter:image" content="[^"]*" \/>/, `<meta name="twitter:image" content="${image}" />`);
@@ -1209,6 +1210,7 @@ const getBlogPages = async () => {
       description,
       keywords: Array.isArray(post.tags) ? post.tags.join(", ") : "",
       image: isIndexableImage(post.image) ? post.image : "/og-image.jpg",
+      ogType: "article",
       lastmod: toIsoDate(post.updatedAt),
       bodyHtml: `<main><article><h1>${escapeHtml(post.title)}</h1>${isIndexableImage(post.image) ? `<img src="${escapeHtml(post.image)}" alt="${escapeHtml(post.title)}" loading="eager" decoding="async" fetchpriority="high" />` : ""}${post.contentHtml}</article></main>`,
       schema: {
