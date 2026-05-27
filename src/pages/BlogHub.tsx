@@ -67,7 +67,7 @@ const BlogHub = () => {
   }, [lang]);
 
   useEffect(() => {
-    const canonicalUrl = "https://revelao.cam/blog";
+    const canonicalUrl = "https://www.revelao.cam/blog";
     const title = "Blog de bodas con QR, fotos de invitados y recuerdos | Revelao.cam";
     const description =
       "Guías prácticas sobre QR para bodas, fotos de invitados, galerías privadas, mensajes de audio y el momento del revelado.";

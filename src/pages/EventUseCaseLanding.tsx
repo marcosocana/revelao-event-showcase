@@ -516,7 +516,7 @@ const EventUseCaseLanding = () => {
     setMeta("keywords", "qr boda, fotos boda qr, qr para fotos de boda, galería privada boda, recopilar fotos invitados boda");
     setProperty("og:title", title);
     setProperty("og:description", description);
-    setProperty("og:url", `https://revelao.cam${canonicalPath}`);
+    setProperty("og:url", `https://www.revelao.cam${canonicalPath}`);
 
     let canonical = document.querySelector(`link[rel="canonical"]`);
     if (!canonical) {
@@ -524,7 +524,7 @@ const EventUseCaseLanding = () => {
       canonical.setAttribute("rel", "canonical");
       document.head.appendChild(canonical);
     }
-    canonical.setAttribute("href", `https://revelao.cam${canonicalPath}`);
+    canonical.setAttribute("href", `https://www.revelao.cam${canonicalPath}`);
   }, [content.title, content.subtitle]);
 
   return (

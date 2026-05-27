@@ -79,7 +79,7 @@ const Index = () => {
 
   useEffect(() => {
     const meta = translations[lang].seoHomeMeta;
-    const canonicalUrl = "https://revelao.cam/";
+    const canonicalUrl = "https://www.revelao.cam/";
     document.title = meta.title;
 
     const setMeta = (name: string, content: string) => {
@@ -108,7 +108,7 @@ const Index = () => {
     setProperty("og:description", meta.description);
     setProperty("og:url", canonicalUrl);
     setProperty("og:type", "website");
-    setProperty("og:image", "https://revelao.cam/og-image.jpg");
+    setProperty("og:image", "https://www.revelao.cam/og-image.jpg");
 
     let canonical = document.querySelector(`link[rel="canonical"]`);
     if (!canonical) {
@@ -122,8 +122,8 @@ const Index = () => {
       "@context": "https://schema.org",
       "@type": "Organization",
       name: "Revelao.cam",
-      url: "https://revelao.cam/",
-      logo: "https://revelao.cam/favicon.ico",
+      url: "https://www.revelao.cam/",
+      logo: "https://www.revelao.cam/favicon.ico",
     };
     let ld = document.getElementById("ld-org");
     if (!ld) {

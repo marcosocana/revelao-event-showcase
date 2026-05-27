@@ -5,7 +5,7 @@ import process from "node:process";
 const rootDir = process.cwd();
 const distDir = path.join(rootDir, "dist");
 const templatePath = path.join(distDir, "index.html");
-const siteUrl = "https://revelao.cam";
+const siteUrl = "https://www.revelao.cam";
 const blogSlugAliases = {
   "cdigos-qr-para-bodas-qu-son-y-por-qu-cada-vez-ms-parejas-los-usan":
     "codigos-qr-para-bodas-que-son-y-por-que-cada-vez-mas-parejas-los-usan",

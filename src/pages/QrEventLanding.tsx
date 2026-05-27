@@ -126,7 +126,7 @@ const QrEventLanding = () => {
     const title = t.seoMeta.title;
     const description = t.seoMeta.description;
     const keywords = t.seoMeta.keywords;
-    const canonicalUrl = `https://revelao.cam${location.pathname}`;
+    const canonicalUrl = `https://www.revelao.cam${location.pathname}`;
 
     document.title = title;
     const setMeta = (name: string, content: string) => {
@@ -172,7 +172,7 @@ const QrEventLanding = () => {
       provider: {
         "@type": "Organization",
         name: "Revelao.cam",
-        url: "https://revelao.cam/",
+        url: "https://www.revelao.cam/",
       },
       areaServed: "ES",
       url: canonicalUrl,

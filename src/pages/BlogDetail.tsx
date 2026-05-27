@@ -34,10 +34,10 @@ const BlogDetail = () => {
 
   useEffect(() => {
     if (!post) return;
-    const canonicalUrl = `https://revelao.cam/blog/${post.slug}`;
+    const canonicalUrl = `https://www.revelao.cam/blog/${post.slug}`;
     const title = `${post.title} | Revelao.cam`;
     const description = post.excerpt;
-    const image = post.image?.startsWith("http") ? post.image : `https://revelao.cam${post.image}`;
+    const image = post.image?.startsWith("http") ? post.image : `https://www.revelao.cam${post.image}`;
     document.title = title;
 
     const setMeta = (name: string, value: string) => {
@@ -92,8 +92,8 @@ const BlogDetail = () => {
       description,
       image,
       mainEntityOfPage: canonicalUrl,
-      author: { "@type": "Organization", name: "Revelao.cam", url: "https://revelao.cam" },
-      publisher: { "@type": "Organization", name: "Revelao.cam", url: "https://revelao.cam" },
+      author: { "@type": "Organization", name: "Revelao.cam", url: "https://www.revelao.cam" },
+      publisher: { "@type": "Organization", name: "Revelao.cam", url: "https://www.revelao.cam" },
     });
   }, [post]);
 

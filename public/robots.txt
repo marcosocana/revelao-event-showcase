@@ -17,4 +17,4 @@ Disallow: /crearplantilla
 Disallow: /entornodemo
 Disallow: /pruebas
 
-Sitemap: https://revelao.cam/sitemap.xml
+Sitemap: https://www.revelao.cam/sitemap.xml
