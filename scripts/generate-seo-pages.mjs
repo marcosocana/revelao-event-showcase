@@ -188,7 +188,14 @@ const landingPages = [
     keywords: "qr boda, fotos boda qr, galeria privada boda, compartir fotos boda, subir fotos boda sin app",
     image: "/og-image.jpg",
     bodyHtml:
-      '<main><h1>QR para bodas y eventos con fotos, vídeos y audios sin app</h1><p>Revelao.cam crea una galería privada para que los invitados suban recuerdos desde el móvil escaneando un QR.</p><h2>Especialmente pensado para bodas</h2><p>Reúne fotos espontáneas, vídeos y mensajes de audio en una experiencia sencilla y privada con momento de revelado.</p></main>',
+      "<main><article><h1>QR para bodas y eventos con fotos, vídeos y audios sin app</h1>" +
+      "<p>Revelao.cam crea una galería privada para que los invitados suban recuerdos desde el móvil escaneando un QR. La experiencia está pensada para bodas, fiestas y eventos donde quieres reunir fotos espontáneas, vídeos cortos y mensajes de audio sin pedir a nadie que instale una app.</p>" +
+      "<p>El problema habitual no es que los invitados no hagan fotos. El problema es que esas fotos se quedan repartidas en móviles, chats de WhatsApp, carpetas incompletas o mensajes enviados días después. Con un QR visible durante el evento, cada recuerdo puede llegar a un único espacio privado cuando todavía está ocurriendo la celebración.</p>" +
+      "<h2>Especialmente pensado para bodas</h2><p>En una boda pasan cientos de momentos que los novios no pueden ver en directo: una mesa riéndose, un vídeo en la barra, una felicitación de audio, una escena divertida en la pista o un abrazo antes del baile. Revelao ayuda a guardar esas miradas de los invitados junto al reportaje profesional.</p>" +
+      "<h2>Cómo funciona Revelao</h2><p>Creas el evento, compartes el QR en carteles, tarjetas o invitaciones y los invitados suben contenido desde el navegador del móvil. No hay descargas, registros largos ni instrucciones complicadas. Todo queda centralizado en una galería privada preparada para revivir el evento después.</p>" +
+      "<h2>Por qué usar una galería privada con QR</h2><p>Una galería privada evita que los recuerdos importantes se mezclen con conversaciones. También permite reunir fotos, vídeos y audios en un entorno más ordenado que un grupo de WhatsApp o una carpeta genérica. Para la pareja, el valor está en descubrir el evento desde muchas perspectivas sin tener que perseguir archivos.</p>" +
+      "<h2>Ideas para conseguir más participación</h2><p>Coloca el QR en la entrada, las mesas, la barra, el photocall y la zona de baile. Acompáñalo con frases cortas como “Sube tus fotos de la boda” o “Déjanos un recuerdo para el revelado”. Cuanto más natural sea encontrarlo, más contenido subirán los invitados.</p>" +
+      '<p><a href="https://acceso.revelao.cam/nuevoeventodemo">Crear mi evento con QR</a></p></article></main>',
     schema: {
       "@context": "https://schema.org",
       "@type": "WebSite",
@@ -228,7 +235,19 @@ const useCasePages = [
   description,
   keywords,
   image: "/og-image.jpg",
-  bodyHtml: `<main><h1>${escapeHtml(title)}</h1><p>${escapeHtml(description)}</p><h2>Cómo funciona</h2><p>Crea el evento, comparte el QR y deja que los invitados suban recuerdos desde su móvil.</p></main>`,
+  bodyHtml:
+    slug === "bodas"
+      ? "<main><article><h1>QR para bodas: fotos, vídeos y audios de invitados</h1>" +
+        "<p>Crea una galería privada para tu boda con QR. Los invitados suben fotos, vídeos y mensajes de audio sin app y lo descubrís después en el momento del revelado.</p>" +
+        "<p>Una boda no se vive desde un único punto de vista. El fotógrafo captura los momentos principales, pero los invitados guardan escenas que ocurren en mesas, barra, photocall, pista de baile y conversaciones pequeñas. El QR convierte esos móviles en una memoria compartida sin obligar a nadie a descargar una aplicación.</p>" +
+        "<h2>Qué puede subir cada invitado</h2><p>Los invitados pueden aportar fotos espontáneas, vídeos cortos de la fiesta y mensajes de audio con felicitaciones o anécdotas. Ese material complementa el reportaje profesional y permite descubrir detalles que la pareja no vio en directo.</p>" +
+        "<h2>Dónde colocar el QR en la boda</h2><p>Funciona mejor cuando aparece en varios puntos: cartel de bienvenida, seating plan, tarjetas de mesa, barra, photocall y zona de baile. Cada ubicación cumple un papel distinto: presentar la dinámica, recordarla durante la cena y activar la participación cuando la fiesta está viva.</p>" +
+        "<h2>Por qué no depender solo de WhatsApp</h2><p>WhatsApp sirve para avisar o recordar el enlace, pero no es el mejor archivo para una boda. Las fotos se mezclan con mensajes, algunos vídeos no llegan y la pareja termina buscando recuerdos en conversaciones dispersas. Una galería privada con QR reúne todo en un único sitio.</p>" +
+        "<h2>El valor del revelado</h2><p>Después de la boda, la pareja puede abrir la galería y descubrir lo que vivieron sus invitados: bailes, bromas, audios, brindis y escenas únicas. Ese revelado convierte la recopilación de fotos en una segunda experiencia emocional.</p>" +
+        "<h2>Para parejas, wedding planners y espacios</h2><p>El QR también facilita la coordinación con wedding planners, fincas y venues. Todos pueden usar el mismo enlace, imprimir soportes coherentes y explicar la dinámica con una frase sencilla. Así no depende de una única persona recordar a los invitados que participen.</p>" +
+        "<h2>Qué hace que los invitados participen</h2><p>La participación depende de tres cosas: que el QR sea visible, que el mensaje sea claro y que subir contenido no requiera instalar nada. Cuando esos tres puntos se cumplen, llegan más fotos espontáneas, vídeos de fiesta y mensajes personales que completan la historia de la boda.</p>" +
+        '<p><a href="https://acceso.revelao.cam/nuevoeventodemo">Crear mi QR de boda</a></p></article></main>'
+      : `<main><h1>${escapeHtml(title)}</h1><p>${escapeHtml(description)}</p><h2>Cómo funciona</h2><p>Crea el evento, comparte el QR y deja que los invitados suban recuerdos desde su móvil.</p></main>`,
   schema: {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -788,6 +807,242 @@ const weddingLongLandingContent = {
           "La mejor forma de combinar ambos mundos es avisar con claridad. El fotógrafo sigue haciendo su trabajo y los invitados pueden subir sus recuerdos personales escaneando un QR visible en mesas, entrada, barra o photocall.",
           "También puedes pedir al wedding planner o al DJ que lo recuerde en un momento concreto. No hace falta interrumpir la boda: basta una frase breve antes del baile o durante el cóctel.",
           "Después llega el revelado. La pareja recibe el reportaje profesional por un lado y descubre la galería de invitados por otro. Juntas, ambas miradas hacen que la boda se recuerde con más profundidad.",
+        ],
+      ],
+    ],
+  },
+  "/bodas/tarjetas-qr-boda": {
+    cta: "Crear tarjetas QR para mi boda",
+    related: [
+      ["/bodas/cartel-qr-boda", "Cartel QR para boda"],
+      ["/bodas/codigo-qr-boda", "Código QR para boda"],
+      ["/bodas/subir-fotos-boda-sin-app", "Subir fotos sin app"],
+    ],
+    faqs: [
+      {
+        question: "¿Dónde poner tarjetas QR en una boda?",
+        answer:
+          "Funcionan especialmente bien en mesas, minutas, invitaciones, seating plan, barra, photocall y zonas donde los invitados pasan tiempo.",
+      },
+      {
+        question: "¿Qué texto debe acompañar a la tarjeta QR?",
+        answer:
+          "Una frase corta orientada a la acción, como “Escanea y sube tus fotos” o “Déjanos un recuerdo para el revelado”.",
+      },
+      {
+        question: "¿Las tarjetas QR sustituyen al cartel principal?",
+        answer:
+          "No. Lo ideal es combinar un cartel visible con tarjetas pequeñas que recuerden la dinámica durante toda la celebración.",
+      },
+    ],
+    sections: [
+      [
+        "Por qué las tarjetas QR reciben más recuerdos",
+        [
+          "Las tarjetas QR para boda funcionan porque acompañan al invitado en los momentos donde tiene tiempo para mirar, leer y participar. En una mesa, una minuta o un pequeño soporte junto al centro floral, el QR deja de ser una instrucción puntual y se convierte en parte natural de la celebración.",
+          "A diferencia de un cartel único en la entrada, las tarjetas mantienen viva la dinámica durante la cena, el cóctel y la fiesta. Muchos invitados no suben fotos la primera vez que ven el QR, pero sí lo hacen cuando acaban de capturar una escena divertida o un vídeo espontáneo.",
+          "El objetivo no es llenar la boda de códigos, sino colocar recordatorios útiles en lugares donde el móvil ya aparece de forma natural.",
+        ],
+      ],
+      [
+        "Formatos que mejor funcionan",
+        [
+          "Una tarjeta de mesa puede incluir el QR, una frase corta y suficiente espacio en blanco para que el código se escanee rápido. También puede integrarse en la minuta, en una tarjeta de agradecimiento o en un pequeño soporte junto al seating plan.",
+          "Para la barra y el photocall, conviene usar tarjetas algo más visibles y resistentes, porque son zonas con movimiento, copas, poca luz y más ruido. En la pista de baile, un soporte cerca del DJ o de la zona de accesorios puede activar muchas subidas de fotos divertidas.",
+          "La clave está en adaptar el soporte al momento: elegante y discreto en mesa, claro y visible en zonas de participación.",
+        ],
+      ],
+      [
+        "Qué mensaje poner en cada tarjeta",
+        [
+          "El texto debe explicar la acción en un segundo. Frases como “Sube tus fotos de la boda”, “Comparte tu mejor momento” o “Déjanos un recuerdo para descubrir mañana” funcionan porque son directas y tienen intención emocional.",
+          "Si la boda tendrá momento de revelado, merece la pena mencionarlo. Los invitados entienden que no están subiendo archivos a una carpeta cualquiera, sino preparando una sorpresa para la pareja.",
+          "Evita instrucciones largas. La tarjeta no debe parecer un manual. La pantalla que se abre después de escanear puede dar más contexto, pero el soporte físico debe invitar a participar.",
+        ],
+      ],
+      [
+        "Cómo combinarlas con Revelao",
+        [
+          "Con Revelao, todas las tarjetas pueden apuntar al mismo evento privado. Los invitados escanean y suben fotos, vídeos o mensajes de audio desde el navegador del móvil, sin instalar apps ni registrarse.",
+          "Esto permite que la pareja reciba recuerdos desde muchos puntos de la boda sin crear enlaces distintos ni carpetas separadas. Las tarjetas hacen de recordatorio físico; la galería privada se encarga de centralizar el contenido.",
+          "Para mejorar el resultado, imprime las tarjetas después de probar el QR con varios móviles y deja margen suficiente alrededor del código. Una buena impresión evita fricción justo cuando quieres que la gente participe.",
+        ],
+      ],
+    ],
+  },
+  "/bodas/revelado-fotos-boda": {
+    cta: "Crear mi revelado de boda",
+    related: [
+      ["/bodas/qr-fotos-boda", "QR para fotos de boda"],
+      ["/bodas/galeria-privada-boda", "Galería privada para boda"],
+      ["/blog/fotos-divertidas-fiesta-boda-qr", "Fotos divertidas de la fiesta"],
+    ],
+    faqs: [
+      {
+        question: "¿Qué es el revelado de fotos de boda?",
+        answer:
+          "Es el momento en el que la pareja descubre después de la boda las fotos, vídeos y audios que han subido los invitados.",
+      },
+      {
+        question: "¿Por qué esperar al revelado en vez de ver todo al momento?",
+        answer:
+          "Porque convierte los recuerdos en una experiencia emocional y permite vivir una segunda sorpresa cuando la boda ya ha terminado.",
+      },
+      {
+        question: "¿Qué contenido puede formar parte del revelado?",
+        answer:
+          "Fotos espontáneas, vídeos de la fiesta, mensajes de audio, felicitaciones, bromas, brindis y escenas capturadas por invitados.",
+      },
+    ],
+    sections: [
+      [
+        "El revelado convierte la galería en una experiencia",
+        [
+          "El revelado de fotos de boda no es solo abrir una carpeta con archivos. Es reservar un momento para descubrir cómo vivieron la celebración tus invitados: lo que pasó en otras mesas, los vídeos de la pista, las bromas de amigos y los mensajes de audio que nadie pudo escuchar durante el evento.",
+          "Durante la boda, la pareja está pendiente de saludar, emocionarse, bailar y disfrutar. Ver todo el contenido en directo puede distraer. Esperar al revelado permite vivir la fiesta sin mirar el móvil y dejar la sorpresa para después.",
+          "Ese pequeño retraso cambia el valor del recuerdo. Las fotos ya no son notificaciones sueltas, sino una colección preparada para revivir el día con calma.",
+        ],
+      ],
+      [
+        "Qué recuerdos aparecen en el revelado",
+        [
+          "Aparecen escenas que el fotógrafo quizá no vio: un grupo cantando en la barra, familiares riéndose en una mesa, amigos haciendo una foto absurda, vídeos de baile y felicitaciones grabadas con naturalidad.",
+          "También aparecen audios. Escuchar la voz de una abuela, un amigo o un hermano después de la boda puede tener un valor emocional enorme. No todo recuerdo importante cabe en una imagen.",
+          "Por eso Revelao reúne fotos, vídeos y mensajes de audio en la misma galería privada. El revelado se vuelve más completo porque combina imagen, movimiento y voz.",
+        ],
+      ],
+      [
+        "Cómo preparar el revelado desde antes de la boda",
+        [
+          "Para que el revelado tenga contenido, el QR debe estar bien presente durante el evento. Colócalo en carteles, tarjetas de mesa, barra y photocall. Recuérdalo en los momentos de más energía: cóctel, cena y pista de baile.",
+          "El texto también ayuda. Una frase como “Déjanos un recuerdo para el revelado” explica que los invitados están participando en algo que la pareja descubrirá después, no en una simple subida de archivos.",
+          "Cuanto más clara sea la dinámica, más diverso será el contenido final: fotos bonitas, escenas divertidas, vídeos cortos y mensajes personales.",
+        ],
+      ],
+      [
+        "Por qué funciona mejor que pedir fotos días después",
+        [
+          "Pedir fotos después de la boda depende de la memoria y la buena voluntad de cada invitado. Muchos quieren enviar sus recuerdos, pero el cansancio, los viajes y las conversaciones acumuladas hacen que se olviden.",
+          "El QR captura el contenido cuando la emoción todavía está viva. El revelado se construye durante el evento, aunque la pareja lo descubra más tarde.",
+          "Así, el recuerdo no llega disperso en chats. Llega a una galería privada pensada para volver a mirar la boda desde muchos ojos.",
+        ],
+      ],
+    ],
+  },
+  "/bodas/galeria-privada-boda": {
+    cta: "Crear galería privada de boda",
+    related: [
+      ["/bodas/qr-fotos-boda", "QR para fotos de boda"],
+      ["/bodas/whatsapp-vs-galeria-privada-fotos-boda", "WhatsApp vs galería privada"],
+      ["/bodas/revelado-fotos-boda", "Momento del revelado"],
+    ],
+    faqs: [
+      {
+        question: "¿Qué es una galería privada de boda?",
+        answer:
+          "Es un espacio privado donde la pareja reúne fotos, vídeos y audios subidos por invitados mediante un QR.",
+      },
+      {
+        question: "¿Quién puede acceder a la galería?",
+        answer:
+          "Solo las personas con el enlace o QR del evento, según la configuración y dinámica que elija la pareja.",
+      },
+      {
+        question: "¿Es mejor que un grupo de WhatsApp?",
+        answer:
+          "Para conservar recuerdos, sí. La galería centraliza el contenido y evita que fotos y vídeos se pierdan entre mensajes.",
+      },
+    ],
+    sections: [
+      [
+        "Para qué sirve una galería privada de boda",
+        [
+          "Una galería privada de boda sirve para reunir en un único lugar los recuerdos que capturan los invitados. No sustituye al fotógrafo profesional; añade una capa más íntima y espontánea de la celebración.",
+          "La pareja recibe fotos de mesas, vídeos de la barra, audios de familiares, escenas divertidas de fiesta y pequeños momentos que no siempre aparecen en el reportaje oficial. Todo queda asociado al mismo evento.",
+          "La privacidad es importante porque una boda no es contenido público. Una galería privada permite compartir la dinámica con invitados sin convertir cada recuerdo en una publicación abierta o en un grupo caótico.",
+        ],
+      ],
+      [
+        "Qué diferencia hay frente a WhatsApp o Drive",
+        [
+          "WhatsApp es útil para avisar, pero no para ordenar recuerdos. Las fotos se mezclan con conversaciones, se pierden vídeos y la pareja termina descargando archivos de distintos chats.",
+          "Drive puede servir como almacenamiento, pero no está pensado para que un invitado participe en segundos desde la pista de baile. Los permisos, carpetas y cuentas pueden frenar subidas.",
+          "Una galería privada con QR resuelve la intención del evento: escanear, subir y centralizar. Menos pasos para el invitado y más orden para la pareja.",
+        ],
+      ],
+      [
+        "Cómo conseguir que la galería tenga contenido real",
+        [
+          "La galería necesita visibilidad. El QR debe aparecer en entrada, mesas, barra, photocall y zona de baile. También conviene repetir una frase corta que explique la acción: subir fotos, vídeos o mensajes para el revelado.",
+          "La participación crece cuando el QR está cerca del momento. Si un invitado acaba de grabar un baile o una escena divertida, necesita encontrar el QR sin preguntar.",
+          "También ayuda mostrar la dinámica con naturalidad, no como una obligación. El mensaje debe sonar cercano: “Comparte tu mejor momento” funciona mejor que instrucciones largas.",
+        ],
+      ],
+      [
+        "Cómo encaja Revelao",
+        [
+          "Revelao crea esa galería privada y la conecta con un QR sencillo. Los invitados no instalan apps y pueden subir recuerdos desde el navegador del móvil.",
+          "La pareja conserva fotos, vídeos y mensajes de audio en un espacio pensado para la boda. Después puede vivir el momento del revelado y descubrir la celebración desde muchos puntos de vista.",
+          "El resultado es una memoria más completa: reportaje profesional por un lado, mirada de invitados por otro, y una galería privada que guarda lo espontáneo sin dispersarlo.",
+        ],
+      ],
+    ],
+  },
+  "/bodas/recopilar-fotos-invitados": {
+    cta: "Recopilar fotos de mis invitados",
+    related: [
+      ["/bodas/qr-fotos-boda", "QR para fotos de boda"],
+      ["/bodas/checklist-fotos-invitados-boda", "Checklist fotos invitados"],
+      ["/bodas/compartir-fotos-boda", "Compartir fotos de boda"],
+    ],
+    faqs: [
+      {
+        question: "¿Cómo recopilar fotos de invitados de boda?",
+        answer:
+          "La forma más sencilla es crear una galería privada con QR para que los invitados suban fotos, vídeos y audios durante la celebración.",
+      },
+      {
+        question: "¿Cuándo pedir a los invitados que suban fotos?",
+        answer:
+          "Durante la boda, especialmente en cóctel, mesas, barra, photocall y fiesta, cuando el recuerdo acaba de ocurrir.",
+      },
+      {
+        question: "¿Qué pasa si alguien se olvida?",
+        answer:
+          "Puedes enviar el enlace por WhatsApp después, pero el QR visible durante el evento aumenta mucho la participación inmediata.",
+      },
+    ],
+    sections: [
+      [
+        "El reto de recopilar fotos de invitados",
+        [
+          "Recopilar fotos de invitados parece fácil hasta que la boda termina. Cada persona tiene sus imágenes en el carrete, algunos vídeos pesan demasiado, otros se envían por chats privados y muchas escenas nunca llegan a la pareja.",
+          "La solución no es insistir más al día siguiente, sino preparar un flujo claro antes del evento. Si los invitados saben dónde subir sus recuerdos mientras los están viviendo, se pierde mucho menos contenido.",
+          "Un QR para fotos de boda convierte esa intención en una acción sencilla: escanear, elegir y subir.",
+        ],
+      ],
+      [
+        "Qué momentos suelen aportar los invitados",
+        [
+          "Los invitados capturan escenas muy distintas a las del fotógrafo: una mesa brindando, amigos cantando, niños jugando, detalles de decoración, vídeos de la pista y reacciones espontáneas que ocurren lejos de los focos.",
+          "Esas fotos no siempre son perfectas, pero suelen tener verdad. Muestran la boda desde dentro, con cercanía y humor.",
+          "También pueden aportar mensajes de audio. Una felicitación grabada en el momento puede emocionar más que una foto formal porque conserva la voz y la intención de quien la deja.",
+        ],
+      ],
+      [
+        "Plan práctico para no perder fotos",
+        [
+          "Primero, crea la galería y prueba el QR antes de imprimir nada. Segundo, colócalo en varios soportes: cartel, mesas, barra y photocall. Tercero, usa una frase corta y repetida en todos los materiales.",
+          "Durante la boda, pide un recordatorio breve en el cóctel o antes del baile. No hace falta interrumpir: basta con una frase que recuerde a los invitados que pueden subir el contenido que acaban de capturar.",
+          "Después de la boda, envía el enlace una vez más para recuperar fotos pendientes. Pero el grueso de la participación debería ocurrir durante la celebración.",
+        ],
+      ],
+      [
+        "Por qué centralizarlo en una galería privada",
+        [
+          "Centralizar evita que la pareja revise veinte conversaciones y carpetas. Todo llega al mismo espacio, con menos riesgo de olvidar vídeos, audios o fotos enviadas a otra persona.",
+          "También mejora la experiencia emocional. En lugar de recibir archivos sueltos durante días, la pareja puede descubrir la galería con calma y revivir la boda desde muchas miradas.",
+          "Revelao está diseñado para ese proceso: QR visible, subida sin app, galería privada y revelado posterior.",
         ],
       ],
     ],
