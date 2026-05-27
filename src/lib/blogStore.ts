@@ -29,6 +29,8 @@ const toBlogPost = (row: BlogRow): BlogPost => {
     image: row.image_url,
     tags: row.tags ?? [],
     date,
+    publishedAt: row.created_at,
+    updatedAt: row.updated_at,
   };
 };
 

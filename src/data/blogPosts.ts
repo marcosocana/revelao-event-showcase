@@ -6,6 +6,8 @@ export type BlogPost = {
   slug: string;
   title: string;
   date: string;
+  publishedAt?: string;
+  updatedAt?: string;
   excerpt: string;
   contentHtml: string;
   image: string;

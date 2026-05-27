@@ -177,6 +177,7 @@ const baseSchema = {
   "@type": "Organization",
   name: "Revelao.cam",
   url: siteUrl,
+  logo: `${siteUrl}/favicon.ico`,
 };
 
 const landingPages = [
@@ -1421,6 +1422,7 @@ const getLocalBlogPosts = () => {
           image: parsed.meta.image,
           tags: parsed.meta.tags || [],
           contentHtml: markdownToHtml(parsed.markdown),
+          publishedAt: parsed.meta.publishDate,
           updatedAt: parsed.meta.publishDate,
         },
       ];
@@ -1434,7 +1436,7 @@ const getSupabaseBlogPosts = async () => {
   if (!supabaseUrl || !anonKey) return [];
   try {
     const response = await fetch(
-      `${supabaseUrl}/rest/v1/blog_posts?select=slug,title,excerpt,content_html,image_url,tags,updated_at&lang=eq.es&order=created_at.desc`,
+      `${supabaseUrl}/rest/v1/blog_posts?select=slug,title,excerpt,content_html,image_url,tags,created_at,updated_at&lang=eq.es&order=created_at.desc`,
       { headers: { apikey: anonKey, Authorization: `Bearer ${anonKey}` } },
     );
     if (!response.ok) return [];
@@ -1446,6 +1448,7 @@ const getSupabaseBlogPosts = async () => {
       image: row.image_url,
       tags: row.tags || [],
       contentHtml: sanitizeBlogHtml(row.content_html),
+      publishedAt: row.created_at,
       updatedAt: row.updated_at,
     }));
   } catch {
@@ -1479,6 +1482,7 @@ const getBlogPages = async () => {
             mainEntityOfPage: `${siteUrl}/blog/${post.slug}`,
             author: baseSchema,
             publisher: baseSchema,
+            datePublished: toIsoDate(post.publishedAt || post.updatedAt),
             dateModified: toIsoDate(post.updatedAt),
           },
           {

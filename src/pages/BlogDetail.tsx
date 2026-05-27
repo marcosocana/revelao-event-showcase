@@ -85,6 +85,7 @@ const BlogDetail = () => {
       ld.setAttribute("id", "ld-blog-post");
       document.head.appendChild(ld);
     }
+    const publishedDate = post.publishedAt || post.updatedAt || post.date;
     ld.textContent = JSON.stringify({
       "@context": "https://schema.org",
       "@type": "BlogPosting",
@@ -93,7 +94,14 @@ const BlogDetail = () => {
       image,
       mainEntityOfPage: canonicalUrl,
       author: { "@type": "Organization", name: "Revelao.cam", url: "https://www.revelao.cam" },
-      publisher: { "@type": "Organization", name: "Revelao.cam", url: "https://www.revelao.cam" },
+      publisher: {
+        "@type": "Organization",
+        name: "Revelao.cam",
+        url: "https://www.revelao.cam",
+        logo: "https://www.revelao.cam/favicon.ico",
+      },
+      datePublished: publishedDate,
+      dateModified: post.updatedAt || publishedDate,
     });
   }, [post]);
 
