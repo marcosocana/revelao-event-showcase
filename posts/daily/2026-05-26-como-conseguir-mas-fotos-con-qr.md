@@ -39,11 +39,47 @@ No dejes toda la responsabilidad al cartel. Un recordatorio breve durante el eve
 
 La clave está en hacerlo fácil y natural. No tiene que sentirse como una tarea, sino como una forma de construir la memoria del evento entre todos.
 
+## Ejemplos de mensajes que sí funcionan
+
+El mensaje ideal cambia según el tipo de celebración, pero siempre debería cumplir tres condiciones: ser corto, explicar la acción y sonar humano. En una boda, por ejemplo, puedes usar una frase emocional. En un evento corporativo, conviene que sea más directa.
+
+Algunas ideas:
+
+- "Escanea y sube tu mejor foto de la noche".
+- "Ayúdanos a guardar los momentos que no vimos".
+- "Comparte aquí tus fotos y vídeos del evento".
+- "Déjanos un recuerdo para la galería privada".
+- "Sube ese momentazo antes de que se pierda en el móvil".
+
+Si el evento es una boda, puedes reforzar el mensaje con una guía específica como [QR para fotos de boda](/bodas/qr-fotos-boda) o preparar un soporte visible con las ideas de [cartel QR para boda](/bodas/cartel-qr-boda). El objetivo es que el invitado entienda en un segundo que participar es fácil y que su foto importa.
+
 ## Enseña la galería cuando ya tenga contenido
 
 Cuando los invitados ven que otras personas ya han subido fotos, se reduce la fricción. La galería empieza a parecer viva y participar se vuelve más intuitivo.
 
 Si tienes una pantalla disponible, mostrar algunas fotos durante el evento puede crear un efecto llamada. La gente entiende rápido que sus imágenes forman parte de algo común.
+
+## Checklist rápida antes del evento
+
+Antes de imprimir el QR o compartirlo, revisa estos puntos. Son pequeños, pero suelen marcar la diferencia entre una galería casi vacía y una llena de recuerdos reales.
+
+- Prueba el QR con varios móviles y desde distintas distancias.
+- Colócalo en más de un punto: entrada, mesas, barra, photocall y zona social.
+- Usa siempre la misma frase para que el mensaje sea reconocible.
+- Evita pedir que los invitados instalen una app.
+- Prepara un recordatorio breve para el anfitrión, DJ o responsable del evento.
+- Decide si quieres mostrar la galería durante la celebración o reservarla para después.
+- Ten un último mensaje listo para enviar al día siguiente con el enlace.
+
+Para bodas, una [galería privada de boda](/bodas/galeria-privada-boda) ayuda a que las fotos no acaben repartidas en chats. Y si quieres evitar fricción desde el principio, la clave está en permitir [subir fotos de boda sin app](/bodas/subir-fotos-boda-sin-app).
+
+## Qué fotos suelen llegar cuando el QR se usa bien
+
+Cuando la dinámica funciona, no solo llegan selfies. Aparecen fotos de mesas que la persona organizadora no pudo ver, vídeos cortos de baile, momentos de barra, detalles de decoración, grupos de amigos y escenas espontáneas que no estaban en el plan.
+
+Ese contenido tiene mucho valor porque completa la mirada oficial del evento. El fotógrafo o el equipo de comunicación puede cubrir lo importante, pero los invitados capturan lo que ocurre desde dentro.
+
+Por eso conviene pensar el QR como una invitación a participar, no como una herramienta técnica. Cuanto más integrada esté en el ambiente, más natural será que la gente suba recuerdos.
 
 ## Cierra con un último empujón
 

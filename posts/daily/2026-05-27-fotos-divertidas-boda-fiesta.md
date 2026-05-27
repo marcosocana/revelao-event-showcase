@@ -55,6 +55,20 @@ El fotógrafo puede capturar la belleza del día. Los invitados capturan la ener
 
 Una galería privada ayuda a que esas fotos no se pierdan en chats, carretes o conversaciones sueltas. Además, permite verlas después con más calma, cuando la boda ya ha pasado y empieza el momento de revivirla.
 
+## Ideas concretas para activar la fiesta
+
+Si quieres que lleguen fotos realmente divertidas, no basta con colocar el QR. También ayuda crear pequeñas oportunidades para que los invitados saquen el móvil sin sentirse raros.
+
+Algunas ideas sencillas:
+
+- Deja accesorios cerca del photocall o de la pista.
+- Pide al DJ que recuerde el QR antes de una canción especial.
+- Coloca una tarjeta QR en la barra, donde suelen aparecer muchos vídeos.
+- Anima a cada mesa a subir una foto de grupo antes del baile.
+- Prepara una frase como "Sube el momentazo de la noche".
+
+Estas dinámicas funcionan porque no interrumpen la boda. Se integran en lo que ya está pasando. Si el ambiente es divertido, el QR solo tiene que estar cerca para que el recuerdo llegue a la galería.
+
 ## Haz que subir fotos sea fácil para todos
 
 La mejor idea falla si subir una foto exige demasiados pasos. Por eso conviene usar una experiencia sin app, desde el móvil y con una instrucción muy clara.
@@ -62,6 +76,20 @@ La mejor idea falla si subir una foto exige demasiados pasos. Por eso conviene u
 Los invitados no deberían tener que crear una cuenta, descargar nada ni buscar un enlace antiguo. Escanear, elegir la foto y subirla. Cuanto más corto sea el camino, más recuerdos llegarán.
 
 También ayuda que la galería acepte distintos tipos de contenido. Una foto graciosa cuenta mucho, pero un vídeo corto de la pista o un mensaje de audio después de la fiesta puede ser igual de especial.
+
+## Checklist de fiesta para no perder momentazos
+
+Antes de que empiece el baile, revisa este pequeño plan:
+
+- QR visible en barra, photocall y zona de baile.
+- Frase corta y divertida junto al QR.
+- Subida sin app para evitar fricción.
+- Recordatorio del DJ o de una persona cercana.
+- Tarjetas QR en mesas para quienes prefieran subir fotos sentados.
+- Enlace listo para enviar al día siguiente.
+- Galería privada preparada para el [revelado de fotos de boda](/bodas/revelado-fotos-boda).
+
+Si quieres trabajar la parte física, las [tarjetas QR para boda](/bodas/tarjetas-qr-boda) ayudan mucho en la fiesta porque mantienen el recordatorio visible sin depender de un único cartel.
 
 ## El valor está en ver la boda desde muchos ojos
 

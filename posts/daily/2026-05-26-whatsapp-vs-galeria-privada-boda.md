@@ -53,11 +53,35 @@ No hace falta elegir WhatsApp o galería privada como si fueran enemigos. Lo má
 
 Este enfoque evita perseguir a cada persona por separado y mantiene el recuerdo centralizado.
 
+## Ejemplo práctico: antes, durante y después
+
+Antes de la boda, puedes usar WhatsApp para enviar una nota breve a personas clave: familia cercana, wedding planner o amigos que ayudarán a recordar la dinámica. No hace falta mandar instrucciones largas; basta con compartir que habrá un QR para subir recuerdos.
+
+Durante la boda, la protagonista debería ser la galería privada. El QR en mesas, barra, photocall o zona de baile permite que los invitados suban fotos cuando acaban de hacerlas. Ese es el momento en el que más contenido se consigue.
+
+Después de la boda, WhatsApp vuelve a ser útil para recuperar lo que quedó pendiente. Un mensaje al día siguiente con el enlace de la galería puede sumar fotos de quienes no escanearon el QR durante la fiesta.
+
 ## Qué debería tener una buena galería de boda
 
 Antes de elegir una herramienta, conviene revisar algunos puntos sencillos. La subida debería funcionar desde el móvil, sin app y con pocos pasos. El acceso debe ser privado, fácil de compartir y cómodo para invitados de distintas edades.
 
 También ayuda que la galería no se sienta como una carpeta fría. Una boda no es solo un archivo de imágenes: es una colección de momentos vistos desde muchos ojos. Por eso importa que la experiencia sea bonita, clara y pensada para revisar después.
+
+## Checklist para elegir bien
+
+Si estás dudando entre grupo, carpeta compartida o galería privada, revisa estos puntos:
+
+- ¿Los invitados pueden subir fotos sin instalar una app?
+- ¿Se pueden subir vídeos y mensajes de audio además de fotos?
+- ¿Todo queda reunido bajo el mismo evento?
+- ¿La pareja puede revisar el contenido sin buscar en chats?
+- ¿El QR se puede imprimir en carteles y tarjetas?
+- ¿La experiencia funciona para invitados de distintas edades?
+- ¿Permite preparar un momento de revelado después de la boda?
+
+Si la respuesta es sí, estás más cerca de una solución pensada para conservar recuerdos. Si la respuesta depende de que cada invitado recuerde enviar archivos por su cuenta, es probable que se pierda contenido.
+
+Para profundizar, puedes comparar la dinámica con una [galería privada para boda](/bodas/galeria-privada-boda) o revisar cómo funciona un [QR para fotos de boda](/bodas/qr-fotos-boda) en distintos puntos del evento.
 
 ## La mejor opción es la que los invitados usan
 

@@ -42,6 +42,21 @@ Son las imágenes que te enseñan qué estaba pasando mientras tú saludabas a o
 
 Cuando juntas esas fotos en un álbum colaborativo de boda, el recuerdo deja de depender de una sola mirada. Se convierte en una memoria compartida.
 
+## Ejemplos de fotos que casi siempre se pierden
+
+Hay momentos que parecen pequeños mientras ocurren, pero que después cuentan muchísimo. Muchas parejas descubren que sus fotos favoritas no son las más preparadas, sino las que muestran algo que no pudieron ver.
+
+Algunos ejemplos:
+
+- Una mesa de amigos brindando mientras los novios están saludando a otra persona.
+- Un vídeo corto de la barra libre antes de que empiece el baile.
+- Una foto de los padres riéndose durante la cena.
+- Un grupo de invitados preparando una sorpresa.
+- Una reacción espontánea durante un discurso.
+- Una escena divertida en el photocall o en la pista.
+
+Estas imágenes suelen quedarse en móviles porque nadie piensa que sean "la foto importante". Precisamente por eso conviene tener un sistema visible para [recopilar fotos de invitados](/bodas/recopilar-fotos-invitados) desde el mismo día de la boda.
+
 ## El momento del revelado lo cambia todo
 
 Guardar las fotos no es solo una cuestión práctica. También puede convertirse en una experiencia emocional.
@@ -59,6 +74,26 @@ Para captar las mejores fotos de tu boda, el sistema tiene que ser visible y fá
 - Recuerda la dinámica antes del baile o durante el cóctel.
 - Evita pedir que instalen una app.
 - Reúne todo en una galería privada para verlo después con calma.
+
+## Checklist para preparar la recogida de fotos
+
+La mejor forma de no perder recuerdos es decidirlo antes, no improvisar al día siguiente. Esta checklist ayuda a que el QR forme parte natural de la boda:
+
+- Crea una [galería privada de boda](/bodas/galeria-privada-boda) antes de imprimir los soportes.
+- Prueba el código QR con varios móviles.
+- Coloca un cartel visible en la entrada o seating plan.
+- Añade tarjetas pequeñas en mesas, barra o photocall.
+- Usa una frase emocional: "Déjanos un recuerdo para descubrir después".
+- Recuerda la dinámica durante el cóctel o antes del baile.
+- Envía el enlace al día siguiente para recuperar fotos pendientes.
+
+Si además quieres convertirlo en una experiencia, puedes reservar el contenido para el [revelado de fotos de boda](/bodas/revelado-fotos-boda). Así la pareja descubre todas esas miradas cuando ya ha pasado la intensidad del evento.
+
+## Por qué el QR mejora la participación
+
+El QR funciona porque reduce el esfuerzo en el momento adecuado. El invitado no tiene que buscar a quién mandar la foto, preguntar si hay grupo o esperar a tener tiempo. Solo escanea, selecciona y sube.
+
+Esa sencillez cambia el resultado. Cuando subir una foto lleva segundos, aparecen más recuerdos espontáneos. Cuando requiere instalar una app o enviar archivos después, muchas imágenes se quedan donde estaban: en el carrete del móvil.
 
 El objetivo no es tener miles de imágenes sin orden. Es no perder los momentos que completan la historia: los espontáneos, los imperfectos, los que solo podían captar quienes estuvieron allí contigo.
 

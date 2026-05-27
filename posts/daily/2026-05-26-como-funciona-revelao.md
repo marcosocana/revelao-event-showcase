@@ -22,6 +22,8 @@ Ese QR puede colocarse en carteles de bienvenida, mesas, tarjetas, pantallas o c
 
 Para una boda, este detalle importa mucho: cuanto más natural sea encontrar el QR, más fácil será que los invitados participen.
 
+Antes de imprimir nada, conviene probar el QR en varios móviles y decidir qué soportes vas a usar. Un cartel de bienvenida explica la dinámica, pero las [tarjetas QR de boda](/bodas/tarjetas-qr-boda) en mesas, barra o photocall funcionan como recordatorios durante toda la celebración.
+
 ## Paso 2: los invitados escanean y suben sus recuerdos
 
 Durante la boda, cada invitado puede escanear el QR con su móvil y subir contenido directamente a la galería. No hace falta instalar una aplicación ni crear una cuenta complicada.
@@ -59,6 +61,28 @@ Pedir fotos después de la boda suele sonar fácil, pero casi nunca funciona tan
 El QR resuelve esa fricción en el momento adecuado: cuando la emoción está ocurriendo. Si un invitado acaba de grabar un vídeo divertido o quiere dejar un mensaje de audio, puede subirlo en segundos.
 
 Para la pareja, el beneficio es claro: más recuerdos, menos esfuerzo y una galería privada que no depende de que todo el mundo se acuerde días después.
+
+## Checklist para preparar Revelao antes de la boda
+
+Si quieres que la galería tenga contenido de verdad, prepara la dinámica antes del evento. No hace falta complicarlo, pero sí dejar claro cómo y cuándo participar.
+
+- Crea el evento y revisa que el QR abre correctamente.
+- Coloca el QR en soportes físicos visibles: entrada, mesas, seating plan, barra y zona de fiesta.
+- Escribe una frase corta: "Escanea y sube tus recuerdos de la boda".
+- Explica que se pueden subir fotos, vídeos y mensajes de audio.
+- Pide un recordatorio breve al DJ, wedding planner o maestro de ceremonias.
+- Decide si el contenido se verá durante la boda o si se guardará para el [revelado de fotos de boda](/bodas/revelado-fotos-boda).
+- Envía el enlace al día siguiente para recuperar recuerdos que quedaron en el carrete.
+
+Este plan evita depender de la memoria de los invitados. También ayuda a que personas de distintas edades participen sin sentirse perdidas: ven el QR, entienden la frase y suben el contenido desde el móvil.
+
+## Ejemplos de recuerdos que suelen aparecer
+
+Lo más bonito de una galería colaborativa es que no sabes exactamente qué va a llegar. Puede aparecer una foto de los novios entrando al cóctel desde una mesa lateral, un vídeo de amigos cantando, un audio de una abuela, una reacción durante los discursos o una escena divertida de la pista.
+
+Estos recuerdos no compiten con el reportaje profesional. Lo completan. El fotógrafo cuenta la boda con mirada cuidada; los invitados cuentan cómo se vivió desde dentro.
+
+Por eso Revelao encaja especialmente bien con parejas que quieren conservar algo más que fotos perfectas. Quieren voces, movimiento, bromas y pequeños detalles que quizá nadie habría enviado por WhatsApp.
 
 ## Una boda se recuerda mejor cuando se guarda desde muchas miradas
 
