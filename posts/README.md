@@ -60,7 +60,7 @@ Al publicar, el script sube esas imagenes locales a Supabase Storage y guarda en
 
 ## Automatizacion diaria con OpenAI
 
-El comando automatico crea el post, genera dos imagenes y lo publica:
+El comando automatico con OpenAI crea el post, genera dos imagenes y lo publica:
 
 ```bash
 npm run blog:auto:today
@@ -89,3 +89,51 @@ El workflow `.github/workflows/publish-blog-daily.yml` lo ejecuta dos veces al d
 - 20:45 UTC, usando `BLOG_AUTO_SLOT=evening`.
 
 Cada franja elige un angulo distinto para evitar publicar dos posts iguales el mismo dia.
+
+## Automatizacion sin OpenAI con cola
+
+Para publicar sin billing de OpenAI, prepara posts completos en `posts/queue/`.
+
+Cada archivo debe ser Markdown con el mismo frontmatter de siempre:
+
+```md
+---
+lang: es
+title: "Titulo del post"
+slug: "titulo-del-post"
+excerpt: "Resumen corto para la tarjeta del blog."
+image: "/blog/imagen-existente.avif"
+tags: ["Bodas", "QR"]
+---
+
+## Subtitulo
+
+Contenido del post en Markdown.
+```
+
+El workflow publica el primer `.md` de `posts/queue/` en orden alfabetico:
+
+- Lo mueve a `posts/daily/`.
+- Le anade `publishDate` con la fecha de Espana.
+- Le anade `autoSlot` con `morning` o `evening`.
+- Lo publica en Supabase.
+- Hace commit quitandolo de la cola.
+
+Para probarlo localmente sin publicar:
+
+```bash
+npm run blog:publish:queued -- --dry-run
+```
+
+Para publicar manualmente el siguiente post de la cola:
+
+```bash
+npm run blog:publish:queued
+```
+
+Con este flujo solo hacen falta los secrets de Supabase en GitHub Actions:
+
+```text
+VITE_SUPABASE_URL
+VITE_SUPABASE_PUBLISHABLE_KEY
+```

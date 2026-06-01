@@ -7,6 +7,15 @@ on:
     # 22:45 in Spain during daylight saving time (CEST, UTC+2).
     - cron: "45 20 * * *"
   workflow_dispatch:
+    inputs:
+      slot:
+        description: "Publication slot"
+        required: false
+        default: "morning"
+        type: choice
+        options:
+          - morning
+          - evening
 
 permissions:
   contents: write
@@ -23,21 +32,18 @@ jobs:
         with:
           node-version: 20
 
-      - name: Generate and publish today's post
+      - name: Publish next queued post
         env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          OPENAI_TEXT_MODEL: ${{ vars.OPENAI_TEXT_MODEL || 'gpt-4o-mini' }}
-          OPENAI_IMAGE_MODEL: ${{ vars.OPENAI_IMAGE_MODEL || 'gpt-image-1.5' }}
-          BLOG_AUTO_SLOT: ${{ github.event.schedule == '45 20 * * *' && 'evening' || 'morning' }}
+          BLOG_AUTO_SLOT: ${{ github.event_name == 'workflow_dispatch' && inputs.slot || (github.event.schedule == '45 20 * * *' && 'evening' || 'morning') }}
           VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
           VITE_SUPABASE_PUBLISHABLE_KEY: ${{ secrets.VITE_SUPABASE_PUBLISHABLE_KEY }}
-        run: npm run blog:auto:today
+        run: npm run blog:publish:queued
 
-      - name: Commit generated post
+      - name: Commit published post
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add posts/daily public/blog
+          git add posts/queue posts/daily public/blog
           git diff --cached --quiet || git commit -m "Add daily blog post"
           git pull --rebase origin main
           git push

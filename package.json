@@ -13,6 +13,7 @@
     "blog:card": "node scripts/generate-blog-card.mjs",
     "blog:generate:today": "node scripts/generate-daily-blog-post.mjs",
     "blog:auto:today": "node scripts/generate-daily-blog-post.mjs --publish",
+    "blog:publish:queued": "node scripts/publish-next-queued-blog-post.mjs",
     "lint": "eslint .",
     "preview": "vite preview"
   },
