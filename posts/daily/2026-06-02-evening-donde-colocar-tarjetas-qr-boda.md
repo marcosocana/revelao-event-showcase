@@ -5,6 +5,9 @@ slug: "donde-colocar-tarjetas-qr-boda"
 excerpt: "Ideas claras para colocar tarjetas QR en mesas, barra, photocall y zonas clave de la boda sin saturar la decoración."
 image: "/blog/queue-003-donde-colocar-tarjetas-qr-boda-portada.avif"
 tags: ["Bodas", "Tarjetas QR", "Fotos invitados"]
+publishDate: 2026-06-02
+createdAt: "2026-06-02 00:49:47 Europe/Madrid"
+autoSlot: evening
 ---
 
 ## Las tarjetas QR funcionan porque están cerca del invitado
