@@ -3,7 +3,7 @@ lang: es
 title: "Álbum colaborativo de boda sin app: cómo hacerlo fácil para todos"
 slug: "album-colaborativo-boda-sin-app"
 excerpt: "Cómo crear un álbum colaborativo de boda con QR para que los invitados suban fotos y vídeos sin descargar ninguna app."
-image: "/blog/2026-05-26-como-funciona-revelao-portada.avif"
+image: "/blog/queue-014-album-colaborativo-boda-sin-app-portada.avif"
 tags: ["Bodas", "Álbum colaborativo", "Sin app"]
 ---
 
@@ -14,6 +14,8 @@ La idea de un álbum colaborativo de boda es preciosa: cada invitado aporta su m
 Si hay que descargar una app, registrarse o recordar un enlace, muchas personas no lo harán. En una boda, la atención está en celebrar.
 
 Por eso un QR sin app es una buena solución.
+
+![Album colaborativo de boda sin app con QR](/blog/queue-014-album-colaborativo-boda-sin-app-detalle.avif)
 
 ## Qué es un álbum colaborativo con QR
 

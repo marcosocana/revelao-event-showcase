@@ -3,7 +3,7 @@ lang: es
 title: "Cómo animar a invitados mayores a usar el QR de fotos de la boda"
 slug: "invitados-mayores-usar-qr-boda"
 excerpt: "Consejos para que padres, tíos y abuelos puedan participar en la galería de boda con QR sin sentirse perdidos."
-image: "/blog/2026-05-26-qr-eventos-portada.avif"
+image: "/blog/queue-017-invitados-mayores-usar-qr-boda-portada.avif"
 tags: ["Bodas", "Invitados", "QR"]
 ---
 
@@ -12,6 +12,8 @@ tags: ["Bodas", "Invitados", "QR"]
 En muchas bodas hay invitados de distintas edades. Algunos escanean QR a diario; otros los usan menos o no saben exactamente qué ocurre al hacerlo. Si quieres que todos participen, conviene hacer la experiencia muy sencilla.
 
 El objetivo no es que nadie aprenda una herramienta nueva. Es que puedan dejar fotos, vídeos o recuerdos sin sentirse torpes.
+
+![Invitados mayores usando un QR de fotos de boda](/blog/queue-017-invitados-mayores-usar-qr-boda-detalle.avif)
 
 ## Usa instrucciones muy claras
 

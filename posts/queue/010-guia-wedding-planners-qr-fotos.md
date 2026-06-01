@@ -3,7 +3,7 @@ lang: es
 title: "Guía para wedding planners: cómo integrar un QR de fotos en una boda"
 slug: "guia-wedding-planners-qr-fotos"
 excerpt: "Una guía práctica para planners que quieren incorporar un QR de fotos sin romper la estética ni el ritmo del evento."
-image: "/blog/2026-05-26-qr-eventos-portada.avif"
+image: "/blog/queue-010-guia-wedding-planners-qr-fotos-portada.avif"
 tags: ["Wedding planner", "Bodas", "QR"]
 ---
 
@@ -12,6 +12,8 @@ tags: ["Wedding planner", "Bodas", "QR"]
 Para una wedding planner, un QR de fotos no es solo una herramienta tecnológica. Es un punto más del diseño de experiencia: debe verse, entenderse y usarse sin interferir en la estética ni en el timing.
 
 Cuando está bien planteado, ayuda a la pareja a reunir recuerdos espontáneos de invitados y reduce el caos posterior de pedir fotos por WhatsApp.
+
+![Wedding planner colocando tarjetas QR para fotos de boda](/blog/queue-010-guia-wedding-planners-qr-fotos-detalle.avif)
 
 ## Define el objetivo con la pareja
 

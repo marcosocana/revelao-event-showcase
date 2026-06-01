@@ -3,7 +3,7 @@ lang: es
 title: "Fotos espontáneas o posadas: qué recuerdos de boda merece la pena guardar"
 slug: "fotos-espontaneas-vs-posadas-boda"
 excerpt: "Por qué las fotos espontáneas de invitados complementan las imágenes posadas y ayudan a recordar mejor una boda."
-image: "/blog/2026-05-27-fotos-divertidas-boda-fiesta-portada.avif"
+image: "/blog/queue-018-fotos-espontaneas-vs-posadas-boda-portada.avif"
 tags: ["Bodas", "Fotos espontáneas", "Recuerdos"]
 ---
 
@@ -14,6 +14,8 @@ En una boda hay fotos que todos esperan: retratos familiares, ceremonia, pareja,
 Pero también hay otras fotos menos perfectas que terminan siendo inolvidables: una carcajada en una mesa, un baile raro, una reacción durante un discurso o una foto movida en la barra.
 
 Las dos tienen valor. La clave es no perder ninguna mirada.
+
+![Fotos espontaneas de invitados en una boda](/blog/queue-018-fotos-espontaneas-vs-posadas-boda-detalle.avif)
 
 ## Lo que aportan las fotos posadas
 

@@ -3,7 +3,7 @@ lang: es
 title: "Qué hacer el día después de la boda para recopilar fotos pendientes"
 slug: "dia-despues-recopilar-fotos-boda"
 excerpt: "Un plan sencillo para pedir fotos y vídeos a los invitados el día después sin perseguir mensajes ni perder recuerdos."
-image: "/blog/2026-05-26-whatsapp-vs-galeria-privada-portada.avif"
+image: "/blog/queue-019-dia-despues-recopilar-fotos-boda-portada.avif"
 tags: ["Bodas", "Postboda", "Fotos invitados"]
 ---
 
@@ -14,6 +14,8 @@ Aunque hayas puesto un QR durante la boda, siempre habrá invitados que no suban
 Por eso el día después es una oportunidad importante para recopilar fotos pendientes.
 
 La clave es hacerlo fácil y con un mensaje amable.
+
+![Pareja recopilando fotos de boda el dia despues](/blog/queue-019-dia-despues-recopilar-fotos-boda-detalle.avif)
 
 ## Envía un enlace único
 

@@ -3,7 +3,7 @@ lang: es
 title: "Cómo organizar un QR de boda para recopilar fotos de invitados"
 slug: "organizar-qr-boda-fotos-invitados"
 excerpt: "Una guía práctica para preparar el QR de tu boda, colocarlo bien y conseguir que los invitados suban más recuerdos."
-image: "/blog/2026-05-26-qr-eventos-portada.avif"
+image: "/blog/queue-001-organizar-qr-boda-fotos-invitados-portada.avif"
 tags: ["Bodas", "QR", "Fotos invitados"]
 publishDate: 2026-06-01
 autoSlot: morning
@@ -58,7 +58,7 @@ Para fiesta:
 
 La clave es no dar una orden. El QR debe sentirse como una invitación.
 
-![Invitados de boda usando un QR para subir fotos](/blog/2026-05-26-flujo-qr-galeria.avif)
+![Invitados de boda escaneando un QR para subir fotos](/blog/queue-001-organizar-qr-boda-fotos-invitados-detalle.avif)
 
 ## Prepara un recordatorio durante la boda
 

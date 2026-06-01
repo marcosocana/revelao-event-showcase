@@ -3,7 +3,7 @@ lang: es
 title: "Dónde colocar tarjetas QR en una boda para que todos las vean"
 slug: "donde-colocar-tarjetas-qr-boda"
 excerpt: "Ideas claras para colocar tarjetas QR en mesas, barra, photocall y zonas clave de la boda sin saturar la decoración."
-image: "/blog/2026-05-27-captar-mejores-fotos-boda-portada.avif"
+image: "/blog/queue-003-donde-colocar-tarjetas-qr-boda-portada.avif"
 tags: ["Bodas", "Tarjetas QR", "Fotos invitados"]
 ---
 
@@ -12,6 +12,8 @@ tags: ["Bodas", "Tarjetas QR", "Fotos invitados"]
 Un cartel grande puede verse bonito, pero una tarjeta QR en la mesa tiene una ventaja enorme: está justo donde el invitado se sienta, conversa, brinda y saca el móvil. Por eso las tarjetas pequeñas suelen conseguir más participación que un único soporte colocado lejos.
 
 La idea no es llenar la boda de códigos. Es colocar recordatorios discretos en momentos donde subir una foto tenga sentido. Si el QR aparece cuando alguien acaba de hacer una imagen, el gesto resulta natural.
+
+![Tarjetas QR colocadas en mesas de boda](/blog/queue-003-donde-colocar-tarjetas-qr-boda-detalle.avif)
 
 ## En cada mesa, con una frase sencilla
 

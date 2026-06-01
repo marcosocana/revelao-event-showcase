@@ -3,7 +3,7 @@ lang: es
 title: "Errores que hacen que se pierdan fotos de boda de los invitados"
 slug: "errores-perder-fotos-boda"
 excerpt: "Los fallos más habituales al pedir fotos a invitados y cómo evitarlos con una galería privada y un QR sencillo."
-image: "/blog/2026-05-27-captar-mejores-fotos-boda-noche.avif"
+image: "/blog/queue-005-errores-perder-fotos-boda-portada.avif"
 tags: ["Bodas", "Recuerdos", "Fotos invitados"]
 ---
 
@@ -14,6 +14,8 @@ En una boda se hacen muchísimas fotos fuera del objetivo del fotógrafo. Mesas 
 El problema no es que no existan. El problema es que no llegan.
 
 Muchas se quedan en móviles, se mandan por chats pequeños o se olvidan al volver a la rutina. Evitarlo depende de planificar cómo se van a recopilar desde el principio.
+
+![Fotos de boda en moviles de invitados junto a un QR](/blog/queue-005-errores-perder-fotos-boda-detalle.avif)
 
 ## Error 1: esperar al día siguiente
 

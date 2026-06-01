@@ -3,7 +3,7 @@ lang: es
 title: "Cómo conseguir que los invitados suban más fotos de la boda"
 slug: "conseguir-invitados-suban-mas-fotos-boda"
 excerpt: "Consejos prácticos para aumentar la participación de los invitados y recibir más fotos y vídeos con un QR de boda."
-image: "/blog/2026-05-27-fotos-divertidas-boda-fiesta-portada.avif"
+image: "/blog/queue-004-conseguir-invitados-suban-mas-fotos-boda-portada.avif"
 tags: ["Bodas", "Participación", "QR"]
 ---
 
@@ -14,6 +14,8 @@ Muchos novios piensan que, si los invitados hacen fotos, luego las enviarán. A 
 Para conseguir que los invitados suban más fotos de la boda, hay que reducir fricción y recordar la dinámica en el momento adecuado. No se trata de insistir, sino de hacerlo fácil.
 
 Un QR visible y una frase clara pueden cambiar mucho el resultado.
+
+![Invitados subiendo mas fotos de boda con un QR](/blog/queue-004-conseguir-invitados-suban-mas-fotos-boda-detalle.avif)
 
 ## Explica el valor emocional
 

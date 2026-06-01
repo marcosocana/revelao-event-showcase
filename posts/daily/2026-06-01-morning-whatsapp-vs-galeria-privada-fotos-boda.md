@@ -3,7 +3,7 @@ lang: es
 title: "WhatsApp o galería privada: qué es mejor para las fotos de tu boda"
 slug: "whatsapp-vs-galeria-privada-fotos-boda"
 excerpt: "Comparativa práctica entre pedir fotos por WhatsApp o reunirlas en una galería privada con QR para tu boda."
-image: "/blog/2026-05-26-whatsapp-vs-galeria-privada-portada.avif"
+image: "/blog/queue-002-whatsapp-vs-galeria-privada-fotos-boda-portada.avif"
 tags: ["Bodas", "Galería privada", "WhatsApp"]
 publishDate: 2026-06-01
 autoSlot: morning
@@ -16,6 +16,8 @@ Después de una boda, es normal que la pareja quiera ver las fotos de los invita
 El problema llega rápido: las fotos se mezclan con conversaciones, pierden calidad, se repiten, quedan enterradas y no siempre llegan de todos los grupos. Además, muchos invitados no quieren estar en otro chat más o prefieren no compartir sus fotos con todo el mundo.
 
 Una galería privada con QR resuelve ese punto de forma más ordenada. No elimina la conversación, pero separa lo importante: los recuerdos de la boda.
+
+![Invitados revisando fotos de boda en una galeria privada](/blog/queue-002-whatsapp-vs-galeria-privada-fotos-boda-detalle.avif)
 
 ## WhatsApp sirve para hablar, no para conservar
 

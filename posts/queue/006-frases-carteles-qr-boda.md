@@ -3,7 +3,7 @@ lang: es
 title: "Ideas de frases para carteles QR de boda que animan a subir fotos"
 slug: "frases-carteles-qr-boda"
 excerpt: "Frases naturales, emocionales y divertidas para acompañar el QR de fotos de tu boda y conseguir más participación."
-image: "/blog/2026-05-26-flujo-qr-galeria.avif"
+image: "/blog/queue-006-frases-carteles-qr-boda-portada.avif"
 tags: ["Bodas", "Carteles QR", "Ideas"]
 ---
 
@@ -12,6 +12,8 @@ tags: ["Bodas", "Carteles QR", "Ideas"]
 Un cartel QR de boda no necesita mucho texto. De hecho, cuanto más claro sea, mejor. Pero la frase que acompaña al código sí importa: puede hacer que el invitado lo ignore o que entienda en segundos que puede dejar un recuerdo especial.
 
 La clave está en sonar natural. El cartel no debe parecer una instrucción fría ni una orden. Debe invitar a participar en la memoria de la boda.
+
+![Cartel QR de boda para subir fotos de invitados](/blog/queue-006-frases-carteles-qr-boda-detalle.avif)
 
 ## Frases sencillas y directas
 

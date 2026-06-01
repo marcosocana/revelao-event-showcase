@@ -3,7 +3,7 @@ lang: es
 title: "Cómo usar un QR en el photocall de una boda para no perder fotos"
 slug: "qr-photocall-boda"
 excerpt: "Ideas para colocar un QR en el photocall y conseguir que los invitados suban sus fotos justo después de hacerlas."
-image: "/blog/2026-05-27-fotos-divertidas-boda-fiesta-detalle.avif"
+image: "/blog/queue-007-qr-photocall-boda-portada.avif"
 tags: ["Bodas", "Photocall", "QR"]
 ---
 
@@ -12,6 +12,8 @@ tags: ["Bodas", "Photocall", "QR"]
 Si hay un punto de la boda donde los invitados hacen fotos con intención, es el photocall. Van allí para posar, reírse, repetir tomas y revisar el resultado en el móvil. Por eso colocar un QR cerca tiene mucho sentido.
 
 El objetivo es aprovechar ese momento exacto. El invitado acaba de hacer una imagen, la tiene delante y solo necesita una forma rápida de compartirla con la pareja.
+
+![Invitados usando un QR en el photocall de una boda](/blog/queue-007-qr-photocall-boda-detalle.avif)
 
 ## Coloca el QR cerca, no lejos
 

@@ -3,7 +3,7 @@ lang: es
 title: "Cómo combinar fotógrafo profesional y fotos de invitados en una boda"
 slug: "fotografo-profesional-fotos-invitados-boda"
 excerpt: "Cómo aprovechar el reportaje profesional y las fotos espontáneas de invitados para tener un recuerdo más completo de la boda."
-image: "/blog/2026-05-27-captar-mejores-fotos-boda-portada.avif"
+image: "/blog/queue-020-fotografo-profesional-fotos-invitados-boda-portada.avif"
 tags: ["Bodas", "Fotógrafo", "Fotos invitados"]
 ---
 
@@ -12,6 +12,8 @@ tags: ["Bodas", "Fotógrafo", "Fotos invitados"]
 Contratar fotógrafo profesional y recopilar fotos de invitados no compiten. De hecho, se complementan muy bien. El fotógrafo aporta calidad, mirada técnica y cobertura de momentos clave. Los invitados aportan cercanía, espontaneidad y puntos de vista imposibles de planificar.
 
 Una boda se vive desde muchos lugares a la vez. Por eso tiene sentido guardar más de una mirada.
+
+![Fotografo profesional y fotos de invitados en una boda](/blog/queue-020-fotografo-profesional-fotos-invitados-boda-detalle.avif)
 
 ## Qué cubre mejor el fotógrafo
 

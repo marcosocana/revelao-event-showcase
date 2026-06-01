@@ -3,7 +3,7 @@ lang: es
 title: "Mensajes de audio en bodas: ideas para recuerdos de invitados"
 slug: "mensajes-audio-boda-invitados"
 excerpt: "Ideas para pedir mensajes de audio a los invitados y convertir sus voces en recuerdos emocionales después de la boda."
-image: "/blog/2026-05-26-como-funciona-revelao-audio-video.avif"
+image: "/blog/queue-012-mensajes-audio-boda-invitados-portada.avif"
 tags: ["Bodas", "Audio", "Recuerdos"]
 ---
 
@@ -14,6 +14,8 @@ Las fotos muestran lo que pasó. Los mensajes de audio guardan cómo sonaban las
 Por eso los audios de invitados pueden convertirse en recuerdos muy especiales después de una boda.
 
 No tienen que ser perfectos. De hecho, funcionan mejor cuando son espontáneos.
+
+![Invitados grabando mensajes de audio en una boda](/blog/queue-012-mensajes-audio-boda-invitados-detalle.avif)
 
 ## Cuándo pedir mensajes de audio
 

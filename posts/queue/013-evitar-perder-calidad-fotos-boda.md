@@ -3,7 +3,7 @@ lang: es
 title: "Cómo evitar perder calidad al recibir fotos de boda de invitados"
 slug: "evitar-perder-calidad-fotos-boda"
 excerpt: "Consejos para recibir fotos de boda con mejor calidad y evitar que los recuerdos se pierdan entre chats comprimidos."
-image: "/blog/2026-05-26-whatsapp-vs-galeria-privada-detalle.avif"
+image: "/blog/queue-013-evitar-perder-calidad-fotos-boda-portada.avif"
 tags: ["Bodas", "Calidad fotos", "Galería privada"]
 ---
 
@@ -12,6 +12,8 @@ tags: ["Bodas", "Calidad fotos", "Galería privada"]
 Muchas parejas reciben fotos de su boda por WhatsApp y descubren que algunas llegan comprimidas, borrosas o mezcladas con capturas. No siempre importa, pero cuando una imagen es especial, perder calidad duele.
 
 Para conservar mejor las fotos de invitados, conviene pensar cómo se van a recoger. El canal importa.
+
+![Fotos de boda subidas con calidad a una galeria privada](/blog/queue-013-evitar-perder-calidad-fotos-boda-detalle.avif)
 
 ## El problema de los chats
 

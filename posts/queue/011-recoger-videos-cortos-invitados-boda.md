@@ -3,7 +3,7 @@ lang: es
 title: "Cómo recoger vídeos cortos de los invitados en una boda"
 slug: "recoger-videos-cortos-invitados-boda"
 excerpt: "Consejos para conseguir vídeos espontáneos de invitados durante la boda sin depender de chats ni envíos posteriores."
-image: "/blog/2026-05-26-como-funciona-revelao-audio-video.avif"
+image: "/blog/queue-011-recoger-videos-cortos-invitados-boda-portada.avif"
 tags: ["Bodas", "Vídeos", "QR"]
 ---
 
@@ -14,6 +14,8 @@ Una foto congela un momento. Un vídeo, aunque dure pocos segundos, guarda movim
 El problema es que suelen quedarse en móviles. Pesan más, se envían peor por WhatsApp y muchas personas se olvidan de compartirlos después.
 
 Un QR para subir contenido facilita que esos vídeos lleguen a la pareja sin perseguir a nadie.
+
+![Invitados grabando videos cortos en una boda](/blog/queue-011-recoger-videos-cortos-invitados-boda-detalle.avif)
 
 ## Pide vídeos cortos
 

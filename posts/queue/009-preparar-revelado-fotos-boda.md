@@ -3,7 +3,7 @@ lang: es
 title: "Cómo preparar el momento del revelado de fotos después de la boda"
 slug: "preparar-revelado-fotos-boda"
 excerpt: "Ideas para convertir la galería de fotos de invitados en un momento emocionante después de la boda."
-image: "/blog/2026-05-26-como-funciona-revelao-portada.avif"
+image: "/blog/queue-009-preparar-revelado-fotos-boda-portada.avif"
 tags: ["Bodas", "Revelado", "Recuerdos"]
 ---
 
@@ -12,6 +12,8 @@ tags: ["Bodas", "Revelado", "Recuerdos"]
 Ver las fotos de los invitados después de la boda puede ser uno de los momentos más bonitos del proceso. Ya no hay horarios, nervios ni protocolo. Solo quedan recuerdos por descubrir.
 
 Pero para que ese revelado exista, hay que prepararlo antes. La galería debe estar lista, el QR debe funcionar y los invitados tienen que saber que sus fotos formarán parte de algo especial.
+
+![Pareja viendo el revelado de fotos de boda](/blog/queue-009-preparar-revelado-fotos-boda-detalle.avif)
 
 ## Crea expectativa sin complicarlo
 

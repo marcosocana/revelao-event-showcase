@@ -3,7 +3,7 @@ lang: es
 title: "Qué fotos tienen los invitados de una boda que los novios no ven"
 slug: "fotos-invitados-novios-no-ven"
 excerpt: "Momentos que suelen captar los invitados y que completan la historia de la boda desde ángulos que la pareja no vivió."
-image: "/blog/2026-05-27-captar-mejores-fotos-boda-portada.avif"
+image: "/blog/queue-008-fotos-invitados-novios-no-ven-portada.avif"
 tags: ["Bodas", "Recuerdos", "Fotos invitados"]
 ---
 
@@ -12,6 +12,8 @@ tags: ["Bodas", "Recuerdos", "Fotos invitados"]
 Una boda ocurre en muchos lugares a la vez. Mientras los novios saludan a una mesa, en otra alguien brinda. Mientras están en fotos familiares, un grupo de amigos se ríe en la barra. Mientras bailan, alguien graba una reacción desde otro ángulo.
 
 El fotógrafo captura los momentos principales, pero los invitados guardan escenas que completan la historia desde dentro.
+
+![Invitados captando fotos de boda que los novios no ven](/blog/queue-008-fotos-invitados-novios-no-ven-detalle.avif)
 
 ## Fotos de preparación y espera
 
