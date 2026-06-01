@@ -5,6 +5,8 @@ slug: "whatsapp-vs-galeria-privada-fotos-boda"
 excerpt: "Comparativa práctica entre pedir fotos por WhatsApp o reunirlas en una galería privada con QR para tu boda."
 image: "/blog/2026-05-26-whatsapp-vs-galeria-privada-portada.avif"
 tags: ["Bodas", "Galería privada", "WhatsApp"]
+publishDate: 2026-06-01
+autoSlot: morning
 ---
 
 ## Pedir fotos por WhatsApp parece fácil, hasta que llegan demasiadas
