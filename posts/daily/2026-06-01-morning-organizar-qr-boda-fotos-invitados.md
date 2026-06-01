@@ -5,6 +5,8 @@ slug: "organizar-qr-boda-fotos-invitados"
 excerpt: "Una guía práctica para preparar el QR de tu boda, colocarlo bien y conseguir que los invitados suban más recuerdos."
 image: "/blog/2026-05-26-qr-eventos-portada.avif"
 tags: ["Bodas", "QR", "Fotos invitados"]
+publishDate: 2026-06-01
+autoSlot: morning
 ---
 
 ## Un QR de boda funciona cuando está pensado como parte del día
