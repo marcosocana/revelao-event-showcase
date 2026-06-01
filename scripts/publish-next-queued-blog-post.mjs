@@ -18,17 +18,38 @@ Optional env:
   BLOG_AUTO_SLOT=morning|evening
 `;
 
-const today = () => {
-  if (process.env.BLOG_AUTO_DATE) return process.env.BLOG_AUTO_DATE;
-
+const madridDateParts = (date = new Date()) => {
   const parts = new Intl.DateTimeFormat("en-GB", {
     timeZone: "Europe/Madrid",
     year: "numeric",
     month: "2-digit",
     day: "2-digit",
-  }).formatToParts(new Date());
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false,
+  }).formatToParts(date);
   const getPart = (type) => parts.find((part) => part.type === type)?.value;
-  return `${getPart("year")}-${getPart("month")}-${getPart("day")}`;
+  return {
+    year: getPart("year"),
+    month: getPart("month"),
+    day: getPart("day"),
+    hour: getPart("hour"),
+    minute: getPart("minute"),
+    second: getPart("second"),
+  };
+};
+
+const today = () => {
+  if (process.env.BLOG_AUTO_DATE) return process.env.BLOG_AUTO_DATE;
+
+  const parts = madridDateParts();
+  return `${parts.year}-${parts.month}-${parts.day}`;
+};
+
+const createdAt = () => {
+  const parts = madridDateParts();
+  return `${parts.year}-${parts.month}-${parts.day} ${parts.hour}:${parts.minute}:${parts.second} Europe/Madrid`;
 };
 
 const autoSlot = () => {
@@ -128,6 +149,7 @@ const main = () => {
   const raw = fs.readFileSync(sourcePath, "utf8");
   const { frontmatter, markdown, meta } = parseFrontmatter(raw);
   let nextFrontmatter = upsertFrontmatterValue(frontmatter, "publishDate", date);
+  nextFrontmatter = upsertFrontmatterValue(nextFrontmatter, "createdAt", `"${createdAt()}"`);
   nextFrontmatter = upsertFrontmatterValue(nextFrontmatter, "autoSlot", slot);
   const nextRaw = `---\n${nextFrontmatter.trim()}\n---\n\n${markdown}\n`;
   const dailyPath = buildDailyPath({ date, slot, sourcePath, meta });

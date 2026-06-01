@@ -6,6 +6,7 @@ excerpt: "Una guía práctica para preparar el QR de tu boda, colocarlo bien y c
 image: "/blog/queue-001-organizar-qr-boda-fotos-invitados-portada.avif"
 tags: ["Bodas", "QR", "Fotos invitados"]
 publishDate: 2026-06-01
+createdAt: "2026-06-01 17:55:49 Europe/Madrid"
 autoSlot: morning
 ---
 

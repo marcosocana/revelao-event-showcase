@@ -6,6 +6,7 @@ excerpt: "Comparativa práctica entre pedir fotos por WhatsApp o reunirlas en un
 image: "/blog/queue-002-whatsapp-vs-galeria-privada-fotos-boda-portada.avif"
 tags: ["Bodas", "Galería privada", "WhatsApp"]
 publishDate: 2026-06-01
+createdAt: "2026-06-01 18:09:31 Europe/Madrid"
 autoSlot: morning
 ---
 
