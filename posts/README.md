@@ -80,6 +80,12 @@ Opcionales:
 OPENAI_TEXT_MODEL=gpt-4o-mini
 OPENAI_IMAGE_MODEL=gpt-image-1.5
 BLOG_AUTO_DATE=YYYY-MM-DD
+BLOG_AUTO_SLOT=morning|evening
 ```
 
-El workflow `.github/workflows/publish-blog-daily.yml` lo ejecuta cada dia a las 06:00 UTC.
+El workflow `.github/workflows/publish-blog-daily.yml` lo ejecuta dos veces al dia:
+
+- 05:00 UTC, usando `BLOG_AUTO_SLOT=morning`.
+- 20:45 UTC, usando `BLOG_AUTO_SLOT=evening`.
+
+Cada franja elige un angulo distinto para evitar publicar dos posts iguales el mismo dia.

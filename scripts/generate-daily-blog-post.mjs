@@ -17,6 +17,7 @@ Optional env:
   OPENAI_TEXT_MODEL=gpt-4o-mini
   OPENAI_IMAGE_MODEL=gpt-image-1.5
   BLOG_AUTO_DATE=YYYY-MM-DD
+  BLOG_AUTO_SLOT=morning|evening
 `;
 
 const loadEnvFile = (filePath) => {
@@ -39,7 +40,24 @@ const loadEnvFile = (filePath) => {
   }
 };
 
-const today = () => process.env.BLOG_AUTO_DATE || new Date().toISOString().slice(0, 10);
+const today = () => {
+  if (process.env.BLOG_AUTO_DATE) return process.env.BLOG_AUTO_DATE;
+
+  const parts = new Intl.DateTimeFormat("en-GB", {
+    timeZone: "Europe/Madrid",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).formatToParts(new Date());
+  const getPart = (type) => parts.find((part) => part.type === type)?.value;
+  return `${getPart("year")}-${getPart("month")}-${getPart("day")}`;
+};
+
+const autoSlot = () => {
+  const slot = String(process.env.BLOG_AUTO_SLOT || "morning").toLowerCase().trim();
+  if (["morning", "evening"].includes(slot)) return slot;
+  throw new Error('BLOG_AUTO_SLOT debe ser "morning" o "evening".');
+};
 
 const toSlug = (value) =>
   value
@@ -97,9 +115,10 @@ const themes = [
   },
 ];
 
-const pickTheme = (date) => {
+const pickTheme = (date, slot) => {
   const compact = Number(date.replaceAll("-", ""));
-  return themes[compact % themes.length];
+  const slotOffset = slot === "evening" ? 1 : 0;
+  return themes[(compact + slotOffset) % themes.length];
 };
 
 const requireEnv = (key) => {
@@ -119,7 +138,7 @@ const extractText = (response) => {
   return chunks.join("");
 };
 
-const generatePostData = async ({ date, theme }) => {
+const generatePostData = async ({ date, slot, theme }) => {
   const apiKey = requireEnv("OPENAI_API_KEY");
   const model = process.env.OPENAI_TEXT_MODEL || "gpt-4o-mini";
   const schema = {
@@ -155,6 +174,7 @@ const generatePostData = async ({ date, theme }) => {
       role: "user",
       content:
         `Crea un post de blog para publicar el ${date}.\n` +
+        `Franja automatica: ${slot === "morning" ? "manana" : "noche"}.\n` +
         `Tema: ${theme.angle}\n` +
         `Keyword principal: ${theme.primaryKeyword}\n` +
         `Keywords secundarias: ${theme.secondaryKeywords.join(", ")}\n` +
@@ -320,8 +340,9 @@ const main = async () => {
   }
 
   const date = today();
-  const theme = pickTheme(date);
-  const postData = await generatePostData({ date, theme });
+  const slot = autoSlot();
+  const theme = pickTheme(date, slot);
+  const postData = await generatePostData({ date, slot, theme });
   const postPath = await writePost({ date, postData });
 
   if (args.includes("--publish")) {
