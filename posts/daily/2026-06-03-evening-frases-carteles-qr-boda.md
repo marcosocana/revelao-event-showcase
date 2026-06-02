@@ -5,9 +5,14 @@ slug: "frases-carteles-qr-boda"
 excerpt: "Frases naturales, emocionales y divertidas para acompañar el QR de fotos de tu boda y conseguir más participación."
 image: "/blog/queue-006-frases-carteles-qr-boda-portada.avif"
 tags: ["Bodas", "Carteles QR", "Ideas"]
+publishDate: 2026-06-03
+createdAt: "2026-06-03 00:38:25 Europe/Madrid"
+autoSlot: evening
 ---
 
 ## La frase del cartel puede cambiar la participación
+
+*Creado el 3 de junio de 2026 a las 00:38 (hora de Madrid).*
 
 Un cartel QR de boda no necesita mucho texto. De hecho, cuanto más claro sea, mejor. Pero la frase que acompaña al código sí importa: puede hacer que el invitado lo ignore o que entienda en segundos que puede dejar un recuerdo especial.
 
