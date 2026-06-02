@@ -12,6 +12,8 @@ autoSlot: morning
 
 ## Un QR de boda funciona cuando está pensado como parte del día
 
+*Creado el 1 de junio de 2026 a las 17:55 (hora de Madrid).*
+
 Un código QR para fotos de boda no es solo un enlace impreso. Es una pequeña dinámica dentro del evento: los invitados escanean, suben sus fotos y vídeos, y la pareja puede descubrir después una galería privada con recuerdos que no estaban en el plan oficial.
 
 Para que funcione, conviene organizarlo antes de imprimir nada. No basta con crear una galería y poner un cartel en la entrada. Hay que decidir dónde se verá, qué frase lo acompañará, cuándo se recordará y cómo se revisará después.

@@ -12,6 +12,8 @@ autoSlot: morning
 
 ## Pedir fotos por WhatsApp parece fácil, hasta que llegan demasiadas
 
+*Creado el 1 de junio de 2026 a las 18:09 (hora de Madrid).*
+
 Después de una boda, es normal que la pareja quiera ver las fotos de los invitados. Alguien crea un grupo de WhatsApp, varios empiezan a mandar imágenes, aparecen vídeos, audios, mensajes, bromas y felicitaciones. Durante unas horas parece una buena solución.
 
 El problema llega rápido: las fotos se mezclan con conversaciones, pierden calidad, se repiten, quedan enterradas y no siempre llegan de todos los grupos. Además, muchos invitados no quieren estar en otro chat más o prefieren no compartir sus fotos con todo el mundo.

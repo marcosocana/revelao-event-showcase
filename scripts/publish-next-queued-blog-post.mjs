@@ -104,6 +104,39 @@ const upsertFrontmatterValue = (frontmatter, key, value) => {
   return `${frontmatter.trim()}\n${line}`;
 };
 
+const displayCreatedAt = (value) => {
+  const match = String(value).match(
+    /^(\d{4})-(\d{2})-(\d{2})\s+(\d{2}):(\d{2}):\d{2}\s+Europe\/Madrid$/,
+  );
+  if (!match) return `Creado el ${value}.`;
+
+  const [, year, month, day, hour, minute] = match;
+  const months = [
+    "enero",
+    "febrero",
+    "marzo",
+    "abril",
+    "mayo",
+    "junio",
+    "julio",
+    "agosto",
+    "septiembre",
+    "octubre",
+    "noviembre",
+    "diciembre",
+  ];
+  return `Creado el ${Number(day)} de ${months[Number(month) - 1]} de ${year} a las ${hour}:${minute} (hora de Madrid).`;
+};
+
+const addVisibleCreatedAt = (markdown, value) => {
+  const visibleLine = `*${displayCreatedAt(value)}*`;
+  if (/^\*Creado el .*hora de Madrid\.\*\n?/m.test(markdown)) {
+    return markdown.replace(/^\*Creado el .*hora de Madrid\.\*\n?/m, `${visibleLine}\n\n`);
+  }
+
+  return markdown.replace(/^(## .+)\n+/, `$1\n\n${visibleLine}\n\n`);
+};
+
 const getNextQueuedPost = () => {
   if (!fs.existsSync(queueDir)) return null;
 
@@ -148,10 +181,11 @@ const main = () => {
   const slot = autoSlot();
   const raw = fs.readFileSync(sourcePath, "utf8");
   const { frontmatter, markdown, meta } = parseFrontmatter(raw);
+  const createdAtValue = createdAt();
   let nextFrontmatter = upsertFrontmatterValue(frontmatter, "publishDate", date);
-  nextFrontmatter = upsertFrontmatterValue(nextFrontmatter, "createdAt", `"${createdAt()}"`);
+  nextFrontmatter = upsertFrontmatterValue(nextFrontmatter, "createdAt", `"${createdAtValue}"`);
   nextFrontmatter = upsertFrontmatterValue(nextFrontmatter, "autoSlot", slot);
-  const nextRaw = `---\n${nextFrontmatter.trim()}\n---\n\n${markdown}\n`;
+  const nextRaw = `---\n${nextFrontmatter.trim()}\n---\n\n${addVisibleCreatedAt(markdown, createdAtValue)}\n`;
   const dailyPath = buildDailyPath({ date, slot, sourcePath, meta });
 
   if (dryRun) {

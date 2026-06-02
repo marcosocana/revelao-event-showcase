@@ -12,6 +12,8 @@ autoSlot: evening
 
 ## Las tarjetas QR funcionan porque están cerca del invitado
 
+*Creado el 2 de junio de 2026 a las 00:49 (hora de Madrid).*
+
 Un cartel grande puede verse bonito, pero una tarjeta QR en la mesa tiene una ventaja enorme: está justo donde el invitado se sienta, conversa, brinda y saca el móvil. Por eso las tarjetas pequeñas suelen conseguir más participación que un único soporte colocado lejos.
 
 La idea no es llenar la boda de códigos. Es colocar recordatorios discretos en momentos donde subir una foto tenga sentido. Si el QR aparece cuando alguien acaba de hacer una imagen, el gesto resulta natural.

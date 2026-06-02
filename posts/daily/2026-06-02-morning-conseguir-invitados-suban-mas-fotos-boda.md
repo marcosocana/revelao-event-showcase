@@ -12,6 +12,8 @@ autoSlot: morning
 
 ## La participación no ocurre por casualidad
 
+*Creado el 2 de junio de 2026 a las 08:50 (hora de Madrid).*
+
 Muchos novios piensan que, si los invitados hacen fotos, luego las enviarán. A veces pasa. Pero muchas imágenes se quedan en carretes personales, chats pequeños o móviles que nadie revisa después.
 
 Para conseguir que los invitados suban más fotos de la boda, hay que reducir fricción y recordar la dinámica en el momento adecuado. No se trata de insistir, sino de hacerlo fácil.

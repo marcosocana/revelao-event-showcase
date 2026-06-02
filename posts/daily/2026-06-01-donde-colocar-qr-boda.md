@@ -6,9 +6,12 @@ excerpt: "Guía práctica para decidir dónde poner el QR de tu boda y conseguir
 image: "/blog/2026-05-26-qr-eventos-portada.avif"
 tags: ["Bodas", "QR", "Fotos invitados"]
 publishDate: 2026-06-01
+createdAt: "2026-06-01 17:05:15 Europe/Madrid"
 ---
 
 ## El QR funciona mejor cuando aparece en el momento adecuado
+
+*Creado el 1 de junio de 2026 a las 17:05 (hora de Madrid).*
 
 Poner un código QR en una boda parece sencillo: lo imprimes, lo colocas en algún sitio visible y esperas que los invitados lo usen. Pero la diferencia entre recibir unas pocas fotos y llenar una galería privada suele estar en algo muy concreto: dónde aparece el QR.
 

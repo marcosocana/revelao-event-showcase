@@ -6,9 +6,12 @@ excerpt: "Las mejores fotos de una boda no siempre las hace el fotógrafo: mucha
 image: "/blog/2026-05-27-captar-mejores-fotos-boda-portada.avif"
 tags: ["Bodas", "Fotos boda QR", "Recuerdos"]
 publishDate: 2026-05-27
+createdAt: "2026-05-26 19:28:06 Europe/Madrid"
 ---
 
 ## Las mejores fotos de una boda no siempre son las oficiales
+
+*Creado el 26 de mayo de 2026 a las 19:28 (hora de Madrid).*
 
 El fotógrafo captura los momentos grandes: la ceremonia, los retratos, el baile, los detalles preparados con mimo. Pero una boda también vive en cientos de escenas pequeñas que ocurren a la vez y que casi siempre terminan en los móviles de los invitados.
 

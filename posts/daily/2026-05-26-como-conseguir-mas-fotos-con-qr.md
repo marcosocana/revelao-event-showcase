@@ -6,9 +6,12 @@ excerpt: "Un plan sencillo para que el QR no pase desapercibido y la galería de
 image: "/blog/2026-05-26-qr-eventos-portada.avif"
 tags: ["Eventos", "QR", "Participación"]
 publishDate: 2026-05-26
+createdAt: "2026-05-26 19:28:06 Europe/Madrid"
 ---
 
 ## El problema no es el QR, es el momento
+
+*Creado el 26 de mayo de 2026 a las 19:28 (hora de Madrid).*
 
 Muchos eventos ya tienen un QR para subir fotos, pero eso no garantiza que los invitados lo usen. La diferencia suele estar en cómo se presenta, cuándo se recuerda y qué tan fácil parece participar.
 

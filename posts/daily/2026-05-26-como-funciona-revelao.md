@@ -6,9 +6,12 @@ excerpt: "Revelao permite que tus invitados suban fotos, vídeos y mensajes de a
 image: "/blog/2026-05-26-como-funciona-revelao-portada.avif"
 tags: ["Bodas", "QR boda", "Fotos y vídeos"]
 publishDate: 2026-05-26
+createdAt: "2026-05-26 19:28:06 Europe/Madrid"
 ---
 
 ## Una forma sencilla de guardar todo lo que pasa en tu boda
+
+*Creado el 26 de mayo de 2026 a las 19:28 (hora de Madrid).*
 
 En una boda ocurren muchas cosas a la vez. Mientras la pareja saluda a una mesa, en otra alguien está brindando. Mientras suena una canción, un grupo de amigos está grabando un vídeo espontáneo. Y mientras el fotógrafo está en un punto del evento, decenas de invitados están captando momentos desde ángulos completamente distintos.
 

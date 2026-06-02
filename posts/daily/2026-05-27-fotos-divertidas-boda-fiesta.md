@@ -6,9 +6,12 @@ excerpt: "Ideas prácticas para que tus invitados suban fotos espontáneas, úni
 image: "/blog/2026-05-27-fotos-divertidas-boda-fiesta-portada.avif"
 tags: ["Bodas", "QR", "Fotos invitados"]
 publishDate: 2026-05-27
+createdAt: "2026-05-27 10:18:36 Europe/Madrid"
 ---
 
 ## Las mejores fotos de una boda no siempre son las más posadas
+
+*Creado el 27 de mayo de 2026 a las 10:18 (hora de Madrid).*
 
 Hay fotos de boda que son imprescindibles: la ceremonia, los abrazos, el primer baile, los retratos familiares. Pero muchas veces las imágenes que más se recuerdan aparecen cuando nadie está mirando demasiado: un grupo de amigos cantando en la pista, una tía bailando con las gafas de fiesta, los novios riéndose en una esquina o una mesa entera improvisando una foto absurda.
 

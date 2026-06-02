@@ -6,9 +6,12 @@ excerpt: "Compara WhatsApp y una galería privada para recopilar fotos de boda s
 image: "/blog/2026-05-26-whatsapp-vs-galeria-privada-portada.avif"
 tags: ["Bodas", "QR", "Galería privada"]
 publishDate: 2026-05-26
+createdAt: "2026-05-26 23:14:23 Europe/Madrid"
 ---
 
 ## El problema aparece después de la boda
+
+*Creado el 26 de mayo de 2026 a las 23:14 (hora de Madrid).*
 
 Durante la boda todo parece sencillo: alguien crea un grupo de WhatsApp, los invitados suben algunas fotos y la conversación empieza a llenarse de recuerdos. El problema llega al día siguiente, cuando quieres encontrar una imagen concreta, descargarlo todo o separar las fotos buenas de mensajes, audios, stickers y conversaciones mezcladas.
 
