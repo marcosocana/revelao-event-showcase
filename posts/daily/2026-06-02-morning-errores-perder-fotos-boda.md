@@ -5,9 +5,14 @@ slug: "errores-perder-fotos-boda"
 excerpt: "Los fallos más habituales al pedir fotos a invitados y cómo evitarlos con una galería privada y un QR sencillo."
 image: "/blog/queue-005-errores-perder-fotos-boda-portada.avif"
 tags: ["Bodas", "Recuerdos", "Fotos invitados"]
+publishDate: 2026-06-02
+createdAt: "2026-06-02 11:03:01 Europe/Madrid"
+autoSlot: morning
 ---
 
 ## Muchas fotos se pierden aunque los invitados las hayan hecho
+
+*Creado el 2 de junio de 2026 a las 11:03 (hora de Madrid).*
 
 En una boda se hacen muchísimas fotos fuera del objetivo del fotógrafo. Mesas riendo, amigos bailando, familiares abrazándose, vídeos de la barra y momentos que la pareja no ve en directo.
 
