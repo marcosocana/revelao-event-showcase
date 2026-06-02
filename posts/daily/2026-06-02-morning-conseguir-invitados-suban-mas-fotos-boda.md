@@ -5,6 +5,9 @@ slug: "conseguir-invitados-suban-mas-fotos-boda"
 excerpt: "Consejos prácticos para aumentar la participación de los invitados y recibir más fotos y vídeos con un QR de boda."
 image: "/blog/queue-004-conseguir-invitados-suban-mas-fotos-boda-portada.avif"
 tags: ["Bodas", "Participación", "QR"]
+publishDate: 2026-06-02
+createdAt: "2026-06-02 08:50:27 Europe/Madrid"
+autoSlot: morning
 ---
 
 ## La participación no ocurre por casualidad
