@@ -5,9 +5,14 @@ slug: "fotos-invitados-novios-no-ven"
 excerpt: "Momentos que suelen captar los invitados y que completan la historia de la boda desde ángulos que la pareja no vivió."
 image: "/blog/queue-008-fotos-invitados-novios-no-ven-portada.avif"
 tags: ["Bodas", "Recuerdos", "Fotos invitados"]
+publishDate: 2026-06-04
+createdAt: "2026-06-04 00:51:39 Europe/Madrid"
+autoSlot: evening
 ---
 
 ## La pareja no puede verlo todo
+
+*Creado el 4 de junio de 2026 a las 00:51 (hora de Madrid).*
 
 Una boda ocurre en muchos lugares a la vez. Mientras los novios saludan a una mesa, en otra alguien brinda. Mientras están en fotos familiares, un grupo de amigos se ríe en la barra. Mientras bailan, alguien graba una reacción desde otro ángulo.
 
