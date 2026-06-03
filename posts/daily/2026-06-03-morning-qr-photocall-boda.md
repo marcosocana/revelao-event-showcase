@@ -5,9 +5,14 @@ slug: "qr-photocall-boda"
 excerpt: "Ideas para colocar un QR en el photocall y conseguir que los invitados suban sus fotos justo después de hacerlas."
 image: "/blog/queue-007-qr-photocall-boda-portada.avif"
 tags: ["Bodas", "Photocall", "QR"]
+publishDate: 2026-06-03
+createdAt: "2026-06-03 11:21:51 Europe/Madrid"
+autoSlot: morning
 ---
 
 ## El photocall es uno de los mejores lugares para poner el QR
+
+*Creado el 3 de junio de 2026 a las 11:21 (hora de Madrid).*
 
 Si hay un punto de la boda donde los invitados hacen fotos con intención, es el photocall. Van allí para posar, reírse, repetir tomas y revisar el resultado en el móvil. Por eso colocar un QR cerca tiene mucho sentido.
 
