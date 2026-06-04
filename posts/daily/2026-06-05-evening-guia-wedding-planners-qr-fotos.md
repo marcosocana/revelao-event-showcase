@@ -5,9 +5,14 @@ slug: "guia-wedding-planners-qr-fotos"
 excerpt: "Una guía práctica para planners que quieren incorporar un QR de fotos sin romper la estética ni el ritmo del evento."
 image: "/blog/queue-010-guia-wedding-planners-qr-fotos-portada.avif"
 tags: ["Wedding planner", "Bodas", "QR"]
+publishDate: 2026-06-05
+createdAt: "2026-06-05 00:10:39 Europe/Madrid"
+autoSlot: evening
 ---
 
 ## El QR de fotos debe integrarse en la experiencia
+
+*Creado el 5 de junio de 2026 a las 00:10 (hora de Madrid).*
 
 Para una wedding planner, un QR de fotos no es solo una herramienta tecnológica. Es un punto más del diseño de experiencia: debe verse, entenderse y usarse sin interferir en la estética ni en el timing.
 
