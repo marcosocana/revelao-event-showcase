@@ -5,9 +5,14 @@ slug: "preparar-revelado-fotos-boda"
 excerpt: "Ideas para convertir la galería de fotos de invitados en un momento emocionante después de la boda."
 image: "/blog/queue-009-preparar-revelado-fotos-boda-portada.avif"
 tags: ["Bodas", "Revelado", "Recuerdos"]
+publishDate: 2026-06-04
+createdAt: "2026-06-04 10:43:53 Europe/Madrid"
+autoSlot: morning
 ---
 
 ## El revelado empieza antes de la boda
+
+*Creado el 4 de junio de 2026 a las 10:43 (hora de Madrid).*
 
 Ver las fotos de los invitados después de la boda puede ser uno de los momentos más bonitos del proceso. Ya no hay horarios, nervios ni protocolo. Solo quedan recuerdos por descubrir.
 
