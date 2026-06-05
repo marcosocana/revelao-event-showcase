@@ -5,9 +5,14 @@ slug: "mensajes-audio-boda-invitados"
 excerpt: "Ideas para pedir mensajes de audio a los invitados y convertir sus voces en recuerdos emocionales después de la boda."
 image: "/blog/queue-012-mensajes-audio-boda-invitados-portada.avif"
 tags: ["Bodas", "Audio", "Recuerdos"]
+publishDate: 2026-06-06
+createdAt: "2026-06-06 00:05:03 Europe/Madrid"
+autoSlot: evening
 ---
 
 ## La voz guarda cosas que una foto no puede
+
+*Creado el 6 de junio de 2026 a las 00:05 (hora de Madrid).*
 
 Las fotos muestran lo que pasó. Los mensajes de audio guardan cómo sonaban las personas que estuvieron allí: una felicitación, una broma, una emoción contenida o una frase que quizá nadie se atrevería a escribir.
 
