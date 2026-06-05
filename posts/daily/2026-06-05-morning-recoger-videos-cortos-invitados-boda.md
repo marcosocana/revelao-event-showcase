@@ -5,9 +5,14 @@ slug: "recoger-videos-cortos-invitados-boda"
 excerpt: "Consejos para conseguir vídeos espontáneos de invitados durante la boda sin depender de chats ni envíos posteriores."
 image: "/blog/queue-011-recoger-videos-cortos-invitados-boda-portada.avif"
 tags: ["Bodas", "Vídeos", "QR"]
+publishDate: 2026-06-05
+createdAt: "2026-06-05 10:39:33 Europe/Madrid"
+autoSlot: morning
 ---
 
 ## Los vídeos de invitados tienen una energía especial
+
+*Creado el 5 de junio de 2026 a las 10:39 (hora de Madrid).*
 
 Una foto congela un momento. Un vídeo, aunque dure pocos segundos, guarda movimiento, voces, música y ambiente. Por eso los vídeos de invitados pueden ser algunos de los recuerdos más emocionantes de una boda.
 
