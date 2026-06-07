@@ -5,9 +5,14 @@ slug: "qr-mesas-boda"
 excerpt: "Consejos para usar QR en las mesas de boda y conseguir fotos de grupo, brindis y recuerdos de cada mesa."
 image: "/blog/queue-015-qr-mesas-boda-portada.avif"
 tags: ["Bodas", "Mesas", "QR"]
+publishDate: 2026-06-07
+createdAt: "2026-06-07 10:19:09 Europe/Madrid"
+autoSlot: morning
 ---
 
 ## Las mesas son uno de los puntos más potentes para el QR
+
+*Creado el 7 de junio de 2026 a las 10:19 (hora de Madrid).*
 
 Durante la comida o cena, los invitados tienen tiempo. Hablan, brindan, se hacen fotos de grupo y miran el móvil sin prisa. Por eso colocar un QR en las mesas suele funcionar muy bien para recopilar fotos de boda.
 
