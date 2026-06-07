@@ -5,9 +5,14 @@ slug: "checklist-galeria-privada-boda"
 excerpt: "Lista práctica para dejar lista la galería privada, el QR y los soportes antes de la boda."
 image: "/blog/queue-016-checklist-galeria-privada-boda-portada.avif"
 tags: ["Bodas", "Checklist", "Galería privada"]
+publishDate: 2026-06-07
+createdAt: "2026-06-07 23:49:07 Europe/Madrid"
+autoSlot: evening
 ---
 
 ## Preparar la galería antes evita prisas después
+
+*Creado el 7 de junio de 2026 a las 23:49 (hora de Madrid).*
 
 La galería privada de boda debe estar lista antes de imprimir los QR y mucho antes de que lleguen los invitados. Así puedes probar el flujo, corregir detalles y asegurarte de que todo funciona cuando empiece la celebración.
 
