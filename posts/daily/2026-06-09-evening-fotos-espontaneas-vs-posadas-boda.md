@@ -5,9 +5,14 @@ slug: "fotos-espontaneas-vs-posadas-boda"
 excerpt: "Por qué las fotos espontáneas de invitados complementan las imágenes posadas y ayudan a recordar mejor una boda."
 image: "/blog/queue-018-fotos-espontaneas-vs-posadas-boda-portada.avif"
 tags: ["Bodas", "Fotos espontáneas", "Recuerdos"]
+publishDate: 2026-06-09
+createdAt: "2026-06-09 00:14:17 Europe/Madrid"
+autoSlot: evening
 ---
 
 ## Las fotos posadas y espontáneas cuentan cosas distintas
+
+*Creado el 9 de junio de 2026 a las 00:14 (hora de Madrid).*
 
 En una boda hay fotos que todos esperan: retratos familiares, ceremonia, pareja, detalles y momentos importantes. Son imágenes necesarias y suelen estar muy cuidadas.
 
