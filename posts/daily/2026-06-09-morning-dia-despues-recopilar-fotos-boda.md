@@ -5,9 +5,14 @@ slug: "dia-despues-recopilar-fotos-boda"
 excerpt: "Un plan sencillo para pedir fotos y vídeos a los invitados el día después sin perseguir mensajes ni perder recuerdos."
 image: "/blog/queue-019-dia-despues-recopilar-fotos-boda-portada.avif"
 tags: ["Bodas", "Postboda", "Fotos invitados"]
+publishDate: 2026-06-09
+createdAt: "2026-06-09 10:27:20 Europe/Madrid"
+autoSlot: morning
 ---
 
 ## El día después todavía hay muchos recuerdos en los móviles
+
+*Creado el 9 de junio de 2026 a las 10:27 (hora de Madrid).*
 
 Aunque hayas puesto un QR durante la boda, siempre habrá invitados que no suban sus fotos en el momento. Algunos estaban bailando, otros no lo vieron, otros prefieren revisar el carrete al día siguiente.
 
