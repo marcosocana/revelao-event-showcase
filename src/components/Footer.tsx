@@ -72,6 +72,9 @@ export const Footer = ({ text, keywordsTitle, keywords = [] }: FooterProps) => {
             <a href={`${langPrefix}/privacy`} className="hover:text-foreground transition-colors">
               Política de privacidad
             </a>
+            <a href={`${langPrefix}/cookies`} className="hover:text-foreground transition-colors">
+              Cookies
+            </a>
             <span>
               © 2026 Revelao.cam
             </span>

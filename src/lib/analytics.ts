@@ -1,4 +1,5 @@
 const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID;
+const GTM_CONTAINER_ID = "GTM-M4FWVB25";
 
 declare global {
   interface Window {
@@ -8,6 +9,23 @@ declare global {
 }
 
 export const isAnalyticsEnabled = Boolean(GA_MEASUREMENT_ID);
+export const isTagManagerEnabled = Boolean(GTM_CONTAINER_ID);
+
+export const initGoogleTagManager = () => {
+  if (!isTagManagerEnabled || document.getElementById("revelao-gtm")) return;
+
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    "gtm.start": new Date().getTime(),
+    event: "gtm.js",
+  });
+
+  const script = document.createElement("script");
+  script.id = "revelao-gtm";
+  script.async = true;
+  script.src = `https://www.googletagmanager.com/gtm.js?id=${GTM_CONTAINER_ID}`;
+  document.head.appendChild(script);
+};
 
 export const initGoogleAnalytics = () => {
   if (!isAnalyticsEnabled || window.gtag) return;

@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { Analytics } from "@/components/Analytics";
+import { CookieBanner } from "@/components/CookieBanner";
 import { LanguageProvider } from "@/lib/i18n";
 
 const queryClient = new QueryClient();
@@ -18,6 +19,7 @@ const QrEventLanding = lazy(() => import("./pages/QrEventLanding"));
 const PruebasLanding = lazy(() => import("./pages/PruebasLanding"));
 const TermsAndConditions = lazy(() => import("./pages/TermsAndConditions"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const CookiePolicy = lazy(() => import("./pages/CookiePolicy"));
 const EventUseCaseLanding = lazy(() => import("./pages/EventUseCaseLanding"));
 const DemoEnvironment = lazy(() => import("./pages/DemoEnvironment"));
 const TemplateCreator = lazy(() => import("./pages/TemplateCreator"));
@@ -47,10 +49,13 @@ const App = () => (
               <Route path="/entornodemo" element={<DemoEnvironment />} />
               <Route path="/terms" element={<TermsAndConditions />} />
               <Route path="/privacy" element={<PrivacyPolicy />} />
+              <Route path="/cookies" element={<CookiePolicy />} />
               <Route path="/en/terms" element={<TermsAndConditions />} />
               <Route path="/en/privacy" element={<PrivacyPolicy />} />
+              <Route path="/en/cookies" element={<CookiePolicy />} />
               <Route path="/it/terms" element={<TermsAndConditions />} />
               <Route path="/it/privacy" element={<PrivacyPolicy />} />
+              <Route path="/it/cookies" element={<CookiePolicy />} />
               <Route path="/pruebas" element={<PruebasLanding />} />
               <Route path="/blog" element={<BlogHub />} />
               <Route path="/blog/:slug" element={<BlogDetail />} />
@@ -61,6 +66,7 @@ const App = () => (
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
+          <CookieBanner />
         </BrowserRouter>
       </LanguageProvider>
     </TooltipProvider>
