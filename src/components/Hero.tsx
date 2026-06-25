@@ -197,7 +197,7 @@ export const Hero = () => {
         <div className="heroGradientTop" aria-hidden="true" />
         <div className="heroCtaWrap">
           <a
-            href="https://acceso.revelao.cam/nuevoeventodemo"
+            href="https://acceso.revelao.cam/nuevoeventodemo2"
             target="_blank"
             rel="noopener noreferrer"
             className="heroCtaButton ctaRed"

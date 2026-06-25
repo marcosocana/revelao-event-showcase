@@ -10,7 +10,7 @@ export const SimpleCTA = () => {
             className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 px-10 py-6 text-lg"
             asChild
           >
-            <a href="https://acceso.revelao.cam/nuevoeventodemo" target="_blank" rel="noopener noreferrer">
+            <a href="https://acceso.revelao.cam/nuevoeventodemo2" target="_blank" rel="noopener noreferrer">
               Pruébalo gratis
             </a>
           </Button>

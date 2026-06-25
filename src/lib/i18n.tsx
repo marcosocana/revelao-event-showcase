@@ -17,7 +17,7 @@ export const getAccessBase = (lang: Language) => {
 };
 
 export const getAccessDemoUrl = (lang: Language) =>
-  `${getAccessBase(lang)}/nuevoeventodemo`;
+  `${getAccessBase(lang)}/nuevoeventodemo2`;
 
 export const getAdminLoginUrl = (lang: Language) =>
   `${getAccessBase(lang)}/admin-login`;

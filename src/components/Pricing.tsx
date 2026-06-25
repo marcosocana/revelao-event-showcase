@@ -14,7 +14,7 @@ const plans = [
     title: "Demo",
     planId: "demo",
     price: "0€",
-    stripeUrl: "https://acceso.revelao.cam/nuevoeventodemo",
+    stripeUrl: "https://acceso.revelao.cam/nuevoeventodemo2",
     cta: "Pruébalo gratis",
     subtitle: "10 fotos · 3 vídeos · 6 audios",
   },

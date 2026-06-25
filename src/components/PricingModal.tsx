@@ -10,7 +10,7 @@ const planOptions = [
     value: "demo",
     planId: "demo",
     price: "0€",
-    stripeUrl: "https://acceso.revelao.cam/nuevoeventodemo",
+    stripeUrl: "https://acceso.revelao.cam/nuevoeventodemo2",
   },
   {
     value: "small",

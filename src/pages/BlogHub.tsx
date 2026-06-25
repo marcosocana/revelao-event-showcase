@@ -134,7 +134,7 @@ const BlogHub = () => {
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Button asChild>
-                  <a href="https://acceso.revelao.cam/nuevoeventodemo">Crear mi evento con QR</a>
+                  <a href="https://acceso.revelao.cam/nuevoeventodemo2">Crear mi evento con QR</a>
                 </Button>
                 <Button asChild variant="outline">
                   <Link to="/bodas/codigo-qr-boda">Ver guía de QR para bodas</Link>
@@ -276,7 +276,7 @@ const BlogHub = () => {
               </p>
             </div>
             <Button asChild variant="secondary">
-              <a href="https://acceso.revelao.cam/nuevoeventodemo">
+              <a href="https://acceso.revelao.cam/nuevoeventodemo2">
                 <MessageCircle className="mr-2 h-4 w-4" aria-hidden="true" />
                 Probar Revelao
               </a>

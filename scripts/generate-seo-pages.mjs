@@ -196,7 +196,7 @@ const landingPages = [
       "<h2>Cómo funciona Revelao</h2><p>Creas el evento, compartes el QR en carteles, tarjetas o invitaciones y los invitados suben contenido desde el navegador del móvil. No hay descargas, registros largos ni instrucciones complicadas. Todo queda centralizado en una galería privada preparada para revivir el evento después.</p>" +
       "<h2>Por qué usar una galería privada con QR</h2><p>Una galería privada evita que los recuerdos importantes se mezclen con conversaciones. También permite reunir fotos, vídeos y audios en un entorno más ordenado que un grupo de WhatsApp o una carpeta genérica. Para la pareja, el valor está en descubrir el evento desde muchas perspectivas sin tener que perseguir archivos.</p>" +
       "<h2>Ideas para conseguir más participación</h2><p>Coloca el QR en la entrada, las mesas, la barra, el photocall y la zona de baile. Acompáñalo con frases cortas como “Sube tus fotos de la boda” o “Déjanos un recuerdo para el revelado”. Cuanto más natural sea encontrarlo, más contenido subirán los invitados.</p>" +
-      '<p><a href="https://acceso.revelao.cam/nuevoeventodemo">Crear mi evento con QR</a></p></article></main>',
+      '<p><a href="https://acceso.revelao.cam/nuevoeventodemo2">Crear mi evento con QR</a></p></article></main>',
     schema: {
       "@context": "https://schema.org",
       "@type": "WebSite",
@@ -247,7 +247,7 @@ const useCasePages = [
         "<h2>El valor del revelado</h2><p>Después de la boda, la pareja puede abrir la galería y descubrir lo que vivieron sus invitados: bailes, bromas, audios, brindis y escenas únicas. Ese revelado convierte la recopilación de fotos en una segunda experiencia emocional.</p>" +
         "<h2>Para parejas, wedding planners y espacios</h2><p>El QR también facilita la coordinación con wedding planners, fincas y venues. Todos pueden usar el mismo enlace, imprimir soportes coherentes y explicar la dinámica con una frase sencilla. Así no depende de una única persona recordar a los invitados que participen.</p>" +
         "<h2>Qué hace que los invitados participen</h2><p>La participación depende de tres cosas: que el QR sea visible, que el mensaje sea claro y que subir contenido no requiera instalar nada. Cuando esos tres puntos se cumplen, llegan más fotos espontáneas, vídeos de fiesta y mensajes personales que completan la historia de la boda.</p>" +
-        '<p><a href="https://acceso.revelao.cam/nuevoeventodemo">Crear mi QR de boda</a></p></article></main>'
+        '<p><a href="https://acceso.revelao.cam/nuevoeventodemo2">Crear mi QR de boda</a></p></article></main>'
       : `<main><h1>${escapeHtml(title)}</h1><p>${escapeHtml(description)}</p><h2>Cómo funciona</h2><p>Crea el evento, comparte el QR y deja que los invitados suban recuerdos desde su móvil.</p></main>`,
   schema: {
     "@context": "https://schema.org",
@@ -1192,7 +1192,7 @@ const renderLongWeddingLandingBody = ({ h1, description, pagePath }) => {
       )
       .join("") +
     `<h2>Cómo encaja Revelao</h2><p>Revelao permite crear una galería privada de boda con QR para que los invitados suban fotos, vídeos y mensajes de audio desde el móvil. Todo queda centralizado y puede descubrirse en el momento del revelado, sin depender de apps ni de chats dispersos.</p>` +
-    `<p><a href="https://acceso.revelao.cam/nuevoeventodemo">${escapeHtml(content.cta)}</a></p>` +
+    `<p><a href="https://acceso.revelao.cam/nuevoeventodemo2">${escapeHtml(content.cta)}</a></p>` +
     `<h2>Preguntas frecuentes</h2>${content.faqs
       .map(
         (faq) =>
@@ -1573,7 +1573,7 @@ const getBlogIndexPage = (blogPages) => {
       "<h2>Landings recomendadas</h2><ul>" +
       internalLinksHtml +
       "</ul>" +
-      '<p><a href="https://acceso.revelao.cam/nuevoeventodemo">Crear mi evento con QR</a></p>' +
+      '<p><a href="https://acceso.revelao.cam/nuevoeventodemo2">Crear mi evento con QR</a></p>' +
       "</article></main>",
     schema: {
       "@context": "https://schema.org",
