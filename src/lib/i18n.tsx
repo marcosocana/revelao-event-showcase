@@ -7,7 +7,15 @@ type LanguageContextValue = {
   setLang: (lang: Language) => void;
 };
 
-const LanguageContext = createContext<LanguageContextValue | null>(null);
+declare global {
+  // Keeps the same context instance across Vite HMR updates of this mixed exports module.
+  // Without this, consumers can briefly read a fresh context while the old provider is still mounted.
+  var __revelaoLanguageContext: ReturnType<typeof createContext<LanguageContextValue | null>> | undefined;
+}
+
+const LanguageContext =
+  globalThis.__revelaoLanguageContext ??
+  (globalThis.__revelaoLanguageContext = createContext<LanguageContextValue | null>(null));
 
 const STORAGE_KEY = "revelao-lang";
 
@@ -140,7 +148,7 @@ export const translations = {
       title: "Plantillas",
       subtitle:
         "Usa nuestras plantillas gratuítas. Si no sabes usarlas, escríbenos y te contamos cómo",
-      cta: "Descargar",
+      cta: "Editar",
     },
     pricing: {
       title: "Precio",
@@ -424,7 +432,7 @@ export const translations = {
       title: "Custom templates",
       subtitle:
         "Download QR posters for your event. If you don’t know how, we’ll do it for you for free.",
-      cta: "Download",
+      cta: "Edit",
     },
     pricing: {
       title: "Pricing",
@@ -709,7 +717,7 @@ export const translations = {
       title: "Modelli personalizzati",
       subtitle:
         "Scarica poster QR per il tuo evento. Se non sai come fare, lo facciamo noi gratis.",
-      cta: "Scarica",
+      cta: "Modifica",
     },
     pricing: {
       title: "Prezzi",

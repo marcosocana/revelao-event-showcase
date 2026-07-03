@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Download } from "lucide-react";
+import { Pencil } from "lucide-react";
 import {
   Carousel,
   CarouselContent,
@@ -10,18 +10,14 @@ import {
 import template1 from "@/assets/Plantilla1.jpg";
 import template2 from "@/assets/Plantilla2.jpg";
 import template3 from "@/assets/Plantilla3.jpg";
-import template1Download from "@/assets/template-1.png";
-import template2Download from "@/assets/template-2.png";
-import template3Download from "@/assets/template-3.png";
 import template4 from "@/assets/Plantilla4.jpg";
-import template4Download from "@/assets/template-4.png";
 import { useI18n, translations } from "@/lib/i18n";
 
 const templates = [
-  { id: 1, title: "Julia y Alex", image: template1, downloadUrl: template1Download },
-  { id: 2, title: "David y Jose", image: template2, downloadUrl: template3Download },
-  { id: 3, title: "Paola y Toni", image: template3, downloadUrl: template2Download },
-  { id: 4, title: "Christmas Album", image: template4, downloadUrl: template4Download },
+  { id: 1, title: "Julia y Alex", image: template1, editUrl: "/crearplantilla?template=1" },
+  { id: 2, title: "Paola y Toni", image: template2, editUrl: "/crearplantilla?template=3" },
+  { id: 3, title: "David y Jose", image: template3, editUrl: "/crearplantilla?template=2" },
+  { id: 4, title: "Christmas Album", image: template4, editUrl: "/crearplantilla?template=4" },
 ];
 
 const TemplateCard = ({ template }: { template: typeof templates[0] & { cta: string } }) => (
@@ -35,13 +31,11 @@ const TemplateCard = ({ template }: { template: typeof templates[0] & { cta: str
     </div>
     <div className="p-2">
       <a
-        href={template.downloadUrl}
-        target="_blank"
-        rel="noopener noreferrer"
+        href={template.editUrl}
         className="w-full"
       >
         <Button className="w-full" variant="outline" size="sm">
-          <Download className="w-4 h-4 mr-2" />
+          <Pencil className="w-4 h-4 mr-2" />
           {template.cta}
         </Button>
       </a>

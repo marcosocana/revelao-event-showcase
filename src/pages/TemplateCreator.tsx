@@ -1,7 +1,8 @@
-import { type ChangeEvent, type PointerEvent as ReactPointerEvent, useEffect, useMemo, useRef, useState } from "react";
+import { type ChangeEvent, type PointerEvent as ReactPointerEvent, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import html2canvas from "html2canvas";
 import { jsPDF } from "jspdf";
 import { Download, ImagePlus, QrCode, Upload } from "lucide-react";
+import { useSearchParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -16,6 +17,7 @@ import {
 } from "@/components/ui/select";
 import { useToast } from "@/components/ui/use-toast";
 import { supabase } from "@/integrations/supabase/client";
+import starterQr from "@/assets/pruebas/qr1.png";
 
 type TemplateFormat = "table-card" | "entrance-poster" | "table-poster" | "custom";
 type BackgroundMode = "solid" | "gradient" | "image";
@@ -31,6 +33,13 @@ type FontOption = {
 };
 
 type EditableElement = {
+  x: number;
+  y: number;
+  width: number;
+  fontSize?: number;
+};
+
+type RelativeEditableElement = {
   x: number;
   y: number;
   width: number;
@@ -58,6 +67,31 @@ type PresetBackground = {
   path: string;
   publicUrl: string;
   thumbnailUrl: string;
+};
+
+type StarterTemplate = {
+  id: string;
+  title: string;
+  description: string;
+  titleFontId: string;
+  descriptionFontId: string;
+  titleColor: string;
+  descriptionColor: string;
+  titleAlign: AlignMode;
+  descriptionAlign: AlignMode;
+  backgroundMode: BackgroundMode;
+  gradientType: GradientType;
+  backgroundColorA: string;
+  backgroundColorB: string;
+  qrImageUrl: string;
+  layout: Record<BaseElementKey, RelativeEditableElement>;
+  decoration: StarterDecoration;
+};
+
+type StarterDecoration = {
+  variant: "ornate" | "olive" | "stars";
+  color: string;
+  accent?: string;
 };
 
 type ActiveGesture = {
@@ -242,6 +276,105 @@ const PRESET_TEMPLATES = [
   },
 ];
 
+const STARTER_DESCRIPTION =
+  "📸✨ Escanea el QR y captura los momentos más divertidos de la fiesta\n\n🎄 Mañana a las 12:00 AM se revelarán todas las fotos y podrás verlas\n\n📶 ¿Sin cobertura? No  te preocupes ¡tenemos wifi!";
+
+const STARTER_TEMPLATES: StarterTemplate[] = [
+  {
+    id: "1",
+    title: "Julia y Alex",
+    description:
+      "Escanea el QR y captura los momentos más\ndivertidos de la fiesta\n\n¡Mañana a las 12:00 AM se revelarán todas las\nfotos y podrás verlas!",
+    titleFontId: "parisienne",
+    descriptionFontId: "system",
+    titleColor: "#6e665e",
+    descriptionColor: "#6e665e",
+    titleAlign: "center",
+    descriptionAlign: "center",
+    backgroundMode: "solid",
+    gradientType: "linear",
+    backgroundColorA: "#f4f0ea",
+    backgroundColorB: "#eee7dc",
+    qrImageUrl: starterQr,
+    decoration: { variant: "ornate", color: "#9b9187" },
+    layout: {
+      title: { x: 0.18, y: 0.13, width: 0.64, fontSize: 0.11 },
+      description: { x: 0.22, y: 0.30, width: 0.56, fontSize: 0.026 },
+      qr: { x: 0.28, y: 0.54, width: 0.44 },
+      logo: { x: 0.40, y: 0.90, width: 0.20 },
+    },
+  },
+  {
+    id: "2",
+    title: "David y Jose",
+    description: STARTER_DESCRIPTION,
+    titleFontId: "dancing-script",
+    descriptionFontId: "system",
+    titleColor: "#4f7840",
+    descriptionColor: "#635d55",
+    titleAlign: "center",
+    descriptionAlign: "center",
+    backgroundMode: "solid",
+    gradientType: "linear",
+    backgroundColorA: "#f2ddac",
+    backgroundColorB: "#f7e7bf",
+    qrImageUrl: starterQr,
+    decoration: { variant: "olive", color: "#507d41" },
+    layout: {
+      title: { x: 0.17, y: 0.17, width: 0.66, fontSize: 0.085 },
+      description: { x: 0.12, y: 0.31, width: 0.76, fontSize: 0.024 },
+      qr: { x: 0.28, y: 0.51, width: 0.44 },
+      logo: { x: 0.40, y: 0.90, width: 0.20 },
+    },
+  },
+  {
+    id: "3",
+    title: "Paola y Toni",
+    description: STARTER_DESCRIPTION,
+    titleFontId: "parisienne",
+    descriptionFontId: "system",
+    titleColor: "#ffffff",
+    descriptionColor: "#ffffff",
+    titleAlign: "center",
+    descriptionAlign: "center",
+    backgroundMode: "gradient",
+    gradientType: "linear",
+    backgroundColorA: "#510407",
+    backgroundColorB: "#110813",
+    qrImageUrl: starterQr,
+    decoration: { variant: "stars", color: "#fff4c4", accent: "#8b0d24" },
+    layout: {
+      title: { x: 0.17, y: 0.14, width: 0.66, fontSize: 0.105 },
+      description: { x: 0.07, y: 0.31, width: 0.86, fontSize: 0.026 },
+      qr: { x: 0.28, y: 0.515, width: 0.44 },
+      logo: { x: 0.34, y: 0.84, width: 0.32, fontSize: 0.02 },
+    },
+  },
+  {
+    id: "4",
+    title: "CHRISTMAS\nALBUM",
+    description: STARTER_DESCRIPTION,
+    titleFontId: "manrope",
+    descriptionFontId: "system",
+    titleColor: "#ffffff",
+    descriptionColor: "#ffffff",
+    titleAlign: "center",
+    descriptionAlign: "center",
+    backgroundMode: "gradient",
+    gradientType: "linear",
+    backgroundColorA: "#07324a",
+    backgroundColorB: "#021321",
+    qrImageUrl: starterQr,
+    decoration: { variant: "stars", color: "#fff4c4", accent: "#0d4969" },
+    layout: {
+      title: { x: 0.13, y: 0.11, width: 0.74, fontSize: 0.088 },
+      description: { x: 0.07, y: 0.33, width: 0.86, fontSize: 0.026 },
+      qr: { x: 0.28, y: 0.54, width: 0.44 },
+      logo: { x: 0.34, y: 0.84, width: 0.32, fontSize: 0.02 },
+    },
+  },
+];
+
 const CM_TO_PX = 118.11;
 
 const readFileAsDataUrl = (file: File) =>
@@ -355,6 +488,52 @@ const buildDefaultLayout = (width: number, height: number): Record<BaseElementKe
   };
 };
 
+const resolveStarterLayout = (
+  layout: Record<BaseElementKey, RelativeEditableElement>,
+  width: number,
+  height: number,
+): Record<BaseElementKey, EditableElement> => ({
+  title: {
+    x: layout.title.x * width,
+    y: layout.title.y * height,
+    width: layout.title.width * width,
+    fontSize: layout.title.fontSize ? Math.round(layout.title.fontSize * width) : undefined,
+  },
+  description: {
+    x: layout.description.x * width,
+    y: layout.description.y * height,
+    width: layout.description.width * width,
+    fontSize: layout.description.fontSize ? Math.round(layout.description.fontSize * width) : undefined,
+  },
+  qr: {
+    x: layout.qr.x * width,
+    y: layout.qr.y * height,
+    width: layout.qr.width * width,
+  },
+  logo: {
+    x: layout.logo.x * width,
+    y: layout.logo.y * height,
+    width: layout.logo.width * width,
+    fontSize: layout.logo.fontSize ? Math.round(layout.logo.fontSize * width) : undefined,
+  },
+});
+
+const STARTER_STAR_POINTS = [
+  [2, 3, 11],
+  [9, 10, 8],
+  [28, 1, 13],
+  [45, 6, 7],
+  [53, 29, 11],
+  [92, 12, 10],
+  [96, 49, 15],
+  [84, 73, 8],
+  [67, 96, 10],
+  [38, 90, 9],
+  [23, 84, 12],
+  [42, 39, 7],
+  [71, 64, 6],
+] as const;
+
 const getGradientCss = (type: GradientType, colorA: string, colorB: string) => {
   if (type === "radial") return `radial-gradient(circle at center, ${colorA} 0%, ${colorB} 100%)`;
   if (type === "conic") return `conic-gradient(from 180deg at 50% 50%, ${colorA} 0deg, ${colorB} 220deg, ${colorA} 360deg)`;
@@ -369,6 +548,7 @@ type PosterProps = {
   backgroundCss: string;
   backgroundImageUrl: string | null;
   backgroundLayout: BackgroundElement | null;
+  starterDecoration: StarterDecoration | null;
   titleText: string;
   descriptionText: string;
   titleFont: FontOption;
@@ -378,6 +558,7 @@ type PosterProps = {
   titleAlign: AlignMode;
   descriptionAlign: AlignMode;
   qrImageUrl: string | null;
+  showQr: boolean;
   logoImageUrl: string | null;
   layout: Record<BaseElementKey, EditableElement>;
   decorativeElements: DecorativeElement[];
@@ -393,6 +574,7 @@ const PosterCanvas = ({
   backgroundCss,
   backgroundImageUrl,
   backgroundLayout,
+  starterDecoration,
   titleText,
   descriptionText,
   titleFont,
@@ -402,6 +584,7 @@ const PosterCanvas = ({
   titleAlign,
   descriptionAlign,
   qrImageUrl,
+  showQr,
   logoImageUrl,
   layout,
   decorativeElements,
@@ -426,6 +609,111 @@ const PosterCanvas = ({
     interactive && selectedElement === key ? (
       <div className={`pointer-events-none absolute inset-0 rounded-md border-2 border-dashed border-black ${extraClass}`} />
     ) : null;
+
+  const renderStarterDecoration = () => {
+    if (!starterDecoration) return null;
+
+    if (starterDecoration.variant === "ornate") {
+      return (
+        <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+          <div
+            className="absolute inset-[2.4%] rounded-sm border-[3px]"
+            style={{ borderColor: `${starterDecoration.color}66` }}
+          />
+          {[
+            ["left-[2.6%] top-[1.6%]", "rotate-[-38deg]"],
+            ["right-[2.6%] top-[1.6%]", "rotate-[38deg]"],
+            ["left-[2.6%] bottom-[1.6%]", "rotate-[-142deg]"],
+            ["right-[2.6%] bottom-[1.6%]", "rotate-[142deg]"],
+          ].map(([position, rotation]) => (
+            <div
+              key={`${position}-${rotation}`}
+              className={`absolute ${position} ${rotation} font-serif leading-none opacity-90`}
+              style={{ color: starterDecoration.color, fontSize: `${canvasWidth * 0.14}px` }}
+            >
+              ❦
+            </div>
+          ))}
+          {[
+            "left-1/2 top-[2.4%] -translate-x-1/2",
+            "left-1/2 bottom-[2.4%] -translate-x-1/2 rotate-180",
+          ].map((position) => (
+            <div
+              key={position}
+              className={`absolute ${position} font-serif leading-none opacity-75`}
+              style={{ color: starterDecoration.color, fontSize: `${canvasWidth * 0.08}px` }}
+            >
+              ❧  ❦  ❧
+            </div>
+          ))}
+        </div>
+      );
+    }
+
+    if (starterDecoration.variant === "olive") {
+      return (
+        <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+          <div
+            className="absolute inset-[1.4%] border-[3px]"
+            style={{ borderColor: starterDecoration.color }}
+          />
+          {[0, 1].map((side) => (
+            <div
+              key={side}
+              className={`absolute bottom-[12%] h-[30%] w-[23%] rounded-full border-y-[10px] opacity-95 ${
+                side === 0 ? "left-[16%] rotate-[-23deg]" : "right-[16%] rotate-[23deg]"
+              }`}
+              style={{
+                borderColor: starterDecoration.color,
+                borderLeftColor: "transparent",
+                borderRightColor: "transparent",
+              }}
+            >
+              {[18, 36, 54, 72].map((top, index) => (
+                <span
+                  key={top}
+                  className={`absolute h-[12%] w-[26%] rounded-[100%_0] border-[4px] ${
+                    side === 0 ? "right-[2%]" : "left-[2%] scale-x-[-1]"
+                  }`}
+                  style={{
+                    top: `${top}%`,
+                    transform: `${side === 0 ? "" : "scaleX(-1)"} rotate(${index % 2 ? -32 : 28}deg)`,
+                    borderColor: starterDecoration.color,
+                  }}
+                />
+              ))}
+            </div>
+          ))}
+        </div>
+      );
+    }
+
+    return (
+      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+        <div
+          className="absolute inset-0 opacity-35"
+          style={{
+            background: `radial-gradient(circle at 78% 66%, ${starterDecoration.accent ?? starterDecoration.color} 0%, transparent 28%)`,
+          }}
+        />
+        {STARTER_STAR_POINTS.map(([left, top, size]) => (
+          <span
+            key={`${left}-${top}`}
+            className="absolute rounded-full"
+            style={{
+              left: `${left}%`,
+              top: `${top}%`,
+              width: `${size * (canvasWidth / 1190)}px`,
+              height: `${size * (canvasWidth / 1190)}px`,
+              background: starterDecoration.color,
+              boxShadow: `0 0 ${size * 1.7 * (canvasWidth / 1190)}px ${size / 3 * (canvasWidth / 1190)}px ${starterDecoration.color}`,
+              opacity: 0.78,
+            }}
+          />
+        ))}
+      </div>
+    );
+  };
 
   return (
     <div
@@ -463,6 +751,8 @@ const PosterCanvas = ({
           </div>
         </button>
       ) : null}
+
+      {renderStarterDecoration()}
 
       {decorativeElements.map((item) => {
         const key = `decor-${item.id}` as const;
@@ -552,30 +842,32 @@ const PosterCanvas = ({
         </div>
       </button>
 
-      <button
-        type="button"
-        onPointerDown={(event) => onPointerDownElement?.(event, "qr", "move")}
-        onClick={() => onSelectElement?.("qr")}
-        className="absolute bg-transparent p-0"
-        style={{
-          left: `${layout.qr.x}px`,
-          top: `${layout.qr.y}px`,
-          width: `${layout.qr.width}px`,
-          cursor: interactive ? "move" : "default",
-        }}
-      >
-        <div className="relative rounded-[18px] bg-white p-[9%]">
-          {qrImageUrl ? (
-            <img src={qrImageUrl} alt="QR" className="w-full object-contain" />
-          ) : (
-            <div className="flex aspect-square w-full items-center justify-center rounded-[12px] bg-[#f8fafc] text-slate-400">
-              <QrCode className="h-[28%] w-[28%]" />
-            </div>
-          )}
-          {renderSelection("qr", "rounded-[18px]")}
-          {renderHandle("qr")}
-        </div>
-      </button>
+      {showQr || qrImageUrl ? (
+        <button
+          type="button"
+          onPointerDown={(event) => onPointerDownElement?.(event, "qr", "move")}
+          onClick={() => onSelectElement?.("qr")}
+          className="absolute bg-transparent p-0"
+          style={{
+            left: `${layout.qr.x}px`,
+            top: `${layout.qr.y}px`,
+            width: `${layout.qr.width}px`,
+            cursor: interactive ? "move" : "default",
+          }}
+        >
+          <div className="relative rounded-[18px] bg-white p-[9%]">
+            {qrImageUrl ? (
+              <img src={qrImageUrl} alt="QR" className="w-full object-contain" />
+            ) : (
+              <div className="flex aspect-square w-full items-center justify-center rounded-[12px] bg-[#f8fafc] text-slate-400">
+                <QrCode className="h-[28%] w-[28%]" />
+              </div>
+            )}
+            {renderSelection("qr", "rounded-[18px]")}
+            {renderHandle("qr")}
+          </div>
+        </button>
+      ) : null}
 
       {logoImageUrl ? (
         <button
@@ -603,8 +895,11 @@ const PosterCanvas = ({
 
 const TemplateCreator = () => {
   const { toast } = useToast();
+  const [searchParams] = useSearchParams();
+  const starterTemplateId = searchParams.get("template");
   const previewAreaRef = useRef<HTMLDivElement>(null);
   const exportRef = useRef<HTMLDivElement>(null);
+  const hasLoadedStarterTemplate = useRef(false);
   const [isDesktop, setIsDesktop] = useState(() =>
     typeof window === "undefined" ? true : window.innerWidth >= 1024,
   );
@@ -635,9 +930,11 @@ const TemplateCreator = () => {
   const [presetBackgroundsError, setPresetBackgroundsError] = useState<string | null>(null);
 
   const [qrImageUrl, setQrImageUrl] = useState<string | null>(null);
+  const [showQr, setShowQr] = useState(true);
   const [logoImageUrl, setLogoImageUrl] = useState<string | null>(null);
   const [selectedPresetId, setSelectedPresetId] = useState(PRESET_TEMPLATES[0].id);
   const [selectedElement, setSelectedElement] = useState<SelectionKey | null>("title");
+  const [starterDecoration, setStarterDecoration] = useState<StarterDecoration | null>(null);
   const [layout, setLayout] = useState<Record<BaseElementKey, EditableElement>>(() =>
     buildDefaultLayout(Math.round(29.7 * CM_TO_PX), Math.round(42 * CM_TO_PX)),
   );
@@ -975,7 +1272,11 @@ const TemplateCreator = () => {
 
     try {
       const dataUrl = await readFileAsDataUrl(file);
-      if (target === "qr") setQrImageUrl(dataUrl);
+      if (target === "qr") {
+        setQrImageUrl(dataUrl);
+        setShowQr(true);
+        setSelectedElement("qr");
+      }
       if (target === "logo") setLogoImageUrl(dataUrl);
     } catch {
       toast({
@@ -992,6 +1293,7 @@ const TemplateCreator = () => {
     const preset = PRESET_TEMPLATES.find((item) => item.id === presetId);
     if (!preset) return;
     setSelectedPresetId(preset.id);
+    setStarterDecoration(null);
     setTitleFontId(preset.titleFontId);
     setDescriptionFontId(preset.descriptionFontId);
     setTitleColor(preset.titleColor);
@@ -1034,7 +1336,7 @@ const TemplateCreator = () => {
     }
   };
 
-  const applyBackgroundImage = async (src: string) => {
+  const applyBackgroundImage = useCallback(async (src: string) => {
     try {
       const { width, height } = await loadImageDimensions(src);
       setBackgroundAspectRatio(width / height);
@@ -1049,7 +1351,40 @@ const TemplateCreator = () => {
         variant: "destructive",
       });
     }
-  };
+  }, [canvasHeight, canvasWidth, toast]);
+
+  useEffect(() => {
+    if (hasLoadedStarterTemplate.current || !starterTemplateId) return;
+
+    const starterTemplate = STARTER_TEMPLATES.find((item) => item.id === starterTemplateId);
+    if (!starterTemplate) return;
+
+    hasLoadedStarterTemplate.current = true;
+    setFormat("entrance-poster");
+    setEventName(starterTemplate.title);
+    setDescription(starterTemplate.description);
+    setTitleFontId(starterTemplate.titleFontId);
+    setDescriptionFontId(starterTemplate.descriptionFontId);
+    setTitleColor(starterTemplate.titleColor);
+    setDescriptionColor(starterTemplate.descriptionColor);
+    setTitleAlign(starterTemplate.titleAlign);
+    setDescriptionAlign(starterTemplate.descriptionAlign);
+    setBackgroundMode(starterTemplate.backgroundMode);
+    setGradientType(starterTemplate.gradientType);
+    setBackgroundColorA(starterTemplate.backgroundColorA);
+    setBackgroundColorB(starterTemplate.backgroundColorB);
+    setBackgroundImageUrl(null);
+    setBackgroundLayout(null);
+    setBackgroundAspectRatio(1);
+    setQrImageUrl(starterTemplate.qrImageUrl);
+    setShowQr(true);
+    setLogoImageUrl(null);
+    setDecorativeElements([]);
+    setStarterDecoration(starterTemplate.decoration);
+    setLayout(resolveStarterLayout(starterTemplate.layout, canvasWidth, canvasHeight));
+    setSelectedPresetId("");
+    setSelectedElement("title");
+  }, [canvasHeight, canvasWidth, starterTemplateId]);
 
   const handleBackgroundImagePick = async (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -1550,6 +1885,7 @@ const TemplateCreator = () => {
                   backgroundCss={backgroundCss}
                   backgroundImageUrl={backgroundMode === "image" ? backgroundImageUrl : null}
                   backgroundLayout={backgroundMode === "image" ? backgroundLayout : null}
+                  starterDecoration={starterDecoration}
                   titleText={eventName}
                   descriptionText={description}
                   titleFont={activeTitleFont}
@@ -1559,6 +1895,7 @@ const TemplateCreator = () => {
                   titleAlign={titleAlign}
                   descriptionAlign={descriptionAlign}
                   qrImageUrl={qrImageUrl}
+                  showQr={showQr}
                   logoImageUrl={logoImageUrl}
                   layout={layout}
                   decorativeElements={decorativeElements}
@@ -1590,6 +1927,7 @@ const TemplateCreator = () => {
             backgroundCss={backgroundCss}
             backgroundImageUrl={backgroundMode === "image" ? backgroundImageUrl : null}
             backgroundLayout={backgroundMode === "image" ? backgroundLayout : null}
+            starterDecoration={starterDecoration}
             titleText={eventName}
             descriptionText={description}
             titleFont={activeTitleFont}
@@ -1599,6 +1937,7 @@ const TemplateCreator = () => {
             titleAlign={titleAlign}
             descriptionAlign={descriptionAlign}
             qrImageUrl={qrImageUrl}
+            showQr={showQr}
             logoImageUrl={logoImageUrl}
             layout={layout}
             decorativeElements={decorativeElements}
