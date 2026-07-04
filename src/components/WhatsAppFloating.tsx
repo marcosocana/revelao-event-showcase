@@ -1,9 +1,15 @@
 import whatsappIcon from "@/assets/whatsapp.png";
 
-const WhatsAppFloating = () => {
+type WhatsAppFloatingProps = {
+  message?: string;
+};
+
+const WhatsAppFloating = ({
+  message = "Hola! Estoy interesado en Revelao. Cuéntame más!",
+}: WhatsAppFloatingProps) => {
   return (
     <a
-      href="https://wa.me/34695834018?text=Hola%21%20Estoy%20interesado%20en%20Revelao.%20Cu%C3%A9ntame%20m%C3%A1s%21"
+      href={`https://wa.me/34695834018?text=${encodeURIComponent(message)}`}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Contactar por WhatsApp"

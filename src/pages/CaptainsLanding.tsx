@@ -1,5 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Camera, ChevronRight, QrCode, Trophy, Users, Video } from "lucide-react";
+import WhatsAppFloating from "@/components/WhatsAppFloating";
 
 const demoUrl = "https://acceso.revelao.cam/capitanes/demo-capitanes?embed=1";
 const demoOpenUrl = "https://acceso.revelao.cam/capitanes/demo-capitanes";
@@ -30,8 +31,12 @@ const steps = [
 ];
 
 const moments = ["Durante la cena", "En el photocall", "En la pista", "Antes del baile"];
+const pricePerTable = 3;
 
 const CaptainsLanding = () => {
+  const [tableCount, setTableCount] = useState(12);
+  const totalPrice = useMemo(() => Math.max(1, tableCount || 1) * pricePerTable, [tableCount]);
+
   useEffect(() => {
     document.title = "Capitanes by Revelao | Juego para bodas con retos por mesas";
   }, []);
@@ -41,7 +46,7 @@ const CaptainsLanding = () => {
       <section className="captains-hero bg-white px-4 py-6 sm:px-6 lg:px-10">
         <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4">
           <a href="/" className="captains-logo-link" aria-label="Volver a Revelao">
-            <img src="/capitanes-logo.svg" alt="Capitanes por Revelao.cam" className="h-16 w-auto" />
+            <img src="/capitanes-logo.svg" alt="Capitanes por Revelao.cam" className="h-14 w-auto sm:h-16" />
           </a>
           <a className="captains-top-link" href={demoOpenUrl} target="_blank" rel="noopener noreferrer">
             Demo
@@ -136,6 +141,59 @@ const CaptainsLanding = () => {
         </div>
       </section>
 
+      <section className="bg-[#f7f3ec] px-4 py-12 text-[#151515] sm:px-6 lg:px-10 lg:py-16" id="precios">
+        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
+          <div className="max-w-xl">
+            <p className="captains-section-label">Precios</p>
+            <h2 className="captains-heading mt-3">3€ por mesa.</h2>
+            <p className="mt-4 text-lg font-bold leading-7 text-[#151515]/70">
+              Incluye hasta 25 retos personalizables al 100%. Tras la compra recibirás por email un enlace para crear y
+              ajustar todo a tu boda.
+            </p>
+          </div>
+
+          <div className="captains-pricing-panel">
+            <div>
+              <label htmlFor="captains-table-count" className="block text-sm font-black uppercase tracking-[0.08em]">
+                Número de mesas
+              </label>
+              <div className="mt-3 flex items-center gap-3">
+                <input
+                  id="captains-table-count"
+                  type="number"
+                  min="1"
+                  inputMode="numeric"
+                  value={tableCount}
+                  onChange={(event) => setTableCount(Math.max(1, Number(event.target.value) || 1))}
+                  className="captains-pricing-input"
+                />
+                <span className="text-lg font-black">x {pricePerTable}€</span>
+              </div>
+            </div>
+
+            <div className="captains-price-total">
+              <span>Total</span>
+              <strong>{totalPrice}€</strong>
+            </div>
+
+            <div className="grid gap-3 text-sm font-bold text-[#151515]/70 sm:grid-cols-3">
+              <span>Hasta 25 retos</span>
+              <span>100% personalizable</span>
+              <span>Enlace por email</span>
+            </div>
+
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <a className="captains-button captains-button-primary" href="https://stripe.com" target="_blank" rel="noopener noreferrer">
+                Comprar
+              </a>
+              <a className="captains-button captains-button-secondary" href={contactUrl} target="_blank" rel="noopener noreferrer">
+                Ayuda por WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="bg-[#151515] px-4 py-14 text-white sm:px-6 lg:px-10 lg:py-16">
         <div className="mx-auto flex max-w-7xl flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl">
@@ -152,6 +210,7 @@ const CaptainsLanding = () => {
           </div>
         </div>
       </section>
+      <WhatsAppFloating message="Hola! Quiero saber más sobre Capitanes para mi boda." />
     </main>
   );
 };

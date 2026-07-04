@@ -1114,73 +1114,6 @@ All colors MUST be HSL.
     background: #ffffff;
   }
 
-  .captains-world {
-    overflow: hidden;
-    background:
-      linear-gradient(rgba(21, 21, 21, 0.035) 1px, transparent 1px) 0 0 / 28px 28px,
-      linear-gradient(90deg, rgba(21, 21, 21, 0.035) 1px, transparent 1px) 0 0 / 28px 28px,
-      linear-gradient(#ffffff 0 62%, #f8f5ec 62% 100%);
-  }
-
-  .captains-sun {
-    position: absolute;
-    right: 11%;
-    top: 15%;
-    width: 96px;
-    height: 96px;
-    background: #fff7df;
-    box-shadow: 0 0 0 8px #151515, 16px 16px 0 0 rgba(21, 21, 21, 0.08);
-    opacity: 0.7;
-  }
-
-  .captains-cloud {
-    position: absolute;
-    width: 112px;
-    height: 32px;
-    background: #ffffff;
-    box-shadow: 32px -24px 0 #ffffff, 72px -8px 0 #ffffff, 0 0 0 6px #151515;
-    opacity: 0.55;
-  }
-
-  .captains-cloud-a {
-    left: 8%;
-    top: 18%;
-  }
-
-  .captains-cloud-b {
-    right: 26%;
-    top: 30%;
-    transform: scale(0.74);
-  }
-
-  .captains-mountains {
-    position: absolute;
-    bottom: 35%;
-    left: -4%;
-    width: 108%;
-    height: 22%;
-    background:
-      linear-gradient(135deg, transparent 0 48%, #d9d4c7 48% 54%, transparent 54%),
-      linear-gradient(45deg, transparent 0 48%, #d9d4c7 48% 54%, transparent 54%),
-      #f8f5ec;
-    border-top: 8px solid #151515;
-    opacity: 0.42;
-  }
-
-  .captains-floor {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 35%;
-    background:
-      linear-gradient(90deg, rgba(21, 21, 21, 0.075) 1px, transparent 1px) 0 0 / 48px 48px,
-      linear-gradient(rgba(21, 21, 21, 0.075) 1px, transparent 1px) 0 0 / 48px 48px,
-      #f8f5ec;
-    border-top: 8px solid #151515;
-  }
-
-  .captains-logo-link,
   .captains-top-link,
   .captains-button,
   .captains-panel,
@@ -1195,7 +1128,7 @@ All colors MUST be HSL.
     display: inline-flex;
     align-items: center;
     background: #ffffff;
-    padding: 6px;
+    padding: 0;
   }
 
   .captains-top-link {
@@ -1296,6 +1229,50 @@ All colors MUST be HSL.
     padding: 22px;
   }
 
+  .captains-pricing-panel {
+    display: grid;
+    gap: 24px;
+    border: 4px solid #151515;
+    background: #ffffff;
+    padding: clamp(22px, 4vw, 36px);
+  }
+
+  .captains-pricing-input {
+    width: 132px;
+    border: 4px solid #151515;
+    background: #ffffff;
+    padding: 12px 14px;
+    font-size: 2rem;
+    font-weight: 900;
+    line-height: 1;
+    outline: none;
+  }
+
+  .captains-pricing-input:focus {
+    box-shadow: 0 0 0 4px #ff5f63;
+  }
+
+  .captains-price-total {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 18px;
+    border-top: 4px solid #151515;
+    border-bottom: 4px solid #151515;
+    padding: 18px 0;
+    font-weight: 900;
+  }
+
+  .captains-price-total span {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+  }
+
+  .captains-price-total strong {
+    font-size: clamp(3rem, 7vw, 5rem);
+    line-height: 0.9;
+  }
+
   .captains-demo-wrap {
     display: flex;
     justify-content: center;
@@ -1369,122 +1346,7 @@ All colors MUST be HSL.
     min-height: 76px;
   }
 
-  .captains-table {
-    position: absolute;
-    display: flex;
-    align-items: flex-end;
-    gap: 18px;
-  }
-
-  .captains-table-a {
-    right: 8%;
-    bottom: 9%;
-  }
-
-  .captains-table-b {
-    right: 27%;
-    bottom: 24%;
-    transform: scale(0.78);
-  }
-
-  .captains-table-top {
-    position: absolute;
-    left: -18px;
-    right: -18px;
-    bottom: 32px;
-    height: 28px;
-    background: #8a4f22;
-    border: 6px solid #151515;
-    box-shadow: inset 0 -8px 0 rgba(0, 0, 0, 0.18);
-  }
-
-  .captains-character {
-    position: relative;
-    width: 54px;
-    height: 116px;
-    filter: drop-shadow(6px 6px 0 #151515);
-  }
-
-  .captains-character span {
-    position: absolute;
-    display: block;
-  }
-
-  .captains-character-head {
-    left: 11px;
-    top: 0;
-    width: 32px;
-    height: 32px;
-    background: #e9b98f;
-    border: 5px solid #151515;
-  }
-
-  .captains-character-head::before {
-    content: "";
-    position: absolute;
-    left: -5px;
-    top: -10px;
-    width: 42px;
-    height: 14px;
-    background: #3f2d23;
-    border: 5px solid #151515;
-  }
-
-  .captains-character-body {
-    left: 6px;
-    top: 38px;
-    width: 42px;
-    height: 48px;
-    background: var(--captain-outfit);
-    border: 5px solid #151515;
-  }
-
-  .captains-character-body::after {
-    content: "";
-    position: absolute;
-    left: 12px;
-    top: -5px;
-    width: 10px;
-    height: 48px;
-    background: #fff7df;
-  }
-
-  .captains-character-legs {
-    left: 11px;
-    top: 84px;
-    width: 12px;
-    height: 32px;
-    background: #151515;
-    box-shadow: 20px 0 0 #151515;
-  }
-
-  .captains-character-green {
-    --captain-outfit: #7f9f6a;
-  }
-
-  .captains-character-red {
-    --captain-outfit: #d98278;
-  }
-
-  .captains-character-blue {
-    --captain-outfit: #4d5262;
-  }
-
-  .captains-character-yellow {
-    --captain-outfit: #f4d36f;
-  }
-
   @media (max-width: 900px) {
-    .captains-table-a {
-      right: -4%;
-      opacity: 0.88;
-      transform: scale(0.7);
-    }
-
-    .captains-table-b {
-      display: none;
-    }
-
     .captains-demo-phone {
       width: min(100%, 310px);
     }

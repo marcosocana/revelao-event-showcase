@@ -226,13 +226,14 @@ const landingPages = [
     path: "/capitanes",
     title: "Capitanes by Revelao: juego para bodas con retos por mesas",
     description:
-      "Capitanes by Revelao convierte tu boda en un juego por mesas con capitanes, retos, pruebas, puntos y ranking en directo.",
-    keywords: "juego para bodas, retos por mesas boda, dinamica boda, juego boda invitados, capitanes revelao",
+      "Capitanes by Revelao convierte tu boda en un juego por mesas. 3€ por mesa, hasta 25 retos personalizables y configuración por enlace tras la compra.",
+    keywords: "juego para bodas, retos por mesas boda, dinamica boda, juego boda invitados, capitanes revelao, precio juego boda",
     image: "/capitanes-logo.svg",
     bodyHtml:
       "<main><article><h1>Capitanes by Revelao</h1>" +
       "<p>Capitanes by Revelao es una dinámica para bodas donde cada mesa elige capitán, completa retos y compite en un ranking en directo.</p>" +
       "<p>Funciona con QR desde el móvil y recoge fotos y vídeos espontáneos de la cena, el photocall y la fiesta.</p>" +
+      "<p>El precio es de 3€ por mesa e incluye hasta 25 retos personalizables al 100%. Tras la compra, recibirás por email un enlace para crear y configurar la partida.</p>" +
       '<p><a href="https://acceso.revelao.cam/capitanes/demo-capitanes">Ver demo de Capitanes</a></p></article></main>',
     schema: {
       "@context": "https://schema.org",
