@@ -344,7 +344,7 @@ const Index = () => {
                 <img
                   src={trialModalPreview}
                   alt="Vista del evento de prueba de Revelao"
-                  className="block aspect-[9/16] w-full rounded-[4px] object-cover object-top shadow-[0_12px_32px_-24px_rgba(15,23,42,0.5)]"
+                  className="block aspect-[9/16] w-full rounded-[4px] object-cover object-top shadow-[0_18px_42px_-18px_rgba(15,23,42,0.42)]"
                   loading="lazy"
                   decoding="async"
                 />
@@ -366,9 +366,9 @@ const Index = () => {
                   Incluye 10 fotos, 1 vídeo y 3 audios.
                 </p>
 
-                <Button className="mt-3 w-full rounded-full md:mt-5 md:w-auto md:px-10" asChild>
+                <Button className="mt-5 w-full rounded-full md:mt-8 md:w-auto md:px-10" asChild>
                   <a href={accessDemoUrl} target="_blank" rel="noopener noreferrer">
-                    Probar evento demo
+                    Probar gratis
                   </a>
                 </Button>
               </div>
