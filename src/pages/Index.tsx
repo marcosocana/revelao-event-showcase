@@ -18,26 +18,50 @@ import { TrialReminder } from "@/components/TrialReminder";
 import WhatsAppFloating from "@/components/WhatsAppFloating";
 import { SimpleCTA } from "@/components/SimpleCTA";
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useState, useEffect } from "react";
-import { X } from "lucide-react";
-import { useI18n, translations } from "@/lib/i18n";
+import { Camera, Mic, PlayCircle, Sparkles, Video, X } from "lucide-react";
+import { getAccessDemoUrl, useI18n, translations } from "@/lib/i18n";
 import qrExampleInProgress from "@/assets/encurso.png";
 import qrExampleFinished from "@/assets/terminado.png";
+import trialModalPreview from "@/assets/trial-modal-preview.jpeg";
+
+const TRIAL_PROMPT_DISMISSED_KEY = "revelao-trial-prompt-dismissed";
 
 const Index = () => {
   const [isPricingModalOpen, setIsPricingModalOpen] = useState(false);
+  const [isTrialPromptOpen, setIsTrialPromptOpen] = useState(false);
   const [exampleModal, setExampleModal] = useState<{ open: boolean; url: string; title: string }>({
     open: false,
     url: "",
     title: "",
   });
   const { lang, setLang } = useI18n();
+  const accessDemoUrl = getAccessDemoUrl(lang);
 
   useEffect(() => {
     const handleOpenModal = () => setIsPricingModalOpen(true);
     window.addEventListener('openPricingModal', handleOpenModal);
     return () => window.removeEventListener('openPricingModal', handleOpenModal);
   }, []);
+
+  useEffect(() => {
+    if (sessionStorage.getItem(TRIAL_PROMPT_DISMISSED_KEY) === "true") return;
+
+    const timer = window.setTimeout(() => {
+      if (sessionStorage.getItem(TRIAL_PROMPT_DISMISSED_KEY) === "true") return;
+      setIsTrialPromptOpen(true);
+    }, 10000);
+
+    return () => window.clearTimeout(timer);
+  }, []);
+
+  const handleTrialPromptOpenChange = (open: boolean) => {
+    setIsTrialPromptOpen(open);
+    if (!open) {
+      sessionStorage.setItem(TRIAL_PROMPT_DISMISSED_KEY, "true");
+    }
+  };
 
   const exampleCards = [
     {
@@ -308,6 +332,60 @@ const Index = () => {
       ) : null}
       <Footer />
       <WhatsAppFloating />
+      <Dialog open={isTrialPromptOpen} onOpenChange={handleTrialPromptOpenChange}>
+        <DialogContent className="max-w-[94vw] rounded-[8px] border border-neutral-200 bg-white p-0 shadow-2xl sm:max-w-3xl">
+          <div className="grid overflow-hidden rounded-[8px] bg-white md:grid-cols-[0.9fr_1.1fr]">
+            <div className="flex items-center justify-center bg-white px-6 pt-8 md:px-8 md:py-8">
+              <div className="relative w-[210px] rounded-[34px] border-[9px] border-neutral-950 bg-neutral-950 p-1 shadow-[0_22px_55px_-28px_rgba(15,23,42,0.65)] md:w-[250px]">
+                <div className="absolute left-1/2 top-2 z-10 h-4 w-20 -translate-x-1/2 rounded-full bg-neutral-950" />
+                <div className="overflow-hidden rounded-[24px] bg-white">
+                  <img
+                    src={trialModalPreview}
+                    alt="Vista del evento de prueba de Revelao"
+                    className="block aspect-[9/16] w-full object-cover object-top"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-5 bg-white px-6 pb-7 pt-6 md:px-8 md:py-8">
+              <div className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-neutral-100 text-foreground">
+                <Sparkles className="h-5 w-5" />
+              </div>
+              <DialogHeader className="text-left">
+                <DialogTitle className="text-2xl leading-tight text-foreground md:text-3xl">
+                  Empieza con un evento de prueba
+                </DialogTitle>
+                <DialogDescription className="text-sm leading-6 text-muted-foreground md:text-base">
+                  Prueba Revelao gratis con una experiencia ya preparada para ver cómo tus invitados suben recuerdos.
+                </DialogDescription>
+              </DialogHeader>
+
+              <div className="grid grid-cols-3 gap-3">
+                {[
+                  { icon: Camera, label: "10 fotos" },
+                  { icon: Video, label: "1 vídeo" },
+                  { icon: Mic, label: "3 audios" },
+                ].map((item) => (
+                  <div key={item.label} className="rounded-[8px] border border-border bg-neutral-50 px-3 py-4 text-center">
+                    <item.icon className="mx-auto mb-2 h-5 w-5 text-foreground" />
+                    <p className="text-sm font-semibold text-foreground">{item.label}</p>
+                  </div>
+                ))}
+              </div>
+
+              <Button className="w-full rounded-full" asChild>
+                <a href={accessDemoUrl} target="_blank" rel="noopener noreferrer">
+                  <PlayCircle className="mr-2 h-4 w-4" />
+                  Probar evento demo
+                </a>
+              </Button>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
       <PricingModal open={isPricingModalOpen} onOpenChange={setIsPricingModalOpen} />
     </div>
   );

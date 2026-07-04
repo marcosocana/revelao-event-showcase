@@ -19,6 +19,33 @@ export type BlogLanguage = "es" | "en" | "it";
 export const blogPostsByLang: Record<BlogLanguage, BlogPost[]> = {
   es: [
     {
+      slug: "codigo-qr-barra-libre-boda-fotos-invitados",
+      title: "Código QR en la barra libre de la boda: cómo conseguir más fotos de los invitados",
+      date: "04 julio 2026",
+      publishedAt: "2026-07-04T10:00:00.000Z",
+      excerpt:
+        "Ideas prácticas para colocar un código QR en la barra libre de la boda y animar a los invitados a subir fotos, vídeos y audios sin app.",
+      image: "/blog/queue-006-frases-carteles-qr-boda-portada.avif",
+      contentHtml:
+        "<h2>Por qué la barra libre es un punto clave para el QR</h2>" +
+        "<p>En muchas bodas el código QR se coloca en la bienvenida, en las mesas o junto al seating plan. Pero hay un momento en el que los invitados suelen estar más relajados, con el móvil en la mano y con ganas de compartir lo que está pasando: la barra libre.</p>" +
+        "<p>Un <strong>código QR boda</strong> bien colocado en la zona de copas puede multiplicar la participación porque aparece justo cuando empiezan las fotos espontáneas: brindis, bailes, grupos de amigos, vídeos cortos, mensajes de voz y escenas que la pareja muchas veces no llega a ver.</p>" +
+        "<h2>Qué tipo de recuerdos se generan en la barra libre</h2>" +
+        "<p>Durante la fiesta aparecen recuerdos menos posados y más reales: amigos que se reencuentran, familiares bailando, vídeos de los primeros momentos de barra libre y mensajes de voz cariñosos o divertidos.</p>" +
+        "<p>Si solo dependes de WhatsApp, muchas de esas fotos se quedan repartidas en móviles y chats privados. Un QR conectado a una galería privada permite recopilar ese material en un único lugar sin pedir apps ni registros largos.</p>" +
+        "<h2>Dónde colocar el cartel QR en la barra libre</h2>" +
+        "<p>Funciona mejor colocarlo en puntos de pausa: una esquina visible de la barra, una mesita auxiliar, cerca del photocall, junto a la pista o en tarjetas pequeñas sobre mesas altas de cóctel.</p>" +
+        "<h2>Qué debe decir el cartel para que la gente lo use</h2>" +
+        "<p>Un <strong>cartel QR boda</strong> no necesita mucho texto. Frases como “Sube aquí tus fotos y vídeos de la fiesta”, “Escanea y deja tus mejores recuerdos para los novios” o “Sin app: escanea, sube y sigue bailando” funcionan porque se entienden en segundos.</p>" +
+        "<h2>Cómo evitar que el QR compita con la fiesta</h2>" +
+        "<p>El QR debe acompañar, no interrumpir. No obligues a crear una cuenta, no pidas descargar una app, no pongas instrucciones largas y no lo presentes como una tarea para los invitados.</p>" +
+        "<h2>Qué pedir: fotos, vídeos y audios</h2>" +
+        "<p>La barra libre es perfecta para vídeos y mensajes de audio. Un vídeo de diez segundos puede guardar mejor el ambiente que una foto, y un audio de un amigo puede convertirse en uno de los recuerdos más personales.</p>" +
+        "<h2>Conclusión</h2>" +
+        "<p>La barra libre es uno de los mejores lugares para colocar un código QR de boda porque coincide con el momento más espontáneo del evento. Si el cartel es claro, el acceso es sin app y el proceso es rápido, los invitados participan mucho más.</p>",
+      tags: ["Bodas", "QR", "Fotos invitados"],
+    },
+    {
       slug: "ideas-para-fotos-de-evento",
       title: "10 ideas para fotos que tus invitados sí querrán compartir",
       date: "20 Enero 2026",

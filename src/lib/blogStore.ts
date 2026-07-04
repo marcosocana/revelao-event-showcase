@@ -38,6 +38,7 @@ export const getBlogPosts = async (
   lang: BlogLanguage = "es",
   useFallback = true,
 ): Promise<BlogPost[]> => {
+  const fallbackPosts = blogPostsByLang[lang] ?? blogPostsByLang.es;
   const { data, error } = await supabase
     .from("blog_posts")
     .select("*")
@@ -46,14 +47,24 @@ export const getBlogPosts = async (
 
   if (error) {
     console.error("Error loading blog posts:", error);
-    return useFallback ? blogPostsByLang[lang] ?? blogPostsByLang.es : [];
+    return useFallback ? fallbackPosts : [];
   }
 
   if (!data || data.length === 0) {
-    return useFallback ? blogPostsByLang[lang] ?? blogPostsByLang.es : [];
+    return useFallback ? fallbackPosts : [];
   }
 
-  return (data as BlogRow[]).map(toBlogPost);
+  const remotePosts = (data as BlogRow[]).map(toBlogPost);
+  if (!useFallback) return remotePosts;
+
+  const remoteSlugs = new Set(remotePosts.map((post) => post.slug));
+  const missingFallbackPosts = fallbackPosts.filter((post) => !remoteSlugs.has(post.slug));
+
+  return [...remotePosts, ...missingFallbackPosts].sort((a, b) => {
+    const aTime = a.publishedAt ? new Date(a.publishedAt).getTime() : 0;
+    const bTime = b.publishedAt ? new Date(b.publishedAt).getTime() : 0;
+    return bTime - aTime;
+  });
 };
 
 export const upsertBlogPost = async (lang: BlogLanguage, post: BlogPost) => {
