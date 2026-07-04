@@ -362,7 +362,7 @@ const Index = () => {
                   </DialogDescription>
                 </DialogHeader>
 
-                <p className="rounded-[8px] border border-neutral-200 bg-neutral-50 px-4 py-3 text-sm font-semibold leading-5 text-foreground md:text-center md:text-base">
+                <p className="rounded-[8px] bg-neutral-50 px-4 py-3 text-sm font-semibold leading-5 text-foreground md:text-center md:text-base">
                   Incluye 10 fotos, 1 vídeo y 3 audios.
                 </p>
 

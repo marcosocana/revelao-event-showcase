@@ -5,6 +5,7 @@ const socialVideos = [
   },
   {
     src: "/rrss/testimonio2.mp4",
+    poster: "/rrss/testimonio2-poster.jpg",
     label: "Revelao en redes sociales 2",
   },
 ];
@@ -14,7 +15,7 @@ export const SocialVideos = () => {
     <section className="bg-transparent py-12 md:py-24" id="rrss">
       <div className="container mx-auto px-4">
         <div className="mb-8 text-center md:mb-10">
-          <h2 className="revelao-h2 text-center">Revelao en RRSS</h2>
+          <h2 className="revelao-h2 text-center">Revelao en las redes</h2>
         </div>
 
         <div className="mx-auto grid max-w-3xl grid-cols-1 justify-items-center gap-6 sm:grid-cols-2 md:gap-8">
@@ -31,6 +32,7 @@ export const SocialVideos = () => {
                 loop
                 muted
                 playsInline
+                poster={video.poster}
                 preload="metadata"
               >
                 <source src={video.src} type="video/mp4" />
