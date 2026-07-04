@@ -407,9 +407,14 @@ const CaptainsLanding = () => {
             </div>
 
             <div className="flex flex-col gap-3 sm:flex-row">
-              <a className="captains-button captains-button-primary" href="https://stripe.com" target="_blank" rel="noopener noreferrer">
-                Comprar
-              </a>
+              <button
+                type="button"
+                className="captains-button captains-button-primary"
+                onClick={() => handleCheckout(includeCaptainBox)}
+                disabled={isCheckoutLoading}
+              >
+                {isCheckoutLoading ? "Cargando…" : "Comprar"}
+              </button>
               <a className="captains-button captains-button-secondary" href={contactUrl} target="_blank" rel="noopener noreferrer">
                 Ayuda por WhatsApp
               </a>
