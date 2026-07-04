@@ -2,6 +2,7 @@ import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { Camera, ChevronRight, QrCode, Trophy, Users, Video } from "lucide-react";
 import WhatsAppFloating from "@/components/WhatsAppFloating";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { supabase } from "@/integrations/supabase/client";
 
 const demoUrl = "https://acceso.revelao.cam/capitanes/demo-capitanes?embed=1";
 const demoOpenUrl = "https://acceso.revelao.cam/capitanes/demo-capitanes";
@@ -112,6 +113,29 @@ const CaptainsLanding = () => {
   useEffect(() => {
     document.title = "Capitanes by Revelao | Juego para bodas con retos por mesas";
   }, []);
+
+  const [isCheckoutLoading, setIsCheckoutLoading] = useState(false);
+
+  const handleCheckout = async (includeBox: boolean) => {
+    if (isCheckoutLoading) return;
+    setIsCheckoutLoading(true);
+    try {
+      const { data, error } = await supabase.functions.invoke("create-captains-checkout", {
+        body: { tableCount: normalizedTableCount, includeCaptainBox: includeBox },
+      });
+      if (error) throw error;
+      if (data?.url) {
+        window.location.href = data.url as string;
+      } else {
+        throw new Error("No checkout URL returned");
+      }
+    } catch (err) {
+      console.error("Checkout error", err);
+      window.open(contactUrl, "_blank", "noopener,noreferrer");
+    } finally {
+      setIsCheckoutLoading(false);
+    }
+  };
 
   useEffect(() => {
     const interval = window.setInterval(() => {
@@ -383,9 +407,14 @@ const CaptainsLanding = () => {
             </div>
 
             <div className="flex flex-col gap-3 sm:flex-row">
-              <a className="captains-button captains-button-primary" href="https://stripe.com" target="_blank" rel="noopener noreferrer">
-                Comprar
-              </a>
+              <button
+                type="button"
+                className="captains-button captains-button-primary"
+                onClick={() => handleCheckout(includeCaptainBox)}
+                disabled={isCheckoutLoading}
+              >
+                {isCheckoutLoading ? "Cargando…" : "Comprar"}
+              </button>
               <a className="captains-button captains-button-secondary" href={contactUrl} target="_blank" rel="noopener noreferrer">
                 Ayuda por WhatsApp
               </a>
@@ -418,9 +447,14 @@ const CaptainsLanding = () => {
               <li>Tarjeta con QR personalizada para tu boda</li>
               <li>Brazalete de capitán</li>
             </ul>
-            <a className="captains-button captains-button-primary mt-7" href="https://stripe.com" target="_blank" rel="noopener noreferrer">
-              Añadir Caja Capitán
-            </a>
+            <button
+              type="button"
+              className="captains-button captains-button-primary mt-7"
+              onClick={() => handleCheckout(true)}
+              disabled={isCheckoutLoading}
+            >
+              {isCheckoutLoading ? "Cargando…" : "Añadir Caja Capitán"}
+            </button>
           </div>
         </div>
       </section>
