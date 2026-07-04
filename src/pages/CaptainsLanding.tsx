@@ -1,9 +1,11 @@
 import { useEffect, useMemo, useState } from "react";
 import { Camera, ChevronRight, QrCode, Trophy, Users, Video } from "lucide-react";
 import WhatsAppFloating from "@/components/WhatsAppFloating";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
 const demoUrl = "https://acceso.revelao.cam/capitanes/demo-capitanes?embed=1";
 const demoOpenUrl = "https://acceso.revelao.cam/capitanes/demo-capitanes";
+const demoQrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=260x260&margin=12&data=${encodeURIComponent(demoOpenUrl)}`;
 const contactUrl =
   "https://wa.me/34695834018?text=Hola%21%20Quiero%20saber%20m%C3%A1s%20sobre%20Capitanes%20para%20bodas.";
 
@@ -35,11 +37,21 @@ const pricePerTable = 3;
 
 const CaptainsLanding = () => {
   const [tableCount, setTableCount] = useState(12);
+  const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
   const totalPrice = useMemo(() => Math.max(1, tableCount || 1) * pricePerTable, [tableCount]);
 
   useEffect(() => {
     document.title = "Capitanes by Revelao | Juego para bodas con retos por mesas";
   }, []);
+
+  const handleDemoOpen = () => {
+    if (window.matchMedia("(max-width: 767px)").matches) {
+      window.location.href = demoOpenUrl;
+      return;
+    }
+
+    setIsDemoModalOpen(true);
+  };
 
   return (
     <main className="captains-page min-h-screen overflow-hidden bg-white text-[#151515]">
@@ -48,9 +60,9 @@ const CaptainsLanding = () => {
           <a href="/" className="captains-logo-link" aria-label="Volver a Revelao">
             <img src="/capitanes-logo.svg" alt="Capitanes por Revelao.cam" className="h-14 w-auto sm:h-16" />
           </a>
-          <a className="captains-top-link" href={demoOpenUrl} target="_blank" rel="noopener noreferrer">
+          <button type="button" className="captains-top-link" onClick={handleDemoOpen}>
             Demo
-          </a>
+          </button>
         </nav>
 
         <div className="mx-auto grid max-w-7xl gap-10 pb-14 pt-10 lg:grid-cols-[0.94fr_0.86fr] lg:items-center lg:pb-20 lg:pt-14">
@@ -68,9 +80,9 @@ const CaptainsLanding = () => {
               <a className="captains-button captains-button-primary" href={contactUrl} target="_blank" rel="noopener noreferrer">
                 Pedir para mi boda <ChevronRight className="h-5 w-5" />
               </a>
-              <a className="captains-button captains-button-secondary" href={demoOpenUrl} target="_blank" rel="noopener noreferrer">
+              <button type="button" className="captains-button captains-button-secondary" onClick={handleDemoOpen}>
                 Abrir demo
-              </a>
+              </button>
             </div>
           </div>
 
@@ -204,12 +216,48 @@ const CaptainsLanding = () => {
             <a className="captains-button captains-button-light" href={contactUrl} target="_blank" rel="noopener noreferrer">
               Hablar por WhatsApp
             </a>
-            <a className="captains-button captains-button-dark-outline" href={demoOpenUrl} target="_blank" rel="noopener noreferrer">
+            <button type="button" className="captains-button captains-button-dark-outline" onClick={handleDemoOpen}>
               Ver demo
-            </a>
+            </button>
           </div>
         </div>
       </section>
+      <section className="bg-white px-4 py-10 text-[#151515] sm:px-6 lg:px-10">
+        <div className="mx-auto flex max-w-7xl flex-col gap-4 border-t-4 border-[#151515] pt-8 text-center sm:flex-row sm:items-center sm:justify-between sm:text-left">
+          <p className="text-lg font-black leading-6">
+            Este es un producto de Revelao.cam hecho con amor.
+          </p>
+          <a className="captains-button captains-button-secondary" href="/" aria-label="Acceder a la web de Revelao">
+            Acceder a Revelao
+          </a>
+        </div>
+      </section>
+      <Dialog open={isDemoModalOpen} onOpenChange={setIsDemoModalOpen}>
+        <DialogContent className="captains-demo-modal max-h-[92dvh] max-w-[94vw] overflow-y-auto border-4 border-[#151515] bg-white p-5 shadow-none sm:rounded-none lg:max-w-5xl">
+          <DialogHeader className="sr-only">
+            <DialogTitle>Demo de Capitanes</DialogTitle>
+            <DialogDescription>Prueba la demo de Capitanes desde un mockup de móvil o con un QR.</DialogDescription>
+          </DialogHeader>
+
+          <div className="grid gap-7 lg:grid-cols-[360px_1fr] lg:items-center">
+            <div className="captains-demo-wrap">
+              <div className="captains-demo-phone captains-demo-phone-modal" aria-label="Demo de Capitanes en móvil">
+                <iframe
+                  title="Demo Capitanes by Revelao"
+                  src={demoUrl}
+                  loading="lazy"
+                  allow="camera; fullscreen; clipboard-write"
+                />
+              </div>
+            </div>
+
+            <div className="captains-demo-qr-panel">
+              <img src={demoQrUrl} alt="Código QR para probar Capitanes desde el móvil" className="captains-demo-qr" />
+              <p>También puedes probarlo directamente desde tu movil leyendo este código QR.</p>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
       <WhatsAppFloating message="Hola! Quiero saber más sobre Capitanes para mi boda." />
     </main>
   );
