@@ -447,9 +447,14 @@ const CaptainsLanding = () => {
               <li>Tarjeta con QR personalizada para tu boda</li>
               <li>Brazalete de capitán</li>
             </ul>
-            <a className="captains-button captains-button-primary mt-7" href="https://stripe.com" target="_blank" rel="noopener noreferrer">
-              Añadir Caja Capitán
-            </a>
+            <button
+              type="button"
+              className="captains-button captains-button-primary mt-7"
+              onClick={() => handleCheckout(true)}
+              disabled={isCheckoutLoading}
+            >
+              {isCheckoutLoading ? "Cargando…" : "Añadir Caja Capitán"}
+            </button>
           </div>
         </div>
       </section>
