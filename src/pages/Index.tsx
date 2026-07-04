@@ -8,6 +8,7 @@ import { WhyRevelaoSection } from "@/components/WhyRevelaoSection";
 import { Templates } from "@/components/Templates";
 import { FAQs } from "@/components/FAQs";
 import { SuccessStories } from "@/components/SuccessStories";
+import { SocialVideos } from "@/components/SocialVideos";
 import { FreeTrial } from "@/components/FreeTrial";
 import { Footer } from "@/components/Footer";
 import { PricingModal } from "@/components/PricingModal";
@@ -213,9 +214,6 @@ const Index = () => {
         <div className="section-white reveal-on-scroll">
           <FeaturesVideo />
         </div>
-        <div className="section-gray reveal-on-scroll">
-          <SuccessStories />
-        </div>
         <div className="section-white reveal-on-scroll">
           <WhyRevelaoSection />
         </div>
@@ -252,6 +250,9 @@ const Index = () => {
             </div>
           </section>
         </div>
+        <div className="section-gray reveal-on-scroll">
+          <SocialVideos />
+        </div>
         <div className="section-white reveal-on-scroll">
           <Templates />
         </div>
@@ -272,6 +273,9 @@ const Index = () => {
               </div>
             </div>
           </section>
+        </div>
+        <div className="section-gray reveal-on-scroll">
+          <SuccessStories />
         </div>
         <div className="section-white reveal-on-scroll">
           <EventGalleryFlow />
