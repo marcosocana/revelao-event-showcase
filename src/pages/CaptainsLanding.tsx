@@ -2,6 +2,7 @@ import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { Camera, ChevronRight, QrCode, Trophy, Users, Video } from "lucide-react";
 import WhatsAppFloating from "@/components/WhatsAppFloating";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { supabase } from "@/integrations/supabase/client";
 
 const demoUrl = "https://acceso.revelao.cam/capitanes/demo-capitanes?embed=1";
 const demoOpenUrl = "https://acceso.revelao.cam/capitanes/demo-capitanes";
@@ -58,6 +59,8 @@ const challengeTypes = [
 ];
 const pricePerTable = 3;
 const captainBoxPricePerTable = 12.95;
+const checkoutErrorMessage =
+  "No hemos podido abrir el pago ahora mismo. Escríbenos por WhatsApp y te ayudamos en un momento.";
 const rankingSnapshots = [
   [
     { table: "Mesa amigos", points: 430 },
@@ -89,6 +92,7 @@ const CaptainsLanding = () => {
   const [tableCount, setTableCount] = useState(12);
   const [includeCaptainBox, setIncludeCaptainBox] = useState(false);
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
+  const [isCheckoutLoading, setIsCheckoutLoading] = useState(false);
   const [rankingStep, setRankingStep] = useState(0);
   const rankingRowRefs = useRef(new Map<string, HTMLDivElement>());
   const previousRankingPositions = useRef(new Map<string, number>());
@@ -172,6 +176,39 @@ const CaptainsLanding = () => {
     }
 
     setIsDemoModalOpen(true);
+  };
+
+  const handleCheckout = async () => {
+    setIsCheckoutLoading(true);
+
+    try {
+      const { data, error } = await supabase.functions.invoke("create-captains-checkout", {
+        body: {
+          tableCount: normalizedTableCount,
+          includeCaptainBox,
+        },
+      });
+
+      if (error) {
+        throw error;
+      }
+
+      const checkoutUrl = typeof data?.url === "string" ? data.url : "";
+      if (!checkoutUrl) {
+        throw new Error("Stripe checkout URL missing");
+      }
+
+      window.location.href = checkoutUrl;
+    } catch (error) {
+      console.error("Unable to create Captains checkout", error);
+      window.alert(checkoutErrorMessage);
+      setIsCheckoutLoading(false);
+    }
+  };
+
+  const handlePackClick = () => {
+    setIncludeCaptainBox(true);
+    document.getElementById("precios")?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (
@@ -383,9 +420,14 @@ const CaptainsLanding = () => {
             </div>
 
             <div className="flex flex-col gap-3 sm:flex-row">
-              <a className="captains-button captains-button-primary" href="https://stripe.com" target="_blank" rel="noopener noreferrer">
-                Comprar
-              </a>
+              <button
+                type="button"
+                className="captains-button captains-button-primary"
+                onClick={handleCheckout}
+                disabled={isCheckoutLoading}
+              >
+                {isCheckoutLoading ? "Abriendo pago..." : "Comprar"}
+              </button>
               <a className="captains-button captains-button-secondary" href={contactUrl} target="_blank" rel="noopener noreferrer">
                 Ayuda por WhatsApp
               </a>
@@ -418,9 +460,9 @@ const CaptainsLanding = () => {
               <li>Tarjeta con QR personalizada para tu boda</li>
               <li>Brazalete de capitán</li>
             </ul>
-            <a className="captains-button captains-button-primary mt-7" href="https://stripe.com" target="_blank" rel="noopener noreferrer">
+            <button type="button" className="captains-button captains-button-primary mt-7" onClick={handlePackClick}>
               Añadir Caja Capitán
-            </a>
+            </button>
           </div>
         </div>
       </section>

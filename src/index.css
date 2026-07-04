@@ -1203,6 +1203,12 @@ All colors MUST be HSL.
     box-shadow: none;
   }
 
+  .captains-button:disabled {
+    cursor: wait;
+    opacity: 0.72;
+    transform: none;
+  }
+
   .captains-button-primary {
     background: #f4d36f;
     color: #151515;
