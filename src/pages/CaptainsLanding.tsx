@@ -114,6 +114,29 @@ const CaptainsLanding = () => {
     document.title = "Capitanes by Revelao | Juego para bodas con retos por mesas";
   }, []);
 
+  const [isCheckoutLoading, setIsCheckoutLoading] = useState(false);
+
+  const handleCheckout = async (includeBox: boolean) => {
+    if (isCheckoutLoading) return;
+    setIsCheckoutLoading(true);
+    try {
+      const { data, error } = await supabase.functions.invoke("create-captains-checkout", {
+        body: { tableCount: normalizedTableCount, includeCaptainBox: includeBox },
+      });
+      if (error) throw error;
+      if (data?.url) {
+        window.location.href = data.url as string;
+      } else {
+        throw new Error("No checkout URL returned");
+      }
+    } catch (err) {
+      console.error("Checkout error", err);
+      window.open(contactUrl, "_blank", "noopener,noreferrer");
+    } finally {
+      setIsCheckoutLoading(false);
+    }
+  };
+
   useEffect(() => {
     const interval = window.setInterval(() => {
       captureRankingPositions();
