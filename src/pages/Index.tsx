@@ -352,11 +352,11 @@ const Index = () => {
 
             <div className="flex flex-col bg-white px-5 pb-6 pt-4 md:justify-center md:px-10 md:py-8">
               <div className="space-y-4 md:mx-auto md:max-w-[390px]">
-                <DialogHeader className="text-left md:text-center">
+                <DialogHeader className="text-left">
                   <DialogTitle className="text-xl leading-tight text-foreground sm:text-2xl md:text-[2.75rem] md:leading-[1.04]">
                     Empieza con un evento de prueba
                   </DialogTitle>
-                  <DialogDescription className="text-sm leading-5 text-muted-foreground md:text-center md:text-base md:leading-6">
+                  <DialogDescription className="text-sm leading-5 text-muted-foreground md:text-base md:leading-6">
                     Prueba Revelao gratis con una experiencia ya preparada para ver cómo tus invitados suben recuerdos.
                   </DialogDescription>
                 </DialogHeader>
@@ -365,7 +365,7 @@ const Index = () => {
                   Incluye 10 fotos, 1 vídeo y 3 audios.
                 </p>
 
-                <Button className="w-full rounded-full md:mx-auto md:w-auto md:px-10" asChild>
+                <Button className="mt-3 w-full rounded-full md:mt-5 md:w-auto md:px-10" asChild>
                   <a href={accessDemoUrl} target="_blank" rel="noopener noreferrer">
                     Probar evento demo
                   </a>
