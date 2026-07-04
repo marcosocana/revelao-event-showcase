@@ -23,6 +23,7 @@ const CookiePolicy = lazy(() => import("./pages/CookiePolicy"));
 const EventUseCaseLanding = lazy(() => import("./pages/EventUseCaseLanding"));
 const DemoEnvironment = lazy(() => import("./pages/DemoEnvironment"));
 const TemplateCreator = lazy(() => import("./pages/TemplateCreator"));
+const CaptainsLanding = lazy(() => import("./pages/CaptainsLanding"));
 
 const PageFallback = () => <div className="min-h-screen bg-background" />;
 
@@ -57,6 +58,7 @@ const App = () => (
               <Route path="/it/privacy" element={<PrivacyPolicy />} />
               <Route path="/it/cookies" element={<CookiePolicy />} />
               <Route path="/pruebas" element={<PruebasLanding />} />
+              <Route path="/capitanes" element={<CaptainsLanding />} />
               <Route path="/blog" element={<BlogHub />} />
               <Route path="/blog/:slug" element={<BlogDetail />} />
               <Route path="/blog/admin" element={<BlogAdmin />} />

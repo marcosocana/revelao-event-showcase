@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" role="img" aria-labelledby="title">
+  <title id="title">Capitanes por Revelao.cam</title>
+  <rect width="640" height="640" fill="#fff"/>
+  <g fill="none" stroke="#000" stroke-linecap="square" stroke-linejoin="round">
+    <ellipse cx="320" cy="164" rx="178" ry="46" stroke-width="20"/>
+    <path d="M142 164v184c0 37 80 67 178 67s178-30 178-67V164" stroke-width="20"/>
+    <path d="M142 248c42 24 104 38 178 38s136-14 178-38" stroke-width="20"/>
+    <path d="M142 300c42 24 104 38 178 38s136-14 178-38" stroke-width="20"/>
+    <path d="M142 256h60M142 309h60M438 256h60M438 309h60" stroke-width="20"/>
+  </g>
+  <path fill="#ff5f63" d="M292 224h66v22h22v44h-44v-22h-44v88h44v-22h44v44h-22v22h-66v-22h-22v-132h22z"/>
+  <text x="320" y="525" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-size="86" font-weight="900" fill="#000">Capitanes</text>
+  <text x="286" y="581" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-size="22" font-weight="900" fill="#000">Por Revelao.cam con</text>
+  <path fill="#ff5f63" d="M412 565h10v10h10v10h-10v10h-10v-10h-10v-10h10z"/>
+</svg>
