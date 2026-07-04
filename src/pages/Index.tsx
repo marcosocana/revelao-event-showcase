@@ -333,20 +333,17 @@ const Index = () => {
       <Footer />
       <WhatsAppFloating />
       <Dialog open={isTrialPromptOpen} onOpenChange={handleTrialPromptOpenChange}>
-        <DialogContent className="max-h-[92dvh] max-w-[92vw] overflow-hidden rounded-[8px] border border-neutral-200 bg-white p-0 shadow-2xl sm:max-w-3xl">
-          <div className="grid max-h-[92dvh] overflow-hidden rounded-[8px] bg-white md:grid-cols-[0.86fr_1.14fr]">
+        <DialogContent className="max-h-[96dvh] max-w-[92vw] overflow-hidden rounded-[8px] border border-neutral-200 bg-white p-0 shadow-2xl sm:max-w-3xl md:max-h-[92dvh]">
+          <div className="grid max-h-[96dvh] overflow-hidden rounded-[8px] bg-white md:max-h-[92dvh] md:grid-cols-[0.86fr_1.14fr]">
             <div className="flex items-center justify-center bg-white px-5 pt-5 md:px-8 md:py-8">
-              <div className="relative w-[132px] rounded-[24px] border-[6px] border-neutral-950 bg-neutral-950 p-0.5 shadow-[0_22px_55px_-28px_rgba(15,23,42,0.65)] sm:w-[160px] md:w-[250px] md:rounded-[34px] md:border-[9px] md:p-1">
-                <div className="absolute left-1/2 top-1.5 z-10 h-2.5 w-12 -translate-x-1/2 rounded-full bg-neutral-950 md:top-2 md:h-4 md:w-20" />
-                <div className="overflow-hidden rounded-[17px] bg-white md:rounded-[24px]">
-                  <img
-                    src={trialModalPreview}
-                    alt="Vista del evento de prueba de Revelao"
-                    className="block aspect-[9/16] w-full object-cover object-top"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
+              <div className="w-[165px] sm:w-[190px] md:w-[250px]">
+                <img
+                  src={trialModalPreview}
+                  alt="Vista del evento de prueba de Revelao"
+                  className="block aspect-[9/16] w-full rounded-[4px] object-cover object-top shadow-[0_12px_32px_-24px_rgba(15,23,42,0.5)]"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
             </div>
 
