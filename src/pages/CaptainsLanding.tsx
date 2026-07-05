@@ -1,14 +1,16 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
-import { Camera, ChevronRight, QrCode, Trophy, Users, Video } from "lucide-react";
+import { Camera, ChevronRight, Pencil, QrCode, Trophy, Users, Video } from "lucide-react";
 import WhatsAppFloating from "@/components/WhatsAppFloating";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { supabase } from "@/integrations/supabase/client";
 
 const demoUrl = "https://acceso.revelao.cam/capitanes/demo-capitanes?embed=1";
 const demoOpenUrl = "https://acceso.revelao.cam/capitanes/demo-capitanes";
+const demoDisplayUrl = "acceso.revelao.cam/capitanes/demo-capitanes";
 const demoQrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=260x260&margin=12&data=${encodeURIComponent(demoOpenUrl)}`;
 const contactUrl =
   "https://wa.me/34695834018?text=Hola%21%20Quiero%20saber%20m%C3%A1s%20sobre%20Capitanes%20para%20bodas.";
+const showCaptainTemplates = false;
 
 const steps = [
   {
@@ -57,6 +59,40 @@ const challengeTypes = [
     icon: Users,
   },
 ];
+const captainTemplates = [
+  {
+    id: "captain-1",
+    title: "Capitán de mesa",
+    eyebrow: "Mesa 7",
+    message: "Te hemos elegido como capitán de mesa. Lee este código QR y guía a tu mesa en los retos. Confiamos en ti.",
+    editUrl: "/crearplantilla?template=captain-1",
+    className: "captains-template-card-yellow",
+  },
+  {
+    id: "captain-2",
+    title: "Mesa 7",
+    eyebrow: "Capitanes",
+    message: "Escanea el QR, entra al juego y ayuda a tu equipo a superar cada reto. Confiamos en ti.",
+    editUrl: "/crearplantilla?template=captain-2",
+    className: "captains-template-card-dark",
+  },
+  {
+    id: "captain-3",
+    title: "Capitana de retos",
+    eyebrow: "Boda",
+    message: "Lee este QR y anima a tu mesa en los retos de foto, vídeo y preguntas. Confiamos en ti.",
+    editUrl: "/crearplantilla?template=captain-3",
+    className: "captains-template-card-blush",
+  },
+  {
+    id: "captain-4",
+    title: "Equipo Capitán",
+    eyebrow: "Mesa lista",
+    message: "Escanea este QR y coordina a tu equipo para completar los retos de la boda. Confiamos en ti.",
+    editUrl: "/crearplantilla?template=captain-4",
+    className: "captains-template-card-olive",
+  },
+];
 const pricePerTable = 3;
 const captainBoxPricePerTable = 12.95;
 const checkoutErrorMessage =
@@ -87,6 +123,47 @@ const rankingSnapshots = [
     { table: "Mesa trabajo", points: 455 },
   ],
 ];
+
+const DemoMockup = ({ isModal = false }: { isModal?: boolean }) =>
+  isModal ? (
+    <div className="captains-css-iphone" aria-label="Demo de Capitanes en móvil">
+      <div className="captains-css-iphone-side captains-css-iphone-side-left" aria-hidden="true" />
+      <div className="captains-css-iphone-side captains-css-iphone-side-right" aria-hidden="true" />
+      <div className="captains-css-iphone-shell">
+        <div className="captains-css-iphone-island" aria-hidden="true">
+          <span />
+        </div>
+        <div className="captains-demo-url">
+          <span>{demoDisplayUrl}</span>
+        </div>
+        <iframe
+          title="Demo Capitanes by Revelao"
+          src={demoUrl}
+          loading="lazy"
+          allow="camera; fullscreen; clipboard-write"
+        />
+        <div className="captains-css-iphone-nav" aria-hidden="true">
+          <span>←</span>
+          <span>→</span>
+          <strong>+</strong>
+          <span>⌘</span>
+          <span>•••</span>
+        </div>
+      </div>
+    </div>
+  ) : (
+    <div className="captains-demo-phone" aria-label="Demo de Capitanes en móvil">
+      <div className="captains-demo-url">
+        <span>{demoDisplayUrl}</span>
+      </div>
+      <iframe
+        title="Demo Capitanes by Revelao"
+        src={demoUrl}
+        loading="lazy"
+        allow="camera; fullscreen; clipboard-write"
+      />
+    </div>
+  );
 
 const CaptainsLanding = () => {
   const [tableCount, setTableCount] = useState(12);
@@ -252,14 +329,13 @@ const CaptainsLanding = () => {
           </div>
 
           <div className="captains-demo-wrap">
-            <div className="captains-demo-phone" aria-label="Demo de Capitanes en móvil">
-              <iframe
-                title="Demo Capitanes by Revelao"
-                src={demoUrl}
-                loading="lazy"
-                allow="camera; fullscreen; clipboard-write"
-              />
-            </div>
+            <img
+              src="/capitanes-hero.png"
+              alt="Tres pantallas móviles de la demo de Capitanes"
+              className="captains-hero-image"
+              loading="eager"
+              decoding="async"
+            />
           </div>
         </div>
       </section>
@@ -339,7 +415,7 @@ const CaptainsLanding = () => {
             </p>
           </div>
 
-          <div className="mt-8 grid gap-5 lg:grid-cols-3">
+          <div className="captains-challenge-carousel mt-8">
             {challengeTypes.map((challenge) => (
               <article className="captains-challenge-type" key={challenge.title}>
                 <div className="captains-game-shot" aria-label={`Imagen del juego: ${challenge.title}`}>
@@ -413,10 +489,8 @@ const CaptainsLanding = () => {
               <strong>{formattedTotalPrice}€</strong>
             </div>
 
-            <div className="grid gap-3 text-sm font-bold text-[#151515]/70 sm:grid-cols-3">
-              <span>Hasta 25 retos</span>
-              <span>Preguntas sobre la pareja</span>
-              <span>Enlace por email</span>
+            <div className="captains-instructions-note">
+              Recibirás un email con todas las instrucciones para crear tu evento.
             </div>
 
             <div className="flex flex-col gap-3 sm:flex-row">
@@ -455,17 +529,51 @@ const CaptainsLanding = () => {
               La Caja Capitán es un extra opcional para que cada mesa reciba sus gafas personalizadas, su tarjeta QR y
               su brazalete de capitán
             </p>
-            <ul className="mt-6 grid gap-3 text-base font-black">
-              <li>Gafas de sol personalizadas</li>
-              <li>Tarjeta con QR personalizada para tu boda</li>
-              <li>Brazalete de capitán</li>
-            </ul>
+            <p className="mt-4 text-lg font-bold leading-7 text-[#151515]/70">
+              Precio válido para envíos dentro de España. Para otros destinos, consúltanos.
+            </p>
+            <p className="mt-4 text-lg font-bold leading-7 text-[#151515]/70">
+              Podemos enviarlo todo a una única dirección o preparar envíos separados para cada capitán.
+            </p>
             <button type="button" className="captains-button captains-button-primary mt-7" onClick={handlePackClick}>
               Añadir Caja Capitán
             </button>
           </div>
         </div>
       </section>
+
+      {showCaptainTemplates ? (
+        <section className="bg-[#f7f3ec] px-4 py-12 text-[#151515] sm:px-6 lg:px-10 lg:py-16" id="plantillas-capitanes">
+          <div className="mx-auto max-w-7xl">
+            <div className="max-w-3xl">
+              <p className="captains-section-label">Plantillas</p>
+              <h2 className="captains-heading mt-3">Tarjetas listas para cada capitán</h2>
+              <p className="mt-4 text-lg font-bold leading-7 text-[#151515]/70">
+                Elige una base, abre el editor de Revelao y ajusta texto, QR, colores y formato para vuestra boda.
+              </p>
+            </div>
+
+            <div className="captains-template-grid mt-8">
+              {captainTemplates.map((template) => (
+                <article className="captains-template-shell" key={template.id}>
+                  <div className={`captains-template-card ${template.className}`}>
+                    <span>{template.eyebrow}</span>
+                    <strong>{template.title}</strong>
+                    <p>{template.message}</p>
+                    <div className="captains-template-qr" aria-hidden="true">
+                      <QrCode className="h-16 w-16" />
+                    </div>
+                  </div>
+                  <a className="captains-button captains-button-secondary mt-4 w-full" href={template.editUrl}>
+                    <Pencil className="h-5 w-5" />
+                    Editar
+                  </a>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       <section className="bg-[#151515] px-4 py-14 text-white sm:px-6 lg:px-10 lg:py-16">
         <div className="mx-auto flex max-w-7xl flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
@@ -502,14 +610,7 @@ const CaptainsLanding = () => {
 
           <div className="grid gap-7 lg:grid-cols-[360px_1fr] lg:items-center">
             <div className="captains-demo-wrap">
-              <div className="captains-demo-phone captains-demo-phone-modal" aria-label="Demo de Capitanes en móvil">
-                <iframe
-                  title="Demo Capitanes by Revelao"
-                  src={demoUrl}
-                  loading="lazy"
-                  allow="camera; fullscreen; clipboard-write"
-                />
-              </div>
+              <DemoMockup isModal />
             </div>
 
             <div className="captains-demo-qr-panel">

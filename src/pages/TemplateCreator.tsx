@@ -71,6 +71,7 @@ type PresetBackground = {
 
 type StarterTemplate = {
   id: string;
+  format?: TemplateFormat;
   title: string;
   description: string;
   titleFontId: string;
@@ -371,6 +372,106 @@ const STARTER_TEMPLATES: StarterTemplate[] = [
       description: { x: 0.07, y: 0.33, width: 0.86, fontSize: 0.026 },
       qr: { x: 0.28, y: 0.54, width: 0.44 },
       logo: { x: 0.34, y: 0.84, width: 0.32, fontSize: 0.02 },
+    },
+  },
+  {
+    id: "captain-1",
+    format: "table-card",
+    title: "Capitán\nde mesa",
+    description:
+      "Te hemos elegido como capitán de mesa.\n\nLee este código QR y guía a tu mesa en los diferentes retos que os planteamos.\n\nConfiamos en ti.",
+    titleFontId: "manrope",
+    descriptionFontId: "manrope",
+    titleColor: "#151515",
+    descriptionColor: "#151515",
+    titleAlign: "center",
+    descriptionAlign: "center",
+    backgroundMode: "solid",
+    gradientType: "linear",
+    backgroundColorA: "#f4d36f",
+    backgroundColorB: "#fff7df",
+    qrImageUrl: starterQr,
+    decoration: { variant: "stars", color: "#151515", accent: "#ff5f63" },
+    layout: {
+      title: { x: 0.13, y: 0.10, width: 0.74, fontSize: 0.087 },
+      description: { x: 0.14, y: 0.33, width: 0.72, fontSize: 0.029 },
+      qr: { x: 0.31, y: 0.65, width: 0.38 },
+      logo: { x: 0.38, y: 0.91, width: 0.24 },
+    },
+  },
+  {
+    id: "captain-2",
+    format: "table-card",
+    title: "Mesa 7",
+    description:
+      "Te hemos elegido como capitán de mesa.\n\nEscanea el QR, entra al juego y ayuda a tu equipo a superar cada reto.\n\nConfiamos en ti.",
+    titleFontId: "cinzel",
+    descriptionFontId: "manrope",
+    titleColor: "#ffffff",
+    descriptionColor: "#ffffff",
+    titleAlign: "center",
+    descriptionAlign: "center",
+    backgroundMode: "gradient",
+    gradientType: "linear",
+    backgroundColorA: "#151515",
+    backgroundColorB: "#2f4858",
+    qrImageUrl: starterQr,
+    decoration: { variant: "stars", color: "#f4d36f", accent: "#ff5f63" },
+    layout: {
+      title: { x: 0.14, y: 0.11, width: 0.72, fontSize: 0.105 },
+      description: { x: 0.12, y: 0.31, width: 0.76, fontSize: 0.029 },
+      qr: { x: 0.31, y: 0.64, width: 0.38 },
+      logo: { x: 0.38, y: 0.91, width: 0.24 },
+    },
+  },
+  {
+    id: "captain-3",
+    format: "table-card",
+    title: "Capitana\nde retos",
+    description:
+      "Te hemos elegido como capitana de mesa.\n\nLee este QR y anima a tu mesa en los retos de foto, vídeo y preguntas.\n\nConfiamos en ti.",
+    titleFontId: "playfair-display",
+    descriptionFontId: "lora",
+    titleColor: "#7c3140",
+    descriptionColor: "#4f383c",
+    titleAlign: "center",
+    descriptionAlign: "center",
+    backgroundMode: "gradient",
+    gradientType: "radial",
+    backgroundColorA: "#fff2f1",
+    backgroundColorB: "#f1d6d3",
+    qrImageUrl: starterQr,
+    decoration: { variant: "ornate", color: "#a95d69" },
+    layout: {
+      title: { x: 0.12, y: 0.09, width: 0.76, fontSize: 0.082 },
+      description: { x: 0.13, y: 0.32, width: 0.74, fontSize: 0.028 },
+      qr: { x: 0.31, y: 0.65, width: 0.38 },
+      logo: { x: 0.38, y: 0.91, width: 0.24 },
+    },
+  },
+  {
+    id: "captain-4",
+    format: "table-card",
+    title: "Equipo\nCapitán",
+    description:
+      "Te hemos elegido como capitán de mesa.\n\nEscanea este QR y coordina a tu equipo para completar los retos de la boda.\n\nConfiamos en ti.",
+    titleFontId: "dancing-script",
+    descriptionFontId: "system",
+    titleColor: "#4f7840",
+    descriptionColor: "#635d55",
+    titleAlign: "center",
+    descriptionAlign: "center",
+    backgroundMode: "solid",
+    gradientType: "linear",
+    backgroundColorA: "#f2ddac",
+    backgroundColorB: "#f7e7bf",
+    qrImageUrl: starterQr,
+    decoration: { variant: "olive", color: "#507d41" },
+    layout: {
+      title: { x: 0.15, y: 0.10, width: 0.70, fontSize: 0.092 },
+      description: { x: 0.12, y: 0.32, width: 0.76, fontSize: 0.028 },
+      qr: { x: 0.31, y: 0.65, width: 0.38 },
+      logo: { x: 0.38, y: 0.91, width: 0.24 },
     },
   },
 ];
@@ -1360,7 +1461,13 @@ const TemplateCreator = () => {
     if (!starterTemplate) return;
 
     hasLoadedStarterTemplate.current = true;
-    setFormat("entrance-poster");
+    const starterFormat = starterTemplate.format ?? "entrance-poster";
+    const starterWidthCm = starterFormat !== "custom" ? FORMAT_CONFIG[starterFormat].widthCm : widthCm;
+    const starterHeightCm = starterFormat !== "custom" ? FORMAT_CONFIG[starterFormat].heightCm : heightCm;
+    const starterCanvasWidth = Math.round(starterWidthCm * CM_TO_PX);
+    const starterCanvasHeight = Math.round(starterHeightCm * CM_TO_PX);
+
+    setFormat(starterFormat);
     setEventName(starterTemplate.title);
     setDescription(starterTemplate.description);
     setTitleFontId(starterTemplate.titleFontId);
@@ -1381,10 +1488,10 @@ const TemplateCreator = () => {
     setLogoImageUrl(null);
     setDecorativeElements([]);
     setStarterDecoration(starterTemplate.decoration);
-    setLayout(resolveStarterLayout(starterTemplate.layout, canvasWidth, canvasHeight));
+    setLayout(resolveStarterLayout(starterTemplate.layout, starterCanvasWidth, starterCanvasHeight));
     setSelectedPresetId("");
     setSelectedElement("title");
-  }, [canvasHeight, canvasWidth, starterTemplateId]);
+  }, [heightCm, starterTemplateId, widthCm]);
 
   const handleBackgroundImagePick = async (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];

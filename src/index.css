@@ -1245,6 +1245,35 @@ All colors MUST be HSL.
     padding: 22px;
   }
 
+  .captains-challenge-carousel {
+    display: grid;
+    gap: 20px;
+  }
+
+  @media (min-width: 1024px) {
+    .captains-challenge-carousel {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 1023px) {
+    .captains-challenge-carousel {
+      display: flex;
+      margin-left: -16px;
+      margin-right: -16px;
+      overflow-x: auto;
+      padding: 0 16px 10px;
+      scroll-padding-left: 16px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .captains-challenge-carousel > * {
+      flex: 0 0 min(82vw, 360px);
+      scroll-snap-align: start;
+    }
+  }
+
   .captains-challenge-type {
     border: 4px solid #151515;
     background: #ffffff;
@@ -1364,6 +1393,15 @@ All colors MUST be HSL.
     text-transform: uppercase;
   }
 
+  .captains-instructions-note {
+    border: 4px solid #151515;
+    background: #fff7df;
+    padding: 16px;
+    font-size: 1rem;
+    font-weight: 900;
+    line-height: 1.35;
+  }
+
   .captains-pricing-input {
     width: 132px;
     border: 4px solid #151515;
@@ -1405,26 +1443,43 @@ All colors MUST be HSL.
     justify-content: center;
   }
 
+  .captains-hero-image {
+    display: block;
+    width: min(100%, 720px);
+    height: auto;
+    object-fit: contain;
+  }
+
   .captains-demo-phone {
     position: relative;
     width: min(100%, 342px);
     aspect-ratio: 9 / 16;
     border: 8px solid #151515;
-    background: #151515;
+    background: #ffffff;
     box-shadow: none;
-    padding: 12px;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    overflow: hidden;
   }
 
-  .captains-demo-phone::before {
-    content: "";
-    position: absolute;
-    left: 50%;
-    top: 8px;
-    z-index: 2;
-    width: 72px;
-    height: 16px;
-    background: #151515;
-    transform: translateX(-50%);
+  .captains-demo-url {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+    border-bottom: 4px solid #151515;
+    background: #f4d36f;
+    padding: 9px 10px;
+    font-size: 0.78rem;
+    font-weight: 900;
+    line-height: 1;
+  }
+
+  .captains-demo-url span {
+    display: block;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .captains-demo-phone iframe {
@@ -1437,6 +1492,185 @@ All colors MUST be HSL.
 
   .captains-demo-phone-modal {
     width: min(100%, 320px);
+  }
+
+  .captains-iphone-mockup {
+    position: relative;
+    width: min(100%, 360px);
+    aspect-ratio: 1059 / 2062;
+  }
+
+  .captains-iphone-screen {
+    position: absolute;
+    left: 10.67%;
+    top: 0.92%;
+    z-index: 1;
+    display: grid;
+    width: 78.47%;
+    height: 87.58%;
+    grid-template-rows: auto 1fr;
+    overflow: hidden;
+    border-radius: 12.4% / 7.2%;
+    background: #fff7df;
+  }
+
+  .captains-iphone-screen .captains-demo-url {
+    padding-left: 42px;
+    padding-right: 42px;
+  }
+
+  .captains-iphone-screen iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    background: #fff7df;
+  }
+
+  .captains-iphone-frame {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: block;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  .captains-css-iphone {
+    position: relative;
+    width: min(100%, 360px);
+    aspect-ratio: 9 / 19.35;
+    border-radius: 52px;
+    background: linear-gradient(145deg, #15191d, #5b636b 38%, #101316 72%);
+    padding: 10px;
+    box-shadow: inset 0 0 0 2px #7d8792, inset 0 0 0 5px #0b0d0f;
+  }
+
+  .captains-css-iphone::before {
+    content: "";
+    position: absolute;
+    inset: 4px;
+    border-radius: 48px;
+    border: 2px solid rgb(255 255 255 / 22%);
+    pointer-events: none;
+  }
+
+  .captains-css-iphone-side {
+    position: absolute;
+    width: 4px;
+    border-radius: 8px;
+    background: #2f363d;
+  }
+
+  .captains-css-iphone-side-left {
+    left: -3px;
+    top: 18%;
+    height: 92px;
+    box-shadow: 0 128px 0 #2f363d;
+  }
+
+  .captains-css-iphone-side-right {
+    right: -3px;
+    top: 27%;
+    height: 118px;
+  }
+
+  .captains-css-iphone-shell {
+    position: relative;
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-rows: auto auto 1fr auto;
+    overflow: hidden;
+    border-radius: 42px;
+    background: #ffffff;
+  }
+
+  .captains-css-iphone-island {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    z-index: 3;
+    width: 51%;
+    height: 52px;
+    border-radius: 0 0 24px 24px;
+    background: #070707;
+    transform: translateX(-50%);
+  }
+
+  .captains-css-iphone-island::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 16px;
+    width: 64px;
+    height: 8px;
+    border-radius: 999px;
+    background: #1c1f21;
+    transform: translateX(-50%);
+  }
+
+  .captains-css-iphone-island::after {
+    content: "";
+    position: absolute;
+    right: 28px;
+    top: 15px;
+    width: 12px;
+    height: 12px;
+    border-radius: 999px;
+    background: #03090f;
+    box-shadow: inset 0 0 0 3px #07182a;
+  }
+
+  .captains-css-iphone-island span {
+    display: none;
+  }
+
+  .captains-css-iphone .captains-demo-url {
+    z-index: 2;
+    margin: 64px 16px 12px;
+    border: 0;
+    border-radius: 999px;
+    background: #6b7075;
+    color: #ffffff;
+    padding: 12px 44px;
+    font-size: 0.98rem;
+    font-weight: 800;
+    text-transform: none;
+  }
+
+  .captains-css-iphone iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    border: 0;
+    border-top: 8px solid #ff5f63;
+    background: #ffffff;
+  }
+
+  .captains-css-iphone-nav {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: center;
+    justify-items: center;
+    min-height: 64px;
+    background: #2f3336;
+    color: #ffffff;
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
+
+  .captains-css-iphone-nav strong {
+    display: grid;
+    width: 42px;
+    height: 42px;
+    place-items: center;
+    border-radius: 999px;
+    background: #6b7075;
+    font-size: 2rem;
+    line-height: 1;
   }
 
   .captains-demo-qr-panel {
@@ -1461,6 +1695,93 @@ All colors MUST be HSL.
     font-size: clamp(1.4rem, 3vw, 2.2rem);
     font-weight: 900;
     line-height: 1.05;
+  }
+
+  .captains-template-grid {
+    display: grid;
+    gap: 20px;
+  }
+
+  @media (min-width: 768px) {
+    .captains-template-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 1180px) {
+    .captains-template-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+
+  .captains-template-shell {
+    display: grid;
+    align-content: start;
+  }
+
+  .captains-template-card {
+    display: grid;
+    aspect-ratio: 1 / 1;
+    grid-template-rows: auto auto 1fr auto;
+    gap: 12px;
+    border: 4px solid #151515;
+    padding: 18px;
+    overflow: hidden;
+  }
+
+  .captains-template-card span {
+    justify-self: start;
+    border: 3px solid currentColor;
+    padding: 5px 7px;
+    font-size: 0.72rem;
+    font-weight: 900;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .captains-template-card strong {
+    font-size: clamp(1.8rem, 3vw, 2.45rem);
+    font-weight: 900;
+    line-height: 0.95;
+  }
+
+  .captains-template-card p {
+    max-width: 25ch;
+    font-size: 0.95rem;
+    font-weight: 850;
+    line-height: 1.22;
+  }
+
+  .captains-template-qr {
+    display: grid;
+    width: 90px;
+    height: 90px;
+    place-items: center;
+    align-self: end;
+    justify-self: end;
+    border: 4px solid #151515;
+    background: #ffffff;
+    color: #151515;
+  }
+
+  .captains-template-card-yellow {
+    background: #f4d36f;
+    color: #151515;
+  }
+
+  .captains-template-card-dark {
+    background: #151515;
+    color: #ffffff;
+  }
+
+  .captains-template-card-blush {
+    background: #f1d6d3;
+    color: #4f383c;
+  }
+
+  .captains-template-card-olive {
+    background: #f2ddac;
+    color: #4f7840;
   }
 
   .captains-arcade-screen {
