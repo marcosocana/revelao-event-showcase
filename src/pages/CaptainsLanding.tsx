@@ -291,7 +291,7 @@ const CaptainsLanding = () => {
   return (
     <main className="captains-page min-h-screen overflow-hidden bg-white text-[#151515]">
       <section className="captains-hero bg-white px-4 pb-6 pt-28 sm:px-6 sm:pt-32 lg:px-10">
-        <header className="fixed left-0 right-0 top-0 z-50 bg-white px-4 py-3 sm:px-6 lg:px-10">
+        <header className="fixed left-0 right-0 top-0 z-50 border-b-4 border-[#151515] bg-white px-4 py-3 sm:px-6 lg:px-10">
           <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4">
             <a href="/" className="captains-logo-link" aria-label="Volver a Revelao">
               <img src="/capitanes-logo.svg" alt="Capitanes por Revelao.cam" className="h-14 w-auto sm:h-16" />
@@ -319,8 +319,8 @@ const CaptainsLanding = () => {
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <a className="captains-button captains-button-primary" href={contactUrl} target="_blank" rel="noopener noreferrer">
-                Pedir para mi boda <ChevronRight className="h-5 w-5" />
+              <a className="captains-button captains-button-primary" href="#precios">
+                Comprar <ChevronRight className="h-5 w-5" />
               </a>
               <button type="button" className="captains-button captains-button-secondary" onClick={handleDemoOpen}>
                 Abrir demo
@@ -475,7 +475,7 @@ const CaptainsLanding = () => {
               />
               <span>
                 <strong>Añadir Caja Capitán</strong>
-                <small>{captainBoxPricePerTable.toLocaleString("es-ES")}€ por mesa con gafas, tarjeta QR y brazalete</small>
+                <small>{captainBoxPricePerTable.toLocaleString("es-ES")}€ por mesa con gafas personalizadas, tarjeta explicativa y brazalete</small>
               </span>
             </label>
 
@@ -526,14 +526,16 @@ const CaptainsLanding = () => {
             <p className="captains-section-label">Pack Capitán</p>
             <h2 className="captains-heading mt-3">Despreocúpate de todo</h2>
             <p className="mt-4 text-lg font-bold leading-7 text-[#151515]/70">
-              La Caja Capitán es un extra opcional para que cada mesa reciba sus gafas personalizadas, su tarjeta QR y
-              su brazalete de capitán
+              Cada Caja Capitán incluye un brazalete, unas gafas personalizadas y una tarjeta que explica toda la
+              dinámica del juego al capitán: le cuenta que será el encargado de su mesa y cómo liderar al equipo.
+              Solo tendrás que dejar cada caja en su sitio el día de la boda.
+            </p>
+            <p className="mt-4 text-lg font-bold leading-7 text-[#151515]/70">
+              Todas las cajas se enviarán juntas a una misma dirección. El pedido debe realizarse con al menos 45 días
+              de antelación a la boda.
             </p>
             <p className="mt-4 text-lg font-bold leading-7 text-[#151515]/70">
               Precio válido para envíos dentro de España. Para otros destinos, consúltanos.
-            </p>
-            <p className="mt-4 text-lg font-bold leading-7 text-[#151515]/70">
-              Podemos enviarlo todo a una única dirección o preparar envíos separados para cada capitán.
             </p>
             <button type="button" className="captains-button captains-button-primary mt-7" onClick={handlePackClick}>
               Añadir Caja Capitán
