@@ -43,7 +43,7 @@ const setupSteps = [
   },
   {
     title: "Configura el evento",
-    text: "Ponle nombre, añade las mesas y capitanes, y personaliza los retos: tenemos un catálogo con más de 100. Tendrás soporte por WhatsApp para cualquier duda.",
+    text: "Ponle nombre, añade las mesas y capitanes, y personaliza los retos: tenemos un catálogo con más de 100.",
   },
   {
     title: "Prepara a los capitanes",
@@ -55,7 +55,7 @@ const setupSteps = [
   },
   {
     title: "Desbloquead los recuerdos",
-    text: "Al completar todo verán el contenido de las demás mesas. Si queda algún reto, se desbloqueará al día siguiente.",
+    text: "Al completar todos los retos verán el contenido de las demás mesas. Si queda algún reto, se desbloqueará al día siguiente.",
   },
 ];
 
@@ -474,9 +474,10 @@ const CaptainsLanding = () => {
         <div className="mx-auto max-w-7xl">
           <div className="max-w-3xl">
             <p className="captains-section-label captains-section-label-dark">Paso a paso</p>
-            <h2 className="captains-heading mt-3">El juego que revoluciona cómo se relacionan tus invitados en tu boda</h2>
+            <h2 className="captains-heading mt-3">El juego que revoluciona tu boda</h2>
             <p className="mt-4 text-lg font-bold leading-7 text-white/70">
               Tú preparas la partida antes de la boda. Los capitanes se encargan de que cada mesa entre en el juego.
+              Tendrás soporte por WhatsApp para cualquier duda.
             </p>
           </div>
 
