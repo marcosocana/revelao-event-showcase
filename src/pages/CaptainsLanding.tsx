@@ -11,6 +11,7 @@ const demoQrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=260x260&marg
 const contactUrl =
   "https://wa.me/34695834018?text=Hola%21%20Quiero%20saber%20m%C3%A1s%20sobre%20Capitanes%20para%20bodas.";
 const showCaptainTemplates = false;
+const showSuccessCase = false;
 
 const steps = [
   {
@@ -33,6 +34,36 @@ const steps = [
     text: "Cada reto suma puntos y mueve la clasificación de la boda.",
     icon: Trophy,
   },
+];
+
+const setupSteps = [
+  {
+    title: "Compra el juego",
+    text: "Elige el número de mesas y añade las Cajas Capitán si quieres recibir el pack físico.",
+  },
+  {
+    title: "Configura el evento",
+    text: "Ponle nombre, añade las mesas y capitanes, y personaliza los retos: tenemos un catálogo con más de 100. Tendrás soporte por WhatsApp para cualquier duda.",
+  },
+  {
+    title: "Prepara a los capitanes",
+    text: "Comparte el QR con ellos o, si has comprado las cajas, deja una en el sitio de cada capitán.",
+  },
+  {
+    title: "Empieza el juego",
+    text: "Cada capitán guía a su equipo para completar las pruebas y sumar puntos en el ranking.",
+  },
+  {
+    title: "Desbloquead los recuerdos",
+    text: "Al completar todo verán el contenido de las demás mesas. Si queda algún reto, se desbloqueará al día siguiente.",
+  },
+];
+
+const caseStudyPhotos = [
+  { src: "/capitanes-andrea-rafa-foto-novios.jpg", caption: "Mesa 5 - Foto con los novios" },
+  { src: "/capitanes-andrea-rafa-manos-arriba.jpg", caption: "Mesa 7 - Manos arriba" },
+  { src: "/capitanes-andrea-rafa-3.jpg", caption: "Mesa 3 - Selfie de bienvenida" },
+  { src: "/capitanes-andrea-rafa-4.jpg", caption: "Mesa 7 - Pose de portada" },
 ];
 
 const moments = ["Durante la cena", "En el photocall", "En la pista", "Antes del baile"];
@@ -169,6 +200,8 @@ const CaptainsLanding = () => {
   const [tableCount, setTableCount] = useState(12);
   const [includeCaptainBox, setIncludeCaptainBox] = useState(false);
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
+  const [isPackImageOpen, setIsPackImageOpen] = useState(false);
+  const [selectedCasePhoto, setSelectedCasePhoto] = useState<(typeof caseStudyPhotos)[number] | null>(null);
   const [isCheckoutLoading, setIsCheckoutLoading] = useState(false);
   const [rankingStep, setRankingStep] = useState(0);
   const rankingRowRefs = useRef(new Map<string, HTMLDivElement>());
@@ -293,7 +326,7 @@ const CaptainsLanding = () => {
       <section className="captains-hero bg-white px-4 pb-6 pt-28 sm:px-6 sm:pt-32 lg:px-10">
         <header className="fixed left-0 right-0 top-0 z-50 border-b-4 border-[#151515] bg-white px-4 py-3 sm:px-6 lg:px-10">
           <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4">
-            <a href="/" className="captains-logo-link" aria-label="Volver a Revelao">
+            <a href="/capitanes" className="captains-logo-link" aria-label="Ir a Capitanes">
               <img src="/capitanes-logo.svg" alt="Capitanes por Revelao.cam" className="h-14 w-auto sm:h-16" />
             </a>
             <div className="flex items-center gap-2 sm:gap-3">
@@ -437,6 +470,30 @@ const CaptainsLanding = () => {
         </div>
       </section>
 
+      <section className="bg-[#151515] px-4 py-12 text-white sm:px-6 lg:px-10 lg:py-16">
+        <div className="mx-auto max-w-7xl">
+          <div className="max-w-3xl">
+            <p className="captains-section-label captains-section-label-dark">Paso a paso</p>
+            <h2 className="captains-heading mt-3">El juego que revoluciona cómo se relacionan tus invitados en tu boda</h2>
+            <p className="mt-4 text-lg font-bold leading-7 text-white/70">
+              Tú preparas la partida antes de la boda. Los capitanes se encargan de que cada mesa entre en el juego.
+            </p>
+          </div>
+
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+            {setupSteps.map((step, index) => (
+              <article className="captains-panel flex h-full flex-col text-[#151515]" key={step.title}>
+                <span className="flex h-10 w-10 items-center justify-center border-2 border-[#151515] bg-[#f4d36f] text-xl font-black">
+                  {index + 1}
+                </span>
+                <h3 className="mt-4 text-2xl font-black leading-7">{step.title}</h3>
+                <p className="mt-2 text-base font-bold leading-6 text-[#151515]/68">{step.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="bg-[#f7f3ec] px-4 py-12 text-[#151515] sm:px-6 lg:px-10 lg:py-16" id="precios">
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
           <div className="max-w-xl">
@@ -512,15 +569,20 @@ const CaptainsLanding = () => {
 
       <section className="bg-white px-4 py-12 text-[#151515] sm:px-6 lg:px-10 lg:py-16">
         <div className="captains-pack-card mx-auto grid max-w-7xl gap-6 lg:grid-cols-[0.78fr_1fr] lg:items-center">
-          <div className="captains-pack-image overflow-hidden bg-white">
+          <button
+            type="button"
+            className="captains-pack-image group overflow-hidden bg-white text-left"
+            onClick={() => setIsPackImageOpen(true)}
+            aria-label="Ver fotografía de la Caja Capitán en grande"
+          >
             <img
               src="/capitanes-pack.png"
               alt="Pack Capitán con caja, gafas, tarjeta QR personalizada y brazalete"
-              className="block aspect-[4/3] w-full object-cover"
+              className="block aspect-[4/3] w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
               loading="lazy"
               decoding="async"
             />
-          </div>
+          </button>
 
           <div className="captains-pack-panel">
             <p className="captains-section-label">Pack Capitán</p>
@@ -543,6 +605,77 @@ const CaptainsLanding = () => {
           </div>
         </div>
       </section>
+
+      {showSuccessCase ? (
+      <section className="bg-[#f7f3ec] px-4 py-12 text-[#151515] sm:px-6 lg:px-10 lg:py-16">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+            <div className="max-w-2xl">
+              <p className="captains-section-label">Caso de éxito</p>
+              <h2 className="captains-heading mt-3">En la boda de Andrea y Rafa, todos los invitados se divirtieron jugando</h2>
+              <p className="mt-4 text-lg font-bold leading-7 text-[#151515]/70">
+                Diez mesas entraron al juego con retos pensados para que los invitados se conocieran, colaborasen y
+                creasen recuerdos desde su propia mesa.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-4 gap-2 sm:gap-3">
+              {[
+                ["10", "mesas"],
+                ["25", "retos"],
+                ["125", "fotos compartidas"],
+                ["74", "vídeos compartidos"],
+              ].map(([value, label]) => (
+                <div className="border-2 border-[#151515] bg-white p-2 text-center sm:border-4 sm:p-3" key={label}>
+                  <strong className="block text-2xl font-black leading-none sm:text-3xl lg:text-4xl">{value}</strong>
+                  <span className="mt-1 block text-[0.62rem] font-black uppercase leading-3 sm:mt-2 sm:text-xs sm:leading-4">{label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {caseStudyPhotos.map((photo) => (
+              <button
+                type="button"
+                className="group overflow-hidden border-4 border-[#151515] bg-white text-left"
+                key={photo.src}
+                onClick={() => setSelectedCasePhoto(photo)}
+                aria-label={`Ampliar ${photo.caption}`}
+              >
+                <img
+                  src={photo.src}
+                  alt={photo.caption}
+                  className="block aspect-[4/3] w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span className="block border-t-4 border-[#151515] px-3 py-3 text-base font-black">{photo.caption}</span>
+              </button>
+            ))}
+          </div>
+
+          <div className="mt-6 grid gap-4 lg:grid-cols-[0.8fr_1.2fr]">
+            <div className="border-4 border-[#151515] bg-[#f4d36f] p-5 sm:p-6">
+              <p className="text-sm font-black uppercase tracking-[0.1em]">Resultado</p>
+              <p className="mt-3 text-2xl font-black leading-7">
+                Cuatro mesas superaron los 25 retos y alcanzaron 360 puntos cada una.
+              </p>
+            </div>
+            <div className="border-4 border-[#151515] bg-white p-5 sm:p-6">
+              <p className="text-sm font-black uppercase tracking-[0.1em]">Algunos de sus retos</p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {["Selfie de bienvenida", "Grito de guerra", "Foto con los novios", "Coreografía express", "Aliados de otra mesa"].map((challenge) => (
+                  <span className="border-2 border-[#151515] bg-[#f7f3ec] px-3 py-2 font-black" key={challenge}>
+                    {challenge}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      ) : null}
 
       {showCaptainTemplates ? (
         <section className="bg-[#f7f3ec] px-4 py-12 text-[#151515] sm:px-6 lg:px-10 lg:py-16" id="plantillas-capitanes">
@@ -620,6 +753,39 @@ const CaptainsLanding = () => {
               <p>También puedes probarlo directamente desde tu movil leyendo este código QR.</p>
             </div>
           </div>
+        </DialogContent>
+      </Dialog>
+      <Dialog open={isPackImageOpen} onOpenChange={setIsPackImageOpen}>
+        <DialogContent className="max-h-[94dvh] max-w-[96vw] overflow-hidden border-4 border-[#151515] bg-white p-2 shadow-none sm:rounded-none lg:max-w-6xl">
+          <DialogHeader className="sr-only">
+            <DialogTitle>Caja Capitán</DialogTitle>
+            <DialogDescription>Fotografía ampliada del contenido de la Caja Capitán.</DialogDescription>
+          </DialogHeader>
+          <img
+            src="/capitanes-pack.png"
+            alt="Caja Capitán con gafas personalizadas, brazalete y tarjeta explicativa"
+            className="block max-h-[88dvh] w-full object-contain"
+          />
+        </DialogContent>
+      </Dialog>
+      <Dialog open={Boolean(selectedCasePhoto)} onOpenChange={(open) => !open && setSelectedCasePhoto(null)}>
+        <DialogContent className="max-h-[94dvh] max-w-[96vw] overflow-hidden border-4 border-[#151515] bg-white p-2 shadow-none sm:rounded-none lg:max-w-6xl">
+          <DialogHeader className="sr-only">
+            <DialogTitle>{selectedCasePhoto?.caption || "Foto del caso de éxito"}</DialogTitle>
+            <DialogDescription>Fotografía ampliada del evento de Andrea y Rafa.</DialogDescription>
+          </DialogHeader>
+          {selectedCasePhoto ? (
+            <figure>
+              <img
+                src={selectedCasePhoto.src}
+                alt={selectedCasePhoto.caption}
+                className="block max-h-[82dvh] w-full object-contain"
+              />
+              <figcaption className="border-t-4 border-[#151515] px-4 py-3 text-center text-lg font-black">
+                {selectedCasePhoto.caption}
+              </figcaption>
+            </figure>
+          ) : null}
         </DialogContent>
       </Dialog>
       <WhatsAppFloating message="Hola! Quiero saber más sobre Capitanes para mi boda." />
