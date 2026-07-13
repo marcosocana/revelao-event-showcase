@@ -327,7 +327,10 @@ const CaptainsLanding = () => {
         <header className="fixed left-0 right-0 top-0 z-50 border-b-4 border-[#151515] bg-white px-4 py-3 sm:px-6 lg:px-10">
           <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4">
             <a href="/capitanes" className="captains-logo-link" aria-label="Ir a Capitanes">
-              <img src="/capitanes-logo.svg" alt="Capitanes por Revelao.cam" className="h-14 w-auto sm:h-16" />
+              <picture>
+                <source media="(max-width: 639px)" srcSet="/capitanes-logo-mini.svg" />
+                <img src="/capitanes-logo.svg" alt="Capitanes por Revelao.cam" className="h-14 w-auto sm:h-16" />
+              </picture>
             </a>
             <div className="flex items-center gap-2 sm:gap-3">
               <button type="button" className="captains-top-link" onClick={handleDemoOpen}>
