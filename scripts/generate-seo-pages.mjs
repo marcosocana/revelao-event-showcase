@@ -6,6 +6,9 @@ const rootDir = process.cwd();
 const distDir = path.join(rootDir, "dist");
 const templatePath = path.join(distDir, "index.html");
 const siteUrl = "https://www.revelao.cam";
+const captainsSeoPages = JSON.parse(
+  fs.readFileSync(path.join(rootDir, "src/data/captainsSeoPages.json"), "utf8"),
+);
 const blogSlugAliases = {
   "cdigos-qr-para-bodas-qu-son-y-por-qu-cada-vez-ms-parejas-los-usan":
     "codigos-qr-para-bodas-que-son-y-por-que-cada-vez-mas-parejas-los-usan",
@@ -145,6 +148,7 @@ const renderPage = (template, page) => {
   html = html.replace(/<title>[\s\S]*?<\/title>/, `<title>${escapeHtml(page.title)}</title>`);
   html = setTag(html, /<meta name="description" content="[^"]*" \/>/, `<meta name="description" content="${escapeHtml(page.description)}" />`);
   html = setTag(html, /<meta name="keywords" content="[^"]*" \/>/, `<meta name="keywords" content="${escapeHtml(page.keywords || "")}" />`);
+  html = setTag(html, /<meta name="robots" content="[^"]*" \/>/, '<meta name="robots" content="index, follow" />');
   html = setTag(html, /<link rel="canonical" href="[^"]*" \/>/, `<link rel="canonical" href="${canonical}" />`);
   html = setTag(html, /<meta property="og:title" content="[^"]*" \/>/, `<meta property="og:title" content="${escapeHtml(page.title)}" />`);
   html = setTag(html, /<meta property="og:description" content="[^"]*" \/>/, `<meta property="og:description" content="${escapeHtml(page.description)}" />`);
@@ -234,6 +238,9 @@ const landingPages = [
       "<p>Capitanes by Revelao es una dinámica para bodas donde cada mesa elige capitán, completa retos y compite en un ranking en directo.</p>" +
       "<p>Funciona con QR desde el móvil y recoge fotos y vídeos espontáneos de la cena, el photocall y la fiesta.</p>" +
       "<p>El precio es de 3€ por mesa e incluye hasta 25 retos personalizables al 100%. Tras la compra, recibirás por email un enlace para crear y configurar la partida.</p>" +
+      "<h2>Ideas y recursos para organizar tus capitanes de mesa</h2><ul>" +
+      captainsSeoPages.map((page) => `<li><a href="${page.path}">${escapeHtml(page.h1)}</a></li>`).join("") +
+      "</ul>" +
       '<p><a href="https://acceso.revelao.cam/capitanes/demo-capitanes">Ver demo de Capitanes</a></p></article></main>',
     schema: {
       "@context": "https://schema.org",
@@ -245,6 +252,82 @@ const landingPages = [
     },
   },
 ];
+
+const captainsPagesByPath = new Map(captainsSeoPages.map((page) => [page.path, page]));
+
+const renderCaptainsPageBody = (page) => {
+  const highlights = page.highlights.map((highlight) => `<li>${escapeHtml(highlight)}</li>`).join("");
+  const sections = page.sections
+    .map((section) => {
+      const paragraphs = section.paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("");
+      const items = section.items?.length
+        ? `<div>${section.items.map((item) => `<article><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.text)}</p></article>`).join("")}</div>`
+        : "";
+      return `<section><h2>${escapeHtml(section.title)}</h2>${paragraphs}${items}</section>`;
+    })
+    .join("");
+  const template = page.template
+    ? `<section><h2>Ejemplo de tarjeta para capitán de mesa</h2><article><p>${escapeHtml(page.template.eyebrow)}</p><h3>${escapeHtml(page.template.title)}</h3><p>${escapeHtml(page.template.text)}</p></article></section>`
+    : "";
+  const faqs = page.faqs
+    .map((faq) => `<article><h3>${escapeHtml(faq.question)}</h3><p>${escapeHtml(faq.answer)}</p></article>`)
+    .join("");
+  const related = page.related
+    .map((relatedPath) => {
+      const relatedPage = captainsPagesByPath.get(relatedPath);
+      return relatedPage ? `<li><a href="${relatedPath}">${escapeHtml(relatedPage.h1)}</a></li>` : "";
+    })
+    .join("");
+
+  return `<main><nav aria-label="Migas de pan"><a href="/">Inicio</a> &gt; <a href="/capitanes">Capitanes</a> &gt; <span>${escapeHtml(page.eyebrow)}</span></nav>` +
+    `<article><header><p>${escapeHtml(page.eyebrow)}</p><h1>${escapeHtml(page.h1)}</h1><p>${escapeHtml(page.intro)}</p><ul>${highlights}</ul><p><a href="/capitanes#precios">${escapeHtml(page.ctaLabel)}</a></p></header>` +
+    `${sections}${template}<section><h2>Preguntas frecuentes</h2>${faqs}</section>` +
+    `<section><h2>Ideas y recursos relacionados</h2><ul>${related}</ul></section>` +
+    `<section><h2>${escapeHtml(page.ctaTitle)}</h2><p>${escapeHtml(page.ctaText)}</p><p><a href="/capitanes#precios">${escapeHtml(page.ctaLabel)}</a></p></section>` +
+    `</article></main>`;
+};
+
+const captainsClusterPages = captainsSeoPages.map((page) => {
+  const canonicalUrl = `${siteUrl}${page.path}`;
+  return {
+    path: page.path,
+    title: page.title,
+    description: page.description,
+    keywords: page.keywords,
+    image: "/capitanes-hero.png",
+    bodyHtml: renderCaptainsPageBody(page),
+    schema: {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          name: page.h1,
+          url: canonicalUrl,
+          description: page.description,
+          isPartOf: { "@type": "WebSite", name: "Revelao.cam", url: siteUrl },
+          about: { "@type": "Product", name: "Capitanes by Revelao", url: `${siteUrl}/capitanes` },
+          publisher: baseSchema,
+        },
+        {
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Inicio", item: `${siteUrl}/` },
+            { "@type": "ListItem", position: 2, name: "Capitanes", item: `${siteUrl}/capitanes` },
+            { "@type": "ListItem", position: 3, name: page.h1, item: canonicalUrl },
+          ],
+        },
+        {
+          "@type": "FAQPage",
+          mainEntity: page.faqs.map((faq) => ({
+            "@type": "Question",
+            name: faq.question,
+            acceptedAnswer: { "@type": "Answer", text: faq.answer },
+          })),
+        },
+      ],
+    },
+  };
+});
 
 const useCasePages = [
   ["bodas", "QR para bodas: fotos, vídeos y audios de invitados", "Crea una galería privada para tu boda con QR. Los invitados suben fotos, vídeos y mensajes de audio sin app y lo descubrís en el revelado.", "qr boda, fotos boda qr, qr para fotos de boda, galeria privada boda"],
@@ -1646,7 +1729,7 @@ const main = async () => {
   }
   const template = fs.readFileSync(templatePath, "utf8");
   const blogPages = await getBlogPages();
-  const pages = [...landingPages, ...useCasePages, ...weddingSeoPages, getBlogIndexPage(blogPages), ...blogPages];
+  const pages = [...landingPages, ...captainsClusterPages, ...useCasePages, ...weddingSeoPages, getBlogIndexPage(blogPages), ...blogPages];
   for (const page of pages) writePage(template, page);
   writeSitemap(pages);
   console.log(`Generated SEO HTML for ${pages.length} routes.`);

@@ -24,6 +24,7 @@ const EventUseCaseLanding = lazy(() => import("./pages/EventUseCaseLanding"));
 const DemoEnvironment = lazy(() => import("./pages/DemoEnvironment"));
 const TemplateCreator = lazy(() => import("./pages/TemplateCreator"));
 const CaptainsLanding = lazy(() => import("./pages/CaptainsLanding"));
+const CaptainsSeoLanding = lazy(() => import("./pages/CaptainsSeoLanding"));
 
 const PageFallback = () => <div className="min-h-screen bg-background" />;
 
@@ -59,6 +60,13 @@ const App = () => (
               <Route path="/it/cookies" element={<CookiePolicy />} />
               <Route path="/pruebas" element={<PruebasLanding />} />
               <Route path="/capitanes" element={<CaptainsLanding />} />
+              <Route path="/capitanes-de-mesa-boda" element={<CaptainsSeoLanding />} />
+              <Route path="/juegos-para-invitados-de-boda" element={<CaptainsSeoLanding />} />
+              <Route path="/juegos-para-mesas-de-boda" element={<CaptainsSeoLanding />} />
+              <Route path="/retos-para-bodas" element={<CaptainsSeoLanding />} />
+              <Route path="/ideas-capitanes-de-mesa" element={<CaptainsSeoLanding />} />
+              <Route path="/plantilla-capitan-de-mesa" element={<CaptainsSeoLanding />} />
+              <Route path="/tarjeta-capitan-de-mesa" element={<CaptainsSeoLanding />} />
               <Route path="/blog" element={<BlogHub />} />
               <Route path="/blog/:slug" element={<BlogDetail />} />
               <Route path="/blog/admin" element={<BlogAdmin />} />

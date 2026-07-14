@@ -3,6 +3,7 @@ import { Camera, ChevronRight, Pencil, QrCode, Trophy, Users, Video } from "luci
 import WhatsAppFloating from "@/components/WhatsAppFloating";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { supabase } from "@/integrations/supabase/client";
+import { CaptainsResources } from "@/components/CaptainsResources";
 
 const demoUrl = "https://acceso.revelao.cam/capitanes/demo-capitanes?embed=1";
 const demoOpenUrl = "https://acceso.revelao.cam/capitanes/demo-capitanes";
@@ -713,6 +714,8 @@ const CaptainsLanding = () => {
           </div>
         </section>
       ) : null}
+
+      <CaptainsResources />
 
       <section className="bg-[#151515] px-4 py-14 text-white sm:px-6 lg:px-10 lg:py-16">
         <div className="mx-auto flex max-w-7xl flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
