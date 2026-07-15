@@ -3,7 +3,6 @@ import { Camera, ChevronRight, Pencil, QrCode, Trophy, Users, Video } from "luci
 import WhatsAppFloating from "@/components/WhatsAppFloating";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { supabase } from "@/integrations/supabase/client";
-import { CaptainsResources } from "@/components/CaptainsResources";
 
 const demoUrl = "https://acceso.revelao.cam/capitanes/demo-capitanes?embed=1";
 const demoOpenUrl = "https://acceso.revelao.cam/capitanes/demo-capitanes";
@@ -12,7 +11,7 @@ const demoQrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=260x260&marg
 const contactUrl =
   "https://wa.me/34695834018?text=Hola%21%20Quiero%20saber%20m%C3%A1s%20sobre%20Capitanes%20para%20bodas.";
 const showCaptainTemplates = false;
-const showSuccessCase = false;
+const showSuccessCase = true;
 
 const steps = [
   {
@@ -64,7 +63,7 @@ const caseStudyPhotos = [
   { src: "/capitanes-andrea-rafa-foto-novios.jpg", caption: "Mesa 5 - Foto con los novios" },
   { src: "/capitanes-andrea-rafa-manos-arriba.jpg", caption: "Mesa 7 - Manos arriba" },
   { src: "/capitanes-andrea-rafa-3.jpg", caption: "Mesa 3 - Selfie de bienvenida" },
-  { src: "/capitanes-andrea-rafa-4.jpg", caption: "Mesa 7 - Pose de portada" },
+  { src: "/capitanes-andrea-rafa-4.jpg", caption: "Mesa 4 - Pose de portada" },
 ];
 
 const moments = ["Durante la cena", "En el photocall", "En la pista", "Antes del baile"];
@@ -714,8 +713,6 @@ const CaptainsLanding = () => {
           </div>
         </section>
       ) : null}
-
-      <CaptainsResources />
 
       <section className="bg-[#151515] px-4 py-14 text-white sm:px-6 lg:px-10 lg:py-16">
         <div className="mx-auto flex max-w-7xl flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
