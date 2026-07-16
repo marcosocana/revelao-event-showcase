@@ -39,7 +39,7 @@ const steps = [
 const setupSteps = [
   {
     title: "Compra el juego",
-    text: "Elige el número de mesas y añade las Cajas Capitán si quieres recibir el pack físico.",
+    text: "Elige el número de capitanes de mesa y añade las Cajas Capitán si quieres recibir el pack físico.",
   },
   {
     title: "Configura el evento",
@@ -359,7 +359,7 @@ const CaptainsLanding = () => {
                 Comprar <ChevronRight className="h-5 w-5" />
               </a>
               <button type="button" className="captains-button captains-button-secondary" onClick={handleDemoOpen}>
-                Abrir demo
+                Ver demo
               </button>
             </div>
           </div>
@@ -380,7 +380,7 @@ const CaptainsLanding = () => {
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
           <div>
             <p className="captains-section-label">Cómo se juega</p>
-            <h2 className="captains-heading mt-3">Retos para que cada mesa se pique</h2>
+            <h2 className="captains-heading mt-3">Retos para que las mesas se piquen</h2>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
             {steps.map((step) => (
@@ -423,8 +423,7 @@ const CaptainsLanding = () => {
           </div>
 
           <div>
-            <p className="captains-section-label">Momentos</p>
-            <h2 className="captains-heading mt-3">Jugad donde queráis, cuando queráis</h2>
+            <h2 className="captains-heading">Jugad donde queráis, cuando queráis</h2>
             <div className="mt-6 grid grid-cols-2 gap-3">
               {moments.map((moment, index) => {
                 const Icon = index % 2 === 0 ? Camera : Video;
@@ -446,8 +445,7 @@ const CaptainsLanding = () => {
             <p className="captains-section-label">Tipos de retos</p>
             <h2 className="captains-heading mt-3">Todo se puede personalizar para vuestra boda</h2>
             <p className="mt-4 text-lg font-bold leading-7 text-[#151515]/70">
-              Mezcla retos de foto, vídeo y preguntas sobre la pareja. Tú decides qué tiene que hacer cada mesa y
-              cuándo aparece cada prueba
+              Mezcla retos de foto, vídeo y preguntas sobre la pareja. Tú decides qué tiene que hacer cada mesa
             </p>
           </div>
 
@@ -592,9 +590,8 @@ const CaptainsLanding = () => {
             <p className="captains-section-label">Pack Capitán</p>
             <h2 className="captains-heading mt-3">Despreocúpate de todo</h2>
             <p className="mt-4 text-lg font-bold leading-7 text-[#151515]/70">
-              Cada Caja Capitán incluye un brazalete, unas gafas personalizadas y una tarjeta que explica toda la
-              dinámica del juego al capitán: le cuenta que será el encargado de su mesa y cómo liderar al equipo.
-              Solo tendrás que dejar cada caja en su sitio el día de la boda.
+              Cada Caja Capitán incluye un brazalete, unas gafas personalizadas y una tarjeta explicando el juego y
+              con el QR para poder acceder. Solo tendrás que dejar cada caja en su sitio el día de tu boda.
             </p>
             <p className="mt-4 text-lg font-bold leading-7 text-[#151515]/70">
               Todas las cajas se enviarán juntas a una misma dirección. El pedido debe realizarse con al menos 45 días
@@ -616,7 +613,7 @@ const CaptainsLanding = () => {
           <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
             <div className="max-w-2xl">
               <p className="captains-section-label">Caso de éxito</p>
-              <h2 className="captains-heading mt-3">En la boda de Andrea y Rafa, todos los invitados se divirtieron jugando</h2>
+              <h2 className="captains-heading mt-3">¡La boda de Andrea y Rafa se convirtió en una fiesta!</h2>
               <p className="mt-4 text-lg font-bold leading-7 text-[#151515]/70">
                 Diez mesas entraron al juego con retos pensados para que los invitados se conocieran, colaborasen y
                 creasen recuerdos desde su propia mesa.
@@ -627,8 +624,8 @@ const CaptainsLanding = () => {
               {[
                 ["10", "mesas"],
                 ["25", "retos"],
-                ["125", "fotos compartidas"],
-                ["74", "vídeos compartidos"],
+                ["125", "fotos"],
+                ["74", "vídeos"],
               ].map(([value, label]) => (
                 <div className="border-2 border-[#151515] bg-white p-2 text-center sm:border-4 sm:p-3" key={label}>
                   <strong className="block text-2xl font-black leading-none sm:text-3xl lg:text-4xl">{value}</strong>
@@ -721,8 +718,8 @@ const CaptainsLanding = () => {
             <h2 className="captains-heading mt-3">Una excusa para llenar la boda de recuerdos reales</h2>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
-            <a className="captains-button captains-button-light" href={contactUrl} target="_blank" rel="noopener noreferrer">
-              Hablar por WhatsApp
+            <a className="captains-button captains-button-primary" href="#precios">
+              Comprar
             </a>
             <button type="button" className="captains-button captains-button-dark-outline" onClick={handleDemoOpen}>
               Ver demo
