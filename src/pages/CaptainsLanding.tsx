@@ -197,7 +197,7 @@ const DemoMockup = ({ isModal = false }: { isModal?: boolean }) =>
   );
 
 const CaptainsLanding = () => {
-  const [tableCount, setTableCount] = useState(12);
+  const [tableCount, setTableCount] = useState("12");
   const [includeCaptainBox, setIncludeCaptainBox] = useState(false);
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
   const [isPackImageOpen, setIsPackImageOpen] = useState(false);
@@ -206,7 +206,9 @@ const CaptainsLanding = () => {
   const [rankingStep, setRankingStep] = useState(0);
   const rankingRowRefs = useRef(new Map<string, HTMLDivElement>());
   const previousRankingPositions = useRef(new Map<string, number>());
-  const normalizedTableCount = Math.max(1, tableCount || 1);
+  const parsedTableCount = /^\d+$/.test(tableCount) ? Number(tableCount) : 0;
+  const normalizedTableCount = Number.isSafeInteger(parsedTableCount) ? parsedTableCount : 0;
+  const canCheckout = normalizedTableCount > 0;
   const gameTotal = useMemo(() => normalizedTableCount * pricePerTable, [normalizedTableCount]);
   const captainBoxTotal = useMemo(
     () => (includeCaptainBox ? normalizedTableCount * captainBoxPricePerTable : 0),
@@ -289,6 +291,8 @@ const CaptainsLanding = () => {
   };
 
   const handleCheckout = async () => {
+    if (!canCheckout) return;
+
     setIsCheckoutLoading(true);
 
     try {
@@ -516,10 +520,11 @@ const CaptainsLanding = () => {
                 <input
                   id="captains-table-count"
                   type="number"
-                  min="1"
+                  min="0"
+                  step="1"
                   inputMode="numeric"
                   value={tableCount}
-                  onChange={(event) => setTableCount(Math.max(1, Number(event.target.value) || 1))}
+                  onChange={(event) => setTableCount(event.target.value)}
                   className="captains-pricing-input"
                 />
                 <span className="text-lg font-black">x {pricePerTable}€ juego</span>
@@ -557,7 +562,7 @@ const CaptainsLanding = () => {
                 type="button"
                 className="captains-button captains-button-primary"
                 onClick={handleCheckout}
-                disabled={isCheckoutLoading}
+                disabled={isCheckoutLoading || !canCheckout}
               >
                 {isCheckoutLoading ? "Abriendo pago..." : "Comprar"}
               </button>
