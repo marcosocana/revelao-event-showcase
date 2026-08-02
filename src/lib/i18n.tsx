@@ -222,6 +222,10 @@ export const translations = {
           a: "Cada plan incluye un número concreto de fotos, vídeos y mensajes de voz (o ilimitado, según plan). Elige el que mejor se adapte a tu evento.",
         },
         {
+          q: "¿Puedo subir fotos y vídeos desde la galería del móvil?",
+          a: "Sí. A partir del plan Plus de 79 €, puedes subir fotos y vídeos desde la galería del móvil durante y después del evento.",
+        },
+        {
           q: "¿Qué pasa cuando se revela el contenido?",
           a:
             "Todos los invitados podrán acceder al mismo QR o entrar en la web para ver el evento. Desde ahí podrán visualizar fotos, vídeos y mensajes de voz, descargarlos, dar likes, compartirlos y mucho más.",
@@ -504,6 +508,10 @@ export const translations = {
         {
           q: "How much content can I upload?",
           a: "Each plan includes a specific number of photos, videos and voice notes (or unlimited, depending on plan). Choose the one that best fits your event.",
+        },
+        {
+          q: "Can I upload photos and videos from my phone gallery?",
+          a: "Yes. Starting with the €79 Plus plan, you can upload photos and videos from your phone gallery during and after the event.",
         },
         {
           q: "What happens when content is revealed?",
@@ -789,6 +797,10 @@ export const translations = {
         {
           q: "Quanti contenuti posso caricare?",
           a: "Ogni piano include un numero specifico di foto, video e messaggi vocali (o illimitato, in base al piano). Scegli quello più adatto al tuo evento.",
+        },
+        {
+          q: "Posso caricare foto e video dalla galleria del telefono?",
+          a: "Sì. A partire dal piano Plus da 79 €, puoi caricare foto e video dalla galleria del telefono durante e dopo l’evento.",
         },
         {
           q: "Cosa succede quando i contenuti vengono rivelati?",
