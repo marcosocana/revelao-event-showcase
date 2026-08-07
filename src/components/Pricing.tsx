@@ -294,7 +294,7 @@ export const Pricing = () => {
               ? "Buy it today and have everything ready for the day of your event. If none of the plans fit, "
               : lang === "it"
                 ? "Acquistalo oggi e prepara tutto per il giorno del tuo evento. Se nessun piano fa al caso tuo, "
-                : "Cómpralo hoy y déjalo todo preparado para el día del evento. Si no te encaja ninguno, "}
+                : "Cómpralo hoy y déjalo todo preparado para el gran día. Si no te encaja ninguno, "}
             <a
               className="text-foreground font-semibold hover:underline"
               href={`https://wa.me/34695834018?text=${encodeURIComponent(whatsappMessage)}`}
