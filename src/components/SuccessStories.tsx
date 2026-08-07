@@ -42,7 +42,7 @@ export const SuccessStories = () => {
   const t = translations[lang];
 
   return (
-    <section className="bg-transparent py-12 md:py-24" id="casos-de-exito">
+    <section className="scroll-mt-20 bg-transparent py-12 md:py-24" id="casos-de-exito">
       <div className="container mx-auto px-4">
         <div className="mb-8 text-center md:mb-10">
           <h2 className="revelao-h2 mb-2 text-center">{t.stories.title}</h2>

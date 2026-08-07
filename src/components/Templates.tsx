@@ -41,7 +41,7 @@ export const Templates = () => {
     cta: t.templates.cta,
   }));
   return (
-    <section className="py-12 md:py-24 bg-transparent no-card-hover" id="plantillas">
+    <section className="scroll-mt-20 py-12 md:py-24 bg-transparent no-card-hover" id="plantillas">
       <div className="container px-4 mx-auto container-mobile-right-edge">
         <div className="max-w-6xl mx-auto">
           <div className="mb-8 md:mb-10 text-center animate-fade-in">

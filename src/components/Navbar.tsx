@@ -49,10 +49,10 @@ export const Navbar = ({ withTopBar = false }: { withTopBar?: boolean }) => {
               <a href="#precio" className="text-muted-foreground hover:text-foreground transition-colors">
                 {t.nav.pricing}
               </a>
-              <a href="/testimonios" className="text-muted-foreground hover:text-foreground transition-colors">
+              <a href={withTopBar ? "/#casos-de-exito" : "#casos-de-exito"} className="text-muted-foreground hover:text-foreground transition-colors">
                 {t.nav.testimonials}
               </a>
-              <a href="/plantillas-qr" className="text-muted-foreground hover:text-foreground transition-colors">
+              <a href={withTopBar ? "/#plantillas" : "#plantillas"} className="text-muted-foreground hover:text-foreground transition-colors">
                 {t.nav.templates}
               </a>
               {showEventsMenu ? (

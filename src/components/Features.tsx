@@ -89,14 +89,24 @@ export const Features = ({
 
         <div className="mx-auto mt-8 max-w-6xl pb-5 md:mt-12 md:px-5 md:pb-8 md:pr-12">
           <div className="relative">
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute inset-0 hidden translate-x-8 translate-y-8 rounded-[24px] border border-foreground/15 bg-white/65 shadow-[0_14px_35px_rgba(28,28,28,0.05)] md:block"
-            />
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute inset-0 hidden translate-x-4 translate-y-4 rounded-[24px] border border-foreground/20 bg-white/85 shadow-[0_16px_40px_rgba(28,28,28,0.07)] md:block"
-            />
+            {features.length - activeIndex > 3 ? (
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 hidden translate-x-12 translate-y-12 rounded-[8px] border border-foreground/10 bg-white/50 shadow-[0_12px_30px_rgba(28,28,28,0.04)] md:block"
+              />
+            ) : null}
+            {features.length - activeIndex > 2 ? (
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 hidden translate-x-8 translate-y-8 rounded-[8px] border border-foreground/15 bg-white/65 shadow-[0_14px_35px_rgba(28,28,28,0.05)] md:block"
+              />
+            ) : null}
+            {features.length - activeIndex > 1 ? (
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 hidden translate-x-4 translate-y-4 rounded-[8px] border border-foreground/20 bg-white/85 shadow-[0_16px_40px_rgba(28,28,28,0.07)] md:block"
+              />
+            ) : null}
             <Swiper
               key={isDesktop ? "features-desktop" : "features-mobile"}
               className="relative z-10 !overflow-visible [&_.swiper-wrapper]:items-stretch [&_.swiper-slide]:h-auto"
@@ -111,6 +121,7 @@ export const Features = ({
                 next: {
                   translate: [18, 18, -90],
                   scale: 0.975,
+                  opacity: 0,
                 },
               }}
               slidesPerView={isDesktop ? 1 : 1.08}
@@ -162,7 +173,7 @@ export const Features = ({
             </Swiper>
           </div>
 
-          <div className="mt-9 flex flex-col items-center gap-4 md:mt-11">
+          <div className="mt-9 flex flex-col items-center gap-4 md:mt-20">
             <div className="flex items-center justify-center gap-5">
               <button
                 type="button"
