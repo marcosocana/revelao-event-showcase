@@ -198,7 +198,7 @@ const Index = () => {
           }
         });
       },
-      { threshold: 0.2, rootMargin: "0px 0px -10% 0px" }
+      { threshold: 0.08, rootMargin: "0px 0px -2% 0px" }
     );
 
     revealNodes.forEach((node) => observer.observe(node));
