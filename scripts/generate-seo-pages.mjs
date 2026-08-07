@@ -210,6 +210,27 @@ const landingPages = [
     },
   },
   {
+    path: "/plantillas-qr",
+    title: "Plantillas QR personalizables para bodas y eventos | Revelao.cam",
+    description:
+      "Elige una plantilla QR para tu boda o evento, personaliza textos y colores y descárgala en PDF o pídenos que la imprimamos.",
+    keywords: "plantillas qr, plantilla qr boda, cartel qr evento, tarjeta qr boda, imprimir qr evento",
+    image: "/og-image.jpg",
+    bodyHtml:
+      '<main><article><h1>Plantillas QR personalizables para bodas y eventos</h1>' +
+      '<p>Elige un diseño de Revelao, añade el QR exclusivo de tu evento y personaliza nombres, fecha, mensaje y colores viendo el resultado en directo.</p>' +
+      '<h2>Descarga tu plantilla lista para imprimir</h2><p>Genera el diseño en PDF con medidas A6, A5 o A4 para utilizarlo en mesas, carteles, entradas o zonas de fotografía.</p>' +
+      '<h2>También podemos imprimirla por ti</h2><p>Selecciona el formato y la cantidad y envía una solicitud de impresión directamente a Revelao.</p>' +
+      '<p><a href="/plantillas-qr#catalogo-plantillas">Ver todas las plantillas QR</a></p></article></main>',
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name: "Plantillas QR para eventos",
+      url: `${siteUrl}/plantillas-qr`,
+      publisher: baseSchema,
+    },
+  },
+  {
     path: "/evento-qr",
     title: "Evento con QR para recopilar fotos, vídeos y audios | Revelao.cam",
     description:

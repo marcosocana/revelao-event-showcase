@@ -145,10 +145,10 @@ export const translations = {
       ],
     },
     templates: {
-      title: "Plantillas",
+      title: "Plantillas QR",
       subtitle:
-        "Usa nuestras plantillas gratuítas. Si no sabes usarlas, escríbenos y te contamos cómo",
-      cta: "Editar",
+        "Elige un diseño, personalízalo a tu gusto y descárgalo listo para imprimir.",
+      cta: "Personalizar",
     },
     pricing: {
       title: "Precio",

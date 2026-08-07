@@ -52,6 +52,9 @@ export const Navbar = () => {
               <a href="/testimonios" className="text-muted-foreground hover:text-foreground transition-colors">
                 {t.nav.testimonials}
               </a>
+              <a href="/plantillas-qr" className="text-muted-foreground hover:text-foreground transition-colors">
+                {t.nav.templates}
+              </a>
               {showEventsMenu ? (
                 <div className="relative group">
                   <button type="button" className="text-muted-foreground hover:text-foreground transition-colors">

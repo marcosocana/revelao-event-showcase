@@ -4,41 +4,30 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
-import template1 from "@/assets/Plantilla1.jpg";
-import template2 from "@/assets/Plantilla2.jpg";
-import template3 from "@/assets/Plantilla3.jpg";
-import template4 from "@/assets/Plantilla4.jpg";
 import { useI18n, translations } from "@/lib/i18n";
+import { useState } from "react";
+import { QrTemplate, TemplateCustomizerModal, TemplateThumbnail } from "@/components/TemplateCustomizerModal";
+import { qrTemplates } from "@/data/qrTemplates";
 
-const templates = [
-  { id: 1, title: "Julia y Alex", image: template1, editUrl: "/crearplantilla?template=1" },
-  { id: 2, title: "Paola y Toni", image: template2, editUrl: "/crearplantilla?template=3" },
-  { id: 3, title: "David y Jose", image: template3, editUrl: "/crearplantilla?template=2" },
-  { id: 4, title: "Christmas Album", image: template4, editUrl: "/crearplantilla?template=4" },
-];
-
-const TemplateCard = ({ template }: { template: typeof templates[0] & { cta: string } }) => (
+const TemplateCard = ({ template, onSelect }: { template: QrTemplate & { cta: string }; onSelect: () => void }) => (
   <div className="revelao-card group flex flex-col w-[250px] sm:w-[270px] lg:w-[260px] transition-opacity hover:opacity-90">
-    <div className="bg-background overflow-hidden rounded-[8px]">
-      <img
-        src={template.image}
-        alt={template.title}
-        className="block h-[260px] w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-      />
+    <div className="h-[260px] overflow-hidden rounded-[8px] bg-background">
+      <TemplateThumbnail template={template} />
     </div>
-    <div className="p-2">
-      <a
-        href={template.editUrl}
-        className="w-full"
-      >
-        <Button className="w-full" variant="outline" size="sm">
+    <div className="p-3">
+      <p className="mb-2 px-1 text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">{template.category}</p>
+      <div className="mb-3 flex items-center gap-2 px-1 text-xs text-muted-foreground">
+        <span
+          className="h-5 w-5 rounded-[5px] border border-black/10 shadow-sm"
+          style={{ background: `conic-gradient(${template.colorPresets.slice(0, 5).map((preset, index) => `${preset.accent} ${index * 20}% ${(index + 1) * 20}%`).join(", ")})` }}
+        />
+        Varios colores
+      </div>
+      <Button className="w-full" variant="outline" size="sm" onClick={onSelect}>
           <Pencil className="w-4 h-4 mr-2" />
           {template.cta}
-        </Button>
-      </a>
+      </Button>
     </div>
   </div>
 );
@@ -46,7 +35,8 @@ const TemplateCard = ({ template }: { template: typeof templates[0] & { cta: str
 export const Templates = () => {
   const { lang } = useI18n();
   const t = translations[lang];
-  const templatesWithCta = templates.map((template) => ({
+  const [selectedTemplate, setSelectedTemplate] = useState<QrTemplate | null>(null);
+  const templatesWithCta = qrTemplates.slice(0, 4).map((template) => ({
     ...template,
     cta: t.templates.cta,
   }));
@@ -66,7 +56,7 @@ export const Templates = () => {
           {/* Desktop Grid */}
           <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center">
             {templatesWithCta.map((template) => (
-              <TemplateCard key={template.id} template={template} />
+              <TemplateCard key={template.id} template={template} onSelect={() => setSelectedTemplate(template)} />
             ))}
           </div>
 
@@ -76,22 +66,28 @@ export const Templates = () => {
               <CarouselContent className="!-ml-0 gap-6 px-4">
                 {templatesWithCta.map((template) => (
                   <CarouselItem key={template.id} className="basis-[78%] !pl-0 flex justify-center">
-                    <TemplateCard template={template} />
+                    <TemplateCard template={template} onSelect={() => setSelectedTemplate(template)} />
                   </CarouselItem>
                 ))}
               </CarouselContent>
             </Carousel>
           </div>
 
-          <div className="mt-8 flex justify-center">
-            <a href="/crearplantilla">
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <a href="/plantillas-qr">
               <Button className="rounded-full bg-primary px-8 text-primary-foreground hover:bg-primary/90">
-                Crear plantilla
+                Ver todas las plantillas
+              </Button>
+            </a>
+            <a href="/crearplantilla">
+              <Button variant="outline" className="rounded-full px-8">
+                Crear desde cero
               </Button>
             </a>
           </div>
         </div>
       </div>
+      <TemplateCustomizerModal template={selectedTemplate} onClose={() => setSelectedTemplate(null)} />
     </section>
   );
 };

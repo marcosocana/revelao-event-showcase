@@ -26,6 +26,7 @@ const TemplateCreator = lazy(() => import("./pages/TemplateCreator"));
 const CaptainsLanding = lazy(() => import("./pages/CaptainsLanding"));
 const CaptainsSeoLanding = lazy(() => import("./pages/CaptainsSeoLanding"));
 const Testimonials = lazy(() => import("./pages/Testimonials"));
+const QrTemplates = lazy(() => import("./pages/QrTemplates"));
 
 const PageFallback = () => <div className="min-h-screen bg-background" />;
 
@@ -72,6 +73,7 @@ const App = () => (
               <Route path="/blog/:slug" element={<BlogDetail />} />
               <Route path="/blog/admin" element={<BlogAdmin />} />
               <Route path="/testimonios" element={<Testimonials />} />
+              <Route path="/plantillas-qr" element={<QrTemplates />} />
               <Route path="/acceso" element={<Navigate to="https://tomorrow-snap-reveal.vercel.app" replace />} />
               <Route path="/crearplantilla" element={<TemplateCreator />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
