@@ -142,7 +142,7 @@ export const translations = {
     templates: {
       title: "Plantillas QR",
       subtitle:
-        "Elige un diseño, personalízalo a tu gusto y descárgalo listo para imprimir.",
+        "Elige un diseño, personalízalo a tu gusto y descárgalo o te lo imprimimos nosotros.",
       cta: "Personalizar",
     },
     pricing: {
@@ -425,7 +425,7 @@ export const translations = {
     templates: {
       title: "Custom templates",
       subtitle:
-        "Download QR posters for your event. If you don’t know how, we’ll do it for you for free.",
+        "Choose a design, customize it and download it, or let us print it for you.",
       cta: "Edit",
     },
     pricing: {
@@ -709,7 +709,7 @@ export const translations = {
     templates: {
       title: "Modelli personalizzati",
       subtitle:
-        "Scarica poster QR per il tuo evento. Se non sai come fare, lo facciamo noi gratis.",
+        "Scegli un design, personalizzalo e scaricalo, oppure lo stampiamo noi per te.",
       cta: "Modifica",
     },
     pricing: {

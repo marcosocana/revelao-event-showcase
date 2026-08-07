@@ -3,14 +3,17 @@ import { useEffect, useRef } from "react";
 const socialVideos = [
   {
     src: "/rrss/testimonio1.mp4",
+    poster: "/rrss/testimonio1-poster.jpg",
     label: "Revelao en redes sociales 1",
   },
   {
     src: "/rrss/testimonio3.mp4",
+    poster: "/rrss/testimonio3-poster.jpg",
     label: "Revelao en redes sociales 3",
   },
   {
     src: "/rrss/testimonio4.mp4",
+    poster: "/rrss/testimonio4-poster.jpg",
     label: "Revelao en redes sociales 4",
   },
   {

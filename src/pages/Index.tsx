@@ -239,9 +239,6 @@ const Index = () => {
         <div className="section-white reveal-on-scroll">
           <WhyRevelaoSection />
         </div>
-        <div className="section-gray reveal-on-scroll">
-          <Pricing />
-        </div>
         <div className="section-white reveal-on-scroll">
           <section className="py-10 md:py-12 bg-transparent">
             <div className="container px-4 mx-auto">
@@ -279,16 +276,13 @@ const Index = () => {
           </section>
         </div>
         <div className="section-gray reveal-on-scroll">
-          <SocialVideos />
+          <Pricing />
         </div>
         <div className="section-white reveal-on-scroll">
-          <Templates />
-        </div>
-        <div className="section-gray reveal-on-scroll">
           <SuccessStories />
         </div>
-        <div className="section-white reveal-on-scroll">
-          <KpiStrip />
+        <div className="section-gray reveal-on-scroll">
+          <SocialVideos />
         </div>
         <div className="section-white reveal-on-scroll">
           <section className="py-4 md:py-8 bg-transparent scroll-mt-12 md:scroll-mt-14" id="faqs">
@@ -298,6 +292,12 @@ const Index = () => {
               </div>
             </div>
           </section>
+        </div>
+        <div className="section-white reveal-on-scroll">
+          <KpiStrip />
+        </div>
+        <div className="section-white reveal-on-scroll">
+          <Templates />
         </div>
         <div className="section-white reveal-on-scroll">
           <BlogSection />
@@ -318,7 +318,7 @@ const Index = () => {
       </main>
       {exampleModal.open ? (
         <div
-          className="fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm"
+          className="fixed inset-0 z-[20000] bg-black/80 backdrop-blur-sm"
           onClick={closeExampleModal}
         >
           <div className="absolute inset-0 flex flex-col p-4 md:p-6">
@@ -337,14 +337,6 @@ const Index = () => {
                 className="relative h-[85vh] max-h-[852px] w-auto max-w-[95vw] aspect-[393/852]"
                 onClick={(e) => e.stopPropagation()}
               >
-                <button
-                  type="button"
-                  onClick={closeExampleModal}
-                  aria-label="Cerrar modal"
-                  className="absolute -right-4 -top-4 z-20 rounded-full bg-black p-2 text-white shadow-lg hover:bg-black/85"
-                >
-                  <X className="h-4 w-4" />
-                </button>
                 <div className="h-full w-full overflow-hidden rounded-[38px] border-[10px] border-black bg-black shadow-2xl">
                 <iframe
                   src={exampleModal.url}

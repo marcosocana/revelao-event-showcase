@@ -88,7 +88,7 @@ export const SuccessStories = () => {
         <div className="mt-8 flex justify-center">
           <Link
             to="/testimonios"
-            className="inline-flex h-11 items-center justify-center gap-2 rounded-full px-6 text-sm font-semibold text-foreground transition-colors hover:text-primary"
+            className="inline-flex h-11 items-center justify-center gap-2 rounded-full border border-border bg-white px-6 text-sm font-semibold text-foreground shadow-sm transition-colors hover:bg-muted"
           >
             Ver más reseñas
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
