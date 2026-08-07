@@ -27,6 +27,11 @@ const CaptainsLanding = lazy(() => import("./pages/CaptainsLanding"));
 const CaptainsSeoLanding = lazy(() => import("./pages/CaptainsSeoLanding"));
 const Testimonials = lazy(() => import("./pages/Testimonials"));
 const QrTemplates = lazy(() => import("./pages/QrTemplates"));
+const AboutUs = lazy(() => import("./pages/AboutUs"));
+const PressKit = lazy(() => import("./pages/PressKit"));
+const ReturnsPolicy = lazy(() => import("./pages/ReturnsPolicy"));
+const ShippingPolicy = lazy(() => import("./pages/ShippingPolicy"));
+const GdprPolicy = lazy(() => import("./pages/GdprPolicy"));
 
 const PageFallback = () => <div className="min-h-screen bg-background" />;
 
@@ -74,6 +79,11 @@ const App = () => (
               <Route path="/blog/admin" element={<BlogAdmin />} />
               <Route path="/testimonios" element={<Testimonials />} />
               <Route path="/plantillas-qr" element={<QrTemplates />} />
+              <Route path="/quienes-somos" element={<AboutUs />} />
+              <Route path="/kit-de-prensa" element={<PressKit />} />
+              <Route path="/devoluciones" element={<ReturnsPolicy />} />
+              <Route path="/envios" element={<ShippingPolicy />} />
+              <Route path="/rgpd" element={<GdprPolicy />} />
               <Route path="/acceso" element={<Navigate to="https://tomorrow-snap-reveal.vercel.app" replace />} />
               <Route path="/crearplantilla" element={<TemplateCreator />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

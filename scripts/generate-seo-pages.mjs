@@ -210,6 +210,48 @@ const landingPages = [
     },
   },
   {
+    path: "/quienes-somos",
+    title: "Quiénes somos: Marcos, fundador de Revelao.cam",
+    description:
+      "Conoce a Marcos, fundador de Revelao.cam, y la idea detrás de una forma diferente de reunir y revelar los recuerdos de un evento.",
+    keywords: "quienes somos Revelao, Marcos fundador Revelao, historia Revelao.cam",
+    image: "/og-image.jpg",
+    bodyHtml:
+      "<main><article><h1>Soy Marcos, la persona detrás de Revelao</h1>" +
+      "<p>Creé Revelao.cam para que las fotos, vídeos y mensajes de audio de los invitados no terminen perdidos en sus móviles y para que descubrirlos también forme parte de la celebración.</p>" +
+      "<h2>Por qué existe Revelao</h2><p>Un evento sucede desde muchos puntos de vista. Revelao reúne esas miradas mediante un QR, sin apps ni registros para los invitados, y mantiene el contenido oculto hasta el momento del Revelado.</p>" +
+      "<h2>Cómo construimos el producto</h2><p>La experiencia se diseña para que participar sea fácil, los recuerdos estén bien cuidados y la espera añada emoción al día siguiente del evento.</p>" +
+      '<p><a href="mailto:revelao.cam@gmail.com">Contactar con Marcos</a></p></article></main>',
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      name: "Quiénes somos en Revelao.cam",
+      url: `${siteUrl}/quienes-somos`,
+      mainEntity: baseSchema,
+    },
+  },
+  {
+    path: "/kit-de-prensa",
+    title: "Kit de prensa de Revelao.cam: logos y recursos",
+    description:
+      "Descarga logos y consulta la descripción oficial, datos básicos y recursos de prensa de Revelao.cam.",
+    keywords: "kit de prensa Revelao, logo Revelao, recursos de marca Revelao.cam",
+    image: "/og-image.jpg",
+    bodyHtml:
+      "<main><article><h1>Kit de prensa de Revelao.cam</h1>" +
+      "<p>Recursos visuales, información y mensajes oficiales para hablar de Revelao.cam de forma clara y consistente.</p>" +
+      "<h2>Qué es Revelao.cam</h2><p>Revelao.cam es una galería privada para eventos a la que los invitados acceden mediante un QR. Pueden subir fotos, vídeos y mensajes de audio desde el navegador, sin instalar una app, y descubrirlo todo después en el Revelado.</p>" +
+      "<h2>Recursos de marca</h2><p>La página incluye el logotipo principal, el logotipo compacto y el símbolo de Revelao listos para descargar.</p>" +
+      '<p><a href="mailto:revelao.cam@gmail.com">Contacto de prensa</a></p></article></main>',
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name: "Kit de prensa de Revelao.cam",
+      url: `${siteUrl}/kit-de-prensa`,
+      publisher: baseSchema,
+    },
+  },
+  {
     path: "/plantillas-qr",
     title: "Plantillas QR personalizables para bodas y eventos | Revelao.cam",
     description:

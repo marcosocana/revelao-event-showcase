@@ -1,5 +1,6 @@
 import icon from "@/assets/ico.png";
 import { useLocation } from "react-router-dom";
+import { openCookieSettings } from "@/lib/cookieConsent";
 
 const seoLinks = [
   { href: "/plantillas-qr", label: "Plantillas QR" },
@@ -67,16 +68,34 @@ export const Footer = ({ text, keywordsTitle, keywords = [] }: FooterProps) => {
             <img src={icon} alt="Revelao" className="h-5 w-auto" />
             <span className="text-sm font-semibold text-foreground">Revelao.cam</span>
           </div>
-          <div className="flex items-center gap-4 text-xs text-muted-foreground">
-            <a href={`${langPrefix}/terms`} className="hover:text-foreground transition-colors">
-              Términos y condiciones
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs text-muted-foreground">
+            <a href="/quienes-somos" className="hover:text-foreground transition-colors">
+              Quiénes somos
+            </a>
+            <a href="/kit-de-prensa" className="hover:text-foreground transition-colors">
+              Kit de prensa
             </a>
             <a href={`${langPrefix}/privacy`} className="hover:text-foreground transition-colors">
               Política de privacidad
             </a>
+            <a href={`${langPrefix}/terms`} className="hover:text-foreground transition-colors">
+              Términos
+            </a>
+            <a href="/devoluciones" className="hover:text-foreground transition-colors">
+              Devoluciones
+            </a>
+            <a href="/envios" className="hover:text-foreground transition-colors">
+              Envíos
+            </a>
+            <a href="/rgpd" className="hover:text-foreground transition-colors">
+              RGPD
+            </a>
             <a href={`${langPrefix}/cookies`} className="hover:text-foreground transition-colors">
               Cookies
             </a>
+            <button type="button" onClick={openCookieSettings} className="hover:text-foreground transition-colors">
+              Configurar cookies
+            </button>
             <span>
               © 2026 Revelao.cam
             </span>

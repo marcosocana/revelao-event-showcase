@@ -20,7 +20,7 @@ const PrivacyPolicy = () => {
           <p className="text-muted-foreground leading-relaxed">
             <strong>Responsable:</strong> Revelao
             <br />
-            <strong>Contacto:</strong> info@revelao.es
+            <strong>Contacto:</strong> revelao.cam@gmail.com
           </p>
         </section>
 
@@ -50,8 +50,9 @@ const PrivacyPolicy = () => {
         <section className="space-y-4">
           <h2 className="text-lg font-semibold text-foreground">4. Conservación de los datos</h2>
           <p className="text-muted-foreground leading-relaxed">
-            Los contenidos del evento se almacenan durante un máximo de 15 días, tras los cuales se
-            eliminan automáticamente y de forma definitiva.
+            Los contenidos del evento se conservan durante el periodo incluido en el plan contratado o
+            durante el plazo informado al crear el evento. Los datos de facturación y contratación se
+            mantienen durante los periodos exigidos por la normativa aplicable.
           </p>
         </section>
 

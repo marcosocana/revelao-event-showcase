@@ -2,13 +2,16 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Cookie } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { getCookieConsent, setCookieConsent, type CookieConsentValue } from "@/lib/cookieConsent";
+import { COOKIE_SETTINGS_EVENT, getCookieConsent, setCookieConsent, type CookieConsentValue } from "@/lib/cookieConsent";
 
 export const CookieBanner = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     setIsVisible(!getCookieConsent());
+    const openSettings = () => setIsVisible(true);
+    window.addEventListener(COOKIE_SETTINGS_EVENT, openSettings);
+    return () => window.removeEventListener(COOKIE_SETTINGS_EVENT, openSettings);
   }, []);
 
   const saveConsent = (value: CookieConsentValue) => {

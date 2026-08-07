@@ -57,8 +57,8 @@ const CookiePolicy = () => {
           <h2 className="text-lg font-semibold text-foreground">5. Gestión del consentimiento</h2>
           <p className="text-muted-foreground leading-relaxed">
             Al acceder a la web se muestra un aviso que permite aceptar o rechazar las cookies no necesarias.
-            El usuario puede cambiar o eliminar sus preferencias borrando los datos del sitio desde la
-            configuración de su navegador.
+            El usuario puede cambiar su elección en cualquier momento mediante el enlace "Configurar cookies"
+            disponible en el pie de página, o eliminar las preferencias desde la configuración del navegador.
           </p>
         </section>
 
