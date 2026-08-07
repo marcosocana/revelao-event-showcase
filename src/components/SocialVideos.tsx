@@ -18,11 +18,11 @@ export const SocialVideos = () => {
           <h2 className="revelao-h2 text-center">Revelao en las redes</h2>
         </div>
 
-        <div className="mx-auto grid max-w-3xl grid-cols-1 justify-items-center gap-6 sm:grid-cols-2 md:gap-8">
+        <div className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-auto sm:grid sm:max-w-3xl sm:grid-cols-2 sm:justify-items-center sm:overflow-visible sm:px-0 sm:pb-0 md:gap-8">
           {socialVideos.map((video, index) => (
             <div
               key={video.src}
-              className="w-full max-w-[260px] overflow-hidden rounded-[8px] border border-border bg-white shadow-[0_18px_45px_-32px_rgba(15,23,42,0.45)] md:max-w-[290px]"
+              className="w-[76vw] max-w-[260px] shrink-0 snap-center overflow-hidden rounded-[8px] border border-border bg-white shadow-[0_18px_45px_-32px_rgba(15,23,42,0.45)] sm:w-full md:max-w-[290px]"
             >
               <video
                 className="aspect-[9/16] w-full bg-black object-cover"

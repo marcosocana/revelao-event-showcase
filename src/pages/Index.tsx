@@ -1,7 +1,6 @@
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { Features, FeaturesVideo } from "@/components/Features";
-import { EventGalleryFlow } from "@/components/EventGalleryFlow";
 import { Pricing } from "@/components/Pricing";
 import { KpiStrip } from "@/components/KpiStrip";
 import { WhyRevelaoSection } from "@/components/WhyRevelaoSection";
@@ -33,6 +32,7 @@ const TRIAL_PROMPT_DISMISSED_KEY = "revelao-trial-prompt-dismissed";
 const Index = () => {
   const [isPricingModalOpen, setIsPricingModalOpen] = useState(false);
   const [isTrialPromptOpen, setIsTrialPromptOpen] = useState(false);
+  const [isDesktopQrCardOpen, setIsDesktopQrCardOpen] = useState(true);
   const [exampleModal, setExampleModal] = useState<{ open: boolean; url: string; title: string }>({
     open: false,
     url: "",
@@ -45,6 +45,28 @@ const Index = () => {
     const handleOpenModal = () => setIsPricingModalOpen(true);
     window.addEventListener('openPricingModal', handleOpenModal);
     return () => window.removeEventListener('openPricingModal', handleOpenModal);
+  }, []);
+
+  useEffect(() => {
+    const handleOpenExamplePreview = (event: Event) => {
+      const { example } = (event as CustomEvent<{ example: "in-progress" | "finished" }>).detail;
+      if (example === "finished") {
+        setExampleModal({
+          open: true,
+          url: "https://acceso.revelao.cam/events/O8igAtwS",
+          title: "Evento terminado",
+        });
+        return;
+      }
+      setExampleModal({
+        open: true,
+        url: "https://acceso.revelao.cam/events/KrErAopl",
+        title: "Evento en curso",
+      });
+    };
+
+    window.addEventListener("openExamplePreview", handleOpenExamplePreview);
+    return () => window.removeEventListener("openExamplePreview", handleOpenExamplePreview);
   }, []);
 
   useEffect(() => {
@@ -224,6 +246,12 @@ const Index = () => {
         <div className="section-white reveal-on-scroll">
           <section className="py-10 md:py-12 bg-transparent">
             <div className="container px-4 mx-auto">
+              <div className="mx-auto mb-8 max-w-2xl text-center md:mb-10">
+                <h2 className="revelao-h2 mb-2">Ejemplos</h2>
+                <p className="text-base text-muted-foreground md:text-lg">
+                  Escanea los códigos QR con tu móvil o haz clic en las tarjetas para ver los ejemplos.
+                </p>
+              </div>
               <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
                 {exampleCards.map((card) => (
                   <div key={card.title} className="revelao-card no-card-hover p-6 flex flex-col items-center text-center gap-5">
@@ -257,9 +285,6 @@ const Index = () => {
         <div className="section-white reveal-on-scroll">
           <Templates />
         </div>
-        <div className="reveal-on-scroll">
-          <CaptainsPromo />
-        </div>
         <div className="section-white reveal-on-scroll">
           <BlogSection />
         </div>
@@ -281,11 +306,11 @@ const Index = () => {
         <div className="section-gray reveal-on-scroll">
           <SuccessStories />
         </div>
-        <div className="section-white reveal-on-scroll">
-          <EventGalleryFlow />
-        </div>
         <div className="reveal-on-scroll">
           <HomeSeoContent />
+        </div>
+        <div className="reveal-on-scroll">
+          <CaptainsPromo />
         </div>
         <section className="py-4 md:py-6 bg-background reveal-on-scroll">
           <div className="mx-auto w-full">
@@ -337,6 +362,56 @@ const Index = () => {
             </div>
           </div>
         </div>
+      ) : null}
+      {isDesktopQrCardOpen ? (
+        <aside
+          aria-label="Prueba el evento de Revelao"
+          className="fixed bottom-5 left-5 z-50 hidden w-[176px] flex-col rounded-[20px] border border-border bg-white p-3 text-center text-foreground shadow-[0_18px_42px_-16px_rgba(15,23,42,0.32)] lg:flex"
+        >
+          <button
+            type="button"
+            onClick={() => openExample(exampleCards[0].url, exampleCards[0].title)}
+            aria-label="Ver ejemplo: Evento en curso"
+            className="absolute inset-0 z-0 rounded-[20px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+          />
+          <button
+            type="button"
+            onClick={(event) => {
+              event.stopPropagation();
+              setIsDesktopQrCardOpen(false);
+            }}
+            aria-label="Cerrar tarjeta"
+            className="absolute -right-1.5 -top-3.5 z-20 inline-flex h-7 w-7 items-center justify-center rounded-full border border-border bg-white text-muted-foreground shadow-md transition-colors hover:bg-neutral-100 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+          >
+            <X className="h-3.5 w-3.5" aria-hidden="true" />
+          </button>
+
+          <div className="pointer-events-none relative z-10 flex w-full flex-col items-center rounded-[14px]">
+            <span className="mt-1 block w-full rounded-[14px] bg-neutral-50 p-2 transition-colors hover:bg-neutral-100">
+              <img
+                src={qrExampleInProgress}
+                alt="Código QR del ejemplo Evento en curso"
+                className="mx-auto h-[108px] w-[108px] object-contain"
+              />
+              <span className="mt-1 block text-[11px] font-semibold text-foreground">
+                Escanéame con tu móvil
+              </span>
+            </span>
+
+            <span className="mx-auto mt-3 block max-w-[145px] text-xs font-medium leading-snug text-muted-foreground">
+              Mira cómo se vería durante el evento
+            </span>
+
+            <a
+              href="https://acceso.revelao.cam/nuevoeventodemo2"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="pointer-events-auto mt-3 inline-flex h-9 w-full items-center justify-center rounded-lg bg-primary px-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+            >
+              Probar gratis
+            </a>
+          </div>
+        </aside>
       ) : null}
       <Footer />
       <WhatsAppFloating />

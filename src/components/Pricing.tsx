@@ -32,7 +32,7 @@ const plans = [
     price: "79€",
     stripeUrl: "https://buy.stripe.com/00w9AM3UdaPIfEr4DB3ks05",
     cta: "Elegir",
-    subtitle: "1200 fotos · 90 vídeos · 200 audios",
+    subtitle: "5.000 fotos · 200 vídeos · 500 audios",
     featured: true,
     badge: "Más popular",
   },
@@ -131,6 +131,8 @@ export const Pricing = () => {
       small: [
         "200 fotos · 30 vídeos · 60 audios",
         "Galería 20 días",
+        "TV Slideshow en directo (Ver fotos en vivo)",
+        "Plantillas QR",
         "Descarga en alta calidad",
         "Personalización completa",
         "Acceso privado por enlace",
@@ -139,8 +141,10 @@ export const Pricing = () => {
         "Ideal para celebraciones íntimas",
       ],
       medium: [
-        "1200 fotos · 90 vídeos · 200 audios",
-        "Galería 60 días",
+        "5.000 fotos · 200 vídeos · 500 audios",
+        "Galería online 100 días",
+        "TV Slideshow en directo (Ver fotos en vivo)",
+        "Plantillas QR",
         "Descarga en alta calidad",
         "Personalización completa",
         "Posibilidad de subir fotos y vídeos desde la galería del móvil",
@@ -153,6 +157,8 @@ export const Pricing = () => {
       xxl: [
         "Fotos, vídeos y audios ilimitados",
         "Galería 90 días",
+        "TV Slideshow en directo (Ver fotos en vivo)",
+        "Plantillas QR",
         "Marca blanca personalizada (sin referencia a Revelao)",
         "Posibilidad de subir fotos y vídeos desde la galería del móvil",
         "Descarga en alta calidad",
@@ -175,6 +181,8 @@ export const Pricing = () => {
       small: [
         "200 photos · 30 videos · 60 audios",
         "Gallery for 20 days",
+        "Live TV slideshow (View photos live)",
+        "QR templates",
         "High‑quality downloads",
         "Full customization",
         "Private access via link",
@@ -183,8 +191,10 @@ export const Pricing = () => {
         "Ideal for intimate celebrations",
       ],
       medium: [
-        "1200 photos · 90 videos · 200 audios",
-        "Gallery for 60 days",
+        "5,000 photos · 200 videos · 500 audios",
+        "Online gallery for 100 days",
+        "Live TV slideshow (View photos live)",
+        "QR templates",
         "High‑quality downloads",
         "Full customization",
         "Option to upload photos and videos from your phone gallery",
@@ -197,6 +207,8 @@ export const Pricing = () => {
       xxl: [
         "Unlimited photos, videos and audios",
         "Gallery for 90 days",
+        "Live TV slideshow (View photos live)",
+        "QR templates",
         "Custom white‑label (no Revelao branding)",
         "Option to upload photos and videos from your phone gallery",
         "High‑quality downloads",
@@ -219,6 +231,8 @@ export const Pricing = () => {
       small: [
         "200 foto · 30 video · 60 audio",
         "Galleria 20 giorni",
+        "Slideshow TV in diretta (Guarda le foto dal vivo)",
+        "Modelli QR",
         "Download in alta qualità",
         "Personalizzazione completa",
         "Accesso privato tramite link",
@@ -227,8 +241,10 @@ export const Pricing = () => {
         "Ideale per celebrazioni intime",
       ],
       medium: [
-        "1200 foto · 90 video · 200 audio",
-        "Galleria 60 giorni",
+        "5.000 foto · 200 video · 500 audio",
+        "Galleria online 100 giorni",
+        "Slideshow TV in diretta (Guarda le foto dal vivo)",
+        "Modelli QR",
         "Download in alta qualità",
         "Personalizzazione completa",
         "Possibilità di caricare foto e video dalla galleria del telefono",
@@ -241,6 +257,8 @@ export const Pricing = () => {
       xxl: [
         "Foto, video e audio illimitati",
         "Galleria 90 giorni",
+        "Slideshow TV in diretta (Guarda le foto dal vivo)",
+        "Modelli QR",
         "White label personalizzato (senza riferimenti a Revelao)",
         "Possibilità di caricare foto e video dalla galleria del telefono",
         "Download in alta qualità",
@@ -263,32 +281,35 @@ export const Pricing = () => {
     fallbackSubtitle: plan.subtitle ?? "",
     features: featureMap[lang]?.[plan.planId] ?? featureMap.es[plan.planId],
   }));
+  const visiblePlans = translatedPlans.filter((plan) => plan.planId !== "demo");
   return <section className="py-10 md:py-16 bg-transparent scroll-mt-12 md:scroll-mt-14 no-card-hover" id="precio">
       <div className="container px-4 mx-auto container-mobile-right-edge">
         <div className="text-center mb-8 md:mb-10 animate-fade-in">
           <h2 className="revelao-h2 mb-2 text-center">
             {t.pricing.title}
           </h2>
-          <p className="revelao-h3 mb-2 text-center">
-            {t.pricing.subtitle}
-          </p>
-          <p className="revelao-h3 text-center">
-            Si no te encaja ninguno,{" "}
+          <p className="revelao-h3 mx-auto max-w-4xl text-center">
+            {t.pricing.subtitle}.{" "}
+            {lang === "en"
+              ? "Buy it today and have everything ready for the day of your event. If none of the plans fit, "
+              : lang === "it"
+                ? "Acquistalo oggi e prepara tutto per il giorno del tuo evento. Se nessun piano fa al caso tuo, "
+                : "Cómpralo hoy y déjalo todo preparado para el día del evento. Si no te encaja ninguno, "}
             <a
               className="text-foreground font-semibold hover:underline"
               href={`https://wa.me/34695834018?text=${encodeURIComponent(whatsappMessage)}`}
               target="_blank"
               rel="noopener noreferrer"
             >
-              escríbenos
+              {lang === "en" ? "write to us" : lang === "it" ? "scrivici" : "escríbenos"}
             </a>
             .
           </p>
         </div>
 
         {/* Desktop grid */}
-        <div className="hidden md:grid grid-cols-4 gap-4 md:gap-6 max-w-6xl mx-auto">
-          {translatedPlans.map((plan, index) => (
+        <div className="mx-auto hidden max-w-5xl grid-cols-3 gap-4 md:grid md:gap-6">
+          {visiblePlans.map((plan, index) => (
             <div key={plan.title} style={{ animationDelay: `${index * 120}ms` }}>
               <PlanCard plan={plan} perEvent={t.pricing.perEvent} features={plan.features} />
             </div>
@@ -299,7 +320,7 @@ export const Pricing = () => {
         <div className="md:hidden">
           <Carousel className="w-full" opts={{ align: "start" }}>
             <CarouselContent className="ml-0 gap-3">
-              {translatedPlans.map((plan) => (
+              {visiblePlans.map((plan) => (
                 <CarouselItem key={plan.title} className="basis-[77%] pl-0">
                   <PlanCard plan={plan} perEvent={t.pricing.perEvent} features={plan.features} />
                 </CarouselItem>

@@ -2,6 +2,7 @@ import icon from "@/assets/ico.png";
 import { useLocation } from "react-router-dom";
 
 const seoLinks = [
+  { href: "/testimonios", label: "Testimonios" },
   { href: "/blog", label: "Blog" },
   { href: "/bodas/qr-fotos-boda", label: "QR para fotos de boda" },
   { href: "/bodas/galeria-privada-boda", label: "Galería privada boda" },

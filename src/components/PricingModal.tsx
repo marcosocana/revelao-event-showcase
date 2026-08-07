@@ -64,6 +64,8 @@ export const PricingModal = ({ open, onOpenChange }: PricingModalProps) => {
       small: [
         "200 fotos · 30 vídeos · 60 audios",
         "Galería 20 días",
+        "TV Slideshow en directo (Ver fotos en vivo)",
+        "Plantillas QR",
         "Descarga en alta calidad",
         "Personalización completa",
         "Acceso privado por enlace",
@@ -72,8 +74,10 @@ export const PricingModal = ({ open, onOpenChange }: PricingModalProps) => {
         "Ideal para celebraciones íntimas",
       ],
       medium: [
-        "1200 fotos · 90 vídeos · 200 audios",
-        "Galería 60 días",
+        "5.000 fotos · 200 vídeos · 500 audios",
+        "Galería online 100 días",
+        "TV Slideshow en directo (Ver fotos en vivo)",
+        "Plantillas QR",
         "Descarga en alta calidad",
         "Personalización completa",
         "Posibilidad de subir fotos y vídeos desde la galería del móvil",
@@ -86,6 +90,8 @@ export const PricingModal = ({ open, onOpenChange }: PricingModalProps) => {
       xxl: [
         "Fotos, vídeos y audios ilimitados",
         "Galería 90 días",
+        "TV Slideshow en directo (Ver fotos en vivo)",
+        "Plantillas QR",
         "Marca blanca personalizada (sin referencia a Revelao)",
         "Posibilidad de subir fotos y vídeos desde la galería del móvil",
         "Descarga en alta calidad",
@@ -108,6 +114,8 @@ export const PricingModal = ({ open, onOpenChange }: PricingModalProps) => {
       small: [
         "200 photos · 30 videos · 60 audios",
         "Gallery for 20 days",
+        "Live TV slideshow (View photos live)",
+        "QR templates",
         "High‑quality downloads",
         "Full customization",
         "Private access via link",
@@ -116,8 +124,10 @@ export const PricingModal = ({ open, onOpenChange }: PricingModalProps) => {
         "Ideal for intimate celebrations",
       ],
       medium: [
-        "1200 photos · 90 videos · 200 audios",
-        "Gallery for 60 days",
+        "5,000 photos · 200 videos · 500 audios",
+        "Online gallery for 100 days",
+        "Live TV slideshow (View photos live)",
+        "QR templates",
         "High‑quality downloads",
         "Full customization",
         "Option to upload photos and videos from your phone gallery",
@@ -130,6 +140,8 @@ export const PricingModal = ({ open, onOpenChange }: PricingModalProps) => {
       xxl: [
         "Unlimited photos, videos and audios",
         "Gallery for 90 days",
+        "Live TV slideshow (View photos live)",
+        "QR templates",
         "Custom white‑label (no Revelao branding)",
         "Option to upload photos and videos from your phone gallery",
         "High‑quality downloads",
@@ -152,6 +164,8 @@ export const PricingModal = ({ open, onOpenChange }: PricingModalProps) => {
       small: [
         "200 foto · 30 video · 60 audio",
         "Galleria 20 giorni",
+        "Slideshow TV in diretta (Guarda le foto dal vivo)",
+        "Modelli QR",
         "Download in alta qualità",
         "Personalizzazione completa",
         "Accesso privato tramite link",
@@ -160,8 +174,10 @@ export const PricingModal = ({ open, onOpenChange }: PricingModalProps) => {
         "Ideale per celebrazioni intime",
       ],
       medium: [
-        "1200 foto · 90 video · 200 audio",
-        "Galleria 60 giorni",
+        "5.000 foto · 200 video · 500 audio",
+        "Galleria online 100 giorni",
+        "Slideshow TV in diretta (Guarda le foto dal vivo)",
+        "Modelli QR",
         "Download in alta qualità",
         "Personalizzazione completa",
         "Possibilità di caricare foto e video dalla galleria del telefono",
@@ -174,6 +190,8 @@ export const PricingModal = ({ open, onOpenChange }: PricingModalProps) => {
       xxl: [
         "Foto, video e audio illimitati",
         "Galleria 90 giorni",
+        "Slideshow TV in diretta (Guarda le foto dal vivo)",
+        "Modelli QR",
         "White label personalizzato (senza riferimenti a Revelao)",
         "Possibilità di caricare foto e video dalla galleria del telefono",
         "Download in alta qualità",
