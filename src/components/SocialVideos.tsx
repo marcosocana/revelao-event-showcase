@@ -39,7 +39,11 @@ export const SocialVideos = () => {
       window.cancelAnimationFrame(animationFrame);
       animationFrame = window.requestAnimationFrame(() => {
         if (!mobileQuery.matches) {
-          videos.forEach((video) => video?.pause());
+          videos.forEach((video) => {
+            if (!video) return;
+            video.muted = true;
+            void video.play().catch(() => undefined);
+          });
           return;
         }
 
@@ -104,6 +108,7 @@ export const SocialVideos = () => {
                 className="aspect-[9/16] w-full bg-black object-cover"
                 aria-label={video.label}
                 controls
+                autoPlay
                 loop
                 muted
                 playsInline

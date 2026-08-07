@@ -45,7 +45,7 @@ export const BlogSection = () => {
   const canShowMore = visibleCount < allPosts.length;
 
   return (
-    <section id="blog" className="py-16 bg-transparent scroll-mt-12 md:scroll-mt-14">
+    <section id="blog" className="bg-transparent py-8 scroll-mt-12 md:scroll-mt-14 md:py-10">
       <div className="container px-4 mx-auto container-mobile-right-edge">
       <div className="mb-8 md:mb-10 text-center animate-fade-in">
         <h2 className="revelao-h2 mb-2 text-center">
@@ -140,7 +140,8 @@ export const BlogSection = () => {
       {canShowMore && (
         <div className="flex justify-center mt-10">
           <Button
-            variant="secondary"
+            variant="outline"
+            className="h-11 rounded-full border-border bg-white px-6 text-sm font-semibold text-foreground shadow-sm hover:bg-muted hover:text-foreground"
             onClick={() => setVisibleCount((count) => Math.min(count + MORE_COUNT, allPosts.length))}
           >
             {t.blog.seeMore}

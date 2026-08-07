@@ -75,7 +75,7 @@ export const Templates = () => {
 
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <a href="/plantillas-qr">
-              <Button className="rounded-full bg-primary px-8 text-primary-foreground hover:bg-primary/90">
+              <Button variant="outline" className="h-11 rounded-full border-border bg-white px-6 text-sm font-semibold text-foreground shadow-sm hover:bg-muted hover:text-foreground">
                 Ver todas las plantillas
               </Button>
             </a>

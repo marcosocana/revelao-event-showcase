@@ -172,7 +172,7 @@ export const translations = {
       subtitle:
         "Contenido útil e interesante sobre el mundo de los eventos, ideas y tendencias para inspirarte.",
       readMore: "Leer más",
-      seeMore: "Ver más",
+      seeMore: "Ver más posts",
     },
     freeTrial: {
       title: "¿Quieres probarlo?",
@@ -455,7 +455,7 @@ export const translations = {
       subtitle:
         "Useful and interesting content about events, ideas and trends to inspire you.",
       readMore: "Read more",
-      seeMore: "See more",
+      seeMore: "View more posts",
     },
     freeTrial: {
       title: "Want to try it?",
@@ -739,7 +739,7 @@ export const translations = {
       subtitle:
         "Contenuti utili e interessanti sul mondo degli eventi, idee e tendenze per ispirarti.",
       readMore: "Leggi di più",
-      seeMore: "Vedi altro",
+      seeMore: "Vedi altri post",
     },
     freeTrial: {
       title: "Vuoi provarlo?",

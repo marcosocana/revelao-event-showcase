@@ -1,4 +1,4 @@
-import { ArrowRight, Star } from "lucide-react";
+import { Star } from "lucide-react";
 import { Link } from "react-router-dom";
 import testimonialCouple from "@/assets/testimonial-feature-couple.avif";
 import testimonialFriends from "@/assets/testimonial-feature-friends.avif";
@@ -88,10 +88,9 @@ export const SuccessStories = () => {
         <div className="mt-8 flex justify-center">
           <Link
             to="/testimonios"
-            className="inline-flex h-11 items-center justify-center gap-2 rounded-full border border-border bg-white px-6 text-sm font-semibold text-foreground shadow-sm transition-colors hover:bg-muted"
+            className="inline-flex h-11 items-center justify-center rounded-full border border-border bg-white px-6 text-sm font-semibold text-foreground shadow-sm transition-colors hover:bg-muted"
           >
             Ver más reseñas
-            <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </Link>
         </div>
       </div>

@@ -608,18 +608,20 @@ All colors MUST be HSL.
     position: absolute;
     left: 0;
     width: 100%;
-    height: 220px;
+    height: 100%;
     z-index: 2;
     pointer-events: none;
   }
 
   .heroGradientTop {
-    top: var(--hero-top-offset, 100px);
+    top: 0;
     background: linear-gradient(
       to bottom,
-      rgba(255, 255, 255, 0.95) 0%,
-      rgba(255, 255, 255, 0.4) 45%,
-      rgba(255, 255, 255, 0) 100%
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0.96) 28%,
+      rgba(255, 255, 255, 0.82) 52%,
+      rgba(255, 255, 255, 0.5) 76%,
+      rgba(255, 255, 255, 0.24) 100%
     );
   }
 
@@ -986,7 +988,7 @@ All colors MUST be HSL.
 
   @media (max-width: 1028px) {
     .heroGradientTop {
-      top: var(--hero-subtitle-top, var(--hero-top-offset, 100px));
+      top: 0;
     }
   }
 
@@ -1026,13 +1028,14 @@ All colors MUST be HSL.
     }
 
     .heroGradientTop {
-      top: var(--hero-subtitle-top, var(--hero-top-offset, 100px));
-      height: 220px;
+      top: 0;
+      height: 100%;
       background: linear-gradient(
         to bottom,
         rgba(255, 255, 255, 1) 0%,
-        rgba(255, 255, 255, 0.6) 45%,
-        rgba(255, 255, 255, 0) 100%
+        rgba(255, 255, 255, 0.96) 30%,
+        rgba(255, 255, 255, 0.8) 58%,
+        rgba(255, 255, 255, 0.32) 100%
       );
     }
 

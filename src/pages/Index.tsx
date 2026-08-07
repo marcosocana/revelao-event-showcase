@@ -264,7 +264,8 @@ const Index = () => {
                       <p className="text-sm text-muted-foreground">{card.description}</p>
                     </div>
                     <Button
-                      className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full"
+                      variant="outline"
+                      className="h-11 rounded-full border-border bg-white px-6 text-sm font-semibold text-foreground shadow-sm hover:bg-muted hover:text-foreground"
                       onClick={() => openExample(card.url, card.title)}
                     >
                         Ver ejemplo
