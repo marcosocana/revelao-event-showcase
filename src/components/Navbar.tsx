@@ -9,7 +9,7 @@ const languageOptions: { value: Language; label: string; flag: string }[] = [
   { value: "en", label: "English", flag: "🇬🇧" },
   { value: "it", label: "Italiano", flag: "🇮🇹" },
 ];
-export const Navbar = () => {
+export const Navbar = ({ withTopBar = false }: { withTopBar?: boolean }) => {
   const { lang, setLang } = useI18n();
   const t = translations[lang];
   const accessDemoUrl = getAccessDemoUrl(lang);
@@ -27,7 +27,7 @@ export const Navbar = () => {
   ];
   const showEventsMenu = false;
 
-  return <nav className="fixed top-0 left-0 right-0 z-[9999] bg-white backdrop-blur-xl border-b border-border/60 supports-[backdrop-filter]:bg-white">
+  return <nav className={`fixed left-0 right-0 z-[9999] bg-white backdrop-blur-xl border-b border-border/60 supports-[backdrop-filter]:bg-white ${withTopBar ? "top-10" : "top-0"}`}>
       <div className="container px-4 mx-auto">
         <div className="flex items-center h-16">
           {/* Left: Logo */}

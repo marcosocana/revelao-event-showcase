@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Download, Palette, Printer, QrCode, Sparkles } from "lucide-react";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
+import { SubpageTopBar } from "@/components/SubpageTopBar";
 import { QrTemplate, TemplateCustomizerModal, TemplateThumbnail } from "@/components/TemplateCustomizerModal";
 import { qrTemplates } from "@/data/qrTemplates";
 import WhatsAppFloating from "@/components/WhatsAppFloating";
@@ -45,8 +46,9 @@ const QrTemplates = () => {
 
   return (
     <div className="min-h-screen bg-background" id="inicio">
-      <Navbar />
-      <main className="pt-16">
+      <SubpageTopBar />
+      <Navbar withTopBar />
+      <main className="pt-[6.5rem]">
         <section className="overflow-hidden border-b border-border bg-[radial-gradient(circle_at_top_left,hsl(var(--primary)/0.12),transparent_38%),linear-gradient(to_bottom,#fff,#faf8f5)] py-14 md:py-24">
           <div className="container mx-auto grid items-center gap-12 px-4 lg:grid-cols-[1fr_0.9fr]">
             <div className="max-w-3xl">

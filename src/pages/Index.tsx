@@ -16,7 +16,6 @@ import { HomeSeoContent } from "@/components/HomeSeoContent";
 import IphoneMockup3D from "@/components/IphoneMockup3D";
 import { TrialReminder } from "@/components/TrialReminder";
 import WhatsAppFloating from "@/components/WhatsAppFloating";
-import { SimpleCTA } from "@/components/SimpleCTA";
 import { CaptainsPromo } from "@/components/CaptainsPromo";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
@@ -290,9 +289,6 @@ const Index = () => {
         </div>
         <div className="section-white reveal-on-scroll">
           <KpiStrip />
-        </div>
-        <div className="section-gray reveal-on-scroll">
-          <SimpleCTA />
         </div>
         <div className="section-white reveal-on-scroll">
           <section className="py-4 md:py-8 bg-transparent scroll-mt-12 md:scroll-mt-14" id="faqs">

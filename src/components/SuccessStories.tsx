@@ -16,21 +16,21 @@ const featuredTestimonials = [
   },
   {
     image: testimonialFriends,
-    quote: "92 invitados reunieron 540 fotos y 68 vídeos sin descargar nada. Las fotos de la cena son nuestro recuerdo favorito.",
+    quote: "Entre fotos espontáneas, 34 vídeos y varios audios, pudimos vivir la boda desde los ojos de nuestros amigos. Nadie tuvo que instalar nada.",
     author: "Marta y Álvaro",
     location: "Madrid",
     date: "09.2025",
   },
   {
     image: testimonialFamily,
-    quote: "Más de 100 invitados subieron 670 fotos. Hasta mi abuela participó a la primera con el QR.",
+    quote: "Mi abuela fue la primera en escanear el QR. Al día siguiente teníamos 670 recuerdos y un audio de mi padre que guardaremos para siempre.",
     author: "Inés y Dani",
     location: "Bilbao",
     date: "04.2026",
   },
   {
     image: testimonialDance,
-    quote: "En una noche reunimos 910 fotos y 74 vídeos. Revivir el baile desde los móviles de nuestros amigos fue una pasada.",
+    quote: "El Revelado fue casi otra fiesta: el grupo no paraba de comentar las 910 fotos. Las del baile nos hicieron reír durante días.",
     author: "Claudia y Marcos",
     location: "Valencia",
     date: "07.2026",
@@ -88,7 +88,7 @@ export const SuccessStories = () => {
         <div className="mt-8 flex justify-center">
           <Link
             to="/testimonios"
-            className="inline-flex h-11 items-center justify-center gap-2 rounded-full border border-border bg-white px-6 text-sm font-semibold text-foreground shadow-sm transition-colors hover:bg-muted"
+            className="inline-flex h-11 items-center justify-center gap-2 rounded-full px-6 text-sm font-semibold text-foreground transition-colors hover:text-primary"
           >
             Ver más reseñas
             <ArrowRight className="h-4 w-4" aria-hidden="true" />

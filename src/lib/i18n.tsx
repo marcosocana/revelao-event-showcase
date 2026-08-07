@@ -64,32 +64,27 @@ export const translations = {
     },
     features: {
       title: "¿Cómo funciona?",
-      subtitle: "Explora la experiencia Revelao en solo 5 pasos:",
+      subtitle: "De crear el evento a descubrir todos los recuerdos al día siguiente. Sin apps, sin complicaciones.",
       steps: [
         {
-          title: "Crea tu evento en Revelao",
+          title: "Creas tu evento",
           description:
-            "Lo primero es dar de alta tu evento en Revelao. Puedes crearlo gratis, configurar el nombre del evento, una descripción y una imagen de fondo personalizada. Se generará un código QR para imprimirlo y colocarlo en carteles, pantallas o donde quieras.",
+            "Elige un evento gratuito o uno de nuestros planes y personalízalo en pocos minutos. Al terminar tendrás tu QR exclusivo listo.",
         },
         {
-          title: "Escanea el código",
+          title: "Imprime o comparte el QR",
           description:
-            "Durante el evento, tus invitados podrán escanear el código QR usando sus teléfonos móviles.",
+            "Envíalo por WhatsApp o colócalo en mesas, carteles y pantallas. También puedes crear una tarjeta lista para imprimir con nuestras plantillas.",
         },
         {
-          title: "Captura los mejores momentos",
+          title: "Tus invitados capturan el evento",
           description:
-            "Mientras transcurre el evento, tus invitados pueden subir todas las fotos, vídeos y mensajes de voz que quieran. Es anónimo y privado: sin apps, sin registros y sin dejar datos personales.",
+            "Solo tienen que escanearlo. Sin descargar ninguna app ni registrarse, podrán subir fotos, vídeos y audios desde cualquier rincón del evento.",
         },
         {
-          title: "Espera el revelado",
+          title: "Llega el momento del Revelado",
           description:
-            "Una vez se termina el evento, las fotos, vídeos y mensajes de voz permanecen ocultos hasta el Revelado. Nadie puede verlos ni escucharlos antes, creando misterio y emoción.",
-        },
-        {
-          title: "Por fin llega el revelado",
-          description:
-            "Al día siguiente del evento, desde el mismo QR, se abre el Revelado: todas las fotos, vídeos y mensajes de voz aparecen en una galería privada. Así, todos tus invitados podrán ver y escuchar lo de todos y revivir los mejores momentos.",
+            "Durante el evento todo permanece oculto. Al día siguiente se revela en una galería privada para que todos podáis descubrir y revivir lo que pasó.",
         },
       ],
       videoTitle: "Activa el sonido y siente el hype del revelado.",
@@ -352,32 +347,27 @@ export const translations = {
     },
     features: {
       title: "How it works",
-      subtitle: "Explore the Revelao experience in just 5 steps:",
+      subtitle: "From creating the event to discovering every memory the next day. No apps, no complications.",
       steps: [
         {
-          title: "Create your event in Revelao",
+          title: "Create your event",
           description:
-            "First, create your event in Revelao. You can start for free, set the event name, add a description and a custom background image. You will get a QR code to print and place on posters, screens, or wherever you want.",
+            "Choose a free event or one of our plans and personalize it in minutes. Your exclusive QR code will be ready straight away.",
         },
         {
-          title: "Scan the QR code",
+          title: "Print or share the QR",
           description:
-            "Guests scan the QR code they’ll find on posters, cards, etc.",
+            "Send it on WhatsApp or place it on tables, signs and screens. You can also create a print-ready card with our templates.",
         },
         {
-          title: "Capture the best moments",
+          title: "Guests capture the event",
           description:
-            "All guests can take photos during the event anonymously",
+            "They simply scan it. With no app or registration, they can upload photos, videos and voice notes from anywhere at the event.",
         },
         {
-          title: "Anticipation grows...",
+          title: "The Reveal arrives",
           description:
-            "Photos stay hidden during the event, creating mystery and excitement",
-        },
-        {
-          title: "Reveal day",
-          description:
-            "The next day, all photos are revealed in a private gallery to relive the best moments",
+            "Everything stays hidden during the event. The next day it appears in a private gallery so everyone can discover and relive what happened.",
         },
       ],
       videoTitle: "Turn on the sound and feel the reveal hype.",
@@ -641,32 +631,27 @@ export const translations = {
     },
     features: {
       title: "Come funziona",
-      subtitle: "Scopri l’esperienza Revelao in soli 5 passaggi:",
+      subtitle: "Dalla creazione dell’evento alla scoperta di tutti i ricordi il giorno dopo. Senza app né complicazioni.",
       steps: [
         {
-          title: "Crea il tuo evento su Revelao",
+          title: "Crea il tuo evento",
           description:
-            "Per prima cosa crea il tuo evento su Revelao. Puoi farlo gratis, impostare il nome dell’evento, una descrizione e un’immagine di sfondo personalizzata. Verrà generato un codice QR da stampare e posizionare su poster, schermi o dove preferisci.",
+            "Scegli un evento gratuito o uno dei nostri piani e personalizzalo in pochi minuti. Il tuo QR esclusivo sarà subito pronto.",
         },
         {
-          title: "Scansiona il QR",
+          title: "Stampa o condividi il QR",
           description:
-            "Gli invitati scansionano il QR che trovano su poster, cartoline, ecc.",
+            "Invialo su WhatsApp o posizionalo su tavoli, cartelli e schermi. Puoi anche creare una card pronta da stampare con i nostri modelli.",
         },
         {
-          title: "Cattura i momenti migliori",
+          title: "Gli invitati raccontano l’evento",
           description:
-            "Tutti possono scattare foto durante l’evento in modo anonimo",
+            "Basta scansionarlo. Senza app né registrazione, potranno caricare foto, video e messaggi vocali da qualsiasi punto dell’evento.",
         },
         {
-          title: "L’attesa cresce...",
+          title: "Arriva il momento del Revelao",
           description:
-            "Le foto restano nascoste durante l’evento, creando mistero ed emozione",
-        },
-        {
-          title: "Giorno della rivelazione",
-          description:
-            "Il giorno dopo tutte le foto vengono rivelate in una galleria privata",
+            "Durante l’evento tutto resta nascosto. Il giorno dopo appare in una galleria privata per scoprire e rivivere insieme ciò che è successo.",
         },
       ],
       videoTitle: "Attiva l’audio e vivi il reveal.",

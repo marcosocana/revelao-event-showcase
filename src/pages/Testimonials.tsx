@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ChevronDown, Heart, Star } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { SubpageTopBar } from "@/components/SubpageTopBar";
 import { Button } from "@/components/ui/button";
 import { testimonials, type TestimonialCategory } from "@/data/testimonials";
 import testimonialCouple from "@/assets/testimonial-feature-couple.avif";
@@ -43,8 +44,9 @@ const Testimonials = () => {
 
   return (
     <div className="min-h-screen bg-background" id="inicio">
-      <Navbar />
-      <main className="pt-16">
+      <SubpageTopBar />
+      <Navbar withTopBar />
+      <main className="pt-[6.5rem]">
         <section className="overflow-hidden border-b border-border bg-[radial-gradient(circle_at_top_left,hsl(var(--primary)/0.10),transparent_38%),linear-gradient(to_bottom,#fff,#fafafa)] py-14 md:py-24">
           <div className="container mx-auto grid items-center gap-12 px-4 lg:grid-cols-[1.05fr_0.95fr]">
             <div className="max-w-3xl">
