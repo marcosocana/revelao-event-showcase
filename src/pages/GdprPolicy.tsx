@@ -1,7 +1,12 @@
 import { LegalDocumentLayout, LegalSection } from "@/components/LegalDocumentLayout";
 
 const GdprPolicy = () => (
-  <LegalDocumentLayout title="Información RGPD" updated="07-08-2026">
+  <LegalDocumentLayout
+    title="Información RGPD"
+    updated="07-08-2026"
+    canonicalPath="/rgpd"
+    description="Información sobre el tratamiento de datos, las bases jurídicas y los derechos reconocidos por el RGPD en Revelao.cam."
+  >
     <LegalSection title="1. Quién trata los datos">
       <p>Revelao trata los datos de cuenta, contratación, facturación, soporte y navegación como responsable del tratamiento. Para consultas o ejercicio de derechos puede utilizarse <a className="font-medium text-foreground underline" href="mailto:revelao.cam@gmail.com">revelao.cam@gmail.com</a>.</p>
       <p>Respecto del contenido que los invitados suben a una galería, el organizador determina la finalidad, participantes y acceso al evento. Revelao presta la infraestructura tecnológica y puede actuar como encargado del tratamiento en los términos acordados con el organizador.</p>

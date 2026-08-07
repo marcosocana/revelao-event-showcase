@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Download, Mail, MessageSquareQuote } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -8,6 +7,7 @@ import mainLogo from "@/assets/LogoMiniRevelao.png";
 import compactLogo from "@/assets/logo-mini.png";
 import symbolLogo from "@/assets/ico.png";
 import productVisual from "@/assets/how-step-reveal-new.png";
+import { PageSeo } from "@/components/PageSeo";
 
 const brandAssets = [
   { name: "Logotipo principal", description: "Versión horizontal sobre fondo claro.", image: mainLogo, filename: "revelao-logo-principal.png", imageClass: "max-h-20 max-w-[88%]" },
@@ -16,20 +16,13 @@ const brandAssets = [
 ];
 
 const PressKit = () => {
-  useEffect(() => {
-    document.title = "Kit de prensa | Revelao.cam";
-    const description = "Logos, descripción oficial, datos básicos y recursos de prensa de Revelao.cam.";
-    let meta = document.querySelector('meta[name="description"]');
-    if (!meta) {
-      meta = document.createElement("meta");
-      meta.setAttribute("name", "description");
-      document.head.appendChild(meta);
-    }
-    meta.setAttribute("content", description);
-  }, []);
-
   return (
     <div className="min-h-screen bg-background" id="inicio">
+      <PageSeo
+        title="Kit de prensa de Revelao.cam: logos y recursos"
+        description="Descarga logos y consulta la descripción oficial, datos básicos y recursos de prensa de Revelao.cam."
+        canonicalPath="/kit-de-prensa"
+      />
       <Navbar />
       <main className="pt-16">
         <section className="border-b border-border bg-[linear-gradient(145deg,#fff_0%,#f7f5f3_100%)] py-14 md:py-24">

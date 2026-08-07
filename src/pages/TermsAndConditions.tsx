@@ -1,12 +1,18 @@
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { PageSeo } from "@/components/PageSeo";
 
 const TermsAndConditions = () => {
   const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-background">
+      <PageSeo
+        title="Términos y condiciones | Revelao.cam"
+        description="Consulta las condiciones de contratación, uso, almacenamiento y responsabilidad aplicables al servicio Revelao.cam."
+        canonicalPath="/terms"
+      />
       <header className="sticky top-0 z-50 p-4 flex items-center gap-4 bg-card border-b border-border">
         <Button variant="ghost" size="icon" onClick={() => navigate(-1)} className="rounded-full">
           <ArrowLeft className="w-5 h-5" />

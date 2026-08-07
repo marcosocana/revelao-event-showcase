@@ -1,7 +1,12 @@
 import { LegalDocumentLayout, LegalSection } from "@/components/LegalDocumentLayout";
 
 const ShippingPolicy = () => (
-  <LegalDocumentLayout title="Política de envíos" updated="07-08-2026">
+  <LegalDocumentLayout
+    title="Política de envíos"
+    updated="07-08-2026"
+    canonicalPath="/envios"
+    description="Información sobre producción, plazos, entrega y posibles incidencias de los productos impresos de Revelao.cam."
+  >
     <LegalSection title="1. Servicios digitales">
       <p>Los eventos, galerías, códigos QR y archivos PDF descargables son servicios o contenidos digitales. Se entregan electrónicamente y no generan gastos de transporte.</p>
     </LegalSection>

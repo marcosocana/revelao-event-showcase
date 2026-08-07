@@ -1,7 +1,12 @@
 import { LegalDocumentLayout, LegalSection } from "@/components/LegalDocumentLayout";
 
 const ReturnsPolicy = () => (
-  <LegalDocumentLayout title="Política de devoluciones" updated="07-08-2026">
+  <LegalDocumentLayout
+    title="Política de devoluciones"
+    updated="07-08-2026"
+    canonicalPath="/devoluciones"
+    description="Consulta las condiciones de desistimiento, cancelación y devolución para servicios digitales y productos impresos de Revelao."
+  >
     <LegalSection title="1. Ámbito de aplicación">
       <p>Esta política se aplica a los servicios digitales de Revelao y, cuando se contraten, a los productos impresos personalizados. Los derechos legales de consumidores y usuarios prevalecen sobre cualquier condición de esta página.</p>
     </LegalSection>

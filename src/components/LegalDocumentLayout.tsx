@@ -2,18 +2,22 @@ import type { ReactNode } from "react";
 import { ArrowLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { PageSeo } from "@/components/PageSeo";
 
 type LegalDocumentLayoutProps = {
   title: string;
   updated: string;
+  canonicalPath: string;
+  description: string;
   children: ReactNode;
 };
 
-export const LegalDocumentLayout = ({ title, updated, children }: LegalDocumentLayoutProps) => {
+export const LegalDocumentLayout = ({ title, updated, canonicalPath, description, children }: LegalDocumentLayoutProps) => {
   const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-background">
+      <PageSeo title={`${title} | Revelao.cam`} description={description} canonicalPath={canonicalPath} />
       <header className="sticky top-0 z-50 flex items-center gap-4 border-b border-border bg-card p-4">
         <Button variant="ghost" size="icon" onClick={() => navigate(-1)} className="rounded-full" aria-label="Volver">
           <ArrowLeft className="h-5 w-5" />

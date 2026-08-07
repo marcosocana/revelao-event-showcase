@@ -1,12 +1,18 @@
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { PageSeo } from "@/components/PageSeo";
 
 const PrivacyPolicy = () => {
   const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-background">
+      <PageSeo
+        title="Política de privacidad | Revelao.cam"
+        description="Consulta cómo Revelao.cam trata, conserva y protege los datos personales y el contenido de los eventos."
+        canonicalPath="/privacy"
+      />
       <header className="sticky top-0 z-50 p-4 flex items-center gap-4 bg-card border-b border-border">
         <Button variant="ghost" size="icon" onClick={() => navigate(-1)} className="rounded-full">
           <ArrowLeft className="w-5 h-5" />

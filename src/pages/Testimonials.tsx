@@ -1,10 +1,11 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown, Heart, Star } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { SubpageTopBar } from "@/components/SubpageTopBar";
 import { Button } from "@/components/ui/button";
+import { PageSeo } from "@/components/PageSeo";
 import { testimonials, type TestimonialCategory } from "@/data/testimonials";
 import testimonialCouple from "@/assets/testimonial-feature-couple.avif";
 import testimonialFriends from "@/assets/testimonial-feature-friends.avif";
@@ -17,18 +18,6 @@ const heroImages = [testimonialCouple, testimonialFriends, testimonialFamily, te
 const Testimonials = () => {
   const [category, setCategory] = useState<(typeof categories)[number]>("Todos");
   const [visibleCount, setVisibleCount] = useState(18);
-
-  useEffect(() => {
-    document.title = "Testimonios y opiniones sobre Revelao | Revelao.cam";
-    const description = "Descubre experiencias de bodas y eventos que reunieron fotos, vídeos y mensajes de sus invitados con Revelao.";
-    let meta = document.querySelector('meta[name="description"]');
-    if (!meta) {
-      meta = document.createElement("meta");
-      meta.setAttribute("name", "description");
-      document.head.appendChild(meta);
-    }
-    meta.setAttribute("content", description);
-  }, []);
 
   const filteredTestimonials = useMemo(
     () => category === "Todos" ? testimonials : testimonials.filter((item) => item.category === category),
@@ -44,6 +33,11 @@ const Testimonials = () => {
 
   return (
     <div className="min-h-screen bg-background" id="inicio">
+      <PageSeo
+        title="Testimonios y opiniones sobre Revelao | Revelao.cam"
+        description="Descubre experiencias reales de bodas y eventos que reunieron las fotos, vídeos y mensajes de sus invitados con Revelao."
+        canonicalPath="/testimonios"
+      />
       <SubpageTopBar />
       <Navbar withTopBar />
       <main className="pt-[6.5rem]">

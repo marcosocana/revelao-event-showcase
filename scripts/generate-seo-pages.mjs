@@ -140,16 +140,27 @@ const setTag = (html, pattern, replacement) =>
   pattern.test(html) ? html.replace(pattern, replacement) : html.replace("</head>", `${replacement}\n  </head>`);
 
 const renderPage = (template, page) => {
-  const canonical = `${siteUrl}${page.path === "/" ? "/" : page.path}`;
+  const canonical = page.canonical || `${siteUrl}${page.path === "/" ? "/" : page.path}`;
   const image = getAbsoluteImage(page.image);
   const jsonLd = JSON.stringify(page.schema);
+  const lang = page.lang || "es";
+  const robots = page.robots || "index, follow";
+  const alternates = (page.alternates || [])
+    .map(
+      ({ hreflang, href }) =>
+        `<link rel="alternate" hreflang="${escapeHtml(hreflang)}" href="${escapeHtml(href)}" />`,
+    )
+    .join("\n  ");
   let html = template;
-  html = html.replace(/<html lang="[^"]*">/, '<html lang="es">');
+  html = html.replace(/<html lang="[^"]*">/, `<html lang="${escapeHtml(lang)}">`);
   html = html.replace(/<title>[\s\S]*?<\/title>/, `<title>${escapeHtml(page.title)}</title>`);
   html = setTag(html, /<meta name="description" content="[^"]*" \/>/, `<meta name="description" content="${escapeHtml(page.description)}" />`);
   html = setTag(html, /<meta name="keywords" content="[^"]*" \/>/, `<meta name="keywords" content="${escapeHtml(page.keywords || "")}" />`);
-  html = setTag(html, /<meta name="robots" content="[^"]*" \/>/, '<meta name="robots" content="index, follow" />');
+  html = setTag(html, /<meta name="robots" content="[^"]*" \/>/, `<meta name="robots" content="${escapeHtml(robots)}" />`);
   html = setTag(html, /<link rel="canonical" href="[^"]*" \/>/, `<link rel="canonical" href="${canonical}" />`);
+  if (alternates) {
+    html = html.replace("</head>", `  ${alternates}\n  </head>`);
+  }
   html = setTag(html, /<meta property="og:title" content="[^"]*" \/>/, `<meta property="og:title" content="${escapeHtml(page.title)}" />`);
   html = setTag(html, /<meta property="og:description" content="[^"]*" \/>/, `<meta property="og:description" content="${escapeHtml(page.description)}" />`);
   html = setTag(html, /<meta property="og:url" content="[^"]*" \/>/, `<meta property="og:url" content="${canonical}" />`);
@@ -184,9 +195,24 @@ const baseSchema = {
   logo: `${siteUrl}/favicon.ico`,
 };
 
+const qrLandingAlternates = [
+  { hreflang: "es", href: `${siteUrl}/evento-qr` },
+  { hreflang: "en", href: `${siteUrl}/en/qr-event` },
+  { hreflang: "it", href: `${siteUrl}/it/evento-qr` },
+  { hreflang: "x-default", href: `${siteUrl}/evento-qr` },
+];
+
+const homeAlternates = [
+  { hreflang: "es", href: `${siteUrl}/` },
+  { hreflang: "en", href: `${siteUrl}/en/qr-event` },
+  { hreflang: "it", href: `${siteUrl}/it/evento-qr` },
+  { hreflang: "x-default", href: `${siteUrl}/` },
+];
+
 const landingPages = [
   {
     path: "/",
+    alternates: homeAlternates,
     title: "QR para bodas y eventos: fotos, vídeos y audios sin app | Revelao.cam",
     description:
       "Crea una galería privada con QR para tu boda o evento. Tus invitados suben fotos, vídeos y mensajes de audio sin app y todo se revela después.",
@@ -274,6 +300,8 @@ const landingPages = [
   },
   {
     path: "/evento-qr",
+    lang: "es",
+    alternates: qrLandingAlternates,
     title: "Evento con QR para recopilar fotos, vídeos y audios | Revelao.cam",
     description:
       "Usa un QR en tu evento para que los invitados suban fotos, vídeos y mensajes de audio sin instalar apps.",
@@ -286,6 +314,54 @@ const landingPages = [
       "@type": "WebPage",
       name: "Evento con QR",
       url: `${siteUrl}/evento-qr`,
+      publisher: baseSchema,
+    },
+  },
+  {
+    path: "/en/qr-event",
+    lang: "en",
+    alternates: qrLandingAlternates,
+    title: "QR photo gallery for weddings and events | No app | Revelao.cam",
+    description:
+      "Create a collaborative QR photo gallery for weddings, parties or company events. Guests upload photos, videos and voice messages without an app.",
+    keywords: "QR photo gallery, wedding photo sharing, event photos without app, wedding QR code",
+    image: "/og-image.jpg",
+    bodyHtml:
+      '<main><article><h1>QR photo gallery for weddings and events</h1>' +
+      '<p>Create your private event gallery, share its QR code and let every guest upload photos, videos and voice messages directly from their phone browser.</p>' +
+      '<h2>No app and no complicated registration</h2><p>Guests scan the code, choose what they want to share and upload it in seconds. Everything stays together in one private space.</p>' +
+      '<h2>Discover every memory after the event</h2><p>Content remains hidden during the celebration and is revealed afterwards, turning the gallery into a shared experience.</p>' +
+      '<p><a href="https://acceso.revelao.cam/en/nuevoeventodemo2">Create a free test event</a></p></article></main>',
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      name: "QR photo gallery for weddings and events",
+      inLanguage: "en",
+      url: `${siteUrl}/en/qr-event`,
+      publisher: baseSchema,
+    },
+  },
+  {
+    path: "/it/evento-qr",
+    lang: "it",
+    alternates: qrLandingAlternates,
+    title: "Galleria foto con QR per matrimoni ed eventi | Revelao.cam",
+    description:
+      "Crea una galleria collaborativa con QR per matrimoni, feste o eventi aziendali. Gli invitati caricano foto, video e messaggi vocali senza app.",
+    keywords: "galleria foto QR, foto matrimonio QR, condividere foto evento senza app, codice QR matrimonio",
+    image: "/og-image.jpg",
+    bodyHtml:
+      '<main><article><h1>Galleria foto con QR per matrimoni ed eventi</h1>' +
+      '<p>Crea la galleria privata del tuo evento, condividi il codice QR e consenti a ogni invitato di caricare foto, video e messaggi vocali dal browser del telefono.</p>' +
+      '<h2>Senza app e senza registrazioni complicate</h2><p>Gli invitati scansionano il codice, scelgono cosa condividere e lo caricano in pochi secondi. Tutto rimane ordinato in un unico spazio privato.</p>' +
+      '<h2>Scopri ogni ricordo dopo l’evento</h2><p>Durante la festa i contenuti restano nascosti e vengono rivelati in seguito, trasformando la galleria in un’esperienza condivisa.</p>' +
+      '<p><a href="https://acceso.revelao.cam/it/nuevoeventodemo2">Crea un evento di prova gratuito</a></p></article></main>',
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      name: "Galleria foto con QR per matrimoni ed eventi",
+      inLanguage: "it",
+      url: `${siteUrl}/it/evento-qr`,
       publisher: baseSchema,
     },
   },
@@ -315,6 +391,138 @@ const landingPages = [
     },
   },
 ];
+
+const legalPages = [
+  {
+    path: "/privacy",
+    title: "Política de privacidad | Revelao.cam",
+    description: "Consulta cómo Revelao.cam trata, conserva y protege los datos personales y el contenido de los eventos.",
+    h1: "Política de Privacidad",
+    sections: [
+      ["Responsable del tratamiento", "Revelao es responsable del tratamiento. Puedes contactar en revelao.cam@gmail.com."],
+      ["Datos y finalidad", "Tratamos los datos necesarios para prestar el servicio y el contenido que los usuarios deciden subir a sus eventos."],
+      ["Derechos del usuario", "Puedes solicitar acceso, rectificación o supresión escribiendo al correo de contacto."],
+    ],
+  },
+  {
+    path: "/terms",
+    title: "Términos y condiciones | Revelao.cam",
+    description: "Consulta las condiciones de contratación, uso, almacenamiento y responsabilidad aplicables al servicio Revelao.cam.",
+    h1: "Términos y Condiciones",
+    sections: [
+      ["Uso del servicio", "El uso de Revelao está sujeto a estas condiciones y a la normativa aplicable."],
+      ["Contenido y almacenamiento", "El usuario es responsable del contenido que publica y debe respetar los límites del plan contratado."],
+      ["Contacto", "Para cualquier consulta sobre estas condiciones puedes escribir a revelao.cam@gmail.com."],
+    ],
+  },
+  {
+    path: "/cookies",
+    title: "Política de cookies | Revelao.cam",
+    description: "Información sobre las cookies técnicas y analíticas utilizadas por Revelao.cam y cómo configurar el consentimiento.",
+    h1: "Política de Cookies",
+    sections: [
+      ["Qué son las cookies", "Las cookies son pequeños archivos que permiten recordar preferencias y prestar determinadas funciones."],
+      ["Cookies utilizadas", "Revelao utiliza cookies técnicas y, con consentimiento, herramientas de medición y análisis."],
+      ["Gestionar el consentimiento", "Puedes aceptar, rechazar o volver a configurar las cookies desde el enlace disponible en el pie de página."],
+    ],
+  },
+  {
+    path: "/devoluciones",
+    title: "Política de devoluciones | Revelao.cam",
+    description: "Consulta las condiciones de desistimiento, cancelación y devolución para servicios digitales y productos impresos de Revelao.",
+    h1: "Política de devoluciones",
+    sections: [
+      ["Servicios digitales", "El derecho de desistimiento puede quedar limitado cuando la prestación digital haya comenzado con consentimiento previo."],
+      ["Productos personalizados", "Los productos impresos personalizados no admiten devolución salvo defecto o incidencia imputable a la producción."],
+      ["Solicitar una devolución", "Escribe a revelao.cam@gmail.com indicando el pedido y el motivo de la solicitud."],
+    ],
+  },
+  {
+    path: "/envios",
+    title: "Política de envíos | Revelao.cam",
+    description: "Información sobre producción, plazos, entrega y posibles incidencias de los productos impresos de Revelao.cam.",
+    h1: "Política de envíos",
+    sections: [
+      ["Servicios digitales", "Los servicios digitales se entregan mediante acceso online y no requieren transporte físico."],
+      ["Productos impresos", "Los plazos dependen del formato, la cantidad, la producción y la dirección de entrega."],
+      ["Incidencias", "Comunica cualquier incidencia de transporte a revelao.cam@gmail.com para que podamos revisarla."],
+    ],
+  },
+  {
+    path: "/rgpd",
+    title: "Información RGPD | Revelao.cam",
+    description: "Información sobre el tratamiento de datos, las bases jurídicas y los derechos reconocidos por el RGPD en Revelao.cam.",
+    h1: "Información RGPD",
+    sections: [
+      ["Quién trata los datos", "Revelao trata los datos necesarios para crear y gestionar eventos y prestar sus servicios."],
+      ["Bases jurídicas y conservación", "Los tratamientos se basan en la ejecución del servicio, obligaciones legales o consentimiento, según corresponda."],
+      ["Ejercicio de derechos", "Puedes ejercer tus derechos de protección de datos escribiendo a revelao.cam@gmail.com."],
+    ],
+  },
+].map((page) => ({
+  ...page,
+  keywords: "Revelao, información legal, eventos",
+  image: "/og-image.jpg",
+  bodyHtml:
+    `<main><article><h1>${escapeHtml(page.h1)}</h1>` +
+    page.sections
+      .map(([title, text]) => `<section><h2>${escapeHtml(title)}</h2><p>${escapeHtml(text)}</p></section>`)
+      .join("") +
+    '</article></main>',
+  schema: {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: page.h1,
+    url: `${siteUrl}${page.path}`,
+    inLanguage: "es",
+    publisher: baseSchema,
+  },
+}));
+
+const testimonialsPage = {
+  path: "/testimonios",
+  title: "Testimonios y opiniones sobre Revelao | Revelao.cam",
+  description:
+    "Descubre experiencias reales de bodas y eventos que reunieron las fotos, vídeos y mensajes de sus invitados con Revelao.",
+  keywords: "opiniones Revelao, testimonios Revelao, fotos invitados boda, QR boda opiniones",
+  image: "/og-image.jpg",
+  bodyHtml:
+    '<main><article><h1>Momentos contados por quienes los vivieron</h1>' +
+    '<p>Más de 300 experiencias de parejas, familias y equipos que reunieron las fotos, vídeos y voces de sus invitados en un solo lugar.</p>' +
+    '<section><h2>Bodas</h2><p>Éramos casi 150 invitados y subieron más de 800 fotos. Al día siguiente pudimos descubrir momentos que no habíamos visto.</p></section>' +
+    '<section><h2>Cumpleaños y celebraciones</h2><p>El QR hizo que todos participaran sin instalar aplicaciones ni registrarse.</p></section>' +
+    '<section><h2>Eventos de empresa</h2><p>Las fotos, vídeos y audios quedaron reunidos en una galería privada y ordenada.</p></section>' +
+    '<p><a href="https://acceso.revelao.cam/nuevoeventodemo2">Probar Revelao gratis</a></p></article></main>',
+  schema: {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Testimonios y opiniones sobre Revelao",
+    url: `${siteUrl}/testimonios`,
+    inLanguage: "es",
+    publisher: baseSchema,
+  },
+};
+
+const nonIndexablePages = [
+  ["/blog/admin", "Administración del blog"],
+  ["/crearplantilla", "Editor de plantillas QR"],
+  ["/entornodemo", "Entorno de demostración"],
+  ["/pruebas", "Pruebas de Revelao"],
+].map(([pagePath, title]) => ({
+  path: pagePath,
+  title: `${title} | Revelao.cam`,
+  description: "Área funcional de Revelao.cam no destinada a resultados de búsqueda.",
+  keywords: "",
+  robots: "noindex, nofollow",
+  image: "/og-image.jpg",
+  bodyHtml: `<main><h1>${escapeHtml(title)}</h1><p>Cargando la aplicación de Revelao…</p></main>`,
+  schema: {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: title,
+    url: `${siteUrl}${pagePath}`,
+  },
+}));
 
 const captainsPagesByPath = new Map(captainsSeoPages.map((page) => [page.path, page]));
 
@@ -1774,14 +1982,36 @@ const getBlogIndexPage = (blogPages) => {
 const writeSitemap = (pages) => {
   const entries = pages
     .map(
-      (page) =>
-        `  <url>\n    <loc>${siteUrl}${page.path === "/" ? "/" : page.path}</loc>\n    <lastmod>${page.lastmod || new Date().toISOString().slice(0, 10)}</lastmod>\n    <changefreq>${page.path.startsWith("/blog/") ? "weekly" : "monthly"}</changefreq>\n    <priority>${page.path === "/" ? "1.0" : page.path.startsWith("/blog/") ? "0.7" : "0.8"}</priority>\n  </url>`,
+      (page) => {
+        const lastmod = page.lastmod ? `\n    <lastmod>${page.lastmod}</lastmod>` : "";
+        return `  <url>\n    <loc>${siteUrl}${page.path === "/" ? "/" : page.path}</loc>${lastmod}\n  </url>`;
+      },
     )
     .join("\n");
   fs.writeFileSync(
     path.join(distDir, "sitemap.xml"),
     `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries}\n</urlset>\n`,
   );
+};
+
+const writeNotFoundPage = (template) => {
+  const page = {
+    path: "/404",
+    title: "Página no encontrada | Revelao.cam",
+    description: "La página que buscas no existe o ha cambiado de dirección.",
+    keywords: "",
+    robots: "noindex, nofollow",
+    image: "/og-image.jpg",
+    bodyHtml:
+      '<main><article><h1>404</h1><p>La página que buscas no existe o ha cambiado de dirección.</p><p><a href="/">Volver a Revelao.cam</a></p></article></main>',
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      name: "Página no encontrada",
+      url: `${siteUrl}/404`,
+    },
+  };
+  fs.writeFileSync(path.join(distDir, "404.html"), renderPage(template, page));
 };
 
 const main = async () => {
@@ -1792,10 +2022,21 @@ const main = async () => {
   }
   const template = fs.readFileSync(templatePath, "utf8");
   const blogPages = await getBlogPages();
-  const pages = [...landingPages, ...captainsClusterPages, ...useCasePages, ...weddingSeoPages, getBlogIndexPage(blogPages), ...blogPages];
+  const pages = [
+    ...landingPages,
+    testimonialsPage,
+    ...legalPages,
+    ...captainsClusterPages,
+    ...useCasePages,
+    ...weddingSeoPages,
+    getBlogIndexPage(blogPages),
+    ...blogPages,
+  ];
   for (const page of pages) writePage(template, page);
+  for (const page of nonIndexablePages) writePage(template, page);
+  writeNotFoundPage(template);
   writeSitemap(pages);
-  console.log(`Generated SEO HTML for ${pages.length} routes.`);
+  console.log(`Generated SEO HTML for ${pages.length} indexable routes and ${nonIndexablePages.length} private routes.`);
 };
 
 main().catch((error) => {

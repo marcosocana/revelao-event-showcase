@@ -1,24 +1,12 @@
-import { useEffect } from "react";
 import { Heart, ScanLine, ShieldCheck, Sparkles } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import WhatsAppFloating from "@/components/WhatsAppFloating";
 import productVisual from "@/assets/how-step-create-new.png";
+import { PageSeo } from "@/components/PageSeo";
 
 const AboutUs = () => {
-  useEffect(() => {
-    document.title = "Quiénes somos | Revelao.cam";
-    const description = "Conoce a Marcos, fundador de Revelao.cam, y la idea detrás de una forma diferente de reunir y revelar los recuerdos de un evento.";
-    let meta = document.querySelector('meta[name="description"]');
-    if (!meta) {
-      meta = document.createElement("meta");
-      meta.setAttribute("name", "description");
-      document.head.appendChild(meta);
-    }
-    meta.setAttribute("content", description);
-  }, []);
-
   const principles = [
     {
       icon: ScanLine,
@@ -39,6 +27,11 @@ const AboutUs = () => {
 
   return (
     <div className="min-h-screen bg-background" id="inicio">
+      <PageSeo
+        title="Quiénes somos: Marcos, fundador de Revelao.cam"
+        description="Conoce a Marcos, fundador de Revelao.cam, y la idea detrás de una forma diferente de reunir y revelar los recuerdos de un evento."
+        canonicalPath="/quienes-somos"
+      />
       <Navbar />
       <main className="pt-16">
         <section className="overflow-hidden border-b border-border bg-[linear-gradient(145deg,#fff_0%,#f7f5f3_100%)] py-14 md:py-24">

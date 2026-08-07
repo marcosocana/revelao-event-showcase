@@ -1,5 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { PageSeo } from "@/components/PageSeo";
 
 const NotFound = () => {
   const location = useLocation();
@@ -10,11 +11,17 @@ const NotFound = () => {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-muted">
+      <PageSeo
+        title="Página no encontrada | Revelao.cam"
+        description="La página que buscas no existe o ha cambiado de dirección."
+        canonicalPath={location.pathname}
+        robots="noindex, nofollow"
+      />
       <div className="text-center">
         <h1 className="mb-4 text-4xl font-bold">404</h1>
-        <p className="mb-4 text-xl text-muted-foreground">Oops! Page not found</p>
+        <p className="mb-4 text-xl text-muted-foreground">La página que buscas no existe</p>
         <a href="/" className="text-primary underline hover:text-primary/90">
-          Return to Home
+          Volver a Revelao.cam
         </a>
       </div>
     </div>

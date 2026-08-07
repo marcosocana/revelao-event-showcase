@@ -53,9 +53,56 @@
       "source": "/blog/cmo-recoger-todas-las-fotos-de-tu-boda-sin-whatsapp-gua-2026",
       "destination": "/blog/como-recoger-fotos-boda-sin-whatsapp-guia-2026",
       "permanent": true
+    },
+    {
+      "source": "/events/:slug",
+      "destination": "/eventos/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/en/events/:slug",
+      "destination": "/eventos/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/it/eventi/:slug",
+      "destination": "/eventos/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/en/privacy",
+      "destination": "/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/en/terms",
+      "destination": "/terms",
+      "permanent": true
+    },
+    {
+      "source": "/en/cookies",
+      "destination": "/cookies",
+      "permanent": true
+    },
+    {
+      "source": "/it/privacy",
+      "destination": "/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/it/terms",
+      "destination": "/terms",
+      "permanent": true
+    },
+    {
+      "source": "/it/cookies",
+      "destination": "/cookies",
+      "permanent": true
+    },
+    {
+      "source": "/acceso",
+      "destination": "https://tomorrow-snap-reveal.vercel.app",
+      "permanent": false
     }
-  ],
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
   ]
 }
