@@ -79,11 +79,6 @@ export const Templates = () => {
                 Ver todas las plantillas
               </Button>
             </a>
-            <a href="/crearplantilla">
-              <Button variant="outline" className="rounded-full px-8">
-                Crear desde cero
-              </Button>
-            </a>
           </div>
         </div>
       </div>
