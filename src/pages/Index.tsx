@@ -285,8 +285,8 @@ const Index = () => {
         <div className="section-white reveal-on-scroll">
           <Templates />
         </div>
-        <div className="section-white reveal-on-scroll">
-          <BlogSection />
+        <div className="section-gray reveal-on-scroll">
+          <SuccessStories />
         </div>
         <div className="section-white reveal-on-scroll">
           <KpiStrip />
@@ -303,8 +303,8 @@ const Index = () => {
             </div>
           </section>
         </div>
-        <div className="section-gray reveal-on-scroll">
-          <SuccessStories />
+        <div className="section-white reveal-on-scroll">
+          <BlogSection />
         </div>
         <div className="reveal-on-scroll">
           <HomeSeoContent />
