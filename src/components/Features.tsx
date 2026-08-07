@@ -9,6 +9,10 @@ import step1Image from "@/assets/11.png";
 import step2Image from "@/assets/how-step-captura.png";
 import step3Image from "@/assets/how-step-esperando.png";
 import step4Image from "@/assets/how-step-revelado.png";
+import stepCreateNew from "@/assets/how-step-create-new.png";
+import stepShareNew from "@/assets/how-step-share-new.png";
+import stepUploadNew from "@/assets/how-step-upload-new.png";
+import stepRevealNew from "@/assets/how-step-reveal-new.png";
 import landingVideoSrc from "@/assets/RevelaoComprimido.mp4";
 import landingVideoPoster from "@/assets/Revelao_4_poster.jpg";
 import { getAccessDemoUrl, useI18n, translations } from "@/lib/i18n";
@@ -46,7 +50,7 @@ export const Features = ({
   const [isDesktop, setIsDesktop] = useState(false);
   const sourceSteps = stepsOverride ?? t.features.steps;
   const selectedImages = sourceSteps.length === 4
-    ? [step0Image, step1Image, step2Image, step4Image]
+    ? [stepCreateNew, stepShareNew, stepUploadNew, stepRevealNew]
     : featureImages;
   const features = sourceSteps.map((step, index) => ({
     ...step,
