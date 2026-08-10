@@ -8,6 +8,8 @@ type CaptainsCheckoutPayload = {
   includeCaptainBox?: boolean;
 };
 
+const GAME_UNIT_AMOUNT = 495;
+
 const parseTableCount = (value: unknown) => {
   const numericValue = Number(value);
 
@@ -23,6 +25,13 @@ const appendLineItem = (params: URLSearchParams, index: number, priceId: string,
   params.append(`line_items[${index}][quantity]`, String(quantity));
 };
 
+const appendGameLineItem = (params: URLSearchParams, quantity: number) => {
+  params.append("line_items[0][price_data][currency]", "eur");
+  params.append("line_items[0][price_data][unit_amount]", String(GAME_UNIT_AMOUNT));
+  params.append("line_items[0][price_data][product_data][name]", "Capitanes by Revelao");
+  params.append("line_items[0][quantity]", String(quantity));
+};
+
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response("ok", { headers: corsHeaders });
@@ -34,10 +43,9 @@ Deno.serve(async (req) => {
 
   try {
     const stripeSecretKey = Deno.env.get("STRIPE_SECRET_KEY");
-    const gamePriceId = Deno.env.get("STRIPE_CAPTAINS_GAME_PRICE_ID");
     const captainBoxPriceId = Deno.env.get("STRIPE_CAPTAINS_BOX_PRICE_ID");
 
-    if (!stripeSecretKey || !gamePriceId || !captainBoxPriceId) {
+    if (!stripeSecretKey || !captainBoxPriceId) {
       return new Response("Missing Stripe environment variables", { status: 500, headers: corsHeaders });
     }
 
@@ -54,7 +62,7 @@ Deno.serve(async (req) => {
     params.append("metadata[product]", "capitanes");
     params.append("metadata[table_count]", String(tableCount));
     params.append("metadata[include_captain_box]", String(includeCaptainBox));
-    appendLineItem(params, 0, gamePriceId, tableCount);
+    appendGameLineItem(params, tableCount);
 
     if (includeCaptainBox) {
       appendLineItem(params, 1, captainBoxPriceId, tableCount);

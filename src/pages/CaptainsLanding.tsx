@@ -124,8 +124,10 @@ const captainTemplates = [
     className: "captains-template-card-olive",
   },
 ];
-const pricePerTable = 3;
+const pricePerTable = 4.95;
 const captainBoxPricePerTable = 12.95;
+const formatPrice = (price: number) =>
+  price.toLocaleString("es-ES", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 const checkoutErrorMessage =
   "No hemos podido abrir el pago ahora mismo. Escríbenos por WhatsApp y te ayudamos en un momento.";
 const rankingSnapshots = [
@@ -215,14 +217,7 @@ const CaptainsLanding = () => {
     [includeCaptainBox, normalizedTableCount],
   );
   const totalPrice = useMemo(() => gameTotal + captainBoxTotal, [captainBoxTotal, gameTotal]);
-  const formattedTotalPrice = useMemo(
-    () =>
-      new Intl.NumberFormat("es-ES", {
-        minimumFractionDigits: Number.isInteger(totalPrice) ? 0 : 2,
-        maximumFractionDigits: 2,
-      }).format(totalPrice),
-    [totalPrice],
-  );
+  const formattedTotalPrice = useMemo(() => formatPrice(totalPrice), [totalPrice]);
   const currentRanking = rankingSnapshots[rankingStep];
 
   useEffect(() => {
@@ -504,7 +499,7 @@ const CaptainsLanding = () => {
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
           <div className="max-w-xl">
             <p className="captains-section-label">Precios</p>
-            <h2 className="captains-heading mt-3">Juego desde 3€ por mesa</h2>
+            <h2 className="captains-heading mt-3">Juego desde 4,95€ por mesa</h2>
             <p className="mt-4 text-lg font-bold leading-7 text-[#151515]/70">
               Compra solo el juego o añade la Caja Capitán como extra. Recibirás un enlace por email para personalizar
               retos, preguntas sobre la pareja y pruebas para cada mesa
@@ -527,7 +522,7 @@ const CaptainsLanding = () => {
                   onChange={(event) => setTableCount(event.target.value)}
                   className="captains-pricing-input"
                 />
-                <span className="text-lg font-black">x {pricePerTable}€ juego</span>
+                <span className="text-lg font-black">x {formatPrice(pricePerTable)}€ juego</span>
               </div>
             </div>
 
@@ -544,7 +539,7 @@ const CaptainsLanding = () => {
             </label>
 
             <div className="captains-price-lines">
-              <span>Juego: {gameTotal.toLocaleString("es-ES")}€</span>
+              <span>Juego: {formatPrice(gameTotal)}€</span>
               <span>Caja Capitán: {captainBoxTotal.toLocaleString("es-ES", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}€</span>
             </div>
 

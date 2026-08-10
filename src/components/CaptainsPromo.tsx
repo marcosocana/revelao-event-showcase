@@ -7,7 +7,7 @@ const copy = {
     title: "¿Buscas algo para dinamizar a tus capitanes de mesa?",
     description:
       "Descubre Capitanes: retos, pruebas y un ranking en directo para convertir cada mesa en un equipo y llenar vuestra boda de recuerdos.",
-    price: "Solo desde 3 € por mesa",
+    price: "Solo desde 4,95 € por mesa",
     cta: "Descubrir Capitanes",
   },
   en: {
@@ -15,7 +15,7 @@ const copy = {
     title: "Looking for a way to engage your table captains?",
     description:
       "Discover Captains: challenges, games and a live ranking that turn every table into a team and fill your wedding with memories.",
-    price: "From just €3 per table",
+    price: "From just €4.95 per table",
     cta: "Discover Captains",
   },
   it: {
@@ -23,7 +23,7 @@ const copy = {
     title: "Cerchi un modo per coinvolgere i capitani dei tavoli?",
     description:
       "Scopri Capitanes: sfide, giochi e una classifica in diretta per trasformare ogni tavolo in una squadra e riempire il matrimonio di ricordi.",
-    price: "A partire da soli 3 € per tavolo",
+    price: "A partire da soli 4,95 € per tavolo",
     cta: "Scopri Capitanes",
   },
 } as const;
