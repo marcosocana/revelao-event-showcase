@@ -123,7 +123,7 @@ const plans = [
     price: "17€",
     description: "Para un regalo íntimo y lleno de significado.",
     features: ["Textos, fotos, vídeos y audios", "Fecha de apertura personalizada", "Enlace y QR para compartir"],
-    href: import.meta.env.VITE_STRIPE_TIME_CAPSULE_50_URL ?? "https://stripe.com/es",
+    href: import.meta.env.VITE_STRIPE_TIME_CAPSULE_50_URL ?? "https://buy.stripe.com/bJebIUgGZ6zsgIv8TR3ks07",
   },
   {
     name: "Recuerdos",
@@ -131,7 +131,7 @@ const plans = [
     price: "67€",
     description: "La opción ideal para celebraciones con todos los tuyos.",
     features: ["Todo lo incluido en Esencial", "Hasta 200 aportaciones", "Descarga de todos los recuerdos"],
-    href: import.meta.env.VITE_STRIPE_TIME_CAPSULE_200_URL ?? "https://stripe.com/es",
+    href: import.meta.env.VITE_STRIPE_TIME_CAPSULE_200_URL ?? "https://buy.stripe.com/cNibIU8at2jc4ZNeeb3ks09",
     featured: true,
     badge: "Más elegido",
   },
@@ -141,7 +141,7 @@ const plans = [
     price: "130€",
     description: "Para grandes historias en las que todo el mundo cuenta.",
     features: ["Todo lo incluido en Recuerdos", "Aportaciones ilimitadas", "Ideal para grandes eventos"],
-    href: import.meta.env.VITE_STRIPE_TIME_CAPSULE_UNLIMITED_URL ?? "https://stripe.com/es",
+    href: import.meta.env.VITE_STRIPE_TIME_CAPSULE_UNLIMITED_URL ?? "https://buy.stripe.com/aFabIU9ex1f83VJ3zx3ks08",
   },
 ];
 
