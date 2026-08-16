@@ -118,7 +118,7 @@ const templates = [
 
 const plans = [
   {
-    name: "Esencial",
+    name: "Evento Basic",
     messages: "Hasta 50 mensajes",
     price: "17€",
     description: "Para un regalo íntimo y lleno de significado.",
@@ -126,21 +126,21 @@ const plans = [
     href: import.meta.env.VITE_STRIPE_TIME_CAPSULE_50_URL ?? "https://buy.stripe.com/bJebIUgGZ6zsgIv8TR3ks07",
   },
   {
-    name: "Recuerdos",
+    name: "Evento Pro",
     messages: "Hasta 200 mensajes",
     price: "67€",
     description: "La opción ideal para celebraciones con todos los tuyos.",
-    features: ["Todo lo incluido en Esencial", "Hasta 200 aportaciones", "Descarga de todos los recuerdos"],
+    features: ["Todo lo incluido en Basic", "Hasta 200 aportaciones", "Descarga de todos los recuerdos"],
     href: import.meta.env.VITE_STRIPE_TIME_CAPSULE_200_URL ?? "https://buy.stripe.com/cNibIU8at2jc4ZNeeb3ks09",
     featured: true,
     badge: "Más elegido",
   },
   {
-    name: "Sin límites",
+    name: "Evento Sin límites",
     messages: "Mensajes ilimitados",
     price: "130€",
     description: "Para grandes historias en las que todo el mundo cuenta.",
-    features: ["Todo lo incluido en Recuerdos", "Aportaciones ilimitadas", "Ideal para grandes eventos"],
+    features: ["Todo lo incluido en Pro", "Aportaciones ilimitadas", "Ideal para grandes eventos"],
     href: import.meta.env.VITE_STRIPE_TIME_CAPSULE_UNLIMITED_URL ?? "https://buy.stripe.com/aFabIU9ex1f83VJ3zx3ks08",
   },
 ];
@@ -449,7 +449,7 @@ const TimeCapsuleLanding = () => {
                     ))}
                   </ul>
                   <Button className="mt-auto w-full rounded-full bg-primary text-primary-foreground hover:bg-primary/90" asChild>
-                    <a href={plan.href} target="_blank" rel="noopener noreferrer">Comprar {plan.name}<ArrowRight className="ml-2 h-4 w-4" /></a>
+                    <a href={plan.href} target="_blank" rel="noopener noreferrer">Comprar<ArrowRight className="ml-2 h-4 w-4" /></a>
                   </Button>
                 </article>
               ))}
