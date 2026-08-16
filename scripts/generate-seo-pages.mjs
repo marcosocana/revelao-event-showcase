@@ -236,6 +236,35 @@ const landingPages = [
     },
   },
   {
+    path: "/capsuladeltiempo",
+    title: "Cápsula del tiempo digital | Guarda mensajes para el futuro | Revelao",
+    description:
+      "Crea una cápsula del tiempo digital con mensajes, fotos, vídeos y audios. Compártela con los tuyos y abridla juntos en una fecha especial.",
+    keywords:
+      "cápsula del tiempo digital, cápsula del tiempo online, regalo para el futuro, mensajes para el futuro, cápsula de recuerdos",
+    image: "/og-image.jpg",
+    bodyHtml:
+      "<main><article><h1>Hay recuerdos que merecen esperar</h1>" +
+      "<p>Reúne mensajes, fotos, vídeos y audios de las personas que quieres en una cápsula del tiempo digital privada. Elige una fecha y volved a abrirla juntos cuando llegue el momento.</p>" +
+      "<h2>Qué es una cápsula del tiempo digital</h2><p>Es un espacio privado donde guardar palabras, imágenes y voces para descubrirlas en una fecha especial. Puede ser un regalo de boda, una sorpresa de cumpleaños o un recuerdo para el futuro.</p>" +
+      "<h2>Cómo funciona</h2><p>Crea la cápsula, comparte el enlace o código QR, recibe las aportaciones y fija la fecha de apertura. Los participantes pueden enviar contenido desde el móvil sin instalar una aplicación.</p>" +
+      "<h2>Plantillas para cada historia</h2><p>Elige un diseño y personaliza los textos, colores y la fecha de apertura para que la cápsula encaje con vuestra ocasión.</p>" +
+      "<h2>Precios</h2><p>El pack Esencial incluye hasta 50 mensajes por 17 euros, Recuerdos permite hasta 200 mensajes por 67 euros y Sin límites admite mensajes ilimitados por 130 euros.</p>" +
+      '<p><a href="#precio">Crear mi cápsula del tiempo</a></p></article></main>',
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      name: "Cápsula del tiempo digital by Revelao",
+      description: "Cápsula del tiempo digital privada para guardar mensajes, fotos, vídeos y audios.",
+      brand: { "@type": "Brand", name: "Revelao" },
+      offers: [
+        { "@type": "Offer", priceCurrency: "EUR", price: "17", availability: "https://schema.org/InStock" },
+        { "@type": "Offer", priceCurrency: "EUR", price: "67", availability: "https://schema.org/InStock" },
+        { "@type": "Offer", priceCurrency: "EUR", price: "130", availability: "https://schema.org/InStock" },
+      ],
+    },
+  },
+  {
     path: "/quienes-somos",
     title: "Quiénes somos: Marcos, fundador de Revelao.cam",
     description:
