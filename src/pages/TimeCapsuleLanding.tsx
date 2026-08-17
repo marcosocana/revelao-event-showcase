@@ -5,15 +5,11 @@ import {
   CalendarClock,
   Camera,
   Check,
-  ChevronRight,
   Clock3,
   Heart,
-  Image,
   LockKeyhole,
   MessageCircleHeart,
-  Mic2,
   Play,
-  Quote,
   Sparkles,
   Users,
   Video,
@@ -24,7 +20,7 @@ import { Footer } from "@/components/Footer";
 import { getAdminLoginUrl } from "@/lib/i18n";
 import icon from "@/assets/ico.png";
 
-const timeCapsuleDemoUrl = "https://acceso.revelao.cam/capsuladeltiempo/demo";
+const timeCapsuleDemoUrl = "https://acceso.revelao.cam/capsula/33485fa7-57c4-49e2-86ee-347e43f6cdd5";
 
 const navItems = [
   { label: "Qué es", href: "#que-es" },
@@ -37,49 +33,49 @@ const navItems = [
 const steps = [
   {
     number: "01",
-    title: "Crea tu cápsula",
-    description: "Ponle un nombre, elige una plantilla y decide cuándo se podrá abrir.",
+    title: "Crea vuestra cápsula",
+    description: "Personalízala con vuestros nombres y elegid en qué aniversario queréis abrirla.",
     icon: Sparkles,
   },
   {
     number: "02",
-    title: "Invita a participar",
-    description: "Comparte el enlace o el código QR con todas las personas que quieras.",
+    title: "Comparte el QR",
+    description: "Colócalo en la boda para que todos los invitados puedan participar desde su móvil.",
     icon: Users,
   },
   {
     number: "03",
-    title: "Guardad los mensajes",
-    description: "Recibe textos, fotos, vídeos y audios en un único lugar privado.",
+    title: "Recibid sus mensajes",
+    description: "Cada invitado graba un vídeo con deseos, anécdotas o palabras para vuestro futuro.",
     icon: MessageCircleHeart,
   },
   {
     number: "04",
-    title: "Vivid el momento",
-    description: "Cuando llegue la fecha, abrid la cápsula y disfrutad de cada recuerdo.",
+    title: "Abridla juntos",
+    description: "Cuando llegue vuestro aniversario, descubrid por primera vez todos los mensajes.",
     icon: CalendarClock,
   },
 ];
 
 const examples = [
   {
-    eyebrow: "Para una boda",
-    title: "Mensajes para vuestro primer aniversario",
-    description: "Los invitados dejan consejos, vídeos y deseos el día de la boda. La pareja los descubre un año después.",
+    eyebrow: "Primer aniversario",
+    title: "Volved a escuchar a todos un año después",
+    description: "Familiares y amigos graban sus deseos durante la boda para que los descubráis al celebrar vuestro primer año juntos.",
     icon: Heart,
     tint: "bg-red-50",
   },
   {
-    eyebrow: "Para un cumpleaños",
-    title: "Un regalo firmado por todos",
-    description: "Amigos y familia reúnen recuerdos, audios y fotos que se abren juntos durante la celebración.",
+    eyebrow: "Sorpresa para los novios",
+    title: "Un regalo secreto creado por los invitados",
+    description: "La familia o los amigos preparan la cápsula y reúnen mensajes emotivos sin que la pareja sepa qué encontrará dentro.",
     icon: Sparkles,
     tint: "bg-amber-50",
   },
   {
-    eyebrow: "Para el futuro",
-    title: "Palabras que esperan el momento justo",
-    description: "Crea una cápsula para un bebé, una graduación o cualquier fecha que merezca ser recordada.",
+    eyebrow: "Una boda irrepetible",
+    title: "Las historias que solo pueden contarse en vídeo",
+    description: "Guardad consejos, historias y declaraciones espontáneas de quienes compartieron con vosotros ese día.",
     icon: Clock3,
     tint: "bg-blue-50",
   },
@@ -87,60 +83,56 @@ const examples = [
 
 const templates = [
   {
-    name: "Nuestra historia",
-    caption: "Cálida y romántica",
-    className: "bg-[#f4e8e2] text-[#5b3933]",
-    accent: "bg-[#b8685d]",
-    lines: ["PARA VOLVER", "A ESTE DÍA"],
+    name: "Romántica",
+    caption: "Rosas, velas y tonos empolvados",
+    image: "/capsule-card-romantic.jpg",
+    contentClass: "left-[28%] right-[26%] top-[20%] bottom-[24%] text-[#5b3933]",
   },
   {
-    name: "Dentro de un año",
-    caption: "Editorial y elegante",
-    className: "bg-[#171717] text-white",
-    accent: "bg-white",
-    lines: ["ABRIR EN", "AGOSTO 2027"],
+    name: "Clásica",
+    caption: "Papel artesanal y flores blancas",
+    image: "/capsule-card-classic.jpg",
+    contentClass: "left-[25%] right-[20%] top-[24%] bottom-[18%] text-[#3d342d]",
   },
   {
-    name: "Pequeños comienzos",
-    caption: "Dulce y luminosa",
-    className: "bg-[#e8efe5] text-[#3f5540]",
-    accent: "bg-[#758c73]",
-    lines: ["PARA CUANDO", "SEAS MAYOR"],
+    name: "Mediterránea",
+    caption: "Luminosa, natural y sencilla",
+    image: "/capsule-card-mediterranean.jpg",
+    contentClass: "left-[24%] right-[24%] top-[25%] bottom-[20%] text-[#3f5540]",
   },
   {
-    name: "El mejor está por llegar",
-    caption: "Colorida y alegre",
-    className: "bg-[#f4d95d] text-[#352f22]",
-    accent: "bg-[#e9584f]",
-    lines: ["NOS VEMOS", "EN EL FUTURO"],
+    name: "Noche",
+    caption: "Negra, minimalista y elegante",
+    image: "/capsule-card-modern.jpg",
+    contentClass: "left-[29%] right-[25%] top-[31%] bottom-[14%] text-white",
   },
 ];
 
 const plans = [
   {
-    name: "Evento Basic",
-    messages: "Hasta 50 mensajes",
+    name: "Boda íntima",
+    messages: "Hasta 50 vídeos",
     price: "17€",
-    description: "Para un regalo íntimo y lleno de significado.",
-    features: ["Textos, fotos, vídeos y audios", "Fecha de apertura personalizada", "Enlace y QR para compartir"],
+    description: "Para bodas íntimas y celebraciones con las personas más cercanas.",
+    features: ["Hasta 50 mensajes en vídeo", "Aniversario de apertura personalizado", "Enlace y QR para los invitados"],
     href: import.meta.env.VITE_STRIPE_TIME_CAPSULE_50_URL ?? "https://buy.stripe.com/bJebIUgGZ6zsgIv8TR3ks07",
   },
   {
-    name: "Evento Pro",
-    messages: "Hasta 200 mensajes",
+    name: "Boda completa",
+    messages: "Hasta 200 vídeos",
     price: "67€",
-    description: "La opción ideal para celebraciones con todos los tuyos.",
-    features: ["Todo lo incluido en Basic", "Hasta 200 aportaciones", "Descarga de todos los recuerdos"],
+    description: "La opción ideal para que participe toda vuestra boda.",
+    features: ["Todo lo incluido en Boda íntima", "Hasta 200 mensajes de invitados", "Descarga de todos los vídeos"],
     href: import.meta.env.VITE_STRIPE_TIME_CAPSULE_200_URL ?? "https://buy.stripe.com/cNibIU8at2jc4ZNeeb3ks09",
     featured: true,
     badge: "Más elegido",
   },
   {
-    name: "Evento Sin límites",
-    messages: "Mensajes ilimitados",
+    name: "Boda sin límites",
+    messages: "Vídeos ilimitados",
     price: "130€",
-    description: "Para grandes historias en las que todo el mundo cuenta.",
-    features: ["Todo lo incluido en Pro", "Aportaciones ilimitadas", "Ideal para grandes eventos"],
+    description: "Para bodas grandes en las que nadie se queda sin dejar su mensaje.",
+    features: ["Todo lo incluido en Boda completa", "Mensajes de boda ilimitados", "Ideal para grandes celebraciones"],
     href: import.meta.env.VITE_STRIPE_TIME_CAPSULE_UNLIMITED_URL ?? "https://buy.stripe.com/aFabIU9ex1f83VJ3zx3ks08",
   },
 ];
@@ -151,9 +143,9 @@ const TimeCapsuleLanding = () => {
   const [demoQr, setDemoQr] = useState("");
 
   useEffect(() => {
-    const title = "Cápsula del tiempo digital | Guarda mensajes para el futuro | Revelao";
+    const title = "Cápsula del tiempo para bodas | Mensajes en vídeo | Revelao";
     const description =
-      "Crea una cápsula del tiempo digital con mensajes, fotos, vídeos y audios. Compártela con los tuyos y abridla juntos en una fecha especial.";
+      "Guarda los mensajes en vídeo de los invitados de vuestra boda y descubridlos juntos en un aniversario futuro. Sin apps, mediante un código QR.";
     const canonicalUrl = "https://www.revelao.cam/capsuladeltiempo";
 
     document.title = title;
@@ -186,7 +178,7 @@ const TimeCapsuleLanding = () => {
     const schema = {
       "@context": "https://schema.org",
       "@type": "Product",
-      name: "Cápsula del tiempo digital by Revelao",
+      name: "Cápsula del tiempo para bodas by Revelao",
       description,
       brand: { "@type": "Brand", name: "Revelao" },
       offers: plans.map((plan) => ({
@@ -259,69 +251,55 @@ const TimeCapsuleLanding = () => {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_25%,rgba(239,68,68,0.12),transparent_32%),radial-gradient(circle_at_20%_80%,rgba(245,158,11,0.08),transparent_30%)]" />
           <div className="container relative mx-auto grid min-h-[calc(100vh-4rem)] max-w-7xl items-center gap-12 px-4 py-16 lg:grid-cols-[1.02fr_0.98fr] lg:py-20">
             <div className="mx-auto max-w-2xl text-center lg:mx-0 lg:text-left">
-              <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-red-200 bg-red-50 px-4 py-2 text-sm font-medium text-red-700">
-                <Clock3 className="h-4 w-4" /> Un regalo para vuestro yo del futuro
-              </span>
               <h1 className="text-5xl font-bold leading-[0.98] tracking-[-0.045em] text-[#111] sm:text-6xl lg:text-7xl">
-                Hay recuerdos que merecen esperar.
+                Los vídeos de vuestra boda que descubriréis años después.
               </h1>
               <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground sm:text-xl lg:mx-0">
-                Reúne mensajes, fotos, vídeos y audios de las personas que quieres. Cerrad la cápsula y volved a abrirla juntos en una fecha especial.
+                Durante vuestro día especial, los invitados graban mensajes en vídeo desde su móvil, sin descargar ninguna app. Quedan sellados hasta la fecha que vosotros elijáis: dentro de uno, cinco o los años que queráis.
               </p>
               <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row lg:justify-start">
                 <Button size="lg" className="h-12 rounded-full bg-primary px-7 text-primary-foreground hover:bg-primary/90" asChild>
-                  <a href="#precio">Crear mi cápsula <ArrowRight className="ml-2 h-4 w-4" /></a>
+                  <a href="#precio">Crear nuestra cápsula <ArrowRight className="ml-2 h-4 w-4" /></a>
                 </Button>
                 <Button size="lg" variant="outline" className="h-12 rounded-full bg-white px-7" asChild>
-                  <a href="#como-funciona">Ver cómo funciona</a>
+                  <a href="#como-funciona">Cómo funciona en una boda</a>
                 </Button>
-              </div>
-              <div className="mt-7 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm text-muted-foreground lg:justify-start">
-                <span className="flex items-center gap-1.5"><Check className="h-4 w-4 text-primary" /> Sin descargar apps</span>
-                <span className="flex items-center gap-1.5"><Check className="h-4 w-4 text-primary" /> Acceso privado</span>
-                <span className="flex items-center gap-1.5"><Check className="h-4 w-4 text-primary" /> Desde 17€</span>
               </div>
             </div>
 
             <div className="relative mx-auto flex w-full max-w-[570px] items-center justify-center py-8 lg:py-0">
               <div className="absolute h-[420px] w-[420px] rounded-full bg-primary/10 blur-3xl" />
-              <div className="relative w-full rounded-[32px] border border-white/80 bg-white/75 p-4 shadow-[0_30px_80px_-35px_rgba(0,0,0,0.28)] backdrop-blur sm:p-7">
-                <div className="rounded-[24px] bg-[#f5f5f5] p-5 sm:p-7">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Nuestra cápsula</p>
-                      <h2 className="mt-1 text-2xl font-bold">Ana & Mateo</h2>
-                    </div>
-                    <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-white shadow-sm"><LockKeyhole className="h-5 w-5" /></span>
+              <button
+                type="button"
+                onClick={() => setIsDemoOpen(true)}
+                className="group relative w-full max-w-[430px] rounded-[32px] border border-white/80 bg-white/75 p-4 text-left shadow-[0_30px_80px_-35px_rgba(0,0,0,0.28)] backdrop-blur transition-transform duration-300 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 sm:p-6"
+                aria-label="Abrir la demo de la cápsula del tiempo"
+              >
+                <div className="relative mx-auto aspect-[9/16] max-h-[640px] overflow-hidden rounded-[24px] bg-black shadow-2xl">
+                  <img
+                    src="/time-capsule-cover.jpg"
+                    alt="Pantallazo del flujo de la cápsula del tiempo de María y Marcos"
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/75" />
+                  <div className="absolute inset-x-0 top-0 px-6 pt-8 text-center text-white sm:px-8 sm:pt-10">
+                    <p className="font-serif text-4xl font-semibold leading-none drop-shadow-md sm:text-5xl">María &amp; Marcos</p>
+                    <span className="mx-auto mt-4 block h-1 w-12 rounded-full bg-[#f06a5f]" />
                   </div>
-                  <div className="my-6 rounded-2xl bg-[#171717] p-5 text-white">
-                    <p className="text-xs text-white/55">Se abrirá dentro de</p>
-                    <div className="mt-3 grid grid-cols-3 gap-2 text-center">
-                      {[{ value: "364", label: "días" }, { value: "18", label: "horas" }, { value: "42", label: "min" }].map((item) => (
-                        <div key={item.label} className="rounded-xl bg-white/10 px-2 py-3">
-                          <strong className="block text-xl">{item.value}</strong>
-                          <span className="text-[11px] text-white/55">{item.label}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                  <div className="grid grid-cols-2 gap-3">
-                    <div className="rounded-2xl bg-white p-4 shadow-sm">
-                      <div className="mb-8 flex items-center justify-between"><Mic2 className="h-5 w-5 text-primary" /><span className="text-xs text-muted-foreground">01:24</span></div>
-                      <p className="text-sm font-semibold">Un mensaje de mamá</p>
-                    </div>
-                    <div className="relative overflow-hidden rounded-2xl bg-[#eed2c8] p-4 shadow-sm">
-                      <div className="absolute -bottom-8 -right-7 h-24 w-24 rounded-full bg-primary/30" />
-                      <Video className="relative h-5 w-5 text-primary" />
-                      <div className="relative mt-8 flex items-center justify-between"><p className="text-sm font-semibold">Desde la fiesta</p><Play className="h-4 w-4 fill-current" /></div>
-                    </div>
-                  </div>
-                  <div className="mt-3 flex items-center justify-between rounded-2xl bg-white p-4 shadow-sm">
-                    <div className="flex items-center gap-3"><span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-red-50"><Quote className="h-4 w-4 text-primary" /></span><div><p className="text-sm font-semibold">Para vuestro futuro</p><p className="text-xs text-muted-foreground">48 recuerdos guardados</p></div></div>
-                    <ChevronRight className="h-4 w-4 text-muted-foreground" />
+                  <span className="absolute left-5 top-5 inline-flex items-center gap-2 rounded-full bg-black/45 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur-md">
+                    <span className="h-2 w-2 rounded-full bg-red-500" /> Demo real
+                  </span>
+                  <span className="absolute left-1/2 top-1/2 inline-flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-[#111] shadow-xl transition-transform group-hover:scale-105">
+                    <Play className="ml-1 h-6 w-6 fill-current" />
+                  </span>
+                  <div className="absolute inset-x-0 bottom-0 px-5 pb-6 sm:px-7 sm:pb-8">
+                    <span className="flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-[#f06a5f] px-6 font-semibold text-white shadow-lg">
+                      <Video className="h-4 w-4" /> Empezar
+                    </span>
                   </div>
                 </div>
-              </div>
+                <p className="mt-4 text-center text-sm font-medium text-muted-foreground">Prueba cómo dejarán su mensaje los invitados</p>
+              </button>
             </div>
           </div>
         </section>
@@ -331,19 +309,19 @@ const TimeCapsuleLanding = () => {
             <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
               <div>
                 <p className="mb-3 text-sm font-semibold uppercase tracking-[0.16em] text-primary">Qué es</p>
-                <h2 className="revelao-h2">Una sorpresa creada entre todos. Para abrir cuando tú decidas.</h2>
+                <h2 className="revelao-h2">Una sorpresa de boda creada entre todos. Para vosotros dos.</h2>
               </div>
               <div className="space-y-5 text-lg leading-relaxed text-muted-foreground">
-                <p>Una cápsula del tiempo digital es un espacio privado donde guardar palabras, imágenes y voces que hoy significan algo y mañana significarán mucho más.</p>
-                <p>Puede ser un regalo, una sorpresa colectiva o una forma de conservar un momento. Tú eliges quién participa, qué se guarda y la fecha en la que volveréis a vivirlo.</p>
+                <p>La cápsula del tiempo de vuestra boda es un espacio privado donde cada invitado puede grabar unas palabras para vuestro futuro desde su propio móvil.</p>
+                <p>Durante la celebración nadie ve los vídeos de los demás. Todos quedan guardados hasta el aniversario que elijáis, cuando podréis abrirlos y descubrirlos juntos por primera vez.</p>
               </div>
             </div>
             <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {[
-                { icon: MessageCircleHeart, label: "Mensajes", text: "Palabras que se quedan" },
-                { icon: Image, label: "Fotos", text: "Momentos irrepetibles" },
-                { icon: Video, label: "Vídeos", text: "Recuerdos en movimiento" },
-                { icon: Mic2, label: "Audios", text: "Voces para volver a escuchar" },
+                { icon: MessageCircleHeart, label: "Deseos", text: "Palabras para vuestra vida juntos" },
+                { icon: Heart, label: "Consejos", text: "Lo que los vuestros quieren contaros" },
+                { icon: Video, label: "Vídeos", text: "Mensajes grabados desde cada móvil" },
+                { icon: CalendarClock, label: "El reencuentro", text: "Los vídeos se abren en la fecha elegida" },
               ].map((item) => (
                 <div key={item.label} className="rounded-2xl bg-white p-6">
                   <item.icon className="mb-7 h-6 w-6 text-primary" />
@@ -359,8 +337,8 @@ const TimeCapsuleLanding = () => {
           <div className="container mx-auto max-w-6xl px-4">
             <div className="mx-auto mb-14 max-w-2xl text-center">
               <p className="mb-3 text-sm font-semibold uppercase tracking-[0.16em] text-primary">Cómo funciona</p>
-              <h2 className="revelao-h2">Prepararla es fácil. Esperar será la parte difícil.</h2>
-              <p className="revelao-h3 mt-4">Sin aplicaciones, sin configuraciones complicadas y desde cualquier móvil.</p>
+              <h2 className="revelao-h2">Preparadla antes de la boda. Dejad que ellos hagan el resto.</h2>
+              <p className="revelao-h3 mt-4">Los invitados escanean, graban y envían su mensaje sin instalar ninguna aplicación.</p>
             </div>
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
               {steps.map((step) => (
@@ -381,8 +359,8 @@ const TimeCapsuleLanding = () => {
           <div className="container mx-auto max-w-6xl px-4">
             <div className="mb-12 max-w-2xl">
               <p className="mb-3 text-sm font-semibold uppercase tracking-[0.16em] text-primary">Ejemplos</p>
-              <h2 className="revelao-h2">Una cápsula para cada historia.</h2>
-              <p className="revelao-h3 mt-4">No hace falta una gran ocasión. Solo algo que quieras recordar.</p>
+              <h2 className="revelao-h2">Muchas formas de convertirla en el regalo de vuestra boda.</h2>
+              <p className="revelao-h3 mt-4">La preparéis vosotros o sea una sorpresa, cada invitado deja una parte de vuestra historia.</p>
             </div>
             <div className="grid gap-5 lg:grid-cols-3">
               {examples.map((example) => (
@@ -405,19 +383,35 @@ const TimeCapsuleLanding = () => {
           <div className="container mx-auto max-w-7xl px-4">
             <div className="mx-auto mb-12 max-w-2xl text-center">
               <p className="mb-3 text-sm font-semibold uppercase tracking-[0.16em] text-primary">Plantillas</p>
-              <h2 className="revelao-h2">Hazla vuestra desde el primer mensaje.</h2>
-              <p className="revelao-h3 mt-4">Elige el diseño que mejor encaje con vuestra historia. Podrás personalizar textos, fecha y colores.</p>
+              <h2 className="revelao-h2">Un diseño que también hable de vuestra boda.</h2>
+              <p className="revelao-h3 mt-4">Elegid el estilo de la cápsula y personalizad vuestros nombres, el mensaje para los invitados y la fecha de apertura.</p>
             </div>
-            <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-5">
+            <div className="grid gap-5 md:grid-cols-2 md:gap-7">
               {templates.map((template) => (
                 <article key={template.name}>
-                  <div className={`relative flex aspect-[4/5] flex-col justify-between overflow-hidden rounded-2xl p-5 sm:p-7 ${template.className}`}>
-                    <div className="flex items-center justify-between text-[9px] font-semibold uppercase tracking-[0.19em] opacity-70"><span>Cápsula</span><span>Revelao</span></div>
-                    <div>
-                      <span className={`mb-5 block h-10 w-10 rounded-full ${template.accent}`} />
-                      <p className="font-serif text-2xl leading-[1.05] sm:text-3xl">{template.lines[0]}<br />{template.lines[1]}</p>
+                  <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-[#eee] shadow-sm">
+                    <img
+                      src={template.image}
+                      alt={`Tarjeta QR ${template.name.toLowerCase()} colocada en una mesa de boda`}
+                      className="absolute inset-0 h-full w-full object-cover"
+                      loading="lazy"
+                    />
+                    <div className={`absolute flex flex-col items-center justify-center text-center ${template.contentClass}`}>
+                      <p className="font-serif text-[clamp(1rem,3vw,2rem)] font-semibold leading-none">María &amp; Marcos</p>
+                      <p className="mt-2 max-w-[240px] text-[clamp(0.48rem,1.2vw,0.76rem)] font-medium leading-snug">
+                        Escanea el QR con tu móvil y déjanos un mensaje.
+                      </p>
+                      {demoQr ? (
+                        <span className="my-2 inline-flex rounded-md bg-white p-1.5 shadow-sm">
+                          <img src={demoQr} alt="QR de ejemplo para dejar un mensaje en vídeo" className="h-14 w-14 sm:h-20 sm:w-20" />
+                        </span>
+                      ) : (
+                        <span className="my-2 block h-14 w-14 animate-pulse rounded-md bg-white/80 sm:h-20 sm:w-20" />
+                      )}
+                      <p className="max-w-[250px] text-[clamp(0.43rem,1vw,0.68rem)] leading-snug">
+                        Lo abriremos dentro de 5 años, el 15 de agosto de 2031. Nos hará muchísima ilusión.
+                      </p>
                     </div>
-                    <p className="text-[9px] uppercase tracking-[0.16em] opacity-60">Abrir cuando llegue el momento</p>
                   </div>
                   <h3 className="mt-4 text-sm font-semibold sm:text-base">{template.name}</h3>
                   <p className="mt-0.5 text-xs text-muted-foreground sm:text-sm">{template.caption}</p>
@@ -431,8 +425,8 @@ const TimeCapsuleLanding = () => {
           <div className="container mx-auto max-w-6xl px-4">
             <div className="mx-auto mb-12 max-w-2xl text-center">
               <p className="mb-3 text-sm font-semibold uppercase tracking-[0.16em] text-primary">Precio · Comprar</p>
-              <h2 className="revelao-h2">Elige cuánto queréis guardar.</h2>
-              <p className="revelao-h3 mt-4">Un único pago. Sin suscripciones. Todos los packs incluyen textos, fotos, vídeos y audios.</p>
+              <h2 className="revelao-h2">Elegid cuántos invitados podrán dejaros un mensaje.</h2>
+              <p className="revelao-h3 mt-4">Un único pago y sin suscripciones. Todos los packs incluyen personalización, QR y fecha de apertura.</p>
             </div>
             <div className="grid items-stretch gap-5 md:grid-cols-3">
               {plans.map((plan) => (
@@ -464,52 +458,56 @@ const TimeCapsuleLanding = () => {
               <div className="absolute -left-20 -top-20 h-56 w-56 rounded-full bg-primary/20 blur-3xl" />
               <div className="absolute -bottom-24 -right-16 h-64 w-64 rounded-full bg-amber-400/10 blur-3xl" />
               <Camera className="relative mx-auto mb-6 h-8 w-8 text-primary" />
-              <h2 className="relative mx-auto max-w-3xl text-3xl font-bold leading-tight md:text-5xl">El futuro llega antes de lo que parece. Guarda algo para cuando llegue.</h2>
+              <h2 className="relative mx-auto max-w-3xl text-3xl font-bold leading-tight md:text-5xl">La boda dura un día. Sus palabras pueden acompañaros toda la vida.</h2>
               <Button size="lg" className="relative mt-8 h-12 rounded-full bg-primary px-7 text-primary-foreground hover:bg-primary/90" asChild>
-                <a href="#precio">Crear mi cápsula <ArrowRight className="ml-2 h-4 w-4" /></a>
+                <a href="#precio">Crear nuestra cápsula <ArrowRight className="ml-2 h-4 w-4" /></a>
               </Button>
             </div>
           </div>
         </section>
       </main>
 
-      <Footer text="Crea una cápsula del tiempo digital con las personas que quieres y volved a vivir juntos los mensajes, fotos, vídeos y audios cuando llegue el momento." />
+      <Footer text="Cread una cápsula del tiempo para vuestra boda, reunid los mensajes en vídeo de todos los invitados y descubridlos juntos cuando llegue vuestro aniversario." />
 
       <Dialog open={isDemoOpen} onOpenChange={setIsDemoOpen}>
         <DialogContent className="max-h-[92dvh] max-w-[94vw] overflow-y-auto border-0 bg-white p-0 shadow-2xl sm:rounded-3xl md:max-w-4xl">
           <DialogHeader className="sr-only">
-            <DialogTitle>Demo de Cápsula del tiempo</DialogTitle>
+            <DialogTitle>Demo de mensajes para la boda</DialogTitle>
             <DialogDescription>
-              Vista previa en un móvil y código QR para abrir la demo desde otro dispositivo.
+              Prueba cómo los invitados dejarán sus mensajes en la cápsula de la boda.
             </DialogDescription>
           </DialogHeader>
 
-          <div className="grid min-h-[620px] md:grid-cols-[0.92fr_1.08fr]">
-            <div className="flex items-center justify-center bg-[#f5f5f5] px-6 py-10 md:px-10">
-              <div className="relative w-full max-w-[270px] rounded-[48px] bg-gradient-to-br from-[#555d65] via-[#121619] to-[#343a40] p-[9px] shadow-[0_30px_60px_-25px_rgba(0,0,0,0.65)]">
+          <div className="grid md:min-h-[620px] md:grid-cols-[0.92fr_1.08fr]">
+            <div className="flex items-center justify-center bg-[#f5f5f5] px-5 py-7 sm:px-6 sm:py-10 md:px-10">
+              <div className="relative w-full max-w-[230px] rounded-[42px] bg-gradient-to-br from-[#555d65] via-[#121619] to-[#343a40] p-[8px] shadow-[0_30px_60px_-25px_rgba(0,0,0,0.65)] sm:max-w-[270px] sm:rounded-[48px] sm:p-[9px]">
                 <span className="absolute -left-[3px] top-28 h-16 w-1 rounded-full bg-[#343a40]" aria-hidden="true" />
                 <span className="absolute -left-[3px] top-48 h-11 w-1 rounded-full bg-[#343a40]" aria-hidden="true" />
                 <span className="absolute -right-[3px] top-36 h-24 w-1 rounded-full bg-[#343a40]" aria-hidden="true" />
                 <div className="relative aspect-[9/19.35] overflow-hidden rounded-[40px] bg-white ring-1 ring-black/80">
-                  <div className="absolute left-1/2 top-2 z-10 h-7 w-[42%] -translate-x-1/2 rounded-full bg-[#090909]" aria-hidden="true" />
-                  <div className="h-full w-full bg-white" aria-label="Aquí se mostrará la demo de la cápsula del tiempo" />
+                  <iframe
+                    title="Demo de la cápsula del tiempo"
+                    src={timeCapsuleDemoUrl}
+                    className="h-[155%] w-[155%] origin-top-left scale-[0.6452] border-0 bg-white"
+                    allow="camera; microphone; fullscreen; clipboard-write"
+                  />
                   <div className="absolute bottom-2 left-1/2 h-1 w-24 -translate-x-1/2 rounded-full bg-black/80" aria-hidden="true" />
                 </div>
               </div>
             </div>
 
-            <div className="flex flex-col items-center justify-center px-7 py-12 text-center sm:px-12 md:px-14">
-              <img src={icon} alt="Revelao" className="mb-7 h-7 w-auto" />
-              <p className="text-sm font-semibold uppercase tracking-[0.16em] text-primary">Demo en tu móvil</p>
-              <h2 className="mt-3 text-3xl font-bold tracking-tight text-[#111] sm:text-4xl">Escanea y descubre la experiencia</h2>
+            <div className="hidden flex-col items-center justify-center px-6 py-9 text-center sm:px-12 md:flex md:px-14 md:py-12">
+              <img src={icon} alt="Revelao" className="mb-5 h-7 w-auto md:mb-7" />
+              <p className="text-sm font-semibold uppercase tracking-[0.16em] text-primary">Así participarán los invitados</p>
+              <h2 className="mt-3 text-3xl font-bold tracking-tight text-[#111] sm:text-4xl">Escanea y deja un mensaje para los novios</h2>
               <p className="mt-4 max-w-sm leading-relaxed text-muted-foreground">
-                Lee este código QR con la cámara de tu móvil para abrir la demo de Cápsula del tiempo.
+                Lee el QR con la cámara de tu móvil y prueba el mismo flujo que encontrarán los invitados el día de la boda.
               </p>
-              <div className="mt-8 rounded-2xl border border-border bg-white p-3 shadow-sm">
+              <div className="mt-6 rounded-2xl border border-border bg-white p-3 shadow-sm md:mt-8">
                 {demoQr ? (
-                  <img src={demoQr} alt="Código QR para abrir la demo de Cápsula del tiempo" className="h-52 w-52 sm:h-56 sm:w-56" />
+                  <img src={demoQr} alt="Código QR para abrir la demo de Cápsula del tiempo" className="h-48 w-48 sm:h-56 sm:w-56" />
                 ) : (
-                  <div className="h-52 w-52 animate-pulse rounded-xl bg-muted sm:h-56 sm:w-56" aria-label="Generando código QR" />
+                  <div className="h-48 w-48 animate-pulse rounded-xl bg-muted sm:h-56 sm:w-56" aria-label="Generando código QR" />
                 )}
               </div>
               <p className="mt-5 flex items-center gap-2 text-sm text-muted-foreground">
