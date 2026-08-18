@@ -16,7 +16,7 @@ import { HomeSeoContent } from "@/components/HomeSeoContent";
 import IphoneMockup3D from "@/components/IphoneMockup3D";
 import { TrialReminder } from "@/components/TrialReminder";
 import WhatsAppFloating from "@/components/WhatsAppFloating";
-import { CaptainsPromo } from "@/components/CaptainsPromo";
+import { OtherProducts } from "@/components/OtherProducts";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useState, useEffect } from "react";
@@ -307,7 +307,7 @@ const Index = () => {
           <HomeSeoContent />
         </div>
         <div className="reveal-on-scroll">
-          <CaptainsPromo />
+          <OtherProducts />
         </div>
         <section className="py-4 md:py-6 bg-background reveal-on-scroll">
           <div className="mx-auto w-full">
