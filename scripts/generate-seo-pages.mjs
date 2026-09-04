@@ -265,6 +265,31 @@ const landingPages = [
     },
   },
   {
+    path: "/photostrip",
+    title: "Photostrip para bodas y eventos | Fotomatón con QR | Revelao",
+    description:
+      "Convierte cada móvil en un fotomatón. Tus invitados hacen cuatro fotos, reciben su tira y comparten un mural del evento sin descargar ninguna app.",
+    keywords:
+      "photostrip boda, fotomatón con QR, fotomatón digital boda, tira de fotos boda, photocall móvil, photobooth online",
+    image: "/og-image.jpg",
+    bodyHtml:
+      "<main><article><h1>El fotomatón que cabe en un QR</h1>" +
+      "<p>Photostrip by Revelao convierte el móvil de cada invitado en un fotomatón digital. Escanean el QR, posan una sola vez y reciben una tira vertical con cuatro fotografías, sin instalar ninguna aplicación.</p>" +
+      "<h2>Cuatro fotos automáticas</h2><p>Después de pulsar Start, una cuenta atrás realiza las cuatro capturas de forma automática. Antes de confirmar, el invitado puede repetir una fotografía dentro de la misma participación.</p>" +
+      "<h2>Una tira lista para descargar</h2><p>Photostrip monta las imágenes en una tira personalizada con el nombre, la fecha y el branding del evento. El resultado se guarda y puede descargarse directamente desde el móvil.</p>" +
+      "<h2>El mural de fotomatón del evento</h2><p>Las tiras terminadas se reúnen en una galería compartida para descubrir las poses y grupos de toda la celebración. La galería puede ser pública, visible para participantes o privada para la administración.</p>" +
+      "<h2>Fotomatón para bodas, fiestas y eventos</h2><p>El QR puede colocarse en las mesas, la barra, el photocall o la pista de baile. No requiere cabina física, registro de invitados ni descarga de una app.</p>" +
+      '<p><a href="https://acceso.revelao.cam/admin/photostrip/new">Crear mi Photostrip</a></p></article></main>',
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      name: "Photostrip by Revelao",
+      description: "Fotomatón digital para bodas y eventos con cuatro fotos, tira descargable y galería compartida mediante QR.",
+      brand: { "@type": "Brand", name: "Revelao" },
+      url: `${siteUrl}/photostrip`,
+    },
+  },
+  {
     path: "/quienes-somos",
     title: "Quiénes somos: Marcos, fundador de Revelao.cam",
     description:
