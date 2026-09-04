@@ -279,7 +279,7 @@ const landingPages = [
       "<h2>Una tira lista para descargar</h2><p>Photostrip monta las imágenes en una tira personalizada con el nombre, la fecha y el branding del evento. El resultado se guarda y puede descargarse directamente desde el móvil.</p>" +
       "<h2>El mural de fotomatón del evento</h2><p>Las tiras terminadas se reúnen en una galería compartida para descubrir las poses y grupos de toda la celebración. La galería puede ser pública, visible para participantes o privada para la administración.</p>" +
       "<h2>Fotomatón para bodas, fiestas y eventos</h2><p>El QR puede colocarse en las mesas, la barra, el photocall o la pista de baile. No requiere cabina física, registro de invitados ni descarga de una app.</p>" +
-      '<p><a href="https://acceso.revelao.cam/admin/photostrip/new">Crear mi Photostrip</a></p></article></main>',
+      '<p><a href="https://acceso.revelao.cam/nuevophotostripdemo">Crear un Photostrip demo gratis con 3 tiras</a></p></article></main>',
     schema: {
       "@context": "https://schema.org",
       "@type": "Product",

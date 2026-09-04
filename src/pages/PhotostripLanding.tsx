@@ -4,7 +4,7 @@ import { Footer } from "@/components/Footer";
 import { PageSeo } from "@/components/PageSeo";
 import icon from "@/assets/ico.png";
 
-const createUrl = "https://acceso.revelao.cam/admin/photostrip/new";
+const createUrl = "https://acceso.revelao.cam/nuevophotostripdemo";
 
 const steps = [
   ["01", "Creas el evento", "Personaliza el nombre, las fechas y el acabado de la tira."],
@@ -97,7 +97,7 @@ const PhotostripLanding = () => {
           <div className="ml-auto flex items-center gap-2 sm:gap-4">
             <a href="#como-funciona" className="hidden font-mono text-xs font-bold sm:inline">CÓMO FUNCIONA</a>
             <a href={createUrl} className="inline-flex min-h-10 items-center border-2 border-[#241c18] bg-[#241c18] px-3 font-mono text-[10px] font-black tracking-wide text-white shadow-[3px_3px_0_#e6675c] sm:px-5 sm:text-xs">
-              CREAR PHOTOSTRIP
+              CREAR DEMO
             </a>
           </div>
         </div>
@@ -117,7 +117,7 @@ const PhotostripLanding = () => {
               </p>
               <div className="mt-9 flex flex-col items-stretch gap-3 min-[420px]:flex-row min-[420px]:items-center">
                 <a href={createUrl} className="inline-flex min-h-14 items-center justify-center gap-2 border-[3px] border-[#241c18] bg-[#241c18] px-6 font-mono text-xs font-black tracking-[.08em] text-white shadow-[5px_5px_0_#e6675c]">
-                  CREAR MI PHOTOSTRIP <ArrowRight className="h-4 w-4" />
+                  CREAR PHOTOSTRIP DEMO <ArrowRight className="h-4 w-4" />
                 </a>
                 <a href="#como-funciona" className="inline-flex min-h-14 items-center justify-center border-[3px] border-[#241c18] px-6 font-mono text-xs font-black tracking-[.08em]">VER CÓMO FUNCIONA</a>
               </div>
@@ -191,8 +191,8 @@ const PhotostripLanding = () => {
           <div className="mx-auto max-w-5xl text-center">
             <p className="font-mono text-xs font-black tracking-[.2em]">LA MÁQUINA ESTÁ LISTA</p>
             <h2 className="mt-5 font-serif text-5xl font-black leading-[.9] sm:text-7xl">Que empiecen las fotos.</h2>
-            <p className="mx-auto mt-6 max-w-xl text-lg">Crea el evento, descarga el QR y deja que tus invitados llenen el mural.</p>
-            <a href={createUrl} className="mt-9 inline-flex min-h-14 items-center justify-center gap-2 border-[3px] border-[#241c18] bg-[#241c18] px-7 font-mono text-xs font-black tracking-[.08em] text-white shadow-[5px_5px_0_#fff4df]">CREAR MI PHOTOSTRIP <ArrowRight className="h-4 w-4" /></a>
+            <p className="mx-auto mt-6 max-w-xl text-lg">Crea una demo gratis con 3 tiras, descarga el QR y prueba el mural completo.</p>
+            <a href={createUrl} className="mt-9 inline-flex min-h-14 items-center justify-center gap-2 border-[3px] border-[#241c18] bg-[#241c18] px-7 font-mono text-xs font-black tracking-[.08em] text-white shadow-[5px_5px_0_#fff4df]">CREAR PHOTOSTRIP DEMO <ArrowRight className="h-4 w-4" /></a>
           </div>
         </section>
       </main>
