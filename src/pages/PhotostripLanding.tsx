@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { ArrowRight, Camera, Check, Download, Images, QrCode, Sparkles } from "lucide-react";
+import { ArrowRight, CalendarDays, Camera, Check, Coffee, Download, Images, PartyPopper, QrCode, Sparkles } from "lucide-react";
 import { Footer } from "@/components/Footer";
 import { PageSeo } from "@/components/PageSeo";
 import icon from "@/assets/ico.png";
@@ -13,9 +13,15 @@ const steps = [
   ["04", "Se revela la tira", "Pueden descargarla y verla en el mural común del evento."],
 ];
 
+const plans = [
+  { name: "Pack 100", strips: "Hasta 100 tiras", price: "29 €", featured: false },
+  { name: "Pack 200", strips: "Hasta 200 tiras", price: "49 €", featured: true },
+  { name: "Ilimitado", strips: "Tiras ilimitadas", price: "79 €", featured: false },
+];
+
 const faqs = [
   ["¿Hace falta descargar una app?", "No. Photostrip funciona directamente en el navegador del móvil al escanear el QR."],
-  ["¿Cuántas fotos hace cada invitado?", "Cada participación crea una tira con cuatro fotografías. La captura es automática después de pulsar Start."],
+  ["¿Cuántas fotos hace cada invitado?", "Cada participación crea una tira con cuatro fotografías. La captura es automática después de pulsar Empezar."],
   ["¿Se puede elegir color o blanco y negro?", "Sí. Puedes permitir color, blanco y negro o dejar que cada invitado elija antes de empezar."],
   ["¿Dónde se guardan las tiras?", "Cada persona descarga la suya y las tiras terminadas aparecen en la galería compartida del evento, según la privacidad que configures."],
   ["¿Los invitados pueden repetir sin límite?", "No. Cada navegador dispone de una única participación por evento, evitando repeticiones accidentales y manteniendo la experiencia ágil."],
@@ -74,6 +80,7 @@ const PhotostripLanding = () => {
       description: "Fotomatón digital para bodas y eventos con cuatro fotos, tira descargable y galería compartida mediante QR.",
       brand: { "@type": "Brand", name: "Revelao" },
       url: "https://www.revelao.cam/photostrip",
+      offers: plans.map((plan) => ({ "@type": "Offer", name: plan.name, price: plan.price.replace(" €", ""), priceCurrency: "EUR" })),
     });
     document.getElementById(schema.id)?.remove();
     document.head.appendChild(schema);
@@ -96,6 +103,7 @@ const PhotostripLanding = () => {
           </a>
           <div className="ml-auto flex items-center gap-2 sm:gap-4">
             <a href="#como-funciona" className="hidden font-mono text-xs font-bold sm:inline">CÓMO FUNCIONA</a>
+            <a href="#precios" className="hidden font-mono text-xs font-bold md:inline">PRECIOS</a>
             <a href={createUrl} className="inline-flex min-h-10 items-center border-2 border-[#241c18] bg-[#241c18] px-3 font-mono text-[10px] font-black tracking-wide text-white shadow-[3px_3px_0_#e6675c] sm:px-5 sm:text-xs">
               CREAR DEMO
             </a>
@@ -149,6 +157,19 @@ const PhotostripLanding = () => {
           </div>
         </section>
 
+        <section className="border-y-2 border-[#241c18] bg-[#fffdf6] px-4 py-20 sm:px-6 sm:py-28">
+          <div className="mx-auto max-w-7xl">
+            <div className="max-w-4xl"><p className="font-mono text-xs font-black tracking-[.2em] text-[#a83d36]">UN QR, MUCHOS MOMENTOS</p><h2 className="mt-4 font-serif text-4xl font-black leading-none sm:text-6xl">No esperes al baile para empezar las fotos.</h2><p className="mt-6 max-w-2xl text-lg leading-relaxed">Usa el mismo QR antes, durante y después de la boda. Ponlo donde tus invitados ya están compartiendo el momento.</p></div>
+            <div className="mt-12 grid border-l-2 border-t-2 border-[#241c18] md:grid-cols-3">
+              {[
+                [CalendarDays, "Antes de la boda", "Inclúyelo en la invitación digital, la web de la boda o el grupo de WhatsApp para romper el hielo antes del gran día."],
+                [PartyPopper, "El día de la boda", "Repártelo por las mesas, la barra, el photocall, los baños o la pista de baile para multiplicar las tiras."],
+                [Coffee, "La resaca y el día después", "Vuelve a compartirlo durante el brunch o la resaca para las últimas fotos y para revivir juntos la galería."],
+              ].map(([Icon, title, description]) => { const MomentIcon = Icon as typeof CalendarDays; return <article key={title as string} className="border-b-2 border-r-2 border-[#241c18] p-7 sm:p-9"><MomentIcon className="h-8 w-8 text-[#e6675c]" /><h3 className="mt-7 font-serif text-2xl font-black">{title as string}</h3><p className="mt-3 leading-relaxed text-[#5e5149]">{description as string}</p></article>; })}
+            </div>
+          </div>
+        </section>
+
         <section className="border-y-2 border-[#241c18] bg-[#d8cbb3] px-4 py-20 sm:px-6 sm:py-28">
           <div className="mx-auto grid max-w-6xl items-center gap-14 lg:grid-cols-2">
             <div className="relative mx-auto grid w-full max-w-md grid-cols-2 items-start gap-5 px-3">
@@ -173,7 +194,17 @@ const PhotostripLanding = () => {
             <Sparkles className="mx-auto h-8 w-8 text-[#c64b43]" />
             <p className="mt-5 font-mono text-xs font-black tracking-[.2em] text-[#a83d36]">BODAS · FIESTAS · EMPRESA</p>
             <h2 className="mx-auto mt-4 max-w-4xl font-serif text-4xl font-black leading-none sm:text-6xl">Un photocall espontáneo, siempre en el bolsillo.</h2>
-            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed">Coloca el QR en las mesas, la barra o la pista de baile. Cada invitado pone la cámara y Revelao se encarga del resto.</p>
+              <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed">Coloca el QR antes de la boda, en las mesas, la barra o la pista de baile y vuelve a compartirlo durante la resaca. Cada invitado pone la cámara y Revelao se encarga del resto.</p>
+          </div>
+        </section>
+
+        <section id="precios" className="border-y-2 border-[#241c18] bg-[#f0e3cb] px-4 py-20 sm:px-6 sm:py-28">
+          <div className="mx-auto max-w-6xl">
+            <div className="text-center"><p className="font-mono text-xs font-black tracking-[.2em] text-[#a83d36]">UN PRECIO PARA CADA FIESTA</p><h2 className="mx-auto mt-4 max-w-3xl font-serif text-4xl font-black leading-none sm:text-6xl">Elige cuántas tiras quieres revelar.</h2><p className="mx-auto mt-5 max-w-2xl text-lg">Pago único por evento. Cada invitado crea una tira completa de cuatro fotografías.</p></div>
+            <div className="mt-12 grid gap-5 md:grid-cols-3">
+              {plans.map((plan) => <article key={plan.name} className={`relative flex flex-col border-[3px] border-[#241c18] p-7 ${plan.featured ? "bg-[#241c18] text-[#fffaf0] shadow-[8px_8px_0_#e6675c]" : "bg-[#fffdf6] shadow-[6px_6px_0_rgba(36,28,24,.25)]"}`}>{plan.featured ? <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#e6675c] px-3 py-1 font-mono text-[10px] font-black tracking-wider text-white">MÁS ELEGIDO</span> : null}<p className="font-mono text-xs font-black tracking-[.15em]">{plan.name.toUpperCase()}</p><p className="mt-5 font-serif text-5xl font-black">{plan.price}</p><p className={`mt-2 ${plan.featured ? "text-white/70" : "text-[#6d5d54]"}`}>{plan.strips}</p><ul className="mt-7 flex-1 space-y-3 text-sm"><li className="flex gap-2"><Check className="h-5 w-5 shrink-0 text-[#e6675c]" />Tira descargable de 4 fotos</li><li className="flex gap-2"><Check className="h-5 w-5 shrink-0 text-[#e6675c]" />Galería común del evento</li><li className="flex gap-2"><Check className="h-5 w-5 shrink-0 text-[#e6675c]" />QR y personalización</li></ul><a href={createUrl} className={`mt-8 inline-flex min-h-12 items-center justify-center border-2 px-4 font-mono text-xs font-black ${plan.featured ? "border-white bg-white text-[#241c18]" : "border-[#241c18] bg-[#241c18] text-white"}`}>PROBAR DEMO GRATIS</a></article>)}
+            </div>
+            <p className="mt-8 text-center font-mono text-xs font-bold">¿No sabes cuál elegir? Prueba primero una demo gratuita con 3 tiras.</p>
           </div>
         </section>
 

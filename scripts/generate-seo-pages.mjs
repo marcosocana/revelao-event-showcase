@@ -279,6 +279,8 @@ const landingPages = [
       "<h2>Una tira lista para descargar</h2><p>Photostrip monta las imágenes en una tira personalizada con el nombre, la fecha y el branding del evento. El resultado se guarda y puede descargarse directamente desde el móvil.</p>" +
       "<h2>El mural de fotomatón del evento</h2><p>Las tiras terminadas se reúnen en una galería compartida para descubrir las poses y grupos de toda la celebración. La galería puede ser pública, visible para participantes o privada para la administración.</p>" +
       "<h2>Fotomatón para bodas, fiestas y eventos</h2><p>El QR puede colocarse en las mesas, la barra, el photocall o la pista de baile. No requiere cabina física, registro de invitados ni descarga de una app.</p>" +
+      "<h2>El mismo QR antes, durante y después de la boda</h2><p>Comparte el QR con antelación en la invitación o por WhatsApp, colócalo en varios puntos durante la boda y vuelve a enviarlo en la resaca o el brunch del día siguiente.</p>" +
+      "<h2>Precios de Photostrip</h2><p>Pack de hasta 100 tiras por 29 €, hasta 200 tiras por 49 € o tiras ilimitadas por 79 €. Todos los planes son de pago único por evento e incluyen QR, personalización y galería común.</p>" +
       '<p><a href="https://acceso.revelao.cam/nuevophotostripdemo">Crear un Photostrip demo gratis con 3 tiras</a></p></article></main>',
     schema: {
       "@context": "https://schema.org",
@@ -287,6 +289,11 @@ const landingPages = [
       description: "Fotomatón digital para bodas y eventos con cuatro fotos, tira descargable y galería compartida mediante QR.",
       brand: { "@type": "Brand", name: "Revelao" },
       url: `${siteUrl}/photostrip`,
+      offers: [
+        { "@type": "Offer", name: "Pack 100", price: "29", priceCurrency: "EUR" },
+        { "@type": "Offer", name: "Pack 200", price: "49", priceCurrency: "EUR" },
+        { "@type": "Offer", name: "Ilimitado", price: "79", priceCurrency: "EUR" },
+      ],
     },
   },
   {
