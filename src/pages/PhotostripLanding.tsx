@@ -5,6 +5,7 @@ import { PageSeo } from "@/components/PageSeo";
 import icon from "@/assets/ico.png";
 
 const createUrl = "https://acceso.revelao.cam/nuevophotostripdemo";
+const accessUrl = "https://acceso.revelao.cam";
 
 const steps = [
   ["01", "Creas el evento", "Personaliza el nombre, las fechas y el acabado de la tira."],
@@ -95,23 +96,26 @@ const PhotostripLanding = () => {
         canonicalPath="/photostrip"
       />
 
-      <nav className="sticky top-0 z-50 border-b-2 border-[#241c18] bg-[#f7f1e5]/95 backdrop-blur">
+      <nav className="fixed inset-x-0 top-0 z-50 border-b-2 border-[#241c18] bg-[#f7f1e5]/95 backdrop-blur">
         <div className="mx-auto flex h-16 max-w-7xl items-center gap-3 px-4 sm:px-6">
           <a href="/" className="flex min-w-0 items-center gap-2.5" aria-label="Volver a Revelao">
             <img src={icon} alt="Revelao" className="h-7 w-auto shrink-0" />
-            <span className="truncate font-mono text-xs font-black tracking-[.12em] sm:text-sm">PHOTOSTRIP</span>
+            <span className="hidden truncate font-mono text-xs font-black tracking-[.12em] min-[440px]:inline sm:text-sm">PHOTOSTRIP</span>
           </a>
-          <div className="ml-auto flex items-center gap-2 sm:gap-4">
+          <div className="ml-auto flex items-center gap-1.5 sm:gap-3">
             <a href="#como-funciona" className="hidden font-mono text-xs font-bold sm:inline">CÓMO FUNCIONA</a>
             <a href="#precios" className="hidden font-mono text-xs font-bold md:inline">PRECIOS</a>
-            <a href={createUrl} className="inline-flex min-h-10 items-center border-2 border-[#241c18] bg-[#241c18] px-3 font-mono text-[10px] font-black tracking-wide text-white shadow-[3px_3px_0_#e6675c] sm:px-5 sm:text-xs">
-              CREAR DEMO
+            <a href={accessUrl} className="inline-flex min-h-10 items-center border-2 border-[#241c18] px-2.5 font-mono text-[10px] font-black tracking-wide sm:px-4 sm:text-xs">
+              ACCEDER
+            </a>
+            <a href={createUrl} className="inline-flex min-h-10 items-center border-2 border-[#241c18] bg-[#241c18] px-2.5 font-mono text-[10px] font-black tracking-wide text-white shadow-[3px_3px_0_#e6675c] sm:px-5 sm:text-xs">
+              <span className="sm:hidden">DEMO</span><span className="hidden sm:inline">CREAR DEMO</span>
             </a>
           </div>
         </div>
       </nav>
 
-      <main>
+      <main className="pt-16">
         <section className="relative overflow-hidden border-b-2 border-[#241c18] px-4 py-14 sm:px-6 sm:py-20 lg:py-24">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(#241c18_0.7px,transparent_0.7px)] opacity-[.13] [background-size:5px_5px]" />
           <div className="relative mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[1.05fr_.95fr]">
@@ -147,7 +151,7 @@ const PhotostripLanding = () => {
           </div>
         </section>
 
-        <section id="como-funciona" className="px-4 py-20 sm:px-6 sm:py-28">
+        <section id="como-funciona" className="scroll-mt-16 px-4 py-20 sm:px-6 sm:py-28">
           <div className="mx-auto max-w-7xl">
             <p className="font-mono text-xs font-black tracking-[.2em] text-[#a83d36]">ASÍ DE FÁCIL</p>
             <h2 className="mt-4 max-w-3xl font-serif text-4xl font-black leading-none sm:text-6xl">Del QR a una tira inolvidable.</h2>
@@ -198,7 +202,7 @@ const PhotostripLanding = () => {
           </div>
         </section>
 
-        <section id="precios" className="border-y-2 border-[#241c18] bg-[#f0e3cb] px-4 py-20 sm:px-6 sm:py-28">
+        <section id="precios" className="scroll-mt-16 border-y-2 border-[#241c18] bg-[#f0e3cb] px-4 py-20 sm:px-6 sm:py-28">
           <div className="mx-auto max-w-6xl">
             <div className="text-center"><p className="font-mono text-xs font-black tracking-[.2em] text-[#a83d36]">UN PRECIO PARA CADA FIESTA</p><h2 className="mx-auto mt-4 max-w-3xl font-serif text-4xl font-black leading-none sm:text-6xl">Elige cuántas tiras quieres revelar.</h2><p className="mx-auto mt-5 max-w-2xl text-lg">Pago único por evento. Cada invitado crea una tira completa de cuatro fotografías.</p></div>
             <div className="mt-12 grid gap-5 md:grid-cols-3">
