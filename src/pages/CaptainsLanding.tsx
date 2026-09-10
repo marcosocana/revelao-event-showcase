@@ -1,5 +1,8 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
-import { Camera, ChevronRight, Pencil, QrCode, Trophy, Users, Video } from "lucide-react";
+import { Camera, Pencil, QrCode, Trophy, Users, Video } from "lucide-react";
+import { CaptainsHero } from "@/components/captains/CaptainsHero";
+import { Footer } from "@/components/Footer";
+import "@/styles/captains-landing.css";
 import WhatsAppFloating from "@/components/WhatsAppFloating";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { supabase } from "@/integrations/supabase/client";
@@ -321,61 +324,10 @@ const CaptainsLanding = () => {
   };
 
   return (
-    <main className="captains-page min-h-screen overflow-hidden bg-white text-[#151515]">
-      <section className="captains-hero bg-white px-4 pb-6 pt-28 sm:px-6 sm:pt-32 lg:px-10">
-        <header className="fixed left-0 right-0 top-0 z-50 border-b-4 border-[#151515] bg-white px-4 py-3 sm:px-6 lg:px-10">
-          <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4">
-            <a href="/capitanes" className="captains-logo-link" aria-label="Ir a Capitanes">
-              <picture>
-                <source media="(max-width: 639px)" srcSet="/capitanes-logo-mini.svg" />
-                <img src="/capitanes-logo.svg" alt="Capitanes por Revelao.cam" className="h-14 w-auto sm:h-16" />
-              </picture>
-            </a>
-            <div className="flex items-center gap-2 sm:gap-3">
-              <button type="button" className="captains-top-link" onClick={handleDemoOpen}>
-                Ver demo
-              </button>
-              <a className="captains-top-link captains-top-link-primary" href="#precios">
-                Comprar
-              </a>
-            </div>
-          </nav>
-        </header>
+    <main className="captains-page captains-revelao min-h-screen overflow-hidden bg-white text-[#151515]">
+      <CaptainsHero onDemoOpen={handleDemoOpen} />
 
-        <div className="mx-auto grid max-w-7xl gap-10 pb-14 pt-6 lg:grid-cols-[0.94fr_0.86fr] lg:items-center lg:pb-20 lg:pt-8">
-          <div className="max-w-3xl">
-            <p className="captains-kicker">El juego más divertido para bodas</p>
-            <h1 className="captains-title mt-5 text-[clamp(3rem,8vw,6.8rem)] leading-[0.9]">
-              Convierte tu boda en un juego
-            </h1>
-            <p className="mt-6 max-w-xl text-xl font-bold leading-7 text-[#151515]/72 sm:text-2xl sm:leading-8">
-              Cada mesa tiene un capitán. Solo él entra al juego, lidera a su equipo y supera retos 100%
-              personalizables
-            </p>
-
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <a className="captains-button captains-button-primary" href="#precios">
-                Comprar <ChevronRight className="h-5 w-5" />
-              </a>
-              <button type="button" className="captains-button captains-button-secondary" onClick={handleDemoOpen}>
-                Ver demo
-              </button>
-            </div>
-          </div>
-
-          <div className="captains-demo-wrap">
-            <img
-              src="/capitanes-hero.png"
-              alt="Tres pantallas móviles de la demo de Capitanes"
-              className="captains-hero-image"
-              loading="eager"
-              decoding="async"
-            />
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-[#f7f3ec] px-4 py-12 text-[#151515] sm:px-6 lg:px-10 lg:py-16">
+      <section id="como-se-juega" className="bg-muted px-4 py-16 text-[#151515] sm:px-6 lg:px-10 lg:py-24">
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
           <div>
             <p className="captains-section-label">Cómo se juega</p>
@@ -385,20 +337,20 @@ const CaptainsLanding = () => {
             {steps.map((step) => (
               <article className="captains-panel" key={step.title}>
                 <step.icon className="h-7 w-7" />
-                <h3 className="mt-4 text-2xl font-black">{step.title}</h3>
-                <p className="mt-2 text-base font-bold leading-6 text-[#151515]/68">{step.text}</p>
+                <h3 className="mt-4 text-2xl font-semibold">{step.title}</h3>
+                <p className="mt-2 text-base font-normal leading-6 text-[#151515]/68">{step.text}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-white px-4 py-12 text-[#151515] sm:px-6 lg:px-10 lg:py-16">
+      <section className="bg-white px-4 py-16 text-[#151515] sm:px-6 lg:px-10 lg:py-24">
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-center">
           <div className="captains-arcade-screen">
-            <div className="flex items-center justify-between border-b-4 border-[#151515] bg-[#ff5f63] px-4 py-3 text-white">
-              <span className="font-black uppercase">Ranking boda</span>
-              <span className="font-black">08:42</span>
+            <div className="flex items-center justify-between border-b border-border bg-primary px-4 py-3 text-white">
+              <span className="font-semibold uppercase">Ranking boda</span>
+              <span className="font-semibold">08:42</span>
             </div>
             <div className="space-y-3 p-4">
               {currentRanking.map((row, index) => (
@@ -438,12 +390,12 @@ const CaptainsLanding = () => {
         </div>
       </section>
 
-      <section className="bg-white px-4 py-12 text-[#151515] sm:px-6 lg:px-10 lg:py-16">
+      <section id="retos" className="bg-white px-4 py-16 text-[#151515] sm:px-6 lg:px-10 lg:py-24">
         <div className="mx-auto max-w-7xl">
           <div className="max-w-3xl">
             <p className="captains-section-label">Tipos de retos</p>
             <h2 className="captains-heading mt-3">Todo se puede personalizar para vuestra boda</h2>
-            <p className="mt-4 text-lg font-bold leading-7 text-[#151515]/70">
+            <p className="mt-4 text-lg font-normal leading-7 text-[#151515]/70">
               Mezcla retos de foto, vídeo y preguntas sobre la pareja. Tú decides qué tiene que hacer cada mesa
             </p>
           </div>
@@ -462,20 +414,20 @@ const CaptainsLanding = () => {
                   </div>
                   <div className="captains-game-shot-button">{challenge.action}</div>
                 </div>
-                <h3 className="mt-5 text-2xl font-black">{challenge.title}</h3>
-                <p className="mt-2 text-base font-bold leading-6 text-[#151515]/68">{challenge.text}</p>
+                <h3 className="mt-5 text-2xl font-semibold">{challenge.title}</h3>
+                <p className="mt-2 text-base font-normal leading-6 text-[#151515]/68">{challenge.text}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-[#151515] px-4 py-12 text-white sm:px-6 lg:px-10 lg:py-16">
+      <section className="bg-muted px-4 py-16 text-foreground sm:px-6 lg:px-10 lg:py-24">
         <div className="mx-auto max-w-7xl">
           <div className="max-w-3xl">
-            <p className="captains-section-label captains-section-label-dark">Paso a paso</p>
+            <p className="captains-section-label">Paso a paso</p>
             <h2 className="captains-heading mt-3">El juego que revoluciona tu boda</h2>
-            <p className="mt-4 text-lg font-bold leading-7 text-white/70">
+            <p className="mt-4 text-lg font-normal leading-7 text-muted-foreground">
               Tú preparas la partida antes de la boda. Los capitanes se encargan de que cada mesa entre en el juego.
               Tendrás soporte por WhatsApp para cualquier duda.
             </p>
@@ -484,23 +436,23 @@ const CaptainsLanding = () => {
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {setupSteps.map((step, index) => (
               <article className="captains-panel flex h-full flex-col text-[#151515]" key={step.title}>
-                <span className="flex h-10 w-10 items-center justify-center border-2 border-[#151515] bg-[#f4d36f] text-xl font-black">
+                <span className="flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-primary/5 text-xl font-semibold">
                   {index + 1}
                 </span>
-                <h3 className="mt-4 text-2xl font-black leading-7">{step.title}</h3>
-                <p className="mt-2 text-base font-bold leading-6 text-[#151515]/68">{step.text}</p>
+                <h3 className="mt-4 text-2xl font-semibold leading-7">{step.title}</h3>
+                <p className="mt-2 text-base font-normal leading-6 text-[#151515]/68">{step.text}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-[#f7f3ec] px-4 py-12 text-[#151515] sm:px-6 lg:px-10 lg:py-16" id="precios">
+      <section className="bg-muted px-4 py-16 text-[#151515] sm:px-6 lg:px-10 lg:py-24" id="precios">
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
           <div className="max-w-xl">
             <p className="captains-section-label">Precios</p>
             <h2 className="captains-heading mt-3">Juego desde 4,95€ por mesa</h2>
-            <p className="mt-4 text-lg font-bold leading-7 text-[#151515]/70">
+            <p className="mt-4 text-lg font-normal leading-7 text-[#151515]/70">
               Compra solo el juego o añade la Caja Capitán como extra. Recibirás un enlace por email para personalizar
               retos, preguntas sobre la pareja y pruebas para cada mesa
             </p>
@@ -508,7 +460,7 @@ const CaptainsLanding = () => {
 
           <div className="captains-pricing-panel">
             <div>
-              <label htmlFor="captains-table-count" className="block text-sm font-black uppercase tracking-[0.08em]">
+              <label htmlFor="captains-table-count" className="block text-sm font-semibold uppercase tracking-[0.08em]">
                 Número de mesas
               </label>
               <div className="mt-3 flex items-center gap-3">
@@ -522,7 +474,7 @@ const CaptainsLanding = () => {
                   onChange={(event) => setTableCount(event.target.value)}
                   className="captains-pricing-input"
                 />
-                <span className="text-lg font-black">x {formatPrice(pricePerTable)}€ juego</span>
+                <span className="text-lg font-semibold">x {formatPrice(pricePerTable)}€ juego</span>
               </div>
             </div>
 
@@ -543,7 +495,7 @@ const CaptainsLanding = () => {
               <span>Caja Capitán: {captainBoxTotal.toLocaleString("es-ES", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}€</span>
             </div>
 
-            <div className="captains-price-total">
+            <div className="captains-price-total" aria-live="polite" aria-atomic="true">
               <span>Total</span>
               <strong>{formattedTotalPrice}€</strong>
             </div>
@@ -569,7 +521,7 @@ const CaptainsLanding = () => {
         </div>
       </section>
 
-      <section className="bg-white px-4 py-12 text-[#151515] sm:px-6 lg:px-10 lg:py-16">
+      <section className="bg-white px-4 py-16 text-[#151515] sm:px-6 lg:px-10 lg:py-24">
         <div className="captains-pack-card mx-auto grid max-w-7xl gap-6 lg:grid-cols-[0.78fr_1fr] lg:items-center">
           <button
             type="button"
@@ -589,15 +541,15 @@ const CaptainsLanding = () => {
           <div className="captains-pack-panel">
             <p className="captains-section-label">Pack Capitán</p>
             <h2 className="captains-heading mt-3">Despreocúpate de todo</h2>
-            <p className="mt-4 text-lg font-bold leading-7 text-[#151515]/70">
+            <p className="mt-4 text-lg font-normal leading-7 text-[#151515]/70">
               Cada Caja Capitán incluye un brazalete, unas gafas personalizadas y una tarjeta explicando el juego y
               con el QR para poder acceder. Solo tendrás que dejar cada caja en su sitio el día de tu boda.
             </p>
-            <p className="mt-4 text-lg font-bold leading-7 text-[#151515]/70">
+            <p className="mt-4 text-lg font-normal leading-7 text-[#151515]/70">
               Todas las cajas se enviarán juntas a una misma dirección. El pedido debe realizarse con al menos 45 días
               de antelación a la boda.
             </p>
-            <p className="mt-4 text-lg font-bold leading-7 text-[#151515]/70">
+            <p className="mt-4 text-lg font-normal leading-7 text-[#151515]/70">
               Precio válido para envíos dentro de España. Para otros destinos, consúltanos.
             </p>
             <button type="button" className="captains-button captains-button-primary mt-7" onClick={handlePackClick}>
@@ -608,13 +560,13 @@ const CaptainsLanding = () => {
       </section>
 
       {showSuccessCase ? (
-      <section className="bg-[#f7f3ec] px-4 py-12 text-[#151515] sm:px-6 lg:px-10 lg:py-16">
+      <section id="boda-real" className="bg-muted px-4 py-16 text-[#151515] sm:px-6 lg:px-10 lg:py-24">
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
             <div className="max-w-2xl">
               <p className="captains-section-label">Caso de éxito</p>
               <h2 className="captains-heading mt-3">¡La boda de Andrea y Rafa se convirtió en una fiesta!</h2>
-              <p className="mt-4 text-lg font-bold leading-7 text-[#151515]/70">
+              <p className="mt-4 text-lg font-normal leading-7 text-[#151515]/70">
                 Diez mesas entraron al juego con retos pensados para que los invitados se conocieran, colaborasen y
                 creasen recuerdos desde su propia mesa.
               </p>
@@ -627,9 +579,9 @@ const CaptainsLanding = () => {
                 ["125", "fotos"],
                 ["74", "vídeos"],
               ].map(([value, label]) => (
-                <div className="border-2 border-[#151515] bg-white p-2 text-center sm:border-4 sm:p-3" key={label}>
-                  <strong className="block text-2xl font-black leading-none sm:text-3xl lg:text-4xl">{value}</strong>
-                  <span className="mt-1 block text-[0.62rem] font-black uppercase leading-3 sm:mt-2 sm:text-xs sm:leading-4">{label}</span>
+                <div className="rounded-lg border border-border bg-white p-2 text-center  sm:p-3" key={label}>
+                  <strong className="block text-2xl font-semibold leading-none sm:text-3xl lg:text-4xl">{value}</strong>
+                  <span className="mt-1 block text-[0.62rem] font-semibold uppercase leading-3 sm:mt-2 sm:text-xs sm:leading-4">{label}</span>
                 </div>
               ))}
             </div>
@@ -639,7 +591,7 @@ const CaptainsLanding = () => {
             {caseStudyPhotos.map((photo) => (
               <button
                 type="button"
-                className="group overflow-hidden border-4 border-[#151515] bg-white text-left"
+                className="group overflow-hidden rounded-lg border border-border bg-white text-left"
                 key={photo.src}
                 onClick={() => setSelectedCasePhoto(photo)}
                 aria-label={`Ampliar ${photo.caption}`}
@@ -651,23 +603,23 @@ const CaptainsLanding = () => {
                   loading="lazy"
                   decoding="async"
                 />
-                <span className="block border-t-4 border-[#151515] px-3 py-3 text-base font-black">{photo.caption}</span>
+                <span className="block border-t border-border px-3 py-3 text-base font-semibold">{photo.caption}</span>
               </button>
             ))}
           </div>
 
           <div className="mt-6 grid gap-4 lg:grid-cols-[0.8fr_1.2fr]">
-            <div className="border-4 border-[#151515] bg-[#f4d36f] p-5 sm:p-6">
-              <p className="text-sm font-black uppercase tracking-[0.1em]">Resultado</p>
-              <p className="mt-3 text-2xl font-black leading-7">
+            <div className="rounded-lg border border-border bg-primary/5 p-5 sm:p-6">
+              <p className="text-sm font-semibold uppercase tracking-[0.1em]">Resultado</p>
+              <p className="mt-3 text-2xl font-semibold leading-7">
                 Cuatro mesas superaron los 25 retos y alcanzaron 360 puntos cada una.
               </p>
             </div>
-            <div className="border-4 border-[#151515] bg-white p-5 sm:p-6">
-              <p className="text-sm font-black uppercase tracking-[0.1em]">Algunos de sus retos</p>
+            <div className="rounded-lg border border-border bg-white p-5 sm:p-6">
+              <p className="text-sm font-semibold uppercase tracking-[0.1em]">Algunos de sus retos</p>
               <div className="mt-4 flex flex-wrap gap-2">
                 {["Selfie de bienvenida", "Grito de guerra", "Foto con los novios", "Coreografía express", "Aliados de otra mesa"].map((challenge) => (
-                  <span className="border-2 border-[#151515] bg-[#f7f3ec] px-3 py-2 font-black" key={challenge}>
+                  <span className="rounded-lg border border-border bg-muted px-3 py-2 font-semibold" key={challenge}>
                     {challenge}
                   </span>
                 ))}
@@ -679,12 +631,12 @@ const CaptainsLanding = () => {
       ) : null}
 
       {showCaptainTemplates ? (
-        <section className="bg-[#f7f3ec] px-4 py-12 text-[#151515] sm:px-6 lg:px-10 lg:py-16" id="plantillas-capitanes">
+        <section className="bg-muted px-4 py-16 text-[#151515] sm:px-6 lg:px-10 lg:py-24" id="plantillas-capitanes">
           <div className="mx-auto max-w-7xl">
             <div className="max-w-3xl">
               <p className="captains-section-label">Plantillas</p>
               <h2 className="captains-heading mt-3">Tarjetas listas para cada capitán</h2>
-              <p className="mt-4 text-lg font-bold leading-7 text-[#151515]/70">
+              <p className="mt-4 text-lg font-normal leading-7 text-[#151515]/70">
                 Elige una base, abre el editor de Revelao y ajusta texto, QR, colores y formato para vuestra boda.
               </p>
             </div>
@@ -711,7 +663,7 @@ const CaptainsLanding = () => {
         </section>
       ) : null}
 
-      <section className="bg-[#151515] px-4 py-14 text-white sm:px-6 lg:px-10 lg:py-16">
+      <section className="bg-[#151515] px-4 py-14 text-white sm:px-6 lg:px-10 lg:py-24">
         <div className="mx-auto flex max-w-7xl flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl">
             <p className="captains-section-label captains-section-label-dark">Capitanes</p>
@@ -727,18 +679,9 @@ const CaptainsLanding = () => {
           </div>
         </div>
       </section>
-      <section className="bg-white px-4 py-10 text-[#151515] sm:px-6 lg:px-10">
-        <div className="mx-auto flex max-w-7xl flex-col gap-4 border-t-4 border-[#151515] pt-8 text-center sm:flex-row sm:items-center sm:justify-between sm:text-left">
-          <p className="text-lg font-black leading-6">
-            Este es un producto de Revelao.cam hecho con amor.
-          </p>
-          <a className="captains-button captains-button-secondary" href="/" aria-label="Acceder a la web de Revelao">
-            Acceder a Revelao
-          </a>
-        </div>
-      </section>
+      <Footer text="Capitanes, un juego de Revelao.cam para llenar vuestra boda de recuerdos." />
       <Dialog open={isDemoModalOpen} onOpenChange={setIsDemoModalOpen}>
-        <DialogContent className="captains-demo-modal max-h-[92dvh] max-w-[94vw] overflow-y-auto border-4 border-[#151515] bg-white p-5 shadow-none sm:rounded-none lg:max-w-5xl">
+        <DialogContent className="captains-revelao-modal captains-demo-modal max-h-[92dvh] max-w-[94vw] overflow-y-auto rounded-lg border border-border bg-white p-5 shadow-xl sm:rounded-xl lg:max-w-5xl">
           <DialogHeader className="sr-only">
             <DialogTitle>Demo de Capitanes</DialogTitle>
             <DialogDescription>Prueba la demo de Capitanes desde un mockup de móvil o con un QR.</DialogDescription>
@@ -757,7 +700,7 @@ const CaptainsLanding = () => {
         </DialogContent>
       </Dialog>
       <Dialog open={isPackImageOpen} onOpenChange={setIsPackImageOpen}>
-        <DialogContent className="max-h-[94dvh] max-w-[96vw] overflow-hidden border-4 border-[#151515] bg-white p-2 shadow-none sm:rounded-none lg:max-w-6xl">
+        <DialogContent className="max-h-[94dvh] max-w-[96vw] overflow-hidden rounded-lg border border-border bg-white p-2 shadow-xl sm:rounded-xl lg:max-w-6xl">
           <DialogHeader className="sr-only">
             <DialogTitle>Caja Capitán</DialogTitle>
             <DialogDescription>Fotografía ampliada del contenido de la Caja Capitán.</DialogDescription>
@@ -770,7 +713,7 @@ const CaptainsLanding = () => {
         </DialogContent>
       </Dialog>
       <Dialog open={Boolean(selectedCasePhoto)} onOpenChange={(open) => !open && setSelectedCasePhoto(null)}>
-        <DialogContent className="max-h-[94dvh] max-w-[96vw] overflow-hidden border-4 border-[#151515] bg-white p-2 shadow-none sm:rounded-none lg:max-w-6xl">
+        <DialogContent className="max-h-[94dvh] max-w-[96vw] overflow-hidden rounded-lg border border-border bg-white p-2 shadow-xl sm:rounded-xl lg:max-w-6xl">
           <DialogHeader className="sr-only">
             <DialogTitle>{selectedCasePhoto?.caption || "Foto del caso de éxito"}</DialogTitle>
             <DialogDescription>Fotografía ampliada del evento de Andrea y Rafa.</DialogDescription>
@@ -782,7 +725,7 @@ const CaptainsLanding = () => {
                 alt={selectedCasePhoto.caption}
                 className="block max-h-[82dvh] w-full object-contain"
               />
-              <figcaption className="border-t-4 border-[#151515] px-4 py-3 text-center text-lg font-black">
+              <figcaption className="border-t border-border px-4 py-3 text-center text-lg font-semibold">
                 {selectedCasePhoto.caption}
               </figcaption>
             </figure>

@@ -1,0 +1,145 @@
+/* Scoped to this landing: other Capitanes pages keep their own presentation. */
+.captains-revelao {
+  font-family: inherit;
+  image-rendering: auto;
+}
+
+.captains-revelao section[id] { scroll-margin-top: 80px; }
+.captains-revelao :is(a, button, input):focus-visible {
+  outline: 2px solid hsl(var(--primary));
+  outline-offset: 4px;
+}
+.captains-revelao .captains-navigation a:hover { color: hsl(var(--foreground)); }
+.captains-revelao :is(.captains-button, .captains-top-link) {
+  border: 1px solid hsl(var(--border));
+  border-radius: 999px;
+  padding: 13px 24px;
+  min-height: 48px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-transform: none;
+  box-shadow: none;
+  transition: background-color 180ms ease, transform 180ms ease;
+}
+.captains-revelao .captains-top-link { min-height: 38px; padding: 8px 18px; }
+.captains-revelao :is(.captains-button-primary, .captains-top-link-primary) {
+  border-color: transparent;
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
+.captains-revelao :is(.captains-button-primary, .captains-top-link-primary):hover {
+  background: hsl(var(--primary) / 0.9);
+  color: hsl(var(--primary-foreground));
+}
+.captains-revelao :is(.captains-button-secondary, .captains-button-cream):hover { background: hsl(var(--muted)); }
+.captains-revelao :is(.captains-kicker, .captains-section-label) {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  color: hsl(var(--muted-foreground));
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.12em;
+}
+.captains-revelao .captains-kicker {
+  padding: 7px 13px;
+  border: 1px solid hsl(var(--border));
+  border-radius: 999px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.captains-revelao .captains-section-label-dark { color: hsl(0 0% 75%); }
+.captains-revelao .captains-title {
+  font-size: clamp(2.75rem, 6.5vw, 5.6rem);
+  line-height: 1.04;
+  letter-spacing: -0.055em;
+  font-weight: 700;
+}
+.captains-revelao .captains-heading {
+  font-size: clamp(1.875rem, 3.6vw, 3rem);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  font-weight: 700;
+}
+.captains-memory-grid { display: grid; grid-template-columns: 1fr 1.35fr 1fr; gap: 16px; align-items: center; }
+.captains-memory-photo { position: relative; overflow: hidden; border-radius: 8px; height: 330px; }
+.captains-memory-photo img { width: 100%; height: 100%; object-fit: cover; }
+.captains-memory-photo figcaption {
+  position: absolute; inset: auto 0 0; display: flex; align-items: center; gap: 8px;
+  padding: 48px 18px 18px; font-size: 13px; font-weight: 500; color: white;
+  background: linear-gradient(transparent, hsl(0 0% 0% / 0.65));
+}
+.captains-product-preview {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  min-width: 0; height: 390px; overflow: hidden; padding: 24px 12px;
+  background: hsl(var(--muted)); border-radius: 8px;
+}
+.captains-product-preview img { width: 100%; height: 290px; object-fit: contain; transition: transform 200ms ease; }
+.captains-product-preview:hover img { transform: scale(1.025); }
+.captains-revelao :is(.captains-panel, .captains-arcade-screen, .captains-challenge-type, .captains-pricing-panel, .captains-pack-card) {
+  border: 1px solid hsl(var(--border));
+  border-radius: 8px;
+  box-shadow: none;
+  overflow: hidden;
+}
+.captains-revelao .captains-panel { padding: 26px; }
+.captains-revelao .captains-panel > svg { color: hsl(var(--primary)); }
+.captains-revelao .captains-challenge-type { padding: 20px; }
+.captains-revelao .captains-game-shot {
+  min-height: 280px; border: 1px solid hsl(var(--border)); border-radius: 8px; background: hsl(var(--muted));
+}
+.captains-revelao .captains-game-shot-top {
+  border-bottom: 1px solid hsl(var(--border)); background: white; font-weight: 500; text-transform: none;
+}
+.captains-revelao .captains-game-shot-top strong { color: hsl(var(--primary)); font-size: 13px; }
+.captains-revelao .captains-game-shot-body { gap: 12px; }
+.captains-revelao .captains-game-shot-body svg { color: hsl(var(--primary)); }
+.captains-revelao .captains-game-shot-body p { font-size: 1.5rem; line-height: 1.2; font-weight: 600; }
+.captains-revelao .captains-game-shot-button {
+  border: 1px solid hsl(var(--border)); border-radius: 999px; font-size: 13px; font-weight: 500; text-transform: none;
+}
+.captains-revelao .captains-ranking-row {
+  grid-template-columns: 36px 1fr auto; border: 1px solid hsl(var(--border)); border-radius: 8px;
+  font-size: clamp(0.8rem, 1.5vw, 1rem); font-weight: 500; padding: 16px 12px;
+}
+.captains-revelao .captains-ranking-row:first-child { background: hsl(var(--primary) / 0.05); border-color: hsl(var(--primary) / 0.2); }
+.captains-revelao .captains-ranking-row > :last-child { font-variant-numeric: tabular-nums; }
+.captains-revelao .captains-mini-tile {
+  border: 0; background: hsl(var(--muted)); border-radius: 8px; font-size: 14px; font-weight: 500; text-transform: none;
+}
+.captains-revelao .captains-mini-tile svg { flex-shrink: 0; color: hsl(var(--muted-foreground)); }
+.captains-revelao .captains-pricing-panel { gap: 22px; box-shadow: 0 12px 40px hsl(0 0% 0% / 0.04); }
+.captains-revelao .captains-addon-row {
+  border: 1px solid hsl(var(--border)); border-radius: 8px; background: hsl(var(--muted));
+}
+.captains-revelao .captains-addon-row:has(input:checked) { border-color: hsl(var(--primary)); background: hsl(var(--primary) / 0.04); }
+.captains-revelao .captains-addon-row input { accent-color: hsl(var(--primary)); width: 20px; height: 20px; }
+.captains-revelao .captains-addon-row strong { font-weight: 600; text-transform: none; }
+.captains-revelao .captains-addon-row small { font-weight: 400; font-size: 14px; line-height: 1.5; }
+.captains-revelao .captains-price-lines { font-size: 14px; color: hsl(var(--muted-foreground)); font-weight: 400; text-transform: none; }
+.captains-revelao .captains-instructions-note {
+  border: 0; background: transparent; padding: 0; color: hsl(var(--muted-foreground)); font-size: 14px; font-weight: 400; line-height: 1.5;
+}
+.captains-revelao .captains-pricing-input { border: 1px solid hsl(var(--border)); border-radius: 8px; font-size: 1.5rem; font-weight: 600; width: 110px; }
+.captains-revelao .captains-pricing-input:focus { box-shadow: none; }
+.captains-revelao .captains-price-total { border-top: 1px solid hsl(var(--border)); border-bottom: 0; font-weight: 600; flex-wrap: wrap; }
+.captains-revelao .captains-price-total span { font-size: 1rem; text-transform: none; }
+.captains-revelao .captains-price-total strong { font-size: clamp(2.5rem, 5vw, 3.5rem); line-height: 1.1; letter-spacing: -0.04em; overflow-wrap: anywhere; max-width: 100%; }
+.captains-revelao .captains-pack-image { max-width: 100%; border-radius: 8px; }
+.captains-revelao-modal .captains-demo-qr-panel { border: 0; background: hsl(var(--muted)); border-radius: 8px; }
+.captains-revelao-modal .captains-demo-qr-panel p { font-weight: 400; }
+.captains-revelao-modal .captains-demo-qr { border: 1px solid hsl(var(--border)); border-radius: 8px; }
+@media (max-width: 767px) {
+  .captains-memory-grid { grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 32px; }
+  .captains-product-preview { grid-column: 1 / -1; grid-row: 1; height: 300px; }
+  .captains-product-preview img { height: 220px; }
+  .captains-memory-photo { height: 200px; }
+  .captains-memory-photo figcaption { padding: 32px 12px 12px; font-size: 11px; }
+  .captains-memory-photo figcaption svg { display: none; }
+  .captains-revelao .captains-challenge-carousel { display: grid; margin: 0; margin-top: 32px; padding: 0; overflow: visible; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .captains-revelao *, .captains-revelao *::before, .captains-revelao *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+}
