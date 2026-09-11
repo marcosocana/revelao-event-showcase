@@ -189,7 +189,7 @@
   .captains-case-carousel::-webkit-scrollbar { display: none; }
   .captains-case-carousel > * { flex: 0 0 min(82vw, 320px); scroll-snap-align: start; }
 }
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .captains-revelao .captains-how-carousel {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
