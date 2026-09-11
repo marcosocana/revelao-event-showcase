@@ -22,7 +22,7 @@ export function CaptainsHero({ onDemoOpen }: { onDemoOpen: () => void }) {
       </header>
       <section className="captains-new-hero px-4 pb-16 pt-28 sm:px-6 lg:px-10 lg:pt-36" aria-labelledby="captains-title">
         <div className="mx-auto max-w-4xl text-center">
-          <h1 id="captains-title" className="captains-title">Vuestra boda.<br />Un juego <span className="text-primary">inolvidable.</span></h1>
+          <h1 id="captains-title" className="captains-title">El juego que convierte a vuestros invitados en parte de la boda</h1>
           <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground sm:text-xl">
             Un capitán por mesa. Retos para romper el hielo, picarse un poco y crear recuerdos entre todos.
           </p>
@@ -30,12 +30,6 @@ export function CaptainsHero({ onDemoOpen }: { onDemoOpen: () => void }) {
             <a href="#precios" className="captains-button captains-button-primary">Lo quiero</a>
             <button type="button" onClick={onDemoOpen} className="captains-button captains-button-secondary">Probar demo</button>
           </div>
-          <p className="mt-4 text-sm text-muted-foreground">Desde 4,95 € por mesa · Retos 100% personalizables</p>
-        </div>
-        <div className="mx-auto mt-12 max-w-2xl">
-          <button type="button" onClick={onDemoOpen} className="captains-product-preview" aria-label="Probar la demo de Capitanes">
-            <img src="/capitanes-demo-v2.png" alt="Pantalla de bienvenida de la demo de Capitanes" decoding="async" />
-          </button>
         </div>
       </section>
     </>

@@ -1,5 +1,5 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
-import { Camera, Pencil, QrCode, Trophy, Users, Video } from "lucide-react";
+import { Camera, Pencil, QrCode, Users, Video } from "lucide-react";
 import { CaptainsHero } from "@/components/captains/CaptainsHero";
 import { Footer } from "@/components/Footer";
 import "@/styles/captains-landing.css";
@@ -20,22 +20,30 @@ const steps = [
   {
     title: "Un capitán por mesa",
     text: "Solo entra el capitán. El resto de la mesa juega con él.",
-    icon: QrCode,
+    image: "/capitanes-paso-capitan.png",
+    imageAlt: "Selección del capitán y su mesa en el juego Capitanes",
+    imagePosition: "center 22%",
   },
   {
-    title: "Retos a medida",
-    text: "Fotos, vídeos, gritos de guerra y preguntas sobre la pareja.",
-    icon: Users,
+    title: "Retos y pruebas con el móvil",
+    text: "El capitán recibe retos de foto, vídeo y preguntas para jugar con toda la mesa.",
+    image: "/capitanes-paso-retos.png",
+    imageAlt: "Reto de vídeo para una mesa en el juego Capitanes",
+    imagePosition: "center 32%",
   },
   {
-    title: "Pruebas con móvil",
-    text: "Haz una foto, graba un baile o cumple la misión que toque.",
-    icon: Camera,
+    title: "Comentarios de los novios",
+    text: "Habrá comentarios predeterminados por parte de los novios para animar y picar a las mesas durante el juego.",
+    image: "/capitanes-paso-comentarios.png",
+    imageAlt: "Comentarios predeterminados de los novios durante el juego Capitanes",
+    imagePosition: "center 38%",
   },
   {
     title: "Ranking en directo",
     text: "Cada reto suma puntos y mueve la clasificación de la boda.",
-    icon: Trophy,
+    image: "/capitanes-paso-ranking-v2.png",
+    imageAlt: "Ranking en directo de las mesas en el juego Capitanes",
+    imagePosition: "center 36%",
   },
 ];
 
@@ -336,15 +344,25 @@ const CaptainsLanding = () => {
       <section id="como-se-juega" className="bg-muted px-4 py-16 text-[#151515] sm:px-6 lg:px-10 lg:py-24">
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
           <div>
-            <p className="captains-section-label">Cómo se juega</p>
-            <h2 className="captains-heading mt-3">Retos para que las mesas se piquen</h2>
+            <h2 className="captains-heading">¿Cómo se juega?</h2>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2">
-            {steps.map((step) => (
-              <article className="captains-panel" key={step.title}>
-                <step.icon className="h-7 w-7" />
-                <h3 className="mt-4 text-2xl font-semibold">{step.title}</h3>
-                <p className="mt-2 text-base font-normal leading-6 text-[#151515]/68">{step.text}</p>
+          <div className="captains-how-carousel grid gap-4 sm:grid-cols-2">
+            {steps.map((step, index) => (
+              <article className="captains-panel captains-how-card" key={step.title}>
+                <div className="captains-how-card-content">
+                  <span className="captains-how-card-number" aria-hidden="true">{index + 1}</span>
+                  <h3 className="mt-4 text-2xl font-semibold">{step.title}</h3>
+                  <p className="mt-2 text-base font-normal leading-6 text-[#151515]/68">{step.text}</p>
+                </div>
+                <div className="captains-how-card-image">
+                  <img
+                    src={step.image}
+                    alt={step.imageAlt}
+                    style={{ objectPosition: step.imagePosition }}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
               </article>
             ))}
           </div>
@@ -396,11 +414,10 @@ const CaptainsLanding = () => {
         </div>
       </section>
 
-      <section id="retos" className="bg-white px-4 py-16 text-[#151515] sm:px-6 lg:px-10 lg:py-24">
+      <section id="retos" className="bg-muted px-4 py-16 text-[#151515] sm:px-6 lg:px-10 lg:py-24">
         <div className="mx-auto max-w-7xl">
           <div className="max-w-3xl">
-            <p className="captains-section-label">Tipos de retos</p>
-            <h2 className="captains-heading mt-3">Todo se puede personalizar para vuestra boda</h2>
+            <h2 className="captains-heading">Elige entre varios tipos de retos</h2>
             <p className="mt-4 text-lg font-normal leading-7 text-[#151515]/70">
               Mezcla retos de foto, vídeo y preguntas sobre la pareja. Tú decides qué tiene que hacer cada mesa
             </p>
@@ -425,11 +442,10 @@ const CaptainsLanding = () => {
         </div>
       </section>
 
-      <section className="bg-muted px-4 py-16 text-foreground sm:px-6 lg:px-10 lg:py-24">
+      <section className="bg-white px-4 py-16 text-foreground sm:px-6 lg:px-10 lg:py-24">
         <div className="mx-auto max-w-7xl">
           <div className="max-w-3xl">
-            <p className="captains-section-label">Paso a paso</p>
-            <h2 className="captains-heading mt-3">El juego que revoluciona tu boda</h2>
+            <h2 className="captains-heading">¿Por dónde empiezo?</h2>
             <p className="mt-4 text-lg font-normal leading-7 text-muted-foreground">
               Tú preparas la partida antes de la boda. Los capitanes se encargan de que cada mesa entre en el juego.
               Tendrás soporte por WhatsApp para cualquier duda.
@@ -444,6 +460,11 @@ const CaptainsLanding = () => {
                 </span>
                 <h3 className="mt-4 text-2xl font-semibold leading-7">{step.title}</h3>
                 <p className="mt-2 text-base font-normal leading-6 text-[#151515]/68">{step.text}</p>
+                {index === 0 ? (
+                  <div className="mt-auto pt-5">
+                    <a className="captains-button captains-button-primary w-full" href="#precios">Lo quiero</a>
+                  </div>
+                ) : null}
               </article>
             ))}
           </div>
@@ -669,8 +690,7 @@ const CaptainsLanding = () => {
       <section className="bg-white px-4 py-14 text-[#151515] sm:px-6 lg:px-10 lg:py-24">
         <div className="mx-auto flex max-w-7xl flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl">
-            <p className="captains-section-label">Capitanes</p>
-            <h2 className="captains-heading mt-3">Una excusa para llenar la boda de recuerdos reales</h2>
+            <h2 className="captains-heading">Una excusa para llenar la boda de recuerdos reales</h2>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
             <a className="captains-button captains-button-primary" href="#precios">

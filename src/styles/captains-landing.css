@@ -32,8 +32,13 @@
 .captains-revelao :is(.captains-button-primary, .captains-top-link-primary):hover {
   background: hsl(var(--primary) / 0.9);
   color: hsl(var(--primary-foreground));
+  transform: translateY(-1px);
 }
-.captains-revelao :is(.captains-button-secondary, .captains-button-cream):hover { background: hsl(var(--muted)); }
+.captains-revelao :is(.captains-button-secondary, .captains-button-cream, .captains-top-link-demo):hover {
+  background: hsl(var(--muted));
+  color: hsl(var(--foreground));
+  transform: translateY(-1px);
+}
 .captains-revelao :is(.captains-kicker, .captains-section-label) {
   border: 0;
   background: transparent;
@@ -72,13 +77,6 @@
   padding: 48px 18px 18px; font-size: 13px; font-weight: 500; color: white;
   background: linear-gradient(transparent, hsl(0 0% 0% / 0.65));
 }
-.captains-product-preview {
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  min-width: 0; height: 390px; overflow: hidden; padding: 0;
-  background: hsl(var(--muted)); border-radius: 8px;
-}
-.captains-product-preview img { width: 100%; height: 100%; object-fit: cover; transition: transform 200ms ease; }
-.captains-product-preview:hover img { transform: scale(1.025); }
 .captains-revelao :is(.captains-panel, .captains-arcade-screen, .captains-challenge-type, .captains-pricing-panel, .captains-pack-card) {
   border: 1px solid hsl(var(--border));
   border-radius: 8px;
@@ -87,6 +85,16 @@
 }
 .captains-revelao .captains-panel { padding: 26px; }
 .captains-revelao .captains-panel > svg { color: hsl(var(--primary)); }
+.captains-revelao .captains-how-card { display: flex; flex-direction: column; padding: 0; background: white; }
+.captains-how-card-image {
+  aspect-ratio: 1179 / 1843; overflow: hidden; border-top: 1px solid hsl(var(--border)); background: transparent;
+}
+.captains-how-card-image img { width: 100%; height: 100%; object-fit: contain; }
+.captains-how-card-content { flex: 1; padding: 24px; }
+.captains-how-card-number {
+  display: inline-flex; width: 38px; height: 38px; align-items: center; justify-content: center;
+  border-radius: 999px; background: hsl(var(--primary)); color: hsl(var(--primary-foreground)); font-weight: 700;
+}
 .captains-revelao .captains-challenge-type { padding: 20px; }
 .captains-revelao .captains-game-shot {
   position: relative; min-height: 0; aspect-ratio: 9 / 12; border: 1px solid hsl(var(--border)); border-radius: 8px; background: hsl(var(--muted));
@@ -138,8 +146,16 @@
   .captains-revelao .captains-navigation nav { gap: 8px; padding-inline: 12px; }
   .captains-revelao .captains-nav-logo { width: 140px; height: auto; }
   .captains-revelao .captains-top-link { min-height: 36px; padding: 7px 12px; font-size: 12px; white-space: nowrap; }
-  .captains-product-preview { height: 300px; }
-  .captains-product-preview img { height: 100%; }
+  .captains-revelao .captains-how-carousel {
+    display: flex; margin: 32px -16px 0; padding: 0 16px 12px; gap: 12px;
+    overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-left: 16px;
+    scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  }
+  .captains-revelao .captains-how-carousel::-webkit-scrollbar { display: none; }
+  .captains-revelao .captains-how-carousel > * {
+    flex: 0 0 min(84vw, 330px);
+    scroll-snap-align: start;
+  }
   .captains-revelao .captains-challenge-carousel {
     display: flex; margin: 32px -16px 0; padding: 0 16px 12px; gap: 12px;
     overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-left: 16px;
