@@ -9,10 +9,10 @@ export function CaptainsHero({ onDemoOpen }: { onDemoOpen: () => void }) {
             <img src="/capitanes-logo.svg" alt="Capitanes por Revelao.cam" className="captains-nav-logo h-12 w-auto sm:h-[3.25rem]" />
           </a>
           <div className="hidden items-center gap-7 text-sm text-muted-foreground lg:flex">
-            <a href="#como-se-juega">Cómo se juega</a>
-            <a href="#retos">Los retos</a>
+            <a href="#como-se-juega">¿Cómo se juega?</a>
+            <a href="#retos">Tipos de retos</a>
             <a href="#precios">Precios</a>
-            <a href="#boda-real">Una boda real</a>
+            <a href="#boda-real">Casos de éxito</a>
           </div>
           <div className="flex items-center gap-2">
             <button type="button" onClick={onDemoOpen} className="captains-top-link captains-top-link-demo">Ver demo</button>

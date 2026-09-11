@@ -1,5 +1,5 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
-import { Camera, Pencil, QrCode, Users, Video } from "lucide-react";
+import { Camera, ChevronLeft, ChevronRight, Pencil, QrCode, Users, Video } from "lucide-react";
 import { CaptainsHero } from "@/components/captains/CaptainsHero";
 import { Footer } from "@/components/Footer";
 import "@/styles/captains-landing.css";
@@ -19,7 +19,7 @@ const showSuccessCase = true;
 const steps = [
   {
     title: "Un capitán por mesa",
-    text: "Solo entra el capitán. El resto de la mesa juega con él.",
+    text: "Solo el capitán de cada mesa accede al juego mediante un código QR, que puedes entregarle junto con el brazalete. El resto de la mesa juega con él.",
     image: "/capitanes-paso-capitan.png",
     imageAlt: "Selección del capitán y su mesa en el juego Capitanes",
     imagePosition: "center 22%",
@@ -40,7 +40,7 @@ const steps = [
   },
   {
     title: "Ranking en directo",
-    text: "Cada reto suma puntos y mueve la clasificación de la boda.",
+    text: "Cada reto suma puntos y mueve la clasificación de la boda. ¡Que gane el mejor!",
     image: "/capitanes-paso-ranking-v2.png",
     imageAlt: "Ranking en directo de las mesas en el juego Capitanes",
     imagePosition: "center 36%",
@@ -223,6 +223,7 @@ const CaptainsLanding = () => {
   const [selectedCasePhoto, setSelectedCasePhoto] = useState<(typeof caseStudyPhotos)[number] | null>(null);
   const [isCheckoutLoading, setIsCheckoutLoading] = useState(false);
   const [rankingStep, setRankingStep] = useState(0);
+  const howCarouselRef = useRef<HTMLDivElement>(null);
   const rankingRowRefs = useRef(new Map<string, HTMLDivElement>());
   const previousRankingPositions = useRef(new Map<string, number>());
   const parsedTableCount = /^\d+$/.test(tableCount) ? Number(tableCount) : 0;
@@ -337,16 +338,30 @@ const CaptainsLanding = () => {
     document.getElementById("precios")?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
+  const scrollHowCarousel = (direction: -1 | 1) => {
+    const carousel = howCarouselRef.current;
+    if (!carousel) return;
+    carousel.scrollBy({ left: direction * Math.min(carousel.clientWidth * 0.85, 420), behavior: "smooth" });
+  };
+
   return (
     <main className="captains-page captains-revelao min-h-screen overflow-hidden bg-white text-[#151515]">
       <CaptainsHero onDemoOpen={handleDemoOpen} />
 
       <section id="como-se-juega" className="bg-muted px-4 py-16 text-[#151515] sm:px-6 lg:px-10 lg:py-24">
-        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
-          <div>
+        <div className="mx-auto max-w-7xl">
+          <div className="flex items-end justify-between gap-5">
             <h2 className="captains-heading">¿Cómo se juega?</h2>
+            <div className="captains-carousel-controls hidden md:flex" aria-label="Controles del carrusel">
+              <button type="button" onClick={() => scrollHowCarousel(-1)} aria-label="Ver pasos anteriores">
+                <ChevronLeft aria-hidden="true" />
+              </button>
+              <button type="button" onClick={() => scrollHowCarousel(1)} aria-label="Ver pasos siguientes">
+                <ChevronRight aria-hidden="true" />
+              </button>
+            </div>
           </div>
-          <div className="captains-how-carousel grid gap-4 sm:grid-cols-2">
+          <div className="captains-how-carousel" ref={howCarouselRef}>
             {steps.map((step, index) => (
               <article className="captains-panel captains-how-card" key={step.title}>
                 <div className="captains-how-card-content">
@@ -426,6 +441,10 @@ const CaptainsLanding = () => {
           <div className="captains-challenge-carousel mt-8">
             {challengeTypes.map((challenge) => (
               <article className="captains-challenge-type" key={challenge.title}>
+                <div className="captains-challenge-copy">
+                  <h3 className="text-2xl font-semibold">{challenge.title}</h3>
+                  <p className="mt-2 text-base font-normal leading-6 text-[#151515]/68">{challenge.text}</p>
+                </div>
                 <div className="captains-game-shot">
                   <img
                     src={challenge.screenshot}
@@ -434,8 +453,6 @@ const CaptainsLanding = () => {
                     decoding="async"
                   />
                 </div>
-                <h3 className="mt-5 text-2xl font-semibold">{challenge.title}</h3>
-                <p className="mt-2 text-base font-normal leading-6 text-[#151515]/68">{challenge.text}</p>
               </article>
             ))}
           </div>

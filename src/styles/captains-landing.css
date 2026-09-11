@@ -85,6 +85,36 @@
 }
 .captains-revelao .captains-panel { padding: 26px; }
 .captains-revelao .captains-panel > svg { color: hsl(var(--primary)); }
+.captains-revelao .captains-how-carousel {
+  display: flex;
+  gap: 16px;
+  margin-top: 32px;
+  padding-bottom: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.captains-revelao .captains-how-carousel::-webkit-scrollbar { display: none; }
+.captains-revelao .captains-how-carousel > * {
+  flex: 0 0 min(84vw, 330px);
+  scroll-snap-align: start;
+}
+.captains-carousel-controls { gap: 8px; }
+.captains-carousel-controls button {
+  display: inline-flex;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid hsl(var(--border));
+  border-radius: 999px;
+  background: white;
+  color: hsl(var(--foreground));
+  transition: background-color 180ms ease, transform 180ms ease;
+}
+.captains-carousel-controls button:hover { background: hsl(var(--background)); transform: translateY(-1px); }
+.captains-carousel-controls svg { width: 20px; height: 20px; }
 .captains-revelao .captains-how-card { display: flex; flex-direction: column; padding: 0; background: white; }
 .captains-how-card-image {
   aspect-ratio: 1179 / 1843; overflow: hidden; border-top: 1px solid hsl(var(--border)); background: transparent;
@@ -95,7 +125,7 @@
   display: inline-flex; width: 38px; height: 38px; align-items: center; justify-content: center;
   border-radius: 999px; background: hsl(var(--primary)); color: hsl(var(--primary-foreground)); font-weight: 700;
 }
-.captains-revelao .captains-challenge-type { padding: 20px; }
+.captains-revelao .captains-challenge-type { display: flex; flex-direction: column; gap: 20px; padding: 20px; }
 .captains-revelao .captains-game-shot {
   position: relative; min-height: 0; aspect-ratio: 9 / 12; border: 1px solid hsl(var(--border)); border-radius: 8px; background: hsl(var(--muted));
 }
@@ -173,6 +203,12 @@
   }
   .captains-case-carousel::-webkit-scrollbar { display: none; }
   .captains-case-carousel > * { flex: 0 0 min(82vw, 320px); scroll-snap-align: start; }
+}
+@media (min-width: 768px) {
+  .captains-revelao .captains-how-carousel > * { flex-basis: min(38vw, 380px); }
+}
+@media (min-width: 1024px) {
+  .captains-revelao .captains-how-carousel > * { flex-basis: calc((100% - 32px) / 3); }
 }
 @media (prefers-reduced-motion: reduce) {
   .captains-revelao *, .captains-revelao *::before, .captains-revelao *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
