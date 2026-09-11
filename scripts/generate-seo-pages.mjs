@@ -441,7 +441,7 @@ const landingPages = [
       "<h2>Ideas y recursos para organizar tus capitanes de mesa</h2><ul>" +
       captainsSeoPages.map((page) => `<li><a href="${page.path}">${escapeHtml(page.h1)}</a></li>`).join("") +
       "</ul>" +
-      '<p><a href="https://acceso.revelao.cam/capitanes/demo-capitanes">Ver demo de Capitanes</a></p></article></main>',
+      '<p><a href="https://acceso.revelao.cam/capitanes/demo-capitanes-v2">Ver demo de Capitanes</a></p></article></main>',
     schema: {
       "@context": "https://schema.org",
       "@type": "WebPage",

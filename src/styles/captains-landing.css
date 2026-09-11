@@ -74,10 +74,10 @@
 }
 .captains-product-preview {
   display: flex; flex-direction: column; align-items: center; justify-content: center;
-  min-width: 0; height: 390px; overflow: hidden; padding: 24px 12px;
+  min-width: 0; height: 390px; overflow: hidden; padding: 0;
   background: hsl(var(--muted)); border-radius: 8px;
 }
-.captains-product-preview img { width: 100%; height: 290px; object-fit: contain; transition: transform 200ms ease; }
+.captains-product-preview img { width: 100%; height: 100%; object-fit: cover; transition: transform 200ms ease; }
 .captains-product-preview:hover img { transform: scale(1.025); }
 .captains-revelao :is(.captains-panel, .captains-arcade-screen, .captains-challenge-type, .captains-pricing-panel, .captains-pack-card) {
   border: 1px solid hsl(var(--border));
@@ -136,10 +136,10 @@
 .captains-revelao-modal .captains-demo-qr { border: 1px solid hsl(var(--border)); border-radius: 8px; }
 @media (max-width: 767px) {
   .captains-revelao .captains-navigation nav { gap: 8px; padding-inline: 12px; }
-  .captains-revelao .captains-nav-logo { width: 112px; height: auto; }
+  .captains-revelao .captains-nav-logo { width: 140px; height: auto; }
   .captains-revelao .captains-top-link { min-height: 36px; padding: 7px 12px; font-size: 12px; white-space: nowrap; }
   .captains-product-preview { height: 300px; }
-  .captains-product-preview img { height: 220px; }
+  .captains-product-preview img { height: 100%; }
   .captains-revelao .captains-challenge-carousel {
     display: flex; margin: 32px -16px 0; padding: 0 16px 12px; gap: 12px;
     overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-left: 16px;

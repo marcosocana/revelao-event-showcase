@@ -7,9 +7,9 @@ import WhatsAppFloating from "@/components/WhatsAppFloating";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { supabase } from "@/integrations/supabase/client";
 
-const demoUrl = "https://acceso.revelao.cam/capitanes/demo-capitanes?embed=1";
-const demoOpenUrl = "https://acceso.revelao.cam/capitanes/demo-capitanes";
-const demoDisplayUrl = "acceso.revelao.cam/capitanes/demo-capitanes";
+const demoUrl = "https://acceso.revelao.cam/capitanes/demo-capitanes-v2?embed=1";
+const demoOpenUrl = "https://acceso.revelao.cam/capitanes/demo-capitanes-v2";
+const demoDisplayUrl = "acceso.revelao.cam/capitanes/demo-capitanes-v2";
 const demoQrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=260x260&margin=12&data=${encodeURIComponent(demoOpenUrl)}`;
 const contactUrl =
   "https://wa.me/34695834018?text=Hola%21%20Quiero%20saber%20m%C3%A1s%20sobre%20Capitanes%20para%20bodas.";
