@@ -1,14 +1,12 @@
-import { ArrowUpRight, Camera, ChevronRight, Play, Trophy } from "lucide-react";
-import logo from "@/assets/logo-mini.png";
+import { ArrowUpRight } from "lucide-react";
 
 export function CaptainsHero({ onDemoOpen }: { onDemoOpen: () => void }) {
   return (
     <>
       <header className="captains-navigation fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-white/95 backdrop-blur-xl">
         <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-3 px-4 sm:px-6 lg:px-10" aria-label="Navegación de Capitanes">
-          <a href="/" className="flex items-center gap-3" aria-label="Ir a Revelao.cam">
-            <img src={logo} alt="Revelao.cam" className="h-8 w-auto" />
-            <span className="border-l border-border pl-3 text-sm font-semibold">Capitanes</span>
+          <a href="/capitanes" className="shrink-0" aria-label="Ir a Capitanes">
+            <img src="/capitanes-logo.svg" alt="Capitanes por Revelao.cam" className="captains-nav-logo h-9 w-auto sm:h-10" />
           </a>
           <div className="hidden items-center gap-7 text-sm text-muted-foreground lg:flex">
             <a href="#como-se-juega">Cómo se juega</a>
@@ -16,7 +14,10 @@ export function CaptainsHero({ onDemoOpen }: { onDemoOpen: () => void }) {
             <a href="#precios">Precios</a>
             <a href="#boda-real">Una boda real</a>
           </div>
-          <a href="#precios" className="captains-top-link captains-top-link-primary">Comprar <ArrowUpRight className="ml-1 h-4 w-4" /></a>
+          <div className="flex items-center gap-2">
+            <button type="button" onClick={onDemoOpen} className="captains-top-link captains-top-link-demo">Ver demo</button>
+            <a href="#precios" className="captains-top-link captains-top-link-primary">Comprar <ArrowUpRight className="ml-1 hidden h-4 w-4 sm:block" /></a>
+          </div>
         </nav>
       </header>
       <section className="captains-new-hero px-4 pb-16 pt-28 sm:px-6 lg:px-10 lg:pt-36" aria-labelledby="captains-title">
@@ -27,25 +28,17 @@ export function CaptainsHero({ onDemoOpen }: { onDemoOpen: () => void }) {
             Un capitán por mesa. Retos para romper el hielo, picarse un poco y crear recuerdos entre todos.
           </p>
           <div className="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
-            <a href="#precios" className="captains-button captains-button-primary">Quiero jugar en mi boda <ChevronRight className="h-4 w-4" /></a>
-            <button type="button" onClick={onDemoOpen} className="captains-button captains-button-secondary"><Play className="h-4 w-4" /> Probar la demo</button>
+            <a href="#precios" className="captains-button captains-button-primary">Lo quiero</a>
+            <button type="button" onClick={onDemoOpen} className="captains-button captains-button-secondary">Probar demo</button>
           </div>
           <p className="mt-4 text-sm text-muted-foreground">Desde 4,95 € por mesa · Retos 100% personalizables</p>
         </div>
-        <div className="captains-memory-grid mx-auto mt-12 max-w-7xl">
-          <figure className="captains-memory-photo">
-            <img src="/capitanes-andrea-rafa-manos-arriba.jpg" alt="Invitados de Andrea y Rafa superando el reto de manos arriba" fetchPriority="high" />
-            <figcaption><Camera className="h-4 w-4" /> Una mesa. Mil anécdotas.</figcaption>
-          </figure>
+        <div className="mx-auto mt-12 max-w-2xl">
           <button type="button" onClick={onDemoOpen} className="captains-product-preview" aria-label="Probar la demo de Capitanes">
             <span className="text-sm font-semibold text-muted-foreground">Así empieza el juego</span>
             <img src="/capitanes-hero.png" alt="Pantallas del juego Capitanes con los retos y la clasificación" decoding="async" />
             <span className="inline-flex items-center gap-2 text-sm font-semibold">Descubre la experiencia <ArrowUpRight className="h-4 w-4" /></span>
           </button>
-          <figure className="captains-memory-photo">
-            <img src="/capitanes-andrea-rafa-foto-novios.jpg" alt="Una mesa posa con los novios durante el juego" decoding="async" />
-            <figcaption><Trophy className="h-4 w-4" /> El mejor premio: vivirlo juntos.</figcaption>
-          </figure>
         </div>
       </section>
     </>

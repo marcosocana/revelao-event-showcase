@@ -77,6 +77,8 @@ const challengeTypes = [
     example: "Foto con el hermano de la novia",
     action: "Subir foto",
     icon: Camera,
+    screenshot: "/reto-foto-artistica-juego-boda-capitanes.png",
+    screenshotAlt: "Reto de foto artística del juego para bodas Capitanes de Revelao",
   },
   {
     title: "Reto vídeo",
@@ -84,6 +86,8 @@ const challengeTypes = [
     example: "Baile de 10 segundos",
     action: "Grabar vídeo",
     icon: Video,
+    screenshot: "/reto-video-mannequin-challenge-juego-boda-capitanes.png",
+    screenshotAlt: "Reto de vídeo Mannequin Challenge del juego para bodas Capitanes de Revelao",
   },
   {
     title: "Pregunta pareja",
@@ -91,6 +95,8 @@ const challengeTypes = [
     example: "¿Dónde fue su primera cita?",
     action: "Responder",
     icon: Users,
+    screenshot: "/reto-pregunta-pareja-juego-boda-capitanes.png",
+    screenshotAlt: "Reto de pregunta sobre la pareja del juego para bodas Capitanes de Revelao",
   },
 ];
 const captainTemplates = [
@@ -403,16 +409,13 @@ const CaptainsLanding = () => {
           <div className="captains-challenge-carousel mt-8">
             {challengeTypes.map((challenge) => (
               <article className="captains-challenge-type" key={challenge.title}>
-                <div className="captains-game-shot" aria-label={`Imagen del juego: ${challenge.title}`}>
-                  <div className="captains-game-shot-top">
-                    <span>Mesa 7</span>
-                    <strong>+50 pts</strong>
-                  </div>
-                  <div className="captains-game-shot-body">
-                    <challenge.icon className="h-9 w-9" />
-                    <p>{challenge.example}</p>
-                  </div>
-                  <div className="captains-game-shot-button">{challenge.action}</div>
+                <div className="captains-game-shot">
+                  <img
+                    src={challenge.screenshot}
+                    alt={challenge.screenshotAlt}
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
                 <h3 className="mt-5 text-2xl font-semibold">{challenge.title}</h3>
                 <p className="mt-2 text-base font-normal leading-6 text-[#151515]/68">{challenge.text}</p>
@@ -587,7 +590,7 @@ const CaptainsLanding = () => {
             </div>
           </div>
 
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="captains-case-carousel mt-8">
             {caseStudyPhotos.map((photo) => (
               <button
                 type="button"
@@ -663,17 +666,17 @@ const CaptainsLanding = () => {
         </section>
       ) : null}
 
-      <section className="bg-[#151515] px-4 py-14 text-white sm:px-6 lg:px-10 lg:py-24">
+      <section className="bg-white px-4 py-14 text-[#151515] sm:px-6 lg:px-10 lg:py-24">
         <div className="mx-auto flex max-w-7xl flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl">
-            <p className="captains-section-label captains-section-label-dark">Capitanes</p>
+            <p className="captains-section-label">Capitanes</p>
             <h2 className="captains-heading mt-3">Una excusa para llenar la boda de recuerdos reales</h2>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
             <a className="captains-button captains-button-primary" href="#precios">
               Comprar
             </a>
-            <button type="button" className="captains-button captains-button-dark-outline" onClick={handleDemoOpen}>
+            <button type="button" className="captains-button captains-button-secondary" onClick={handleDemoOpen}>
               Ver demo
             </button>
           </div>

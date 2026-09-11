@@ -23,6 +23,7 @@
   transition: background-color 180ms ease, transform 180ms ease;
 }
 .captains-revelao .captains-top-link { min-height: 38px; padding: 8px 18px; }
+.captains-revelao .captains-top-link-demo { background: white; color: hsl(var(--foreground)); }
 .captains-revelao :is(.captains-button-primary, .captains-top-link-primary) {
   border-color: transparent;
   background: hsl(var(--primary));
@@ -88,8 +89,9 @@
 .captains-revelao .captains-panel > svg { color: hsl(var(--primary)); }
 .captains-revelao .captains-challenge-type { padding: 20px; }
 .captains-revelao .captains-game-shot {
-  min-height: 280px; border: 1px solid hsl(var(--border)); border-radius: 8px; background: hsl(var(--muted));
+  position: relative; min-height: 0; aspect-ratio: 9 / 12; border: 1px solid hsl(var(--border)); border-radius: 8px; background: hsl(var(--muted));
 }
+.captains-revelao .captains-game-shot img { width: 100%; height: 100%; object-fit: contain; object-position: center; }
 .captains-revelao .captains-game-shot-top {
   border-bottom: 1px solid hsl(var(--border)); background: white; font-weight: 500; text-transform: none;
 }
@@ -128,17 +130,33 @@
 .captains-revelao .captains-price-total span { font-size: 1rem; text-transform: none; }
 .captains-revelao .captains-price-total strong { font-size: clamp(2.5rem, 5vw, 3.5rem); line-height: 1.1; letter-spacing: -0.04em; overflow-wrap: anywhere; max-width: 100%; }
 .captains-revelao .captains-pack-image { max-width: 100%; border-radius: 8px; }
+.captains-case-carousel { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
 .captains-revelao-modal .captains-demo-qr-panel { border: 0; background: hsl(var(--muted)); border-radius: 8px; }
 .captains-revelao-modal .captains-demo-qr-panel p { font-weight: 400; }
 .captains-revelao-modal .captains-demo-qr { border: 1px solid hsl(var(--border)); border-radius: 8px; }
 @media (max-width: 767px) {
-  .captains-memory-grid { grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 32px; }
-  .captains-product-preview { grid-column: 1 / -1; grid-row: 1; height: 300px; }
+  .captains-revelao .captains-navigation nav { gap: 8px; padding-inline: 12px; }
+  .captains-revelao .captains-nav-logo { width: 112px; height: auto; }
+  .captains-revelao .captains-top-link { min-height: 36px; padding: 7px 12px; font-size: 12px; white-space: nowrap; }
+  .captains-product-preview { height: 300px; }
   .captains-product-preview img { height: 220px; }
-  .captains-memory-photo { height: 200px; }
-  .captains-memory-photo figcaption { padding: 32px 12px 12px; font-size: 11px; }
-  .captains-memory-photo figcaption svg { display: none; }
-  .captains-revelao .captains-challenge-carousel { display: grid; margin: 0; margin-top: 32px; padding: 0; overflow: visible; }
+  .captains-revelao .captains-challenge-carousel {
+    display: flex; margin: 32px -16px 0; padding: 0 16px 12px; gap: 12px;
+    overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-left: 16px;
+    scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  }
+  .captains-revelao .captains-challenge-carousel::-webkit-scrollbar { display: none; }
+  .captains-revelao .captains-challenge-carousel > * {
+    flex: 0 0 min(82vw, 320px);
+    scroll-snap-align: start;
+  }
+  .captains-case-carousel {
+    display: flex; margin-inline: -16px; padding: 0 16px 12px; gap: 12px;
+    overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-left: 16px;
+    scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  }
+  .captains-case-carousel::-webkit-scrollbar { display: none; }
+  .captains-case-carousel > * { flex: 0 0 min(82vw, 320px); scroll-snap-align: start; }
 }
 @media (prefers-reduced-motion: reduce) {
   .captains-revelao *, .captains-revelao *::before, .captains-revelao *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
