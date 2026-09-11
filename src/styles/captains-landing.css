@@ -100,21 +100,6 @@
   flex: 0 0 min(84vw, 330px);
   scroll-snap-align: start;
 }
-.captains-carousel-controls { gap: 8px; }
-.captains-carousel-controls button {
-  display: inline-flex;
-  width: 44px;
-  height: 44px;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid hsl(var(--border));
-  border-radius: 999px;
-  background: white;
-  color: hsl(var(--foreground));
-  transition: background-color 180ms ease, transform 180ms ease;
-}
-.captains-carousel-controls button:hover { background: hsl(var(--background)); transform: translateY(-1px); }
-.captains-carousel-controls svg { width: 20px; height: 20px; }
 .captains-revelao .captains-how-card { display: flex; flex-direction: column; padding: 0; background: white; }
 .captains-how-card-image {
   aspect-ratio: 1179 / 1843; overflow: hidden; border-top: 1px solid hsl(var(--border)); background: transparent;
@@ -205,10 +190,13 @@
   .captains-case-carousel > * { flex: 0 0 min(82vw, 320px); scroll-snap-align: start; }
 }
 @media (min-width: 768px) {
-  .captains-revelao .captains-how-carousel > * { flex-basis: min(38vw, 380px); }
-}
-@media (min-width: 1024px) {
-  .captains-revelao .captains-how-carousel > * { flex-basis: calc((100% - 32px) / 3); }
+  .captains-revelao .captains-how-carousel {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    overflow: visible;
+    padding-bottom: 0;
+  }
+  .captains-revelao .captains-how-carousel > * { min-width: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
   .captains-revelao *, .captains-revelao *::before, .captains-revelao *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }

@@ -1,5 +1,5 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
-import { Camera, ChevronLeft, ChevronRight, Pencil, QrCode, Users, Video } from "lucide-react";
+import { Camera, Pencil, QrCode, Users, Video } from "lucide-react";
 import { CaptainsHero } from "@/components/captains/CaptainsHero";
 import { Footer } from "@/components/Footer";
 import "@/styles/captains-landing.css";
@@ -223,7 +223,6 @@ const CaptainsLanding = () => {
   const [selectedCasePhoto, setSelectedCasePhoto] = useState<(typeof caseStudyPhotos)[number] | null>(null);
   const [isCheckoutLoading, setIsCheckoutLoading] = useState(false);
   const [rankingStep, setRankingStep] = useState(0);
-  const howCarouselRef = useRef<HTMLDivElement>(null);
   const rankingRowRefs = useRef(new Map<string, HTMLDivElement>());
   const previousRankingPositions = useRef(new Map<string, number>());
   const parsedTableCount = /^\d+$/.test(tableCount) ? Number(tableCount) : 0;
@@ -338,30 +337,16 @@ const CaptainsLanding = () => {
     document.getElementById("precios")?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
-  const scrollHowCarousel = (direction: -1 | 1) => {
-    const carousel = howCarouselRef.current;
-    if (!carousel) return;
-    carousel.scrollBy({ left: direction * Math.min(carousel.clientWidth * 0.85, 420), behavior: "smooth" });
-  };
-
   return (
     <main className="captains-page captains-revelao min-h-screen overflow-hidden bg-white text-[#151515]">
       <CaptainsHero onDemoOpen={handleDemoOpen} />
 
       <section id="como-se-juega" className="bg-muted px-4 py-16 text-[#151515] sm:px-6 lg:px-10 lg:py-24">
         <div className="mx-auto max-w-7xl">
-          <div className="flex items-end justify-between gap-5">
+          <div>
             <h2 className="captains-heading">¿Cómo se juega?</h2>
-            <div className="captains-carousel-controls hidden md:flex" aria-label="Controles del carrusel">
-              <button type="button" onClick={() => scrollHowCarousel(-1)} aria-label="Ver pasos anteriores">
-                <ChevronLeft aria-hidden="true" />
-              </button>
-              <button type="button" onClick={() => scrollHowCarousel(1)} aria-label="Ver pasos siguientes">
-                <ChevronRight aria-hidden="true" />
-              </button>
-            </div>
           </div>
-          <div className="captains-how-carousel" ref={howCarouselRef}>
+          <div className="captains-how-carousel">
             {steps.map((step, index) => (
               <article className="captains-panel captains-how-card" key={step.title}>
                 <div className="captains-how-card-content">
