@@ -1,0 +1,116 @@
+.photostrip-revelao .photostrip-container {
+  max-width: 1120px;
+}
+
+.photostrip-revelao .photostrip-content-container {
+  max-width: 960px;
+}
+
+.photostrip-revelao .photostrip-hero {
+  padding-block: 112px 72px;
+}
+
+.photostrip-revelao .photostrip-section {
+  padding-block: 72px;
+}
+
+.photostrip-revelao .photostrip-feature-strip {
+  padding-block: 28px;
+}
+
+.photostrip-revelao .photostrip-feature {
+  min-height: 92px;
+}
+
+.photostrip-revelao .captains-title {
+  max-width: 650px;
+  font-size: clamp(2.5rem, 5.1vw, 4.6rem);
+  line-height: 1.02;
+}
+
+.photostrip-revelao .captains-heading {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  line-height: 1.1;
+}
+
+.photostrip-revelao .photostrip-lead {
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+}
+
+.photostrip-revelao .photostrip-body {
+  font-size: 1rem;
+}
+
+.photostrip-revelao :is(.captains-button, .captains-top-link) {
+  min-height: 42px;
+  padding: 10px 20px;
+  font-size: 13px;
+}
+
+.photostrip-revelao .captains-top-link {
+  min-height: 36px;
+  padding: 7px 15px;
+  font-size: 12px;
+}
+
+.photostrip-revelao .captains-panel {
+  padding: 22px;
+}
+
+.photostrip-revelao .captains-how-card-number {
+  width: 34px;
+  height: 34px;
+  font-size: 14px;
+}
+
+.photostrip-revelao .photostrip-step {
+  min-height: 190px;
+}
+
+.photostrip-revelao .photostrip-hero-visual {
+  max-width: 440px;
+}
+
+.photostrip-revelao .photostrip-strip {
+  max-width: 138px;
+}
+
+.photostrip-revelao .photostrip-mural {
+  min-height: 350px;
+  max-width: 380px;
+}
+
+@media (max-width: 767px) {
+  .photostrip-revelao .photostrip-hero {
+    padding-block: 96px 52px;
+  }
+
+  .photostrip-revelao .photostrip-section {
+    padding-block: 52px;
+  }
+
+  .photostrip-revelao .captains-title {
+    font-size: clamp(2.25rem, 11vw, 2.75rem);
+    letter-spacing: -0.045em;
+  }
+
+  .photostrip-revelao .captains-heading {
+    font-size: clamp(1.75rem, 8vw, 2.1rem);
+  }
+
+  .photostrip-revelao .photostrip-hero-visual {
+    max-width: 360px;
+  }
+
+  .photostrip-revelao .photostrip-strip {
+    max-width: 116px;
+  }
+
+  .photostrip-revelao .photostrip-mural {
+    min-height: 300px;
+  }
+
+  .photostrip-revelao .photostrip-feature {
+    min-height: 84px;
+  }
+}
