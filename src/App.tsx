@@ -34,6 +34,7 @@ const ShippingPolicy = lazy(() => import("./pages/ShippingPolicy"));
 const GdprPolicy = lazy(() => import("./pages/GdprPolicy"));
 const TimeCapsuleLanding = lazy(() => import("./pages/TimeCapsuleLanding"));
 const PhotostripLanding = lazy(() => import("./pages/PhotostripLanding"));
+const CarreteoLanding = lazy(() => import("./pages/CarreteoLanding"));
 
 const PageFallback = () => <div className="min-h-screen bg-background" />;
 
@@ -88,6 +89,7 @@ const App = () => (
               <Route path="/rgpd" element={<GdprPolicy />} />
               <Route path="/capsuladeltiempo" element={<TimeCapsuleLanding />} />
               <Route path="/photostrip" element={<PhotostripLanding />} />
+              <Route path="/carreteo" element={<CarreteoLanding />} />
               <Route path="/acceso" element={<Navigate to="https://tomorrow-snap-reveal.vercel.app" replace />} />
               <Route path="/crearplantilla" element={<TemplateCreator />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
