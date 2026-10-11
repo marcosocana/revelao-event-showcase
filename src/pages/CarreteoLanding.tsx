@@ -15,6 +15,7 @@ import {
   X,
 } from "lucide-react";
 import { PageSeo } from "@/components/PageSeo";
+import WhatsAppFloating from "@/components/WhatsAppFloating";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { CarreteoCameraDemo } from "@/components/carreteo/CarreteoCameraDemo";
 import { CarreteoGalleryDemo } from "@/components/carreteo/CarreteoGalleryDemo";
@@ -245,12 +246,6 @@ export default function CarreteoPage() {
             <p className={styles.sectionLabel}>La gran revelación</p>
             <h2>Lo mejor pasa cuando <em>nadie está mirando.</em></h2>
             <p>Durante la fiesta, las fotos permanecen ocultas. A la hora del revelado aparecen todas juntas en un álbum: la pista, la mesa de los primos y ese momento que tú ni viste.</p>
-            <button type="button" className={styles.galleryButton} onClick={() => setDemoView("gallery")}>Ver galería de ejemplo <Images size={17} /></button>
-            <div className={styles.miniStats}>
-              <div><Images /><strong>25</strong><span>fotos por carrete</span></div>
-              <div><LockKeyhole /><strong>0</strong><span>fotos vistas antes de tiempo</span></div>
-              <div><Sparkles /><strong>1</strong><span>álbum con todo el evento</span></div>
-            </div>
           </div>
         </section>
 
@@ -295,7 +290,7 @@ export default function CarreteoPage() {
 
         <section className={styles.quoteSection}>
           <div className={styles.stars} aria-label="5 de 5 estrellas">{[1, 2, 3, 4, 5].map((n) => <Star key={n} fill="currentColor" size={18} />)}</div>
-          <blockquote>“Creíamos que ya habíamos visto toda la boda. Cuando abrimos el carrete al día siguiente, la vivimos otra vez.”</blockquote>
+          <blockquote>“Cuando abrimos los carretes al día siguiente, vimos cosas que ni sabíamos que habían pasado.”</blockquote>
           <p>Clara & Dani · Valencia, 2026</p>
         </section>
 
@@ -341,6 +336,8 @@ export default function CarreteoPage() {
       {demoView === "gallery" ? (
         <CarreteoGalleryDemo ownPhotos={demoPhotos} onClose={() => setDemoView("closed")} onBuy={goToPlans} />
       ) : null}
+
+      {demoView === "closed" ? <WhatsAppFloating message="¡Hola! Tengo dudas sobre Carreteo, la cámara desechable para eventos." /> : null}
 
       <footer className={styles.footer}>
         <a className={styles.brand} href="/carreteo"><span>CARRETEO</span><span className={styles.brandDot}>.</span></a>
