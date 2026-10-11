@@ -1,10 +1,7 @@
-import { useNavigate } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { LegalHeader } from "@/components/LegalHeader";
 import { PageSeo } from "@/components/PageSeo";
 
 const TermsAndConditions = () => {
-  const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-background">
@@ -13,12 +10,7 @@ const TermsAndConditions = () => {
         description="Consulta las condiciones de contratación, uso, almacenamiento y responsabilidad aplicables al servicio Revelao.cam."
         canonicalPath="/terms"
       />
-      <header className="sticky top-0 z-50 p-4 flex items-center gap-4 bg-card border-b border-border">
-        <Button variant="ghost" size="icon" onClick={() => navigate(-1)} className="rounded-full">
-          <ArrowLeft className="w-5 h-5" />
-        </Button>
-        <h1 className="text-xl font-bold text-foreground">Términos y Condiciones</h1>
-      </header>
+      <LegalHeader title={"Términos y Condiciones"} />
 
       <main className="max-w-2xl mx-auto px-6 py-8 space-y-6">
         <p className="text-sm text-muted-foreground">Última actualización: 08-03-2026</p>

@@ -81,7 +81,7 @@ export const Features = ({
   }, []);
 
   return (
-    <section className="overflow-hidden bg-transparent py-12 md:py-20" id={id}>
+    <section className="scroll-mt-12 overflow-hidden bg-transparent py-12 md:scroll-mt-14 md:py-20" id={id}>
       <div className="container px-4 mx-auto">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="revelao-h2 text-foreground">{titleOverride ?? t.features.title}</h2>

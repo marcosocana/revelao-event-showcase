@@ -1,10 +1,7 @@
-import { useNavigate } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { LegalHeader } from "@/components/LegalHeader";
 import { PageSeo } from "@/components/PageSeo";
 
 const CookiePolicy = () => {
-  const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-background">
@@ -13,12 +10,7 @@ const CookiePolicy = () => {
         description="Información sobre las cookies técnicas y analíticas utilizadas por Revelao.cam y cómo configurar el consentimiento."
         canonicalPath="/cookies"
       />
-      <header className="sticky top-0 z-50 p-4 flex items-center gap-4 bg-card border-b border-border">
-        <Button variant="ghost" size="icon" onClick={() => navigate(-1)} className="rounded-full">
-          <ArrowLeft className="w-5 h-5" />
-        </Button>
-        <h1 className="text-xl font-bold text-foreground">Política de Cookies</h1>
-      </header>
+      <LegalHeader title={"Política de Cookies"} />
 
       <main className="max-w-2xl mx-auto px-6 py-8 space-y-6">
         <p className="text-sm text-muted-foreground">Última actualización: 25-06-2026</p>

@@ -1,4 +1,5 @@
 import { ChevronDown } from "lucide-react";
+import { useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import icon from "@/assets/ico.png";
 import logoMini from "@/assets/logo-mini.png";
@@ -12,6 +13,9 @@ const languageOptions: { value: Language; label: string; flag: string }[] = [
 ];
 export const Navbar = ({ withTopBar = false }: { withTopBar?: boolean }) => {
   const { lang, setLang } = useI18n();
+  const { pathname } = useLocation();
+  // Las secciones del menú viven en la home: desde otras páginas (Quiénes somos, blog…) se enlaza a /#sección.
+  const sectionHref = (id: string) => (pathname === "/" ? `#${id}` : `/#${id}`);
   const t = translations[lang];
   const accessDemoUrl = getAccessDemoUrl(lang);
   const adminLoginUrl = getAdminLoginUrl(lang);
@@ -59,7 +63,7 @@ export const Navbar = ({ withTopBar = false }: { withTopBar?: boolean }) => {
         <div className="flex items-center h-16">
           {/* Left: Logo */}
           <div className="flex items-center">
-            <a href="#inicio" className="flex items-center gap-3">
+            <a href={pathname === "/" ? "#inicio" : "/"} className="flex items-center gap-3">
               <img src={icon} alt="Revelao" className="h-8 w-auto hidden min-[1300px]:block" />
               <img src={logoMini} alt="Revelao" className="h-8 w-auto min-[1300px]:hidden" />
               <span className="sr-only">Revelao.cam</span>
@@ -70,16 +74,16 @@ export const Navbar = ({ withTopBar = false }: { withTopBar?: boolean }) => {
           {/* Center: Menu */}
           <div className="hidden min-[1300px]:flex flex-1 justify-center">
             <div className="flex items-center gap-8">
-              <a href="#como-funciona" className="text-muted-foreground hover:text-foreground transition-colors">
+              <a href={sectionHref("como-funciona")} className="text-muted-foreground hover:text-foreground transition-colors">
                 {t.nav.how}
               </a>
-              <a href="#precio" className="text-muted-foreground hover:text-foreground transition-colors">
+              <a href={sectionHref("precio")} className="text-muted-foreground hover:text-foreground transition-colors">
                 {t.nav.pricing}
               </a>
-              <a href={withTopBar ? "/#casos-de-exito" : "#casos-de-exito"} className="text-muted-foreground hover:text-foreground transition-colors">
+              <a href={sectionHref("casos-de-exito")} className="text-muted-foreground hover:text-foreground transition-colors">
                 {t.nav.testimonials}
               </a>
-              <a href={withTopBar ? "/#plantillas" : "#plantillas"} className="text-muted-foreground hover:text-foreground transition-colors">
+              <a href={sectionHref("plantillas")} className="text-muted-foreground hover:text-foreground transition-colors">
                 {t.nav.templates}
               </a>
               {showEventsMenu ? (
@@ -115,11 +119,11 @@ export const Navbar = ({ withTopBar = false }: { withTopBar?: boolean }) => {
                   {productItems}
                 </DropdownMenuContent>
               </DropdownMenu>
-              <a href="#blog" className="text-muted-foreground hover:text-foreground transition-colors">
+              <a href={sectionHref("blog")} className="text-muted-foreground hover:text-foreground transition-colors">
                 {t.nav.blog}
               </a>
               <div className="flex items-center gap-3">
-                <a href="#faqs" className="text-muted-foreground hover:text-foreground transition-colors">
+                <a href={sectionHref("faqs")} className="text-muted-foreground hover:text-foreground transition-colors">
                   {t.nav.faqs}
                 </a>
                 <DropdownMenu>

@@ -1,7 +1,5 @@
 import type { ReactNode } from "react";
-import { ArrowLeft } from "lucide-react";
-import { useNavigate } from "react-router-dom";
-import { Button } from "@/components/ui/button";
+import { LegalHeader } from "@/components/LegalHeader";
 import { PageSeo } from "@/components/PageSeo";
 
 type LegalDocumentLayoutProps = {
@@ -13,17 +11,10 @@ type LegalDocumentLayoutProps = {
 };
 
 export const LegalDocumentLayout = ({ title, updated, canonicalPath, description, children }: LegalDocumentLayoutProps) => {
-  const navigate = useNavigate();
-
   return (
     <div className="min-h-screen bg-background">
       <PageSeo title={`${title} | Revelao.cam`} description={description} canonicalPath={canonicalPath} />
-      <header className="sticky top-0 z-50 flex items-center gap-4 border-b border-border bg-card p-4">
-        <Button variant="ghost" size="icon" onClick={() => navigate(-1)} className="rounded-full" aria-label="Volver">
-          <ArrowLeft className="h-5 w-5" />
-        </Button>
-        <h1 className="text-xl font-bold text-foreground">{title}</h1>
-      </header>
+      <LegalHeader title={title} />
       <main className="mx-auto max-w-2xl space-y-6 px-6 py-8">
         <p className="text-sm text-muted-foreground">Última actualización: {updated}</p>
         {children}
