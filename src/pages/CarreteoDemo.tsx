@@ -1,52 +1,70 @@
-import { useEffect, useState } from "react";
-import { RotateCcw, Zap } from "lucide-react";
+import { useState } from "react";
 import styles from "./carreteo.module.css";
 
+// Capturas reales de la cámara Carreteo (revelao.cam/carreteo/:slug) en un móvil en horizontal.
+const estados = [
+  {
+    titulo: "Gira la rueda",
+    texto: "Como en una desechable: arrastra la rueda para avanzar el carrete.",
+    imagen: "/carreteo/camara-inicio.jpg",
+    alt: "Cámara Carreteo con el contador a 0 de 25 y el aviso Avanza la rueda",
+  },
+  {
+    titulo: "Encuadra y dispara",
+    texto: "Abre el visor si quieres, enciende el flash y pulsa el disparador.",
+    imagen: "/carreteo/camara-lista-visor.jpg",
+    alt: "Cámara Carreteo con el visor abierto y el aviso Lista para disparar",
+  },
+  {
+    titulo: "Cuenta cada foto",
+    texto: "El contador baja con cada disparo. 25 fotos: piensa antes de disparar.",
+    imagen: "/carreteo/camara-tras-disparo.jpg",
+    alt: "Cámara Carreteo con el flash encendido y el contador en 8 de 25",
+  },
+  {
+    titulo: "Espera al revelado",
+    texto: "Con el carrete completo, la cámara te dice cuándo se revelan las fotos.",
+    imagen: "/carreteo/camara-completa.jpg",
+    alt: "Cámara Carreteo con el carrete completo, 25 de 25, y la fecha del revelado",
+  },
+];
+
 export function CarreteoDemo() {
-  const [fotos, setFotos] = useState(3);
-  const [flash, setFlash] = useState(false);
-  const [mensaje, setMensaje] = useState("18 fotos disponibles");
-
-  useEffect(() => {
-    if (!flash) return;
-    const timer = window.setTimeout(() => setFlash(false), 360);
-    return () => window.clearTimeout(timer);
-  }, [flash]);
-
-  const disparar = () => {
-    if (fotos >= 6) {
-      setMensaje("¡Carrete de prueba completo!");
-      return;
-    }
-    setFlash(false);
-    window.requestAnimationFrame(() => setFlash(true));
-    setFotos((actual) => actual + 1);
-    setMensaje(`${17 - fotos} fotos disponibles`);
-  };
-
-  const reiniciar = () => {
-    setFotos(3);
-    setMensaje("18 fotos disponibles");
-  };
+  const [activo, setActivo] = useState(0);
+  const estado = estados[activo];
 
   return (
     <div className={styles.demoWrap}>
-      <div className={`${styles.demoFlash} ${flash ? styles.demoFlashActive : ""}`} />
-      <div className={styles.demoPhone}>
-        <div className={styles.demoStatus}><span>23:48</span><strong>CARRETEO</strong><Zap size={14} fill="currentColor" /></div>
-        <div className={styles.demoView}>
-          <img src="/carreteo/fiesta-candid.png" alt="Vista previa de la cámara" />
-          <span className={styles.cornerOne} /><span className={styles.cornerTwo} /><span className={styles.cornerThree} /><span className={styles.cornerFour} />
-          <div className={styles.demoCounter}>{String(fotos).padStart(2, "0")} / 21</div>
-        </div>
-        <div className={styles.demoControls}>
-          <button type="button" className={styles.resetButton} onClick={reiniciar} aria-label="Reiniciar demo"><RotateCcw size={19} /></button>
-          <button type="button" className={styles.shutterButton} onClick={disparar} aria-label="Hacer foto"><span /></button>
-          <div className={styles.filmThumb}><img src="/carreteo/fiesta-candid.png" alt="Última foto" /></div>
-        </div>
-        <p aria-live="polite">{mensaje}</p>
+      <figure className={styles.phoneLandscape}>
+        {estados.map((item, index) => (
+          <img
+            key={item.imagen}
+            src={item.imagen}
+            alt={item.alt}
+            width={1600}
+            height={739}
+            loading="lazy"
+            className={index === activo ? styles.demoShotActive : styles.demoShot}
+            aria-hidden={index !== activo}
+          />
+        ))}
+      </figure>
+      <div className={styles.demoTabs} role="tablist" aria-label="Pasos de la cámara">
+        {estados.map((item, index) => (
+          <button
+            key={item.titulo}
+            type="button"
+            role="tab"
+            aria-selected={index === activo}
+            className={index === activo ? styles.demoTabActive : styles.demoTab}
+            onClick={() => setActivo(index)}
+          >
+            <span>{String(index + 1).padStart(2, "0")}</span>
+            {item.titulo}
+          </button>
+        ))}
       </div>
-      <span className={styles.demoHint}>Pulsa el disparador ↑</span>
+      <p className={styles.demoCaption} aria-live="polite">{estado.texto}</p>
     </div>
   );
 }

@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><title>Universo 4</title>
+<link rel="stylesheet" href="../../../_shared/base.css">
+<style>
+.c { position:absolute; left:72px; right:72px; top:270px; }
+.c .sub { margin:26px 0 0; max-width:none; }
+.stage { position:absolute; left:60px; right:60px; top:760px; height:760px; border-radius:36px; overflow:hidden;
+  background:#d8cbb3; display:grid; place-items:center; }
+.stage::before { content:""; position:absolute; inset:0; background:radial-gradient(#241c18 1.4px,transparent 1.4px); background-size:12px 12px; opacity:.18; }
+.stage > * { position:relative; }
+.strip { width:230px; background:#fffdf6; padding:14px 14px 0; border:1px solid rgba(0,0,0,.15); box-shadow:10px 12px 0 rgba(36,28,24,.25); }
+.strip div { aspect-ratio:4/3; overflow:hidden; margin-bottom:10px; } .strip img { width:100%; height:100%; object-fit:cover; }
+.strip p { font-family:ui-monospace,Menlo,monospace; font-size:15px; font-weight:900; text-align:center; letter-spacing:.06em; padding:6px 0 16px; }
+.env { width:640px; height:500px; border-radius:24px; overflow:hidden; position:relative; box-shadow:0 30px 60px -30px rgba(0,0,0,.6); }
+.env img { width:100%; height:100%; object-fit:cover; filter:saturate(.9); }
+.env .seal { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); background:#fff; border-radius:28px; padding:30px 40px; text-align:center; }
+.env .seal svg { width:52px; height:52px; color:var(--primary); }
+.env .seal b { display:block; font-size:30px; margin-top:10px; } .env .seal span { font-size:24px; color:var(--muted); }
+.quad { position:absolute; left:60px; right:60px; top:720px; display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+.quad .card { height:330px; position:relative; }
+.quad .card img { width:100%; height:100%; object-fit:cover; }
+.quad .card span { position:absolute; left:18px; bottom:18px; background:#fff; border-radius:9999px; padding:10px 22px; font-size:28px; font-weight:700; box-shadow:0 6px 16px -6px rgba(0,0,0,.3); }
+</style></head>
+<body>
+<div class="topbar"><img class="logo" src="../../../_shared/img/logo.png" alt="Revelao.cam"><span class="count">4/6</span></div><div class="c"><div class="kicker">Recuerdos a futuro</div><h1 class="md" style="margin-top:22px">Cápsula del tiempo</h1><p class="sub">Tus invitados graban vídeos en la boda y<br><strong>los descubrís juntos años después.</strong></p></div><div class="stage"><div class="env"><img src="../../../_shared/img/s12.jpg"><div class="seal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><b>Se abre el 26/09/2031</b><span>32 vídeos de vuestros invitados</span></div></div></div>
+</body></html>

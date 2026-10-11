@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Revelao · El carrete de tu boda</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: hsl(0 84% 60%);
+    --ink: #111111;
+    --muted: hsl(0 0% 45%);
+    --border: hsl(0 0% 90%);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1080px; height: 1920px; background: #fff; overflow: hidden; }
+  body { font-family: Inter, system-ui, sans-serif; color: var(--ink); position: relative; -webkit-font-smoothing: antialiased; }
+
+  /* ---------- Mosaico (réplica del hero de revelao.cam) ---------- */
+  .grid {
+    position: absolute; left: 0; right: 0; top: 980px; bottom: 0;
+    -webkit-mask-image: linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,.6) 12%, rgba(0,0,0,1) 26%, rgba(0,0,0,1) 100%);
+            mask-image: linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,.6) 12%, rgba(0,0,0,1) 26%, rgba(0,0,0,1) 100%);
+  }
+  .rows { display: flex; flex-direction: column; gap: 20px; padding-top: 10px; }
+  .row { display: flex; gap: 20px; height: var(--h); width: max-content; }
+  .tile {
+    height: 100%; border-radius: 24px; overflow: hidden; background: #fff;
+    box-shadow: 0 22px 50px -30px rgba(0,0,0,.35);
+    flex: 0 0 auto;
+  }
+  .tile img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; display: block; }
+
+  /* ---------- Cabecera ---------- */
+  .head { position: absolute; top: 0; left: 0; right: 0; padding: 120px 40px 0; text-align: center; z-index: 5; }
+  .logo { height: 58px; width: auto; display: block; margin: 0 auto; }
+  .pill {
+    display: inline-flex; align-items: center; gap: 12px;
+    margin-top: 48px; padding: 14px 28px;
+    border: 2px solid var(--border); border-radius: 9999px; background: #fff;
+    font-size: 28px; font-weight: 600; color: #3a3a3a;
+    box-shadow: 0 2px 8px -1px rgba(0,0,0,.08);
+  }
+  .pill .dot { width: 14px; height: 14px; border-radius: 50%; background: var(--primary); box-shadow: 0 0 0 6px hsl(0 84% 60% / .18); }
+  h1 {
+    margin-top: 40px;
+    font-size: 112px; line-height: 1.0; font-weight: 700; letter-spacing: -0.035em;
+  }
+  h1 .red { color: var(--primary); }
+  .sub {
+    margin: 34px auto 0; max-width: 860px;
+    font-size: 36px; line-height: 1.38; font-weight: 400; color: var(--muted);
+  }
+  .sub strong { color: var(--ink); font-weight: 600; }
+
+  /* ---------- CTA ---------- */
+  .cta-wrap { position: absolute; left: 0; right: 0; top: 780px; z-index: 6; display: flex; flex-direction: column; align-items: center; gap: 28px; }
+  .cta {
+    display: inline-flex; align-items: center; gap: 18px;
+    background: var(--primary); color: #fff;
+    font-size: 44px; font-weight: 600; letter-spacing: -0.01em;
+    padding: 34px 72px; border-radius: 9999px;
+    box-shadow: 0 18px 40px rgba(0,0,0,.28);
+  }
+  .cta svg { width: 44px; height: 44px; }
+  .checks {
+    display: inline-flex; gap: 30px; align-items: center;
+    background: #fff; padding: 0; border-radius: 9999px;
+    font-size: 28px; font-weight: 500; color: #3a3a3a;
+    }
+  .checks span { display: inline-flex; align-items: center; gap: 10px; }
+  .checks svg { width: 30px; height: 30px; color: var(--primary); }
+</style>
+</head>
+<body>
+
+  <div class="grid"><div class="rows" id="rows"></div></div>
+
+  <header class="head">
+    <img class="logo" src="../img/logo.png" alt="Revelao.cam">
+    <div class="pill"><span class="dot"></span>Galería de fotos con QR</div>
+    <h1>El día de tu boda<br><span class="red">por tus invitados</span></h1>
+    <p class="sub">Escanean el QR y suben fotos, vídeos y audios<br><strong>sin app</strong>. Al día siguiente, <strong>se revela todo.</strong></p>
+  </header>
+
+  <div class="cta-wrap">
+    <div class="cta">Prueba gratis
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </div>
+    <div class="checks">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Sin app</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>100% anónimo</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Sin registro</span>
+    </div>
+  </div>
+
+<script>
+  // Fotos de Unsplash (ver CREDITOS.txt), fichas verticales tipo carrete
+  const patterns = [[0.72,0.62,0.82,0.66,0.76,0.7],[0.64,0.8,0.7,0.6,0.78,0.68],[0.78,0.66,0.62,0.84,0.7,0.64]];
+  const heights = [330, 320, 330];
+  const offsets = [-70, -190, -20];
+  const order = [[3,1,2,4,5,6],[12,7,8,9,10,11],[13,14,15,18,17,16]];
+  const rows = document.getElementById('rows');
+  heights.forEach((h, r) => {
+    const row = document.createElement('div');
+    row.className = 'row';
+    row.style.setProperty('--h', h + 'px');
+    row.style.transform = `translateX(${offsets[r]}px)`;
+    patterns[r].forEach((ratio, i) => {
+      const t = document.createElement('div');
+      t.className = 'tile';
+      t.style.width = Math.round(h * ratio) + 'px';
+      t.innerHTML = `<img src="../img/s${String(order[r][i]).padStart(2,'0')}.jpg">`;
+      row.appendChild(t);
+    });
+    rows.appendChild(row);
+  });
+</script>
+</body>
+</html>

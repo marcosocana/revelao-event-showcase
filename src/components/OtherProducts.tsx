@@ -1,65 +1,63 @@
-import { ArrowRight, Clock3 } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 
 const copy = {
   es: {
     title: "Otros productos de Revelao",
-    description: "Tres experiencias creadas para convertir vuestra boda en un recuerdo todavía más especial.",
+    description: "Dos experiencias creadas para convertir vuestra boda en un recuerdo todavía más especial.",
     captains: {
       title: "Capitanes",
       description: "Retos, pruebas y un ranking en directo para que cada mesa compita, participe y llene la boda de momentos inolvidables.",
       cta: "Descubrir Capitanes",
+      badge: "Nuevo diseño",
+      screensAlt: ["Elige tu capitán de mesa", "Ranking en directo de las mesas", "Reto de la mesa"],
     },
-    capsule: {
-      title: "Cápsula del tiempo",
-      description: "Los invitados graban vídeos durante la boda y vosotros los descubrís juntos años después, en la fecha que elijáis.",
-      cta: "Descubrir la cápsula",
-    },
-    photostrip: {
-      title: "Photostrip",
-      description: "Un fotomatón digital para que cada invitado cree su tira de cuatro fotos desde el móvil y la comparta en el mural de la boda.",
-      cta: "Descubrir Photostrip",
+    carreteo: {
+      title: "Carreteo",
+      description: "Una cámara desechable en el móvil de cada invitado: 25 fotos por carrete y todas se revelan juntas cuando termina la fiesta.",
+      cta: "Descubrir Carreteo",
     },
   },
   en: {
     title: "Other products by Revelao",
-    description: "Three experiences designed to make your wedding an even more memorable celebration.",
+    description: "Two experiences designed to make your wedding an even more memorable celebration.",
     captains: {
       title: "Captains",
       description: "Challenges, games and a live ranking that get every table competing, participating and creating unforgettable moments.",
       cta: "Discover Captains",
+      badge: "New design",
+      screensAlt: ["Choose your table captain", "Live table ranking", "Table challenge"],
     },
-    capsule: {
-      title: "Time capsule",
-      description: "Guests record videos during the wedding and you discover them together years later, on the date you choose.",
-      cta: "Discover the capsule",
-    },
-    photostrip: {
-      title: "Photostrip",
-      description: "A digital photo booth where every guest creates a four-photo strip from their phone and shares it on the wedding wall.",
-      cta: "Discover Photostrip",
+    carreteo: {
+      title: "Carreteo",
+      description: "A disposable camera on every guest's phone: 25 shots per roll, all revealed together when the party is over.",
+      cta: "Discover Carreteo",
     },
   },
   it: {
     title: "Altri prodotti Revelao",
-    description: "Tre esperienze create per rendere il vostro matrimonio ancora più speciale e memorabile.",
+    description: "Due esperienze create per rendere il vostro matrimonio ancora più speciale e memorabile.",
     captains: {
       title: "Capitanes",
       description: "Sfide, giochi e una classifica in diretta per coinvolgere ogni tavolo e riempire il matrimonio di momenti indimenticabili.",
       cta: "Scopri Capitanes",
+      badge: "Nuovo design",
+      screensAlt: ["Scegli il capitano del tavolo", "Classifica dei tavoli in diretta", "Sfida del tavolo"],
     },
-    capsule: {
-      title: "Capsula del tempo",
-      description: "Gli invitati registrano video durante il matrimonio e voi li scoprite insieme anni dopo, nella data che scegliete.",
-      cta: "Scopri la capsula",
-    },
-    photostrip: {
-      title: "Photostrip",
-      description: "Un photobooth digitale con cui ogni invitato crea una striscia di quattro foto dal telefono e la condivide nella galleria.",
-      cta: "Scopri Photostrip",
+    carreteo: {
+      title: "Carreteo",
+      description: "Una macchina usa e getta sul telefono di ogni invitato: 25 foto per rullino, svelate tutte insieme a fine festa.",
+      cta: "Scopri Carreteo",
     },
   },
 } as const;
+
+// Pantallas reales del juego Capitanes (diseño v2), capturadas de la demo de acceso.revelao.cam.
+const captainScreens = [
+  { src: "/capitanes-v2-capitan.jpg", className: "left-[6%] z-0 translate-y-[18%] -rotate-[8deg] group-hover:-rotate-[11deg] group-hover:translate-y-[14%]" },
+  { src: "/capitanes-v2-ranking.jpg", className: "left-1/2 z-10 w-[36%] max-w-[176px] -translate-x-1/2 translate-y-[6%] group-hover:translate-y-[2%]" },
+  { src: "/capitanes-v2-reto.jpg", className: "right-[6%] z-0 translate-y-[18%] rotate-[8deg] group-hover:rotate-[11deg] group-hover:translate-y-[14%]" },
+];
 
 export const OtherProducts = () => {
   const { lang } = useI18n();
@@ -73,16 +71,26 @@ export const OtherProducts = () => {
           <p className="revelao-h3 mt-4">{content.description}</p>
         </div>
 
-        <div className="grid gap-5 md:grid-cols-3 md:gap-7">
+        <div className="mx-auto grid max-w-4xl gap-5 md:grid-cols-2 md:gap-7">
           <article className="group flex min-h-[430px] flex-col overflow-hidden rounded-[24px] border border-black/10 bg-white shadow-[0_20px_55px_-38px_rgba(0,0,0,0.45)]">
-            <div className="relative flex h-52 items-center justify-center overflow-hidden bg-[#f4d36f] px-8 sm:h-60">
-              <div className="absolute inset-0 bg-[linear-gradient(rgba(21,21,21,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(21,21,21,0.08)_1px,transparent_1px)] bg-[size:22px_22px]" />
-              <img
-                src="/capitanes-hero.png"
-                alt="Juego por mesas Capitanes de Revelao"
-                className="relative h-[88%] w-auto max-w-full object-contain transition-transform duration-500 group-hover:scale-[1.03]"
-                loading="lazy"
-              />
+            <div className="relative h-72 overflow-hidden bg-[radial-gradient(120%_90%_at_50%_100%,#f06a5f_0%,#f6a39a_45%,#fbe9e6_100%)] sm:h-80">
+              <span className="absolute left-5 top-5 z-10 inline-flex items-center gap-1.5 rounded-full bg-[#e9ff2a] px-3 py-1 text-xs font-bold uppercase tracking-wide text-[#151515] shadow-sm">
+                <span className="grid h-4 w-4 place-items-center rounded-[4px] bg-[#151515] text-[9px] font-black text-[#e9ff2a]">C</span>
+                {content.captains.badge}
+              </span>
+              {captainScreens.map((screen, index) => (
+                <div
+                  key={screen.src}
+                  className={`absolute bottom-0 w-[31%] max-w-[150px] rounded-t-[20px] bg-[#151515] p-[5px] pb-0 shadow-[0_24px_45px_-18px_rgba(80,20,15,0.6)] transition-transform duration-500 ${screen.className}`}
+                >
+                  <img
+                    src={screen.src}
+                    alt={content.captains.screensAlt[index]}
+                    className="block aspect-[390/600] w-full rounded-t-[16px] object-cover object-top"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
             </div>
             <div className="flex flex-1 flex-col p-6 sm:p-8">
               <h3 className="text-3xl font-bold tracking-tight">{content.captains.title}</h3>
@@ -94,40 +102,21 @@ export const OtherProducts = () => {
           </article>
 
           <article className="group flex min-h-[430px] flex-col overflow-hidden rounded-[24px] border border-black/10 bg-white shadow-[0_20px_55px_-38px_rgba(0,0,0,0.45)]">
-            <div className="relative grid h-52 place-items-center overflow-hidden bg-[#d8cbb3] sm:h-60">
-              <div className="absolute inset-0 bg-[radial-gradient(#241c18_0.7px,transparent_0.7px)] opacity-20 [background-size:5px_5px]" />
-              <div className="relative w-[92px] -rotate-3 border border-black/20 bg-[#fffdf6] p-1.5 shadow-[5px_6px_0_rgba(36,28,24,.25)] transition-transform duration-500 group-hover:rotate-0 group-hover:scale-105">
-                <div className="space-y-1">{["#c87567", "#d2ae62", "#6d8d84", "#74636c"].map((color) => <div key={color} className="aspect-[4/3]" style={{ backgroundColor: color }} />)}</div>
-                <p className="pb-1 pt-2 text-center font-mono text-[7px] font-black tracking-wide">PHOTOSTRIP · REVELAO</p>
+            <div className="relative flex h-72 items-center justify-center overflow-hidden bg-[radial-gradient(120%_90%_at_50%_100%,#3a3b40_0%,#25262a_60%)] px-6 sm:h-80 sm:px-10">
+              <div className="w-full max-w-[420px] -rotate-3 rounded-[22px] bg-[#0b0b0c] p-1.5 shadow-[0_24px_50px_-20px_rgba(0,0,0,0.8)] ring-1 ring-white/15 transition-transform duration-500 group-hover:rotate-0 group-hover:scale-[1.03]">
+                <img
+                  src="/carreteo/camara-lista-visor.jpg"
+                  alt="Cámara desechable digital Carreteo en un móvil, lista para disparar"
+                  className="block aspect-[2532/1170] w-full rounded-[17px] object-cover"
+                  loading="lazy"
+                />
               </div>
             </div>
             <div className="flex flex-1 flex-col p-6 sm:p-8">
-              <h3 className="text-3xl font-bold tracking-tight">{content.photostrip.title}</h3>
-              <p className="mt-3 leading-relaxed text-muted-foreground">{content.photostrip.description}</p>
-              <a href="/photostrip" className="mt-7 inline-flex w-fit items-center gap-2 font-semibold text-foreground transition-colors hover:text-primary">
-                {content.photostrip.cta} <ArrowRight className="h-4 w-4" />
-              </a>
-            </div>
-          </article>
-
-          <article className="group flex min-h-[430px] flex-col overflow-hidden rounded-[24px] border border-black/10 bg-white shadow-[0_20px_55px_-38px_rgba(0,0,0,0.45)]">
-            <div className="relative h-52 overflow-hidden bg-[#ead8d0] sm:h-60">
-              <img
-                src="/time-capsule-cover.jpg"
-                alt="Cápsula del tiempo para guardar mensajes en vídeo de una boda"
-                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
-              <span className="absolute bottom-5 left-5 inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/90 text-primary shadow-lg backdrop-blur">
-                <Clock3 className="h-5 w-5" />
-              </span>
-            </div>
-            <div className="flex flex-1 flex-col p-6 sm:p-8">
-              <h3 className="text-3xl font-bold tracking-tight">{content.capsule.title}</h3>
-              <p className="mt-3 leading-relaxed text-muted-foreground">{content.capsule.description}</p>
-              <a href="/capsuladeltiempo" className="mt-7 inline-flex w-fit items-center gap-2 font-semibold text-foreground transition-colors hover:text-primary">
-                {content.capsule.cta} <ArrowRight className="h-4 w-4" />
+              <h3 className="text-3xl font-bold tracking-tight">{content.carreteo.title}</h3>
+              <p className="mt-3 leading-relaxed text-muted-foreground">{content.carreteo.description}</p>
+              <a href="/carreteo" className="mt-7 inline-flex w-fit items-center gap-2 font-semibold text-foreground transition-colors hover:text-primary">
+                {content.carreteo.cta} <ArrowRight className="h-4 w-4" />
               </a>
             </div>
           </article>
