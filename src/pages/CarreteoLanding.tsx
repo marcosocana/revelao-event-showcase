@@ -185,8 +185,8 @@ export default function CarreteoPage() {
             <div className={styles.sunburst} aria-hidden="true" />
             <figure className={styles.phoneLandscape}>
               <img
-                src="/carreteo/camara-lista-visor.jpg"
-                alt="La cámara Carreteo en un móvil: visor abierto, contador en 7 de 25 y listo para disparar"
+                src="/carreteo/camara-lista.jpg"
+                alt="La cámara Carreteo en un móvil: contador en 7 de 25 y lista para disparar"
                 width={1600}
                 height={739}
                 loading="eager"
@@ -221,7 +221,7 @@ export default function CarreteoPage() {
           <div className={styles.demoCopy}>
             <p className={styles.sectionLabel}>La cámara, tal cual</p>
             <h2>Una desechable<br />de <em>verdad.</em></h2>
-            <p>Esto es lo que ven tus invitados al escanear el QR. Gira el móvil en horizontal y funciona como una cámara de carrete: rueda, disparador, flash y contador.</p>
+            <p>Esto es lo que ven tus invitados al escanear el QR. Gira el móvil en horizontal y funciona como una cámara de carrete de verdad: sin pantalla para mirar, con rueda, disparador, flash y contador.</p>
           </div>
           <div className={styles.demoColumn}>
             <CarreteoDemo />

@@ -4,20 +4,20 @@ import styles from "./carreteo.module.css";
 // Capturas reales de la cámara Carreteo (revelao.cam/carreteo/:slug) en un móvil en horizontal.
 const estados = [
   {
-    titulo: "Gira la rueda",
-    texto: "Como en una desechable: arrastra la rueda para avanzar el carrete.",
-    imagen: "/carreteo/camara-inicio.jpg",
-    alt: "Cámara Carreteo con el contador a 0 de 25 y el aviso Avanza la rueda",
+    titulo: "Te guía la primera vez",
+    texto: "Al abrir la cámara, una guía rápida enseña el contador, el flash, la rueda y el disparador.",
+    imagen: "/carreteo/camara-guia.jpg",
+    alt: "Guía de la primera vez de Carreteo explicando que hay que girar la rueda antes de cada foto",
   },
   {
-    titulo: "Encuadra y dispara",
-    texto: "Abre el visor si quieres, enciende el flash y pulsa el disparador.",
-    imagen: "/carreteo/camara-lista-visor.jpg",
-    alt: "Cámara Carreteo con el visor abierto y el aviso Lista para disparar",
+    titulo: "Gira la rueda y dispara",
+    texto: "Como en una desechable: arrastra la rueda hasta que haga clic y pulsa el disparador.",
+    imagen: "/carreteo/camara-lista.jpg",
+    alt: "Cámara Carreteo con el contador en 7 de 25 y el aviso Lista para disparar",
   },
   {
     titulo: "Cuenta cada foto",
-    texto: "El contador baja con cada disparo. 25 fotos: piensa antes de disparar.",
+    texto: "Sin pantalla para mirar y con 25 fotos: cada disparo cuenta. El flash ayuda con poca luz.",
     imagen: "/carreteo/camara-tras-disparo.jpg",
     alt: "Cámara Carreteo con el flash encendido y el contador en 8 de 25",
   },

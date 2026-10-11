@@ -105,7 +105,7 @@ export const OtherProducts = () => {
             <div className="relative flex h-72 items-center justify-center overflow-hidden bg-[radial-gradient(120%_90%_at_50%_100%,#3a3b40_0%,#25262a_60%)] px-6 sm:h-80 sm:px-10">
               <div className="w-full max-w-[420px] -rotate-3 rounded-[22px] bg-[#0b0b0c] p-1.5 shadow-[0_24px_50px_-20px_rgba(0,0,0,0.8)] ring-1 ring-white/15 transition-transform duration-500 group-hover:rotate-0 group-hover:scale-[1.03]">
                 <img
-                  src="/carreteo/camara-lista-visor.jpg"
+                  src="/carreteo/camara-lista.jpg"
                   alt="Cámara desechable digital Carreteo en un móvil, lista para disparar"
                   className="block aspect-[2532/1170] w-full rounded-[17px] object-cover"
                   loading="lazy"

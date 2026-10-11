@@ -1,12 +1,12 @@
 import { useCallback, useEffect, useRef, useState, type CSSProperties, type PointerEvent as ReactPointerEvent } from "react";
 import { createPortal } from "react-dom";
-import { Aperture, ArrowRight, ArrowUpRight, ChevronRight, Lock, X, ZapOff } from "lucide-react";
+import { Aperture, ArrowRight, ArrowUpRight, Lock, X, ZapOff } from "lucide-react";
 import { playShutter, playWindLock, playWindTick, unlockCarreteoAudio } from "./carreteoSounds";
 import "./CarreteoCameraDemo.css";
 
 /*
  * Demo de la cámara real de Carreteo (tomorrow-snap-reveal/src/pages/CarreteoPublic.tsx).
- * Mismo diseño y misma mecánica (rueda, flash, visor, contador), pero sin API:
+ * Mismo diseño y misma mecánica (rueda, flash, contador, guía de la primera vez), pero sin API:
  * las fotos se quedan en este navegador y se pueden ver en la galería de ejemplo.
  */
 
@@ -19,8 +19,17 @@ const TICK_EVERY = 11;
 const WHEEL_WIDTH_UNITS = 131;
 const DESIGN_WIDTH = 1000;
 const DESIGN_HEIGHT = 461.5;
-// Si el visitante no da acceso a la cámara, el visor enseña esta foto y se "fotografía" ella.
+// Si el visitante no da acceso a la cámara, se "fotografía" esta foto de ejemplo.
 const FALLBACK_IMAGE = "/hero/11.jpg";
+
+// Guía de la primera vez, igual que en la cámara real. En la demo sale siempre al abrirla sin fotos.
+type CoachStep = { id: "dial" | "flash" | "wind" | "shoot"; badge?: string; title: string; text: (shots: number) => string };
+const COACH_STEPS: CoachStep[] = [
+  { id: "dial", title: "Tu carrete", text: (shots) => `Tienes ${shots} fotos. Aquí ves cuántas llevas: cuando se acaban, se acabó el carrete.` },
+  { id: "flash", title: "Flash", text: () => "Actívalo para hacer fotos con poca luz." },
+  { id: "wind", badge: "1", title: "Gira la rueda", text: () => "Antes de cada foto, arrastra la rueda con el dedo hasta que haga clic." },
+  { id: "shoot", badge: "2", title: "Dispara", text: () => "Pulsa el botón para hacer la foto. Las verás todas el día del revelado." },
+];
 
 const FONT_URL = "https://fonts.googleapis.com/css2?family=Nunito:wght@800;900&family=JetBrains+Mono:wght@500;700&display=swap";
 
@@ -166,11 +175,12 @@ export const CarreteoCameraDemo = ({ photos, onPhoto, onClose, onOpenGallery }: 
   const shotsTaken = Math.min(photos.length, TOTAL_SHOTS);
   const [wound, setWound] = useState(false);
   const [flashOn, setFlashOn] = useState(false);
-  const [viewfinderOpen, setViewfinderOpen] = useState(true);
   const [cameraState, setCameraState] = useState<CameraState>("idle");
   const [effect, setEffect] = useState<Effect>(null);
   const [filmTipOpen, setFilmTipOpen] = useState(false);
   const [tickKey, setTickKey] = useState(0);
+  const [coachStep, setCoachStep] = useState<number>(() => (photos.length === 0 ? 0 : -1));
+  const [hint, setHint] = useState<{ target: "wind" | "shoot"; key: number } | null>(null);
 
   const videoRef = useRef<HTMLVideoElement>(null);
   const fallbackRef = useRef<HTMLImageElement>(null);
@@ -248,6 +258,13 @@ export const CarreteoCameraDemo = ({ photos, onPhoto, onClose, onOpenGallery }: 
       window.scrollTo(0, scrollY);
     };
   }, []);
+
+  const coachOpen = coachStep >= 0;
+  const closeCoach = () => setCoachStep(-1);
+  const nextCoachStep = () => {
+    if (!coachOpen) return;
+    setCoachStep(coachStep >= COACH_STEPS.length - 1 ? -1 : coachStep + 1);
+  };
 
   const cameraReady = cameraState === "ready" || cameraState === "fallback";
   const canWind = !wound && !rollFinished;
@@ -359,7 +376,19 @@ export const CarreteoCameraDemo = ({ photos, onPhoto, onClose, onOpenGallery }: 
     <main
       className={`crt-page ${rotated ? "is-rotated" : ""}`}
       style={cameraStyle}
-      onPointerDown={() => { unlockCarreteoAudio(); enterFullscreen(); }}
+      onPointerDown={(pointerEvent) => {
+        unlockCarreteoAudio();
+        enterFullscreen();
+        // Como en la cámara real: tocar algo que no sea el paso que toca ilumina la rueda o el disparador.
+        if (coachOpen) return;
+        const target = canWind ? "wind" : canShoot ? "shoot" : null;
+        if (!target) return;
+        const touched = (pointerEvent.target as Element).closest(".crt-wheel, .crt-shutter, .crt-flash-toggle, .crt-film, .crt-status, .crt-demo-close, .crt-demo-gallery");
+        const expected = target === "wind" ? "crt-wheel" : "crt-shutter";
+        if (touched && (touched.classList.contains(expected) || !touched.matches(".crt-wheel, .crt-shutter"))) return;
+        setHint({ target, key: Date.now() });
+        vibrate(10);
+      }}
       role="dialog"
       aria-modal="true"
       aria-label="Demo de la cámara Carreteo"
@@ -395,27 +424,17 @@ export const CarreteoCameraDemo = ({ photos, onPhoto, onClose, onOpenGallery }: 
             }
           }}
         />
-        <div className={`crt-at crt-step crt-step-wind ${canWind ? "is-pulsing" : "is-hidden"}`} aria-hidden="true">
+        <div className={`crt-at crt-step crt-step-wind ${canWind ? "is-pulsing" : "is-hidden"} ${hint?.target === "wind" ? "is-hinted" : ""}`} aria-hidden="true">
           <span className="crt-step-badge">1</span><ArrowRight />
         </div>
 
-        <button
-          type="button"
-          className={`crt-viewfinder-handle crt-at ${viewfinderOpen ? "is-open" : ""}`}
-          aria-label={viewfinderOpen ? "Cerrar visor" : "Abrir visor"}
-          aria-expanded={viewfinderOpen}
-          onClick={() => setViewfinderOpen((open) => !open)}
-        >
-          <span className={`crt-viewfinder-dot ${cameraReady ? "is-ready" : ""}`} />
-          <span className="crt-viewfinder-tab"><ChevronRight aria-hidden="true" /></span>
-        </button>
-        <div className={`crt-viewfinder ${viewfinderOpen ? "is-open" : ""}`} aria-hidden={!viewfinderOpen}>
+        {/* Cámara desechable: sin visor. El vídeo queda oculto y solo sirve para capturar. */}
+        <div className="crt-viewfinder" aria-hidden="true">
           {cameraState === "fallback" ? (
             <img ref={fallbackRef} src={FALLBACK_IMAGE} alt="" />
           ) : (
             <video ref={videoRef} muted playsInline autoPlay />
           )}
-          <span className="crt-viewfinder-frame" />
         </div>
 
         <span className={`crt-at crt-led ${flashOn ? "is-on" : ""}`} aria-hidden="true" />
@@ -469,12 +488,13 @@ export const CarreteoCameraDemo = ({ photos, onPhoto, onClose, onOpenGallery }: 
           type="button"
           className={`crt-at crt-shutter ${canShoot ? "is-ready" : ""}`}
           aria-label="Disparar"
-          disabled={!canShoot}
+          // aria-disabled y no disabled: así el toque llega y se puede iluminar la rueda.
+          aria-disabled={!canShoot}
           onClick={() => void shoot()}
         >
           <span className="crt-shutter-ring"><Aperture aria-hidden="true" /></span>
         </button>
-        <div className={`crt-at crt-step crt-step-shoot ${canShoot ? "is-pulsing" : "is-hidden"}`} aria-hidden="true">
+        <div className={`crt-at crt-step crt-step-shoot ${canShoot ? "is-pulsing" : "is-hidden"} ${hint?.target === "shoot" ? "is-hinted" : ""}`} aria-hidden="true">
           <span className="crt-step-badge">2</span>
         </div>
 
@@ -489,6 +509,34 @@ export const CarreteoCameraDemo = ({ photos, onPhoto, onClose, onOpenGallery }: 
           <ZapOff />
           <span className="crt-mark-iso">800</span>
         </div>
+
+        {hint ? (
+          <span
+            key={hint.key}
+            className={`crt-at crt-hint crt-hint-${hint.target}`}
+            aria-hidden="true"
+            onAnimationEnd={() => setHint(null)}
+          />
+        ) : null}
+
+        {coachOpen ? (() => {
+          const step = COACH_STEPS[coachStep];
+          const last = coachStep === COACH_STEPS.length - 1;
+          return (
+            <div className="crt-coach" role="dialog" aria-modal="true" aria-labelledby="crt-coach-title" onClick={nextCoachStep}>
+              <span className={`crt-at crt-coach-spot crt-coach-spot-${step.id}`} aria-hidden="true" />
+              <div className={`crt-at crt-coach-card crt-coach-card-${step.id}`} onClick={(clickEvent) => clickEvent.stopPropagation()}>
+                <p className="crt-coach-count">{coachStep + 1} / {COACH_STEPS.length}</p>
+                <h2 id="crt-coach-title">{step.badge ? <span className="crt-step-badge">{step.badge}</span> : null}{step.title}</h2>
+                <p className="crt-coach-text">{step.text(TOTAL_SHOTS)}</p>
+                <div className="crt-coach-actions">
+                  {!last ? <button type="button" className="crt-coach-skip" onClick={closeCoach}>Saltar</button> : null}
+                  <button type="button" className="crt-coach-next" onClick={nextCoachStep} autoFocus>{last ? "¡A disparar!" : "Siguiente"}</button>
+                </div>
+              </div>
+            </div>
+          );
+        })() : null}
       </div>
 
       {effect ? (
