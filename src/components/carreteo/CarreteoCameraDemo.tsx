@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState, type CSSProperties, type Poin
 import { createPortal } from "react-dom";
 import { Aperture, ArrowRight, ArrowUpRight, Lock, X, ZapOff } from "lucide-react";
 import { playShutter, playWindLock, playWindTick, unlockCarreteoAudio } from "./carreteoSounds";
+import { loadCameraFonts } from "./carreteoFonts";
 import "./CarreteoCameraDemo.css";
 
 /*
@@ -30,17 +31,6 @@ const COACH_STEPS: CoachStep[] = [
   { id: "wind", badge: "1", title: "Gira la rueda", text: () => "Antes de cada foto, arrastra la rueda con el dedo hasta que haga clic." },
   { id: "shoot", badge: "2", title: "Dispara", text: () => "Pulsa el botón para hacer la foto. Las verás todas el día del revelado." },
 ];
-
-const FONT_URL = "https://fonts.googleapis.com/css2?family=Nunito:wght@800;900&family=JetBrains+Mono:wght@500;700&display=swap";
-
-// Tipografías de la cámara: se cargan solo cuando alguien abre la demo.
-const loadCameraFonts = () => {
-  if (document.querySelector(`link[href="${FONT_URL}"]`)) return;
-  const link = document.createElement("link");
-  link.rel = "stylesheet";
-  link.href = FONT_URL;
-  document.head.appendChild(link);
-};
 
 const vibrate = (pattern: number | number[]) => {
   try {
@@ -222,7 +212,7 @@ export const CarreteoCameraDemo = ({ photos, onPhoto, onClose, onOpenGallery }: 
     if (cameraState === "idle") void startCamera();
   }, [cameraState, rollFinished, startCamera, stopCamera]);
 
-  useEffect(() => stopCamera, [stopCamera]);
+  useEffect(() => () => { stopCamera(); exitFullscreen(); }, [stopCamera]);
   useEffect(loadCameraFonts, []);
 
   const close = useCallback(() => {

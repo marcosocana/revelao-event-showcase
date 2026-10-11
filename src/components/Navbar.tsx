@@ -1,3 +1,4 @@
+import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import icon from "@/assets/ico.png";
 import logoMini from "@/assets/logo-mini.png";
@@ -26,6 +27,32 @@ export const Navbar = ({ withTopBar = false }: { withTopBar?: boolean }) => {
     { label: lang === "en" ? "Christmas Dinners" : lang === "it" ? "Cene di Natale" : "Cenas de navidad", href: `${eventsRoot}/cenas-navidad` },
   ];
   const showEventsMenu = false;
+  const productsLabel = lang === "en" ? "Other products" : lang === "it" ? "Altri prodotti" : "Otros productos";
+  const products = [
+    {
+      name: "Capitanes",
+      href: "/capitanes",
+      image: "/capitanes-v2-capitan.jpg",
+      description: lang === "en" ? "Challenges and a live ranking for every table" : lang === "it" ? "Sfide e classifica in diretta per ogni tavolo" : "Retos y ranking en directo para cada mesa",
+    },
+    {
+      name: "Carreteo",
+      href: "/carreteo",
+      image: "/carreteo/camara-lista.jpg",
+      description: lang === "en" ? "A disposable camera on every guest's phone" : lang === "it" ? "Una macchina usa e getta sul telefono di ogni invitato" : "Una cámara desechable en el móvil de cada invitado",
+    },
+  ];
+  const productItems = products.map((product) => (
+    <DropdownMenuItem key={product.href} asChild className="cursor-pointer rounded-lg p-2 focus:bg-muted">
+      <a href={product.href} className="flex items-center gap-3">
+        <img src={product.image} alt="" className="h-11 w-14 flex-none rounded-md object-cover object-top" loading="lazy" />
+        <span className="min-w-0">
+          <span className="block text-sm font-semibold text-foreground">{product.name}</span>
+          <span className="block text-xs leading-snug text-muted-foreground">{product.description}</span>
+        </span>
+      </a>
+    </DropdownMenuItem>
+  ));
 
   return <nav className={`fixed left-0 right-0 z-[9999] bg-white backdrop-blur-xl border-b border-border/60 supports-[backdrop-filter]:bg-white ${withTopBar ? "top-10" : "top-0"}`}>
       <div className="container px-4 mx-auto">
@@ -77,6 +104,17 @@ export const Navbar = ({ withTopBar = false }: { withTopBar?: boolean }) => {
                   </div>
                 </div>
               ) : null}
+              <DropdownMenu modal={false}>
+                <DropdownMenuTrigger asChild>
+                  <button type="button" className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors data-[state=open]:text-foreground">
+                    {productsLabel}
+                    <ChevronDown className="h-4 w-4" aria-hidden="true" />
+                  </button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="center" sideOffset={14} className="z-[10000] w-80 rounded-xl p-2">
+                  {productItems}
+                </DropdownMenuContent>
+              </DropdownMenu>
               <a href="#blog" className="text-muted-foreground hover:text-foreground transition-colors">
                 {t.nav.blog}
               </a>

@@ -18,6 +18,7 @@ import { PageSeo } from "@/components/PageSeo";
 import WhatsAppFloating from "@/components/WhatsAppFloating";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { CarreteoCameraDemo } from "@/components/carreteo/CarreteoCameraDemo";
+import { loadCameraFonts } from "@/components/carreteo/carreteoFonts";
 import { CarreteoGalleryDemo } from "@/components/carreteo/CarreteoGalleryDemo";
 import { CarreteoQrCards } from "@/components/carreteo/CarreteoQrCards";
 import { startCarreteoCheckout, type CarreteoPlanId } from "@/lib/carreteoCheckout";
@@ -25,6 +26,10 @@ import { CarreteoDemo } from "./CarreteoDemo";
 import styles from "./carreteo.module.css";
 
 type DemoView = "closed" | "choose" | "camera" | "gallery";
+
+// La demo ocupa su propia entrada del historial: "atrás" la cierra y deja al visitante en Carreteo.
+const DEMO_HISTORY_STATE = { carreteoDemo: true };
+const isDemoHistoryEntry = () => Boolean((window.history.state as { carreteoDemo?: boolean } | null)?.carreteoDemo);
 type CheckoutNotice = "success" | "cancel" | "error" | null;
 
 const pasos = [
@@ -88,14 +93,15 @@ export default function CarreteoPage() {
   const [buyingPlan, setBuyingPlan] = useState<CarreteoPlanId | null>(null);
   const [checkoutNotice, setCheckoutNotice] = useState<CheckoutNotice>(null);
 
+  // El logo usa la misma tipografía que la cámara.
+  useEffect(loadCameraFonts, []);
+
   // ?demo=camara abre la cámara directamente (es el enlace de las tarjetas QR de ejemplo)
   // y ?checkout=success|cancel llega de vuelta desde Stripe.
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const demo = params.get("demo");
     const checkout = params.get("checkout");
-    if (demo === "camara") setDemoView("camera");
-    else if (demo === "galeria") setDemoView("gallery");
     if (checkout === "success" || checkout === "cancel") setCheckoutNotice(checkout);
     if (demo || checkout) {
       params.delete("demo");
@@ -103,7 +109,30 @@ export default function CarreteoPage() {
       const query = params.toString();
       window.history.replaceState(null, "", `${window.location.pathname}${query ? `?${query}` : ""}${window.location.hash}`);
     }
+    // Desde el QR se entra directo a la cámara, pero "atrás" vuelve a la landing y no fuera de la web.
+    if (demo === "camara" || demo === "galeria") {
+      window.history.pushState(DEMO_HISTORY_STATE, "");
+      setDemoView(demo === "camara" ? "camera" : "gallery");
+    }
   }, []);
+
+  // Botón o gesto de "atrás" con la demo abierta: se cierra la demo.
+  useEffect(() => {
+    const onPopState = () => { if (!isDemoHistoryEntry()) setDemoView("closed"); };
+    window.addEventListener("popstate", onPopState);
+    return () => window.removeEventListener("popstate", onPopState);
+  }, []);
+
+  const showDemo = (view: Exclude<DemoView, "closed">) => {
+    if (!isDemoHistoryEntry()) window.history.pushState(DEMO_HISTORY_STATE, "");
+    setDemoView(view);
+  };
+
+  const closeDemo = () => {
+    // Si la demo tiene su entrada en el historial, se sale de ella; popstate cierra la vista.
+    if (isDemoHistoryEntry()) window.history.back();
+    else setDemoView("closed");
+  };
 
   // Las fotos de la demo son blobs locales: se liberan al salir de la página.
   const demoPhotosRef = useRef(demoPhotos);
@@ -122,11 +151,11 @@ export default function CarreteoPage() {
   };
 
   const goToPlans = () => {
-    setDemoView("closed");
-    window.setTimeout(() => document.getElementById("planes")?.scrollIntoView({ behavior: "smooth" }), 50);
+    closeDemo();
+    window.setTimeout(() => document.getElementById("planes")?.scrollIntoView({ behavior: "smooth" }), 150);
   };
 
-  const openDemo = () => setDemoView("choose");
+  const openDemo = () => showDemo("choose");
 
   return (
     <div className={styles.page}>
@@ -137,7 +166,8 @@ export default function CarreteoPage() {
       />
       <header className={styles.header}>
         <a className={styles.brand} href="/carreteo" aria-label="Carreteo, inicio">
-          <span>CARRETEO</span><span className={styles.brandDot}>.</span>
+          <span className={styles.brandName}>CARRETEO<span>.</span></span>
+          <span className={styles.brandSub}>Cámara de un solo uso</span>
         </a>
         <nav className={styles.nav} aria-label="Navegación de Carreteo">
           <a href="#como-funciona">Cómo funciona</a>
@@ -306,17 +336,17 @@ export default function CarreteoPage() {
         </section>
       </main>
 
-      <Dialog open={demoView === "choose"} onOpenChange={(open) => { if (!open) setDemoView("closed"); }}>
+      <Dialog open={demoView === "choose"} onOpenChange={(open) => { if (!open) closeDemo(); }}>
         <DialogContent className="max-w-2xl rounded-2xl p-6 sm:p-8">
           <DialogTitle className="text-2xl font-bold tracking-tight">¿Qué quieres ver?</DialogTitle>
           <DialogDescription>Prueba Carreteo como lo vivirán tus invitados o mira cómo queda el álbum revelado.</DialogDescription>
           <div className={styles.demoChoices}>
-            <button type="button" onClick={() => setDemoView("camera")}>
+            <button type="button" onClick={() => showDemo("camera")}>
               <img src="/carreteo/camara-inicio.jpg" alt="" />
               <span><Camera size={18} /> Ver cómo se vería la cámara</span>
               <small>Usa la cámara de tu móvil. Las fotos no se suben a ningún sitio.</small>
             </button>
-            <button type="button" onClick={() => setDemoView("gallery")}>
+            <button type="button" onClick={() => showDemo("gallery")}>
               <img src="/carreteo/galeria-revelada.jpg" alt="" className={styles.demoChoiceGallery} />
               <span><Images size={18} /> Ver una galería de ejemplo</span>
               <small>Así se ve el álbum cuando se revelan las fotos.</small>
@@ -329,18 +359,18 @@ export default function CarreteoPage() {
         <CarreteoCameraDemo
           photos={demoPhotos}
           onPhoto={(url) => setDemoPhotos((current) => [url, ...current])}
-          onClose={() => setDemoView("closed")}
-          onOpenGallery={() => setDemoView("gallery")}
+          onClose={closeDemo}
+          onOpenGallery={() => showDemo("gallery")}
         />
       ) : null}
       {demoView === "gallery" ? (
-        <CarreteoGalleryDemo ownPhotos={demoPhotos} onClose={() => setDemoView("closed")} onBuy={goToPlans} />
+        <CarreteoGalleryDemo ownPhotos={demoPhotos} onClose={closeDemo} onBuy={goToPlans} />
       ) : null}
 
       {demoView === "closed" ? <WhatsAppFloating message="¡Hola! Tengo dudas sobre Carreteo, la cámara desechable para eventos." /> : null}
 
       <footer className={styles.footer}>
-        <a className={styles.brand} href="/carreteo"><span>CARRETEO</span><span className={styles.brandDot}>.</span></a>
+        <a className={styles.brand} href="/carreteo"><span className={styles.brandName}>CARRETEO<span>.</span></span><span className={styles.brandSub}>Cámara de un solo uso</span></a>
         <p>Hecho para recordar lo que pasó mientras lo pasabas bien.</p>
         <div><a href="#como-funciona">Cómo funciona</a><a href="#planes">Precios</a><a href="mailto:hola@revelao.cam">Contacto</a></div>
         <span>© 2026 Carreteo · Revelao</span>

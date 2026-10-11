@@ -32,9 +32,11 @@
   -webkit-backdrop-filter: blur(16px);
 }
 
-.brand { display: inline-flex; align-items: baseline; font-size: 24px; font-weight: 800; letter-spacing: -.04em; color: var(--orange); }
-.brandDot { color: var(--ink); }
-.footer .brandDot { color: var(--yellow); }
+/* Logo: el mismo de la cámara (CarreteoCameraDemo.css, .crt-brand-name y .crt-brand-sub) */
+.brand { display: inline-flex; flex-direction: column; gap: 5px; line-height: 1; font-family: "Nunito", "Manrope Variable", sans-serif; }
+.brandName { color: #e3161b; font-size: 26px; font-weight: 900; letter-spacing: .017em; }
+.brandSub { margin-left: 1px; color: #4d3300; font-size: 8px; font-weight: 900; letter-spacing: .34em; text-transform: uppercase; white-space: nowrap; }
+.footer .brandSub { color: #a3a6ab; }
 .nav { display: flex; gap: 30px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; text-transform: uppercase; }
 .nav a { transition: color .2s; }
 .nav a:hover { color: var(--orange); }
@@ -172,8 +174,8 @@
   .header { height: 66px; padding: 0 16px; }
   .headerCta { padding: 10px 12px; font-size: 11px; }
   .headerCta svg { display: none; }
-  .brand { font-size: 21px; }
-  .brandMark { width: 29px; height: 23px; }
+  .brandName { font-size: 22px; }
+  .brandSub { font-size: 7px; }
   .hero { min-height: auto; padding: 115px 20px 65px; }
   .hero h1 { font-size: clamp(58px, 19vw, 82px); }
   .heroActions { align-items: start; flex-direction: column; gap: 20px; }
@@ -231,7 +233,7 @@
 .qrItem:nth-child(1) .qrCard { transform: rotate(-2deg); }
 .qrItem:nth-child(3) .qrCard { transform: rotate(2deg); }
 .qrItem:hover .qrCard { transform: rotate(0) translateY(-6px); }
-.qrBrand { margin: 0; font-size: 30px; font-weight: 900; letter-spacing: .01em; line-height: 1; }
+.qrBrand { margin: 0; font-family: "Nunito", "Manrope Variable", sans-serif; font-size: 32px; font-weight: 900; letter-spacing: .017em; line-height: 1; }
 .qrEvent { margin: 8px 0 0; font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
 .qrCode { display: grid; width: 62%; margin: auto 0; padding: 10px; place-items: center; aspect-ratio: 1; background: #fff; border-radius: 14px; }
 .qrCode img, .qrCode span { display: block; width: 100%; height: 100%; }

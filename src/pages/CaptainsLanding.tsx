@@ -1,4 +1,5 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import QRCode from "qrcode";
 import { Camera, Pencil, QrCode, Users, Video } from "lucide-react";
 import { CaptainsHero } from "@/components/captains/CaptainsHero";
 import { Footer } from "@/components/Footer";
@@ -13,7 +14,7 @@ const demoDisplayUrl = "acceso.revelao.cam/capitanes/demo-capitanes-v2";
 const demoQrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=260x260&margin=12&data=${encodeURIComponent(demoOpenUrl)}`;
 const contactUrl =
   "https://wa.me/34695834018?text=Hola%21%20Quiero%20saber%20m%C3%A1s%20sobre%20Capitanes%20para%20bodas.";
-const showCaptainTemplates = false;
+const showCaptainTemplates = true;
 const showSuccessCase = true;
 
 const steps = [
@@ -107,38 +108,75 @@ const challengeTypes = [
     screenshotAlt: "Reto de pregunta sobre la pareja del juego para bodas Capitanes de Revelao",
   },
 ];
+// Adorno de cada tarjeta, a juego con las decoraciones del editor (estrellas, ornamento y olivo).
+const TemplateOrnament = ({ variant }: { variant: string }) => {
+  if (variant === "olive") {
+    return (
+      <svg viewBox="0 0 120 24" aria-hidden="true">
+        <path d="M8 12h104" stroke="currentColor" strokeWidth="1" />
+        {[24, 40, 56, 72, 88].map((x, index) => (
+          <g key={x}>
+            <ellipse cx={x} cy={index % 2 ? 16 : 8} rx="6" ry="2.6" transform={`rotate(${index % 2 ? 24 : -24} ${x} ${index % 2 ? 16 : 8})`} fill="currentColor" />
+          </g>
+        ))}
+        <circle cx="104" cy="12" r="2.4" fill="currentColor" />
+      </svg>
+    );
+  }
+  if (variant === "flourish") {
+    return (
+      <svg viewBox="0 0 120 24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1">
+        <path d="M6 12h38M76 12h38" />
+        <path d="M44 12c6-8 12-8 16 0 4 8 10 8 16 0M44 12c6 8 12 8 16 0 4-8 10-8 16 0" />
+        <path d="M60 6l3 6-3 6-3-6z" fill="currentColor" stroke="none" />
+      </svg>
+    );
+  }
+  return (
+    <svg viewBox="0 0 120 24" aria-hidden="true">
+      <path d="M10 12h40M70 12h40" stroke="currentColor" strokeWidth="1" />
+      <path d="M60 3c.9 5.2 3.8 8.1 9 9-5.2.9-8.1 3.8-9 9-.9-5.2-3.8-8.1-9-9 5.2-.9 8.1-3.8 9-9Z" fill="currentColor" />
+    </svg>
+  );
+};
+
+// Mismas bases que el editor (/crearplantilla, TemplateCreator.tsx). El QR de ejemplo abre la demo del juego.
 const captainTemplates = [
   {
     id: "captain-1",
-    title: "Capitán de mesa",
+    title: "Capitán\nde mesa",
     eyebrow: "Mesa 7",
-    message: "Te hemos elegido como capitán de mesa. Lee este código QR y guía a tu mesa en los retos. Confiamos en ti.",
+    message: "Te hemos elegido como capitán de mesa. Lee este código QR y guía a tu mesa en los diferentes retos que os planteamos. Confiamos en ti.",
     editUrl: "/crearplantilla?template=captain-1",
     className: "captains-template-card-yellow",
+    ornament: "sparkle",
   },
   {
     id: "captain-2",
     title: "Mesa 7",
-    eyebrow: "Capitanes",
-    message: "Escanea el QR, entra al juego y ayuda a tu equipo a superar cada reto. Confiamos en ti.",
+    eyebrow: "Capitán",
+    message: "Te hemos elegido como capitán de mesa. Escanea el QR, entra al juego y ayuda a tu equipo a superar cada reto. Confiamos en ti.",
     editUrl: "/crearplantilla?template=captain-2",
     className: "captains-template-card-dark",
+    ornament: "sparkle",
   },
   {
     id: "captain-3",
-    title: "Capitana de retos",
-    eyebrow: "Boda",
-    message: "Lee este QR y anima a tu mesa en los retos de foto, vídeo y preguntas. Confiamos en ti.",
+    title: "Capitana\nde retos",
+    eyebrow: "Mesa 3",
+    message: "Te hemos elegido como capitana de mesa. Lee este QR y anima a tu mesa en los retos de foto, vídeo y preguntas. Confiamos en ti.",
     editUrl: "/crearplantilla?template=captain-3",
     className: "captains-template-card-blush",
+    ornament: "flourish",
   },
   {
     id: "captain-4",
-    title: "Equipo Capitán",
-    eyebrow: "Mesa lista",
-    message: "Escanea este QR y coordina a tu equipo para completar los retos de la boda. Confiamos en ti.",
+    title: "Equipo\nCapitán",
+    eyebrow: "Mesa 12",
+    message: "Te hemos elegido como capitán de mesa. Escanea este QR y coordina a tu equipo para completar los retos de la boda. Confiamos en ti.",
     editUrl: "/crearplantilla?template=captain-4",
     className: "captains-template-card-olive",
+    ornament: "olive",
   },
 ];
 const pricePerTable = 4.95;
@@ -292,6 +330,16 @@ const CaptainsLanding = () => {
 
     previousRankingPositions.current = positions;
   };
+
+  const [templateQr, setTemplateQr] = useState<string | null>(null);
+  useEffect(() => {
+    if (!showCaptainTemplates) return;
+    let cancelled = false;
+    void QRCode.toDataURL(demoOpenUrl, { errorCorrectionLevel: "H", margin: 1, width: 320, color: { dark: "#151515", light: "#ffffff" } })
+      .then((url) => { if (!cancelled) setTemplateQr(url); })
+      .catch(() => undefined);
+    return () => { cancelled = true; };
+  }, []);
 
   const handleDemoOpen = () => {
     if (window.matchMedia("(max-width: 767px)").matches) {
@@ -661,9 +709,10 @@ const CaptainsLanding = () => {
           <div className="mx-auto max-w-7xl">
             <div className="max-w-3xl">
               <p className="captains-section-label">Plantillas</p>
-              <h2 className="captains-heading mt-3">Tarjetas listas para cada capitán</h2>
+              <h2 className="captains-heading mt-3">Tarjetas QR listas para cada capitán</h2>
               <p className="mt-4 text-lg font-normal leading-7 text-[#151515]/70">
-                Elige una base, abre el editor de Revelao y ajusta texto, QR, colores y formato para vuestra boda.
+                Cada capitán entra al juego con el QR de su tarjeta. Elige una base, ábrela en el editor de Revelao y ajusta texto,
+                colores y formato. Estos son ejemplos: escanea cualquiera con el móvil y prueba la demo.
               </p>
             </div>
 
@@ -671,12 +720,14 @@ const CaptainsLanding = () => {
               {captainTemplates.map((template) => (
                 <article className="captains-template-shell" key={template.id}>
                   <div className={`captains-template-card ${template.className}`}>
-                    <span>{template.eyebrow}</span>
+                    <span className="captains-template-eyebrow">{template.eyebrow}</span>
                     <strong>{template.title}</strong>
+                    <span className="captains-template-ornament"><TemplateOrnament variant={template.ornament} /></span>
                     <p>{template.message}</p>
-                    <div className="captains-template-qr" aria-hidden="true">
-                      <QrCode className="h-16 w-16" />
+                    <div className="captains-template-qr">
+                      {templateQr ? <img src={templateQr} alt={`Código QR de la demo de Capitanes, plantilla ${template.title.replace("\n", " ")}`} /> : <QrCode className="h-16 w-16" aria-hidden="true" />}
                     </div>
+                    <small>Escanea y empieza el juego</small>
                   </div>
                   <a className="captains-button captains-button-secondary mt-4 w-full" href={template.editUrl}>
                     <Pencil className="h-5 w-5" />
